@@ -133,6 +133,10 @@ class _HomePageWidgetState extends State<HomePageWidget>
                             print('Button pressed ...');
                           },
                           text: 'Register',
+                          icon: Icon(
+                            Icons.person_add,
+                            size: 15,
+                          ),
                           options: FFButtonOptions(
                             width: 300,
                             height: 60,
@@ -140,7 +144,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                             textStyle:
                                 FlutterFlowTheme.of(context).subtitle2.override(
                                       fontFamily: 'Poppins',
-                                      color: Colors.white,
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
                                     ),
                             borderSide: BorderSide(
                               color: Colors.transparent,
@@ -163,6 +168,10 @@ class _HomePageWidgetState extends State<HomePageWidget>
                             print('Button pressed ...');
                           },
                           text: 'Log In',
+                          icon: Icon(
+                            Icons.login,
+                            size: 15,
+                          ),
                           options: FFButtonOptions(
                             width: 300,
                             height: 60,
@@ -170,7 +179,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                             textStyle:
                                 FlutterFlowTheme.of(context).subtitle2.override(
                                       fontFamily: 'Poppins',
-                                      color: Colors.white,
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
                                     ),
                             borderSide: BorderSide(
                               color: Colors.transparent,
@@ -198,21 +208,52 @@ class _HomePageWidgetState extends State<HomePageWidget>
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Image.asset(
-                          'assets/images/instagram.png',
-                          width: MediaQuery.of(context).size.width * 0.2,
-                          height: MediaQuery.of(context).size.height * 0.09,
-                          fit: BoxFit.cover,
+                        InkWell(
+                          onTap: () async {
+                            await launchURL(
+                                'https://www.instagram.com/bmwshopcr/');
+                          },
+                          child: Image.asset(
+                            'assets/images/instagram.png',
+                            width: MediaQuery.of(context).size.width * 0.2,
+                            height: MediaQuery.of(context).size.height * 0.09,
+                            fit: BoxFit.cover,
+                          ),
                         ).animateOnPageLoad(
                             animationsMap['imageOnPageLoadAnimation2']!),
-                        Image.asset(
-                          'assets/images/facebook.png',
-                          width: MediaQuery.of(context).size.width * 0.2,
-                          height: MediaQuery.of(context).size.height * 0.09,
-                          fit: BoxFit.cover,
+                        InkWell(
+                          onTap: () async {
+                            await launchURL(
+                                'https://www.facebook.com/Bavautos');
+                          },
+                          child: Image.asset(
+                            'assets/images/facebook.png',
+                            width: MediaQuery.of(context).size.width * 0.2,
+                            height: MediaQuery.of(context).size.height * 0.09,
+                            fit: BoxFit.cover,
+                          ),
                         ).animateOnPageLoad(
                             animationsMap['imageOnPageLoadAnimation3']!),
                       ],
+                    ),
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 50, 0, 0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'developed by group X',
+                            style:
+                                FlutterFlowTheme.of(context).bodyText1.override(
+                                      fontFamily: 'Roboto Mono',
+                                      fontSize: 10,
+                                    ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],
