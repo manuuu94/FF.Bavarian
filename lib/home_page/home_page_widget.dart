@@ -6,6 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'home_page_model.dart';
+export 'home_page_model.dart';
 
 class HomePageWidget extends StatefulWidget {
   const HomePageWidget({Key? key}) : super(key: key);
@@ -16,6 +19,11 @@ class HomePageWidget extends StatefulWidget {
 
 class _HomePageWidgetState extends State<HomePageWidget>
     with TickerProviderStateMixin {
+  late HomePageModel _model;
+
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
+
   final animationsMap = {
     'imageOnPageLoadAnimation1': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
@@ -55,16 +63,17 @@ class _HomePageWidgetState extends State<HomePageWidget>
       ],
     ),
   };
-  final _unfocusNode = FocusNode();
-  final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => HomePageModel());
   }
 
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
     super.dispose();
   }
@@ -123,7 +132,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                     ],
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 50, 0, 20),
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 20),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -164,8 +173,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         FFButtonWidget(
-                          onPressed: () {
-                            print('Button pressed ...');
+                          onPressed: () async {
+                            context.pushNamed('Login');
                           },
                           text: 'Log In',
                           icon: Icon(
@@ -191,16 +200,6 @@ class _HomePageWidgetState extends State<HomePageWidget>
                         ),
                       ],
                     ),
-                  ),
-                  Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Forgot Password?',
-                        style: FlutterFlowTheme.of(context).bodyText1,
-                      ),
-                    ],
                   ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
