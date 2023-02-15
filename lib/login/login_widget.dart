@@ -1,3 +1,4 @@
+import '../auth/auth_util.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -228,7 +229,6 @@ class _LoginWidgetState extends State<LoginWidget> {
                             ),
                           ),
                           style: FlutterFlowTheme.of(context).bodyText1,
-                          maxLines: null,
                           validator: _model.passwordLoginControllerValidator
                               .asValidator(context),
                         ),
@@ -250,7 +250,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                           return;
                         }
 
-                        context.goNamedAuth('', mounted);
+                        context.goNamedAuth('Index', mounted);
                       },
                       text: 'Login',
                       icon: Icon(
@@ -315,10 +315,15 @@ class _LoginWidgetState extends State<LoginWidget> {
                     Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        Icon(
-                          Icons.arrow_back_sharp,
-                          color: Colors.black,
-                          size: 40,
+                        InkWell(
+                          onTap: () async {
+                            context.pushNamed('HomePage');
+                          },
+                          child: Icon(
+                            Icons.arrow_back_sharp,
+                            color: Colors.black,
+                            size: 40,
+                          ),
                         ),
                       ],
                     ),
