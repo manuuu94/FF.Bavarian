@@ -86,7 +86,7 @@ class _RecuperacionPasswordWidgetState
                         fontFamily: 'Poppins',
                         color: FlutterFlowTheme.of(context).primaryBackground,
                       ),
-                  hintText: 'Ingrese su correo...',
+                  hintText: 'Ingrese su correo electronico',
                   hintStyle: FlutterFlowTheme.of(context).bodyText1.override(
                         fontFamily: 'Lexend Deca',
                         color: FlutterFlowTheme.of(context).primaryBackground,

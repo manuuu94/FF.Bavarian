@@ -138,6 +138,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                       ),
                       style: FlutterFlowTheme.of(context).bodyText1,
                       maxLines: null,
+                      keyboardType: TextInputType.emailAddress,
                       validator: _model.emailAddressControllerValidator
                           .asValidator(context),
                     ),
