@@ -282,8 +282,17 @@ class _LoginWidgetState extends State<LoginWidget> {
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(30, 10, 9, 0),
                     child: FFButtonWidget(
-                      onPressed: () {
-                        print('Button-Login pressed ...');
+                      onPressed: () async {
+                        context.pushNamed(
+                          'RecuperacionPassword',
+                          extra: <String, dynamic>{
+                            kTransitionInfoKey: TransitionInfo(
+                              hasTransition: true,
+                              transitionType: PageTransitionType.fade,
+                              duration: Duration(milliseconds: 400),
+                            ),
+                          },
+                        );
                       },
                       text: 'Forgot Password?',
                       options: FFButtonOptions(
