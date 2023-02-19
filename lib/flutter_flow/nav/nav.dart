@@ -106,6 +106,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'RecuperacionPassword',
               path: 'recuperacionPassword',
               builder: (context, params) => RecuperacionPasswordWidget(),
+            ),
+            FFRoute(
+              name: 'DetallesProducto',
+              path: 'detallesProducto',
+              builder: (context, params) => DetallesProductoWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),
