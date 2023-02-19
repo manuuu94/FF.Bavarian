@@ -25,8 +25,8 @@ class _LoginWidgetState extends State<LoginWidget> {
     super.initState();
     _model = createModel(context, () => LoginModel());
 
-    _model.emailAddressController = TextEditingController();
-    _model.passwordLoginController = TextEditingController();
+    _model.emailAddressController ??= TextEditingController();
+    _model.passwordLoginController ??= TextEditingController();
   }
 
   @override
@@ -89,60 +89,62 @@ class _LoginWidgetState extends State<LoginWidget> {
                         ],
                         borderRadius: BorderRadius.circular(8),
                       ),
-                      child: TextFormField(
-                        controller: _model.emailAddressController,
-                        obscureText: false,
-                        decoration: InputDecoration(
-                          labelText: 'Your email address...',
-                          labelStyle: FlutterFlowTheme.of(context).bodyText2,
-                          hintText: 'Enter your email...',
-                          hintStyle: FlutterFlowTheme.of(context)
-                              .bodyText1
-                              .override(
-                                fontFamily: 'Lexend Deca',
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                fontSize: 14,
-                                fontWeight: FontWeight.normal,
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
+                        child: TextFormField(
+                          controller: _model.emailAddressController,
+                          obscureText: false,
+                          decoration: InputDecoration(
+                            labelText: 'Your email address...',
+                            labelStyle: FlutterFlowTheme.of(context).bodyText2,
+                            hintText: 'Enter your email...',
+                            hintStyle:
+                                FlutterFlowTheme.of(context).bodyText1.override(
+                                      fontFamily: 'Lexend Deca',
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.normal,
+                                    ),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0x00000000),
+                                width: 0,
                               ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Color(0x00000000),
-                              width: 0,
+                              borderRadius: BorderRadius.circular(12),
                             ),
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Color(0x00000000),
-                              width: 0,
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0x00000000),
+                                width: 0,
+                              ),
+                              borderRadius: BorderRadius.circular(12),
                             ),
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          errorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Color(0x00000000),
-                              width: 0,
+                            errorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0x00000000),
+                                width: 0,
+                              ),
+                              borderRadius: BorderRadius.circular(12),
                             ),
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          focusedErrorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Color(0x00000000),
-                              width: 0,
+                            focusedErrorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0x00000000),
+                                width: 0,
+                              ),
+                              borderRadius: BorderRadius.circular(12),
                             ),
-                            borderRadius: BorderRadius.circular(12),
+                            filled: true,
+                            fillColor: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            contentPadding:
+                                EdgeInsetsDirectional.fromSTEB(24, 24, 20, 24),
                           ),
-                          filled: true,
-                          fillColor:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          contentPadding:
-                              EdgeInsetsDirectional.fromSTEB(24, 24, 20, 24),
+                          style: FlutterFlowTheme.of(context).bodyText1,
+                          maxLines: null,
+                          validator: _model.emailAddressControllerValidator
+                              .asValidator(context),
                         ),
-                        style: FlutterFlowTheme.of(context).bodyText1,
-                        maxLines: null,
-                        validator: _model.emailAddressControllerValidator
-                            .asValidator(context),
                       ),
                     ),
                   ),
@@ -163,7 +165,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(1, 1, 1, 1),
+                        padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
                         child: TextFormField(
                           controller: _model.passwordLoginController,
                           obscureText: !_model.passwordLoginVisibility,

@@ -78,24 +78,29 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               appStateNotifier.loggedIn ? IndexWidget() : HomePageWidget(),
           routes: [
             FFRoute(
-              name: 'HomePage',
-              path: 'homePage',
-              builder: (context, params) => HomePageWidget(),
-            ),
-            FFRoute(
               name: 'Login',
               path: 'login',
               builder: (context, params) => LoginWidget(),
             ),
             FFRoute(
-              name: 'CreateAccount',
-              path: 'createAccount',
-              builder: (context, params) => CreateAccountWidget(),
+              name: 'HomePage',
+              path: 'homePage',
+              builder: (context, params) => HomePageWidget(),
             ),
             FFRoute(
               name: 'Index',
               path: 'index',
               builder: (context, params) => IndexWidget(),
+            ),
+            FFRoute(
+              name: 'Test1',
+              path: 'test1',
+              builder: (context, params) => Test1Widget(),
+            ),
+            FFRoute(
+              name: 'CreateAccount',
+              path: 'createAccount',
+              builder: (context, params) => CreateAccountWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),

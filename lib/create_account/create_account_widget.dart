@@ -26,9 +26,9 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
     super.initState();
     _model = createModel(context, () => CreateAccountModel());
 
-    _model.emailAddressController = TextEditingController();
-    _model.passwordController = TextEditingController();
-    _model.confirmPasswordController = TextEditingController();
+    _model.emailAddressController ??= TextEditingController();
+    _model.passwordController ??= TextEditingController();
+    _model.confirmPasswordController ??= TextEditingController();
   }
 
   @override
@@ -317,37 +317,77 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
                   child: FFButtonWidget(
                     onPressed: () async {
-                      GoRouter.of(context).prepareAuthEvent();
-                      if (_model.passwordController.text !=
+                      Function() _navigate = () {};
+                      if (_model.passwordController.text ==
                           _model.confirmPasswordController.text) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text(
-                              'Passwords don\'t match!',
+                        GoRouter.of(context).prepareAuthEvent();
+                        if (_model.passwordController.text !=
+                            _model.confirmPasswordController.text) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text(
+                                'Passwords don\'t match!',
+                              ),
                             ),
-                          ),
+                          );
+                          return;
+                        }
+
+                        final user = await createAccountWithEmail(
+                          context,
+                          _model.emailAddressController.text,
+                          _model.passwordController.text,
                         );
-                        return;
+                        if (user == null) {
+                          return;
+                        }
+
+                        final usersCreateData = createUsersRecordData(
+                          email: _model.emailAddressController.text,
+                          createdTime: getCurrentTimestamp,
+                        );
+                        await UsersRecord.collection
+                            .doc(user.uid)
+                            .update(usersCreateData);
+
+                        _navigate = () => context.goNamedAuth('Index', mounted);
+                        await showDialog(
+                          context: context,
+                          builder: (alertDialogContext) {
+                            return AlertDialog(
+                              title: Text('Gracias!'),
+                              content: Text('Fuistes registrado con exito!!'),
+                              actions: [
+                                TextButton(
+                                  onPressed: () =>
+                                      Navigator.pop(alertDialogContext),
+                                  child: Text('Ok'),
+                                ),
+                              ],
+                            );
+                          },
+                        );
+                      } else {
+                        await showDialog(
+                          context: context,
+                          builder: (alertDialogContext) {
+                            return AlertDialog(
+                              title: Text('Verifica tu contraseña'),
+                              content: Text(
+                                  'Las contraseñas ingresadas no son iguales!'),
+                              actions: [
+                                TextButton(
+                                  onPressed: () =>
+                                      Navigator.pop(alertDialogContext),
+                                  child: Text('Ok'),
+                                ),
+                              ],
+                            );
+                          },
+                        );
                       }
 
-                      final user = await createAccountWithEmail(
-                        context,
-                        _model.emailAddressController.text,
-                        _model.passwordController.text,
-                      );
-                      if (user == null) {
-                        return;
-                      }
-
-                      final usersCreateData = createUsersRecordData(
-                        email: '',
-                        createdTime: getCurrentTimestamp,
-                      );
-                      await UsersRecord.collection
-                          .doc(user.uid)
-                          .update(usersCreateData);
-
-                      context.goNamedAuth('Index', mounted);
+                      _navigate();
                     },
                     text: 'Create Account',
                     options: FFButtonOptions(
