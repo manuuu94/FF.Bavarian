@@ -155,6 +155,22 @@ class _RecuperacionPasswordWidgetState
                     email: _model.emailAddressController.text,
                     context: context,
                   );
+                  await showDialog(
+                    context: context,
+                    builder: (alertDialogContext) {
+                      return AlertDialog(
+                        title: Text('Correo enviado!'),
+                        content: Text(
+                            'Verifica tu correo electronico y recupera el acceso a tu cuenta!'),
+                        actions: [
+                          TextButton(
+                            onPressed: () => Navigator.pop(alertDialogContext),
+                            child: Text('Ok'),
+                          ),
+                        ],
+                      );
+                    },
+                  );
                 },
                 text: 'Enviar',
                 options: FFButtonOptions(
