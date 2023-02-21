@@ -20,6 +20,11 @@ abstract class InventarioRecord
 
   double? get precio;
 
+  String? get image;
+
+  @BuiltValueField(wireName: 'DescripcionProducto')
+  String? get descripcionProducto;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
@@ -28,7 +33,9 @@ abstract class InventarioRecord
     ..nombreProducto = ''
     ..cantidad = 0
     ..disponible = false
-    ..precio = 0.0;
+    ..precio = 0.0
+    ..image = ''
+    ..descripcionProducto = '';
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('Inventario');
@@ -56,6 +63,8 @@ Map<String, dynamic> createInventarioRecordData({
   int? cantidad,
   bool? disponible,
   double? precio,
+  String? image,
+  String? descripcionProducto,
 }) {
   final firestoreData = serializers.toFirestore(
     InventarioRecord.serializer,
@@ -64,7 +73,9 @@ Map<String, dynamic> createInventarioRecordData({
         ..nombreProducto = nombreProducto
         ..cantidad = cantidad
         ..disponible = disponible
-        ..precio = precio,
+        ..precio = precio
+        ..image = image
+        ..descripcionProducto = descripcionProducto,
     ),
   );
 

@@ -48,6 +48,20 @@ class _$InventarioRecordSerializer
         ..add(serializers.serialize(value,
             specifiedType: const FullType(double)));
     }
+    value = object.image;
+    if (value != null) {
+      result
+        ..add('image')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.descripcionProducto;
+    if (value != null) {
+      result
+        ..add('DescripcionProducto')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -87,6 +101,14 @@ class _$InventarioRecordSerializer
           result.precio = serializers.deserialize(value,
               specifiedType: const FullType(double)) as double?;
           break;
+        case 'image':
+          result.image = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'DescripcionProducto':
+          result.descripcionProducto = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -110,6 +132,10 @@ class _$InventarioRecord extends InventarioRecord {
   @override
   final double? precio;
   @override
+  final String? image;
+  @override
+  final String? descripcionProducto;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$InventarioRecord(
@@ -121,6 +147,8 @@ class _$InventarioRecord extends InventarioRecord {
       this.cantidad,
       this.disponible,
       this.precio,
+      this.image,
+      this.descripcionProducto,
       this.ffRef})
       : super._();
 
@@ -140,6 +168,8 @@ class _$InventarioRecord extends InventarioRecord {
         cantidad == other.cantidad &&
         disponible == other.disponible &&
         precio == other.precio &&
+        image == other.image &&
+        descripcionProducto == other.descripcionProducto &&
         ffRef == other.ffRef;
   }
 
@@ -147,9 +177,13 @@ class _$InventarioRecord extends InventarioRecord {
   int get hashCode {
     return $jf($jc(
         $jc(
-            $jc($jc($jc(0, nombreProducto.hashCode), cantidad.hashCode),
-                disponible.hashCode),
-            precio.hashCode),
+            $jc(
+                $jc(
+                    $jc($jc($jc(0, nombreProducto.hashCode), cantidad.hashCode),
+                        disponible.hashCode),
+                    precio.hashCode),
+                image.hashCode),
+            descripcionProducto.hashCode),
         ffRef.hashCode));
   }
 
@@ -160,6 +194,8 @@ class _$InventarioRecord extends InventarioRecord {
           ..add('cantidad', cantidad)
           ..add('disponible', disponible)
           ..add('precio', precio)
+          ..add('image', image)
+          ..add('descripcionProducto', descripcionProducto)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -186,6 +222,15 @@ class InventarioRecordBuilder
   double? get precio => _$this._precio;
   set precio(double? precio) => _$this._precio = precio;
 
+  String? _image;
+  String? get image => _$this._image;
+  set image(String? image) => _$this._image = image;
+
+  String? _descripcionProducto;
+  String? get descripcionProducto => _$this._descripcionProducto;
+  set descripcionProducto(String? descripcionProducto) =>
+      _$this._descripcionProducto = descripcionProducto;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -201,6 +246,8 @@ class InventarioRecordBuilder
       _cantidad = $v.cantidad;
       _disponible = $v.disponible;
       _precio = $v.precio;
+      _image = $v.image;
+      _descripcionProducto = $v.descripcionProducto;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -228,6 +275,8 @@ class InventarioRecordBuilder
             cantidad: cantidad,
             disponible: disponible,
             precio: precio,
+            image: image,
+            descripcionProducto: descripcionProducto,
             ffRef: ffRef);
     replace(_$result);
     return _$result;
