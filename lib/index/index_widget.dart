@@ -18,7 +18,6 @@ class _IndexWidgetState extends State<IndexWidget> {
   late IndexModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  final _unfocusNode = FocusNode();
 
   @override
   void initState() {
@@ -30,7 +29,6 @@ class _IndexWidgetState extends State<IndexWidget> {
   void dispose() {
     _model.dispose();
 
-    _unfocusNode.dispose();
     super.dispose();
   }
 
@@ -39,27 +37,34 @@ class _IndexWidgetState extends State<IndexWidget> {
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
-          child: Column(
+      body: Stack(
+        children: [
+          Image.asset(
+            'assets/images/HD-wallpaper-bmw-black-dark-vehicle.jpg',
+            width: 377.1,
+            height: 846.7,
+            fit: BoxFit.cover,
+          ),
+          Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  InkWell(
-                    onTap: () async {
-                      context.pushNamed('HomePage');
-                    },
-                    child: Image.asset(
-                      'assets/images/back.png',
-                      width: 50,
-                      height: 50,
-                      fit: BoxFit.cover,
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Icon(
+                          Icons.arrow_back,
+                          color: FlutterFlowTheme.of(context).primaryBackground,
+                          size: 40,
+                        ),
+                      ],
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
               Column(
                 mainAxisSize: MainAxisSize.max,
@@ -89,22 +94,36 @@ class _IndexWidgetState extends State<IndexWidget> {
                         itemBuilder: (context, listViewIndex) {
                           final listViewInventarioRecord =
                               listViewInventarioRecordList[listViewIndex];
-                          return ListTile(
-                            title: Text(
-                              listViewInventarioRecord.nombreProducto!,
-                              style: FlutterFlowTheme.of(context).title3,
+                          return InkWell(
+                            onTap: () async {
+                              context.pushNamed(
+                                'DetallesProducto',
+                                extra: <String, dynamic>{
+                                  kTransitionInfoKey: TransitionInfo(
+                                    hasTransition: true,
+                                    transitionType: PageTransitionType.fade,
+                                    duration: Duration(milliseconds: 400),
+                                  ),
+                                },
+                              );
+                            },
+                            child: ListTile(
+                              title: Text(
+                                listViewInventarioRecord.nombreProducto!,
+                                style: FlutterFlowTheme.of(context).title3,
+                              ),
+                              subtitle: Text(
+                                listViewInventarioRecord.precio!.toString(),
+                                style: FlutterFlowTheme.of(context).subtitle2,
+                              ),
+                              trailing: Icon(
+                                Icons.arrow_forward_ios,
+                                color: Color(0xFF303030),
+                                size: 20,
+                              ),
+                              tileColor: Color(0xFFF5F5F5),
+                              dense: false,
                             ),
-                            subtitle: Text(
-                              listViewInventarioRecord.precio!.toString(),
-                              style: FlutterFlowTheme.of(context).subtitle2,
-                            ),
-                            trailing: Icon(
-                              Icons.arrow_forward_ios,
-                              color: Color(0xFF303030),
-                              size: 20,
-                            ),
-                            tileColor: Color(0xFFF5F5F5),
-                            dense: false,
                           );
                         },
                       );
@@ -112,9 +131,33 @@ class _IndexWidgetState extends State<IndexWidget> {
                   ),
                 ],
               ),
+              Expanded(
+                child: Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Expanded(
+                        child: Text(
+                          'Somos un courier de paquetería y repuestos para todo tipo de vehiculo\nTe traemos tus paquetes y repuestos.\nSolamente debes enviarnos que necesitas y te generamos una cotizacion del precio final.',
+                          textAlign: TextAlign.center,
+                          style: FlutterFlowTheme.of(context)
+                              .bodyText1
+                              .override(
+                                fontFamily: 'Poppins',
+                                color:
+                                    FlutterFlowTheme.of(context).primaryBtnText,
+                                fontSize: 20,
+                              ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ],
           ),
-        ),
+        ],
       ),
     );
   }
