@@ -8,3 +8,4 @@ export 'recuperacion_password/recuperacion_password_widget.dart'
     show RecuperacionPasswordWidget;
 export 'detalles_producto/detalles_producto_widget.dart'
     show DetallesProductoWidget;
+export 'perfil/perfil_widget.dart' show PerfilWidget;

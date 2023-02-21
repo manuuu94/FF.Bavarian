@@ -63,7 +63,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(4, 24, 4, 4),
                           child: Text(
-                            'Enter credentials below:',
+                            'Introduzca las credenciales:',
                             style:
                                 FlutterFlowTheme.of(context).subtitle2.override(
                                       fontFamily: 'Poppins',
@@ -97,9 +97,9 @@ class _LoginWidgetState extends State<LoginWidget> {
                         controller: _model.emailAddressController,
                         obscureText: false,
                         decoration: InputDecoration(
-                          labelText: 'Your email address...',
+                          labelText: 'Correo electrónico...',
                           labelStyle: FlutterFlowTheme.of(context).bodyText2,
-                          hintText: 'Enter your email...',
+                          hintText: 'Introduzca su correo...',
                           hintStyle: FlutterFlowTheme.of(context)
                               .bodyText1
                               .override(
@@ -173,9 +173,9 @@ class _LoginWidgetState extends State<LoginWidget> {
                         controller: _model.passwordLoginController,
                         obscureText: !_model.passwordLoginVisibility,
                         decoration: InputDecoration(
-                          labelText: 'Password',
+                          labelText: 'Contraseña...',
                           labelStyle: FlutterFlowTheme.of(context).bodyText2,
-                          hintText: 'Please enter your password...',
+                          hintText: 'Introduzca su contraseña...',
                           hintStyle: FlutterFlowTheme.of(context)
                               .bodyText1
                               .override(
@@ -257,7 +257,7 @@ class _LoginWidgetState extends State<LoginWidget> {
 
                       context.goNamedAuth('Index', mounted);
                     },
-                    text: 'Login',
+                    text: 'Entrar',
                     icon: Icon(
                       Icons.login,
                       size: 15,
@@ -269,8 +269,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                       textStyle:
                           FlutterFlowTheme.of(context).subtitle2.override(
                                 fontFamily: 'Poppins',
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
+                                color: FlutterFlowTheme.of(context).text,
                                 fontSize: 16,
                               ),
                       elevation: 3,
@@ -297,7 +296,11 @@ class _LoginWidgetState extends State<LoginWidget> {
                         },
                       );
                     },
-                    text: 'Forgot Password?',
+                    text: 'Olvidó su contraseña?',
+                    icon: Icon(
+                      Icons.lock,
+                      size: 15,
+                    ),
                     options: FFButtonOptions(
                       width: 270,
                       height: 50,
@@ -322,7 +325,7 @@ class _LoginWidgetState extends State<LoginWidget> {
           Align(
             alignment: AlignmentDirectional(0, -1),
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+              padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [

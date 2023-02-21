@@ -113,6 +113,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => DetallesProductoWidget(
                 title: params.getParam('title', ParamType.String),
               ),
+            ),
+            FFRoute(
+              name: 'Perfil',
+              path: 'perfil',
+              builder: (context, params) => PerfilWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),
