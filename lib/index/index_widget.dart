@@ -1,7 +1,11 @@
-import '../backend/backend.dart';
+import '../auth/auth_util.dart';
+import '../flutter_flow/flutter_flow_animations.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
+import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'index_model.dart';
@@ -14,10 +18,50 @@ class IndexWidget extends StatefulWidget {
   _IndexWidgetState createState() => _IndexWidgetState();
 }
 
-class _IndexWidgetState extends State<IndexWidget> {
+class _IndexWidgetState extends State<IndexWidget>
+    with TickerProviderStateMixin {
   late IndexModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = {
+    'textOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeIn,
+          delay: 0.ms,
+          duration: 666.ms,
+          begin: 0,
+          end: 1,
+        ),
+      ],
+    ),
+    'imageOnPageLoadAnimation1': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: Offset(-100, 0),
+          end: Offset(0, 0),
+        ),
+      ],
+    ),
+    'imageOnPageLoadAnimation2': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: Offset(100, 0),
+          end: Offset(0, 0),
+        ),
+      ],
+    ),
+  };
 
   @override
   void initState() {
@@ -37,6 +81,259 @@ class _IndexWidgetState extends State<IndexWidget> {
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+      drawer: Container(
+        width: MediaQuery.of(context).size.width * 0.5,
+        child: Drawer(
+          elevation: 16,
+          child: Container(
+            width: 100,
+            height: 100,
+            decoration: BoxDecoration(
+              color: Color(0xFF95A1AC),
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          InkWell(
+                            onTap: () async {
+                              if (scaffoldKey.currentState!.isDrawerOpen ||
+                                  scaffoldKey.currentState!.isEndDrawerOpen) {
+                                Navigator.pop(context);
+                              }
+                            },
+                            child: Icon(
+                              Icons.menu_open,
+                              color: Color(0xCBFF0097),
+                              size: 40,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          FFButtonWidget(
+                            onPressed: () {
+                              print('Button pressed ...');
+                            },
+                            text: 'Nueva cotización',
+                            options: FFButtonOptions(
+                              width: 145,
+                              height: 40,
+                              color: FlutterFlowTheme.of(context).primaryColor,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .subtitle2
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    color: Colors.white,
+                                  ),
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                                width: 1,
+                              ),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          FFButtonWidget(
+                            onPressed: () {
+                              print('Button pressed ...');
+                            },
+                            text: 'Ver cotizaciones',
+                            options: FFButtonOptions(
+                              width: 145,
+                              height: 40,
+                              color: FlutterFlowTheme.of(context).primaryColor,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .subtitle2
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    color: Colors.white,
+                                  ),
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                                width: 1,
+                              ),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          FFButtonWidget(
+                            onPressed: () {
+                              print('Button pressed ...');
+                            },
+                            text: 'Ver inventario',
+                            options: FFButtonOptions(
+                              width: 145,
+                              height: 40,
+                              color: FlutterFlowTheme.of(context).primaryColor,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .subtitle2
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    color: Colors.white,
+                                  ),
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                                width: 1,
+                              ),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          FFButtonWidget(
+                            onPressed: () {
+                              print('Button pressed ...');
+                            },
+                            text: 'Ver carrito',
+                            options: FFButtonOptions(
+                              width: 145,
+                              height: 40,
+                              color: FlutterFlowTheme.of(context).primaryColor,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .subtitle2
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    color: Colors.white,
+                                  ),
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                                width: 1,
+                              ),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          FFButtonWidget(
+                            onPressed: () async {
+                              context.pushNamed('Perfil');
+                            },
+                            text: 'Ver perfil',
+                            options: FFButtonOptions(
+                              width: 145,
+                              height: 40,
+                              color: FlutterFlowTheme.of(context).primaryColor,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .subtitle2
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    color: Colors.white,
+                                  ),
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                                width: 1,
+                              ),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 55, 0, 0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          InkWell(
+                            onTap: () async {
+                              GoRouter.of(context).prepareAuthEvent();
+                              await signOut();
+
+                              context.goNamedAuth('HomePage', mounted);
+                            },
+                            child: Image.asset(
+                              'assets/images/turn-off_(1).png',
+                              width: MediaQuery.of(context).size.width * 0.1,
+                              height: MediaQuery.of(context).size.height * 0.05,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
       body: Stack(
         children: [
           Image.asset(
@@ -49,110 +346,125 @@ class _IndexWidgetState extends State<IndexWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(20, 30, 20, 0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Row(
                       mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Icon(
-                          Icons.arrow_back,
-                          color: FlutterFlowTheme.of(context).primaryBackground,
-                          size: 40,
+                        InkWell(
+                          onTap: () async {
+                            scaffoldKey.currentState!.openDrawer();
+                          },
+                          child: Icon(
+                            Icons.menu_open,
+                            color: Color(0xCBFF0097),
+                            size: 45,
+                          ),
                         ),
                       ],
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Icon(
+                            Icons.shopping_cart,
+                            color: FlutterFlowTheme.of(context).text,
+                            size: 40,
+                          ),
+                          InkWell(
+                            onTap: () async {
+                              context.pushNamed('Index');
+                            },
+                            child: Icon(
+                              Icons.home,
+                              color: FlutterFlowTheme.of(context).text,
+                              size: 40,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
               ),
-              Column(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  StreamBuilder<List<InventarioRecord>>(
-                    stream: queryInventarioRecord(),
-                    builder: (context, snapshot) {
-                      // Customize what your widget looks like when it's loading.
-                      if (!snapshot.hasData) {
-                        return Center(
-                          child: SizedBox(
-                            width: 50,
-                            height: 50,
-                            child: CircularProgressIndicator(
-                              color: FlutterFlowTheme.of(context).primaryColor,
-                            ),
-                          ),
-                        );
-                      }
-                      List<InventarioRecord> listViewInventarioRecordList =
-                          snapshot.data!;
-                      return ListView.builder(
-                        padding: EdgeInsets.zero,
-                        shrinkWrap: true,
-                        scrollDirection: Axis.vertical,
-                        itemCount: listViewInventarioRecordList.length,
-                        itemBuilder: (context, listViewIndex) {
-                          final listViewInventarioRecord =
-                              listViewInventarioRecordList[listViewIndex];
-                          return InkWell(
-                            onTap: () async {
-                              context.pushNamed(
-                                'DetallesProducto',
-                                extra: <String, dynamic>{
-                                  kTransitionInfoKey: TransitionInfo(
-                                    hasTransition: true,
-                                    transitionType: PageTransitionType.fade,
-                                    duration: Duration(milliseconds: 400),
-                                  ),
-                                },
-                              );
-                            },
-                            child: ListTile(
-                              title: Text(
-                                listViewInventarioRecord.nombreProducto!,
-                                style: FlutterFlowTheme.of(context).title3,
-                              ),
-                              subtitle: Text(
-                                listViewInventarioRecord.precio!.toString(),
-                                style: FlutterFlowTheme.of(context).subtitle2,
-                              ),
-                              trailing: Icon(
-                                Icons.arrow_forward_ios,
-                                color: Color(0xFF303030),
-                                size: 20,
-                              ),
-                              tileColor: Color(0xFFF5F5F5),
-                              dense: false,
-                            ),
-                          );
-                        },
-                      );
-                    },
-                  ),
-                ],
-              ),
               Expanded(
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 80, 20, 0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      Expanded(
-                        child: Text(
-                          'Somos un courier de paquetería y repuestos para todo tipo de vehiculo\nTe traemos tus paquetes y repuestos.\nSolamente debes enviarnos que necesitas y te generamos una cotizacion del precio final.',
-                          textAlign: TextAlign.center,
-                          style: FlutterFlowTheme.of(context)
-                              .bodyText1
-                              .override(
-                                fontFamily: 'Poppins',
-                                color:
-                                    FlutterFlowTheme.of(context).primaryBtnText,
-                                fontSize: 20,
-                              ),
-                        ),
-                      ),
+                      Text(
+                        'Somos un courier de paquetería y repuestos para todo tipo de vehiculo\nTe traemos tus paquetes y repuestos.\nSolamente debes enviarnos que necesitas y te generamos una cotizacion del precio final.',
+                        textAlign: TextAlign.center,
+                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                              fontFamily: 'Poppins',
+                              color: FlutterFlowTheme.of(context).text,
+                              fontSize: 20,
+                            ),
+                      ).animateOnPageLoad(
+                          animationsMap['textOnPageLoadAnimation']!),
                     ],
                   ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    InkWell(
+                      onTap: () async {
+                        await launchURL('https://www.instagram.com/bmwshopcr/');
+                      },
+                      child: Image.asset(
+                        'assets/images/instagram.png',
+                        width: MediaQuery.of(context).size.width * 0.2,
+                        height: MediaQuery.of(context).size.height * 0.09,
+                        fit: BoxFit.cover,
+                      ),
+                    ).animateOnPageLoad(
+                        animationsMap['imageOnPageLoadAnimation1']!),
+                    InkWell(
+                      onTap: () async {
+                        await launchURL('https://www.facebook.com/Bavautos');
+                      },
+                      child: Image.asset(
+                        'assets/images/facebook.png',
+                        width: MediaQuery.of(context).size.width * 0.2,
+                        height: MediaQuery.of(context).size.height * 0.09,
+                        fit: BoxFit.cover,
+                      ),
+                    ).animateOnPageLoad(
+                        animationsMap['imageOnPageLoadAnimation2']!),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0, 50, 0, 0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
+                      child: Text(
+                        'developed by group X',
+                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                              fontFamily: 'Roboto Mono',
+                              color: FlutterFlowTheme.of(context).sideBar,
+                              fontSize: 10,
+                            ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ],

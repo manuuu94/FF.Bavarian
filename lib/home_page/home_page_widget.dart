@@ -141,7 +141,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                           onPressed: () async {
                             context.pushNamed('CreateAccount');
                           },
-                          text: 'Register',
+                          text: 'Crear cuenta',
                           icon: Icon(
                             Icons.person_add,
                             size: 15,
@@ -176,7 +176,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                           onPressed: () async {
                             context.pushNamed('Login');
                           },
-                          text: 'Log In',
+                          text: 'Entrar',
                           icon: Icon(
                             Icons.login,
                             size: 15,

@@ -356,7 +356,7 @@ class _DetallesProductoWidgetState extends State<DetallesProductoWidget> {
                       incrementIconBuilder: (enabled) => FaIcon(
                         FontAwesomeIcons.plus,
                         color: enabled
-                            ? FlutterFlowTheme.of(context).customColor1
+                            ? FlutterFlowTheme.of(context).sideBarMenu
                             : Color(0xFFEEEEEE),
                         size: 20,
                       ),
