@@ -63,6 +63,18 @@ class _PerfilWidgetState extends State<PerfilWidget>
         ),
       ],
     ),
+    'imageOnPageLoadAnimation3': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: Offset(100, 0),
+          end: Offset(0, 0),
+        ),
+      ],
+    ),
   };
 
   @override
@@ -587,6 +599,18 @@ class _PerfilWidgetState extends State<PerfilWidget>
                       ),
                     ).animateOnPageLoad(
                         animationsMap['imageOnPageLoadAnimation2']!),
+                    InkWell(
+                      onTap: () async {
+                        await launchURL('https://www.facebook.com/Bavautos');
+                      },
+                      child: Image.asset(
+                        'assets/images/whatsapp_(1).png',
+                        width: MediaQuery.of(context).size.width * 0.2,
+                        height: MediaQuery.of(context).size.height * 0.09,
+                        fit: BoxFit.cover,
+                      ),
+                    ).animateOnPageLoad(
+                        animationsMap['imageOnPageLoadAnimation3']!),
                   ],
                 ),
               ),
