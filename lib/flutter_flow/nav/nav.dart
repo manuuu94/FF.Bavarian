@@ -93,11 +93,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => HomePageWidget(),
             ),
             FFRoute(
-              name: 'Test1',
-              path: 'test1',
-              builder: (context, params) => Test1Widget(),
-            ),
-            FFRoute(
               name: 'CreateAccount',
               path: 'createAccount',
               builder: (context, params) => CreateAccountWidget(),
@@ -118,6 +113,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'Perfil',
               path: 'perfil',
               builder: (context, params) => PerfilWidget(),
+            ),
+            FFRoute(
+              name: 'Inventario',
+              path: 'inventario',
+              builder: (context, params) => InventarioWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),
