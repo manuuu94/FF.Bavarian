@@ -112,12 +112,23 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'Perfil',
               path: 'perfil',
-              builder: (context, params) => PerfilWidget(),
+              builder: (context, params) => PerfilWidget(
+                name: params.getParam('name', ParamType.String),
+                img: params.getParam('img', ParamType.String),
+                email: params.getParam('email', ParamType.String),
+                phone: params.getParam('phone', ParamType.String),
+                time: params.getParam('time', ParamType.DateTime),
+              ),
             ),
             FFRoute(
               name: 'Inventario',
               path: 'inventario',
               builder: (context, params) => InventarioWidget(),
+            ),
+            FFRoute(
+              name: 'carrito',
+              path: 'carrito',
+              builder: (context, params) => CarritoWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),
@@ -292,8 +303,8 @@ class FFRoute {
           final child = appStateNotifier.loading
               ? Center(
                   child: SizedBox(
-                    width: 50,
-                    height: 50,
+                    width: 50.0,
+                    height: 50.0,
                     child: CircularProgressIndicator(
                       color: FlutterFlowTheme.of(context).primaryColor,
                     ),

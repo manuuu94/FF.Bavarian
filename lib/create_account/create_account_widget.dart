@@ -1,8 +1,8 @@
-import '../auth/auth_util.dart';
-import '../backend/backend.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
-import '../flutter_flow/flutter_flow_widgets.dart';
+import '/auth/auth_util.dart';
+import '/backend/backend.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -55,13 +55,14 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 8),
+                padding: EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 8.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Expanded(
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(8, 50, 8, 8),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(8.0, 50.0, 8.0, 8.0),
                         child: Text(
                           'Crear cuenta nueva:',
                           style:
@@ -76,23 +77,23 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(24, 14, 24, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(24.0, 14.0, 24.0, 0.0),
                 child: Container(
                   width: double.infinity,
-                  height: 60,
+                  height: 60.0,
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).secondaryBackground,
                     boxShadow: [
                       BoxShadow(
-                        blurRadius: 5,
+                        blurRadius: 5.0,
                         color: Color(0x4D101213),
-                        offset: Offset(0, 2),
+                        offset: Offset(0.0, 2.0),
                       )
                     ],
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(8.0),
                   ),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                     child: TextFormField(
                       controller: _model.emailAddressController,
                       obscureText: false,
@@ -109,42 +110,40 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                             .override(
                               fontFamily: 'Lexend Deca',
                               color: FlutterFlowTheme.of(context).secondaryText,
-                              fontSize: 14,
+                              fontSize: 14.0,
                               fontWeight: FontWeight.normal,
                             ),
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: Color(0x00000000),
-                            width: 0,
+                            width: 0.0,
                           ),
-                          borderRadius: BorderRadius.circular(12),
+                          borderRadius: BorderRadius.circular(12.0),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: Color(0x00000000),
-                            width: 0,
+                            width: 0.0,
                           ),
-                          borderRadius: BorderRadius.circular(12),
+                          borderRadius: BorderRadius.circular(12.0),
                         ),
                         errorBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: Color(0x00000000),
-                            width: 0,
+                            width: 0.0,
                           ),
-                          borderRadius: BorderRadius.circular(12),
+                          borderRadius: BorderRadius.circular(12.0),
                         ),
                         focusedErrorBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: Color(0x00000000),
-                            width: 0,
+                            width: 0.0,
                           ),
-                          borderRadius: BorderRadius.circular(12),
+                          borderRadius: BorderRadius.circular(12.0),
                         ),
                         filled: true,
                         fillColor:
                             FlutterFlowTheme.of(context).secondaryBackground,
-                        contentPadding:
-                            EdgeInsetsDirectional.fromSTEB(24, 24, 20, 24),
                       ),
                       style: FlutterFlowTheme.of(context).bodyText1.override(
                             fontFamily: 'Poppins',
@@ -160,23 +159,23 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(24, 20, 24, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(24.0, 20.0, 24.0, 0.0),
                 child: Container(
                   width: double.infinity,
-                  height: 60,
+                  height: 60.0,
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).secondaryBackground,
                     boxShadow: [
                       BoxShadow(
-                        blurRadius: 5,
+                        blurRadius: 5.0,
                         color: Color(0x4D101213),
-                        offset: Offset(0, 2),
+                        offset: Offset(0.0, 2.0),
                       )
                     ],
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(8.0),
                   ),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                     child: TextFormField(
                       controller: _model.passwordController,
                       obscureText: !_model.passwordVisibility,
@@ -193,42 +192,40 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                             .override(
                               fontFamily: 'Lexend Deca',
                               color: FlutterFlowTheme.of(context).secondaryText,
-                              fontSize: 14,
+                              fontSize: 14.0,
                               fontWeight: FontWeight.normal,
                             ),
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: Color(0x00000000),
-                            width: 0,
+                            width: 0.0,
                           ),
-                          borderRadius: BorderRadius.circular(12),
+                          borderRadius: BorderRadius.circular(12.0),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: Color(0x00000000),
-                            width: 0,
+                            width: 0.0,
                           ),
-                          borderRadius: BorderRadius.circular(12),
+                          borderRadius: BorderRadius.circular(12.0),
                         ),
                         errorBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: Color(0x00000000),
-                            width: 0,
+                            width: 0.0,
                           ),
-                          borderRadius: BorderRadius.circular(12),
+                          borderRadius: BorderRadius.circular(12.0),
                         ),
                         focusedErrorBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: Color(0x00000000),
-                            width: 0,
+                            width: 0.0,
                           ),
-                          borderRadius: BorderRadius.circular(12),
+                          borderRadius: BorderRadius.circular(12.0),
                         ),
                         filled: true,
                         fillColor:
                             FlutterFlowTheme.of(context).secondaryBackground,
-                        contentPadding:
-                            EdgeInsetsDirectional.fromSTEB(24, 24, 20, 24),
                         suffixIcon: InkWell(
                           onTap: () => setState(
                             () => _model.passwordVisibility =
@@ -240,7 +237,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                                 ? Icons.visibility_outlined
                                 : Icons.visibility_off_outlined,
                             color: FlutterFlowTheme.of(context).secondaryText,
-                            size: 22,
+                            size: 22.0,
                           ),
                         ),
                       ),
@@ -252,23 +249,23 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(24, 20, 24, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(24.0, 20.0, 24.0, 0.0),
                 child: Container(
                   width: double.infinity,
-                  height: 60,
+                  height: 60.0,
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).secondaryBackground,
                     boxShadow: [
                       BoxShadow(
-                        blurRadius: 5,
+                        blurRadius: 5.0,
                         color: Color(0x4D101213),
-                        offset: Offset(0, 2),
+                        offset: Offset(0.0, 2.0),
                       )
                     ],
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(8.0),
                   ),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                     child: TextFormField(
                       controller: _model.confirmPasswordController,
                       obscureText: !_model.confirmPasswordVisibility,
@@ -281,42 +278,40 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                             .override(
                               fontFamily: 'Lexend Deca',
                               color: FlutterFlowTheme.of(context).secondaryText,
-                              fontSize: 14,
+                              fontSize: 14.0,
                               fontWeight: FontWeight.normal,
                             ),
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: Color(0x00000000),
-                            width: 0,
+                            width: 0.0,
                           ),
-                          borderRadius: BorderRadius.circular(12),
+                          borderRadius: BorderRadius.circular(12.0),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: Color(0x00000000),
-                            width: 0,
+                            width: 0.0,
                           ),
-                          borderRadius: BorderRadius.circular(12),
+                          borderRadius: BorderRadius.circular(12.0),
                         ),
                         errorBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: Color(0x00000000),
-                            width: 0,
+                            width: 0.0,
                           ),
-                          borderRadius: BorderRadius.circular(12),
+                          borderRadius: BorderRadius.circular(12.0),
                         ),
                         focusedErrorBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: Color(0x00000000),
-                            width: 0,
+                            width: 0.0,
                           ),
-                          borderRadius: BorderRadius.circular(12),
+                          borderRadius: BorderRadius.circular(12.0),
                         ),
                         filled: true,
                         fillColor:
                             FlutterFlowTheme.of(context).secondaryBackground,
-                        contentPadding:
-                            EdgeInsetsDirectional.fromSTEB(24, 24, 20, 24),
                         suffixIcon: InkWell(
                           onTap: () => setState(
                             () => _model.confirmPasswordVisibility =
@@ -328,7 +323,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                                 ? Icons.visibility_outlined
                                 : Icons.visibility_off_outlined,
                             color: FlutterFlowTheme.of(context).secondaryText,
-                            size: 22,
+                            size: 22.0,
                           ),
                         ),
                       ),
@@ -340,7 +335,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 50, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
                 child: FFButtonWidget(
                   onPressed: () async {
                     Function() _navigate = () {};
@@ -382,7 +377,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                         builder: (alertDialogContext) {
                           return AlertDialog(
                             title: Text('Gracias!'),
-                            content: Text('Fuistes registrado con exito!!'),
+                            content: Text('Registrado con éxito!'),
                             actions: [
                               TextButton(
                                 onPressed: () =>
@@ -399,8 +394,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                         builder: (alertDialogContext) {
                           return AlertDialog(
                             title: Text('Verifica tu contraseña'),
-                            content: Text(
-                                'Las contraseñas ingresadas no son iguales!'),
+                            content: Text('Las contraseñas no coinciden!'),
                             actions: [
                               TextButton(
                                 onPressed: () =>
@@ -417,28 +411,31 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                   },
                   text: 'Crear cuenta ',
                   options: FFButtonOptions(
-                    width: 270,
-                    height: 50,
+                    width: 270.0,
+                    height: 50.0,
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    iconPadding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: FlutterFlowTheme.of(context).grayIcon,
                     textStyle: FlutterFlowTheme.of(context).subtitle2.override(
                           fontFamily: 'Poppins',
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
-                          fontSize: 16,
+                          fontSize: 16.0,
                         ),
-                    elevation: 3,
+                    elevation: 3.0,
                     borderSide: BorderSide(
                       color: Colors.transparent,
-                      width: 1,
+                      width: 1.0,
                     ),
-                    borderRadius: BorderRadius.circular(100),
+                    borderRadius: BorderRadius.circular(100.0),
                   ),
                 ),
               ),
             ],
           ),
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
+            padding: EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 0.0),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               children: [
@@ -452,7 +449,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                       child: Icon(
                         Icons.arrow_back_sharp,
                         color: FlutterFlowTheme.of(context).text,
-                        size: 40,
+                        size: 40.0,
                       ),
                     ),
                   ],

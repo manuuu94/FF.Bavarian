@@ -1,8 +1,8 @@
-import '../auth/auth_util.dart';
-import '../flutter_flow/flutter_flow_animations.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
-import '../flutter_flow/flutter_flow_widgets.dart';
+import '/auth/auth_util.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -32,8 +32,8 @@ class _InventarioWidgetState extends State<InventarioWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: Offset(-100, 0),
-          end: Offset(0, 0),
+          begin: Offset(-100.0, 0.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -44,8 +44,8 @@ class _InventarioWidgetState extends State<InventarioWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: Offset(100, 0),
-          end: Offset(0, 0),
+          begin: Offset(100.0, 0.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -56,8 +56,8 @@ class _InventarioWidgetState extends State<InventarioWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: Offset(100, 0),
-          end: Offset(0, 0),
+          begin: Offset(100.0, 0.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -86,10 +86,10 @@ class _InventarioWidgetState extends State<InventarioWidget>
       drawer: Container(
         width: MediaQuery.of(context).size.width * 0.5,
         child: Drawer(
-          elevation: 16,
+          elevation: 16.0,
           child: Container(
-            width: 100,
-            height: 100,
+            width: 100.0,
+            height: 100.0,
             decoration: BoxDecoration(
               color: FlutterFlowTheme.of(context).sideBar,
             ),
@@ -100,7 +100,8 @@ class _InventarioWidgetState extends State<InventarioWidget>
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -119,7 +120,7 @@ class _InventarioWidgetState extends State<InventarioWidget>
                                 child: Icon(
                                   Icons.menu_open,
                                   color: Color(0xCBFF0097),
-                                  size: 40,
+                                  size: 40.0,
                                 ),
                               ),
                             ],
@@ -128,7 +129,8 @@ class _InventarioWidgetState extends State<InventarioWidget>
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -142,8 +144,12 @@ class _InventarioWidgetState extends State<InventarioWidget>
                                 },
                                 text: 'Nueva cotización',
                                 options: FFButtonOptions(
-                                  width: 145,
-                                  height: 40,
+                                  width: 145.0,
+                                  height: 40.0,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
                                   color:
                                       FlutterFlowTheme.of(context).primaryColor,
                                   textStyle: FlutterFlowTheme.of(context)
@@ -154,9 +160,9 @@ class _InventarioWidgetState extends State<InventarioWidget>
                                       ),
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
-                                    width: 1,
+                                    width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                               ),
                             ],
@@ -165,7 +171,8 @@ class _InventarioWidgetState extends State<InventarioWidget>
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -179,8 +186,12 @@ class _InventarioWidgetState extends State<InventarioWidget>
                                 },
                                 text: 'Ver cotizaciones',
                                 options: FFButtonOptions(
-                                  width: 145,
-                                  height: 40,
+                                  width: 145.0,
+                                  height: 40.0,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
                                   color:
                                       FlutterFlowTheme.of(context).primaryColor,
                                   textStyle: FlutterFlowTheme.of(context)
@@ -191,9 +202,9 @@ class _InventarioWidgetState extends State<InventarioWidget>
                                       ),
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
-                                    width: 1,
+                                    width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                               ),
                             ],
@@ -202,7 +213,8 @@ class _InventarioWidgetState extends State<InventarioWidget>
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -216,8 +228,12 @@ class _InventarioWidgetState extends State<InventarioWidget>
                                 },
                                 text: 'Ver inventario',
                                 options: FFButtonOptions(
-                                  width: 145,
-                                  height: 40,
+                                  width: 145.0,
+                                  height: 40.0,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
                                   color:
                                       FlutterFlowTheme.of(context).primaryColor,
                                   textStyle: FlutterFlowTheme.of(context)
@@ -228,9 +244,9 @@ class _InventarioWidgetState extends State<InventarioWidget>
                                       ),
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
-                                    width: 1,
+                                    width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                               ),
                             ],
@@ -239,7 +255,8 @@ class _InventarioWidgetState extends State<InventarioWidget>
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -253,8 +270,12 @@ class _InventarioWidgetState extends State<InventarioWidget>
                                 },
                                 text: 'Ver carrito',
                                 options: FFButtonOptions(
-                                  width: 145,
-                                  height: 40,
+                                  width: 145.0,
+                                  height: 40.0,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
                                   color:
                                       FlutterFlowTheme.of(context).primaryColor,
                                   textStyle: FlutterFlowTheme.of(context)
@@ -265,9 +286,9 @@ class _InventarioWidgetState extends State<InventarioWidget>
                                       ),
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
-                                    width: 1,
+                                    width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                               ),
                             ],
@@ -276,7 +297,8 @@ class _InventarioWidgetState extends State<InventarioWidget>
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -290,8 +312,12 @@ class _InventarioWidgetState extends State<InventarioWidget>
                                 },
                                 text: 'Ver perfil',
                                 options: FFButtonOptions(
-                                  width: 145,
-                                  height: 40,
+                                  width: 145.0,
+                                  height: 40.0,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
                                   color:
                                       FlutterFlowTheme.of(context).primaryColor,
                                   textStyle: FlutterFlowTheme.of(context)
@@ -302,9 +328,9 @@ class _InventarioWidgetState extends State<InventarioWidget>
                                       ),
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
-                                    width: 1,
+                                    width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                               ),
                             ],
@@ -313,7 +339,8 @@ class _InventarioWidgetState extends State<InventarioWidget>
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 55, 0, 0),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 55.0, 0.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -361,7 +388,7 @@ class _InventarioWidgetState extends State<InventarioWidget>
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20, 30, 20, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(20.0, 30.0, 20.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -377,13 +404,14 @@ class _InventarioWidgetState extends State<InventarioWidget>
                           child: Icon(
                             Icons.menu_open,
                             color: Color(0xCBFF0097),
-                            size: 45,
+                            size: 45.0,
                           ),
                         ),
                       ],
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.end,
@@ -391,7 +419,7 @@ class _InventarioWidgetState extends State<InventarioWidget>
                           Icon(
                             Icons.shopping_cart,
                             color: FlutterFlowTheme.of(context).text,
-                            size: 40,
+                            size: 40.0,
                           ),
                           InkWell(
                             onTap: () async {
@@ -400,7 +428,7 @@ class _InventarioWidgetState extends State<InventarioWidget>
                             child: Icon(
                               Icons.home,
                               color: FlutterFlowTheme.of(context).text,
-                              size: 40,
+                              size: 40.0,
                             ),
                           ),
                         ],
@@ -411,9 +439,10 @@ class _InventarioWidgetState extends State<InventarioWidget>
               ),
               Expanded(
                 child: Align(
-                  alignment: AlignmentDirectional(0, 0),
+                  alignment: AlignmentDirectional(0.0, 0.0),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -425,21 +454,22 @@ class _InventarioWidgetState extends State<InventarioWidget>
                               FlutterFlowTheme.of(context).bodyText1.override(
                                     fontFamily: 'Poppins',
                                     color: FlutterFlowTheme.of(context).text,
-                                    fontSize: 20,
+                                    fontSize: 20.0,
                                   ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 20.0, 0.0, 0.0),
                           child: Container(
                             width: double.infinity,
-                            height: 52,
+                            height: 52.0,
                             decoration: BoxDecoration(
                               color: Colors.white,
-                              borderRadius: BorderRadius.circular(8),
+                              borderRadius: BorderRadius.circular(8.0),
                             ),
                             child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(15, 0, 15, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  15.0, 0.0, 15.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
@@ -447,12 +477,12 @@ class _InventarioWidgetState extends State<InventarioWidget>
                                     Icons.search,
                                     color: FlutterFlowTheme.of(context)
                                         .tertiaryColor,
-                                    size: 24,
+                                    size: 24.0,
                                   ),
                                   Expanded(
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          5, 0, 0, 2),
+                                          5.0, 0.0, 0.0, 2.0),
                                       child: TextFormField(
                                         controller: _model.textController,
                                         obscureText: false,
@@ -461,7 +491,7 @@ class _InventarioWidgetState extends State<InventarioWidget>
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -472,7 +502,7 @@ class _InventarioWidgetState extends State<InventarioWidget>
                                           focusedBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -483,7 +513,7 @@ class _InventarioWidgetState extends State<InventarioWidget>
                                           errorBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -495,7 +525,7 @@ class _InventarioWidgetState extends State<InventarioWidget>
                                               UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -508,7 +538,7 @@ class _InventarioWidgetState extends State<InventarioWidget>
                                             .bodyText1
                                             .override(
                                               fontFamily: 'Poppins',
-                                              fontSize: 16,
+                                              fontSize: 16.0,
                                             ),
                                         validator: _model
                                             .textControllerValidator
@@ -523,10 +553,10 @@ class _InventarioWidgetState extends State<InventarioWidget>
                         ),
                         Expanded(
                           child: Align(
-                            alignment: AlignmentDirectional(0, 0),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  20.0, 20.0, 20.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
@@ -539,8 +569,8 @@ class _InventarioWidgetState extends State<InventarioWidget>
                                           gridDelegate:
                                               SliverGridDelegateWithFixedCrossAxisCount(
                                             crossAxisCount: 2,
-                                            crossAxisSpacing: 10,
-                                            mainAxisSpacing: 10,
+                                            crossAxisSpacing: 10.0,
+                                            mainAxisSpacing: 10.0,
                                             childAspectRatio: 1.6,
                                           ),
                                           primary: false,
@@ -551,22 +581,25 @@ class _InventarioWidgetState extends State<InventarioWidget>
                                               clipBehavior:
                                                   Clip.antiAliasWithSaveLayer,
                                               color: Colors.white,
-                                              elevation: 4,
+                                              elevation: 4.0,
                                               shape: RoundedRectangleBorder(
                                                 borderRadius:
-                                                    BorderRadius.circular(8),
+                                                    BorderRadius.circular(8.0),
                                               ),
                                               child: Stack(
                                                 children: [
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0, 0),
+                                                            0.0, 0.0),
                                                     child: Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  5, 0, 5, 0),
+                                                                  5.0,
+                                                                  0.0,
+                                                                  5.0,
+                                                                  0.0),
                                                       child: Text(
                                                         'nombre_producto',
                                                         textAlign:
@@ -585,17 +618,18 @@ class _InventarioWidgetState extends State<InventarioWidget>
                                               clipBehavior:
                                                   Clip.antiAliasWithSaveLayer,
                                               color: Colors.white,
-                                              elevation: 4,
+                                              elevation: 4.0,
                                               shape: RoundedRectangleBorder(
                                                 borderRadius:
-                                                    BorderRadius.circular(8),
+                                                    BorderRadius.circular(8.0),
                                               ),
                                               child: Align(
-                                                alignment:
-                                                    AlignmentDirectional(0, 0),
+                                                alignment: AlignmentDirectional(
+                                                    0.0, 0.0),
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(5, 0, 5, 0),
+                                                      .fromSTEB(
+                                                          5.0, 0.0, 5.0, 0.0),
                                                   child: Text(
                                                     'nombre_producto',
                                                     textAlign: TextAlign.center,
@@ -613,7 +647,7 @@ class _InventarioWidgetState extends State<InventarioWidget>
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 20, 0, 0),
+                                        0.0, 20.0, 0.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.min,
                                       children: [
@@ -623,8 +657,8 @@ class _InventarioWidgetState extends State<InventarioWidget>
                                             gridDelegate:
                                                 SliverGridDelegateWithFixedCrossAxisCount(
                                               crossAxisCount: 2,
-                                              crossAxisSpacing: 10,
-                                              mainAxisSpacing: 10,
+                                              crossAxisSpacing: 10.0,
+                                              mainAxisSpacing: 10.0,
                                               childAspectRatio: 1.6,
                                             ),
                                             primary: false,
@@ -635,20 +669,21 @@ class _InventarioWidgetState extends State<InventarioWidget>
                                                 clipBehavior:
                                                     Clip.antiAliasWithSaveLayer,
                                                 color: Colors.white,
-                                                elevation: 4,
+                                                elevation: 4.0,
                                                 shape: RoundedRectangleBorder(
                                                   borderRadius:
-                                                      BorderRadius.circular(8),
+                                                      BorderRadius.circular(
+                                                          8.0),
                                                 ),
                                                 child: Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          0, 0),
+                                                          0.0, 0.0),
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                5, 0, 5, 0),
+                                                            .fromSTEB(5.0, 0.0,
+                                                                5.0, 0.0),
                                                     child: Text(
                                                       'nombre_producto',
                                                       textAlign:
@@ -665,20 +700,21 @@ class _InventarioWidgetState extends State<InventarioWidget>
                                                 clipBehavior:
                                                     Clip.antiAliasWithSaveLayer,
                                                 color: Colors.white,
-                                                elevation: 4,
+                                                elevation: 4.0,
                                                 shape: RoundedRectangleBorder(
                                                   borderRadius:
-                                                      BorderRadius.circular(8),
+                                                      BorderRadius.circular(
+                                                          8.0),
                                                 ),
                                                 child: Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          0, 0),
+                                                          0.0, 0.0),
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                5, 0, 5, 0),
+                                                            .fromSTEB(5.0, 0.0,
+                                                                5.0, 0.0),
                                                     child: Text(
                                                       'nombre_producto',
                                                       textAlign:
@@ -699,7 +735,7 @@ class _InventarioWidgetState extends State<InventarioWidget>
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 20, 0, 0),
+                                        0.0, 20.0, 0.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.min,
                                       children: [
@@ -709,8 +745,8 @@ class _InventarioWidgetState extends State<InventarioWidget>
                                             gridDelegate:
                                                 SliverGridDelegateWithFixedCrossAxisCount(
                                               crossAxisCount: 2,
-                                              crossAxisSpacing: 10,
-                                              mainAxisSpacing: 10,
+                                              crossAxisSpacing: 10.0,
+                                              mainAxisSpacing: 10.0,
                                               childAspectRatio: 1.6,
                                             ),
                                             primary: false,
@@ -721,20 +757,21 @@ class _InventarioWidgetState extends State<InventarioWidget>
                                                 clipBehavior:
                                                     Clip.antiAliasWithSaveLayer,
                                                 color: Colors.white,
-                                                elevation: 4,
+                                                elevation: 4.0,
                                                 shape: RoundedRectangleBorder(
                                                   borderRadius:
-                                                      BorderRadius.circular(8),
+                                                      BorderRadius.circular(
+                                                          8.0),
                                                 ),
                                                 child: Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          0, 0),
+                                                          0.0, 0.0),
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                5, 0, 5, 0),
+                                                            .fromSTEB(5.0, 0.0,
+                                                                5.0, 0.0),
                                                     child: Text(
                                                       'nombre_producto',
                                                       textAlign:
@@ -751,20 +788,21 @@ class _InventarioWidgetState extends State<InventarioWidget>
                                                 clipBehavior:
                                                     Clip.antiAliasWithSaveLayer,
                                                 color: Colors.white,
-                                                elevation: 4,
+                                                elevation: 4.0,
                                                 shape: RoundedRectangleBorder(
                                                   borderRadius:
-                                                      BorderRadius.circular(8),
+                                                      BorderRadius.circular(
+                                                          8.0),
                                                 ),
                                                 child: Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          0, 0),
+                                                          0.0, 0.0),
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                5, 0, 5, 0),
+                                                            .fromSTEB(5.0, 0.0,
+                                                                5.0, 0.0),
                                                     child: Text(
                                                       'nombre_producto',
                                                       textAlign:
@@ -785,7 +823,7 @@ class _InventarioWidgetState extends State<InventarioWidget>
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 20, 0, 0),
+                                        0.0, 20.0, 0.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.min,
                                       children: [
@@ -795,8 +833,8 @@ class _InventarioWidgetState extends State<InventarioWidget>
                                             gridDelegate:
                                                 SliverGridDelegateWithFixedCrossAxisCount(
                                               crossAxisCount: 2,
-                                              crossAxisSpacing: 10,
-                                              mainAxisSpacing: 10,
+                                              crossAxisSpacing: 10.0,
+                                              mainAxisSpacing: 10.0,
                                               childAspectRatio: 1.6,
                                             ),
                                             primary: false,
@@ -807,20 +845,21 @@ class _InventarioWidgetState extends State<InventarioWidget>
                                                 clipBehavior:
                                                     Clip.antiAliasWithSaveLayer,
                                                 color: Colors.white,
-                                                elevation: 4,
+                                                elevation: 4.0,
                                                 shape: RoundedRectangleBorder(
                                                   borderRadius:
-                                                      BorderRadius.circular(8),
+                                                      BorderRadius.circular(
+                                                          8.0),
                                                 ),
                                                 child: Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          0, 0),
+                                                          0.0, 0.0),
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                5, 0, 5, 0),
+                                                            .fromSTEB(5.0, 0.0,
+                                                                5.0, 0.0),
                                                     child: Text(
                                                       'nombre_producto',
                                                       textAlign:
@@ -837,20 +876,21 @@ class _InventarioWidgetState extends State<InventarioWidget>
                                                 clipBehavior:
                                                     Clip.antiAliasWithSaveLayer,
                                                 color: Colors.white,
-                                                elevation: 4,
+                                                elevation: 4.0,
                                                 shape: RoundedRectangleBorder(
                                                   borderRadius:
-                                                      BorderRadius.circular(8),
+                                                      BorderRadius.circular(
+                                                          8.0),
                                                 ),
                                                 child: Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          0, 0),
+                                                          0.0, 0.0),
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                5, 0, 5, 0),
+                                                            .fromSTEB(5.0, 0.0,
+                                                                5.0, 0.0),
                                                     child: Text(
                                                       'nombre_producto',
                                                       textAlign:
@@ -880,7 +920,7 @@ class _InventarioWidgetState extends State<InventarioWidget>
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -925,19 +965,20 @@ class _InventarioWidgetState extends State<InventarioWidget>
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 50, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
                       child: Text(
                         'developed by group X',
                         style: FlutterFlowTheme.of(context).bodyText1.override(
                               fontFamily: 'Roboto Mono',
                               color: FlutterFlowTheme.of(context).sideBar,
-                              fontSize: 10,
+                              fontSize: 10.0,
                             ),
                       ),
                     ),

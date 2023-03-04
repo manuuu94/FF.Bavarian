@@ -1,10 +1,9 @@
-import '../auth/auth_util.dart';
-import '../backend/backend.dart';
-import '../flutter_flow/flutter_flow_animations.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
-import '../flutter_flow/flutter_flow_widgets.dart';
-import '../flutter_flow/upload_media.dart';
+import '/auth/auth_util.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/upload_media.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -14,7 +13,20 @@ import 'perfil_model.dart';
 export 'perfil_model.dart';
 
 class PerfilWidget extends StatefulWidget {
-  const PerfilWidget({Key? key}) : super(key: key);
+  const PerfilWidget({
+    Key? key,
+    this.name,
+    this.img,
+    this.email,
+    this.phone,
+    this.time,
+  }) : super(key: key);
+
+  final String? name;
+  final String? img;
+  final String? email;
+  final String? phone;
+  final DateTime? time;
 
   @override
   _PerfilWidgetState createState() => _PerfilWidgetState();
@@ -34,8 +46,8 @@ class _PerfilWidgetState extends State<PerfilWidget>
           curve: Curves.easeIn,
           delay: 0.ms,
           duration: 666.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
       ],
     ),
@@ -46,8 +58,8 @@ class _PerfilWidgetState extends State<PerfilWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: Offset(-100, 0),
-          end: Offset(0, 0),
+          begin: Offset(-100.0, 0.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -58,8 +70,8 @@ class _PerfilWidgetState extends State<PerfilWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: Offset(100, 0),
-          end: Offset(0, 0),
+          begin: Offset(100.0, 0.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -70,8 +82,8 @@ class _PerfilWidgetState extends State<PerfilWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: Offset(100, 0),
-          end: Offset(0, 0),
+          begin: Offset(100.0, 0.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -98,10 +110,10 @@ class _PerfilWidgetState extends State<PerfilWidget>
       drawer: Container(
         width: MediaQuery.of(context).size.width * 0.5,
         child: Drawer(
-          elevation: 16,
+          elevation: 16.0,
           child: Container(
-            width: 100,
-            height: 100,
+            width: 100.0,
+            height: 100.0,
             decoration: BoxDecoration(
               color: FlutterFlowTheme.of(context).sideBar,
             ),
@@ -112,7 +124,8 @@ class _PerfilWidgetState extends State<PerfilWidget>
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -131,7 +144,7 @@ class _PerfilWidgetState extends State<PerfilWidget>
                                 child: Icon(
                                   Icons.menu_open,
                                   color: Color(0xCBFF0097),
-                                  size: 40,
+                                  size: 40.0,
                                 ),
                               ),
                             ],
@@ -140,7 +153,8 @@ class _PerfilWidgetState extends State<PerfilWidget>
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -154,8 +168,12 @@ class _PerfilWidgetState extends State<PerfilWidget>
                                 },
                                 text: 'Nueva cotización',
                                 options: FFButtonOptions(
-                                  width: 145,
-                                  height: 40,
+                                  width: 145.0,
+                                  height: 40.0,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
                                   color:
                                       FlutterFlowTheme.of(context).primaryColor,
                                   textStyle: FlutterFlowTheme.of(context)
@@ -166,9 +184,9 @@ class _PerfilWidgetState extends State<PerfilWidget>
                                       ),
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
-                                    width: 1,
+                                    width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                               ),
                             ],
@@ -177,7 +195,8 @@ class _PerfilWidgetState extends State<PerfilWidget>
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -191,8 +210,12 @@ class _PerfilWidgetState extends State<PerfilWidget>
                                 },
                                 text: 'Ver cotizaciones',
                                 options: FFButtonOptions(
-                                  width: 145,
-                                  height: 40,
+                                  width: 145.0,
+                                  height: 40.0,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
                                   color:
                                       FlutterFlowTheme.of(context).primaryColor,
                                   textStyle: FlutterFlowTheme.of(context)
@@ -203,9 +226,9 @@ class _PerfilWidgetState extends State<PerfilWidget>
                                       ),
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
-                                    width: 1,
+                                    width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                               ),
                             ],
@@ -214,7 +237,8 @@ class _PerfilWidgetState extends State<PerfilWidget>
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -228,8 +252,12 @@ class _PerfilWidgetState extends State<PerfilWidget>
                                 },
                                 text: 'Ver inventario',
                                 options: FFButtonOptions(
-                                  width: 145,
-                                  height: 40,
+                                  width: 145.0,
+                                  height: 40.0,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
                                   color:
                                       FlutterFlowTheme.of(context).primaryColor,
                                   textStyle: FlutterFlowTheme.of(context)
@@ -240,9 +268,9 @@ class _PerfilWidgetState extends State<PerfilWidget>
                                       ),
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
-                                    width: 1,
+                                    width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                               ),
                             ],
@@ -251,7 +279,8 @@ class _PerfilWidgetState extends State<PerfilWidget>
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -265,8 +294,12 @@ class _PerfilWidgetState extends State<PerfilWidget>
                                 },
                                 text: 'Ver carrito',
                                 options: FFButtonOptions(
-                                  width: 145,
-                                  height: 40,
+                                  width: 145.0,
+                                  height: 40.0,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
                                   color:
                                       FlutterFlowTheme.of(context).primaryColor,
                                   textStyle: FlutterFlowTheme.of(context)
@@ -277,9 +310,9 @@ class _PerfilWidgetState extends State<PerfilWidget>
                                       ),
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
-                                    width: 1,
+                                    width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                               ),
                             ],
@@ -288,7 +321,8 @@ class _PerfilWidgetState extends State<PerfilWidget>
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -298,12 +332,48 @@ class _PerfilWidgetState extends State<PerfilWidget>
                             children: [
                               FFButtonWidget(
                                 onPressed: () async {
-                                  context.pushNamed('Perfil');
+                                  context.pushNamed(
+                                    'Perfil',
+                                    queryParams: {
+                                      'name': serializeParam(
+                                        valueOrDefault<String>(
+                                          currentUserDisplayName,
+                                          'No value',
+                                        ),
+                                        ParamType.String,
+                                      ),
+                                      'img': serializeParam(
+                                        valueOrDefault<String>(
+                                          currentUserPhoto,
+                                          'No Image',
+                                        ),
+                                        ParamType.String,
+                                      ),
+                                      'email': serializeParam(
+                                        valueOrDefault<String>(
+                                          currentUserEmail,
+                                          'No email value',
+                                        ),
+                                        ParamType.String,
+                                      ),
+                                      'phone': serializeParam(
+                                        valueOrDefault<String>(
+                                          currentPhoneNumber,
+                                          'No phone value',
+                                        ),
+                                        ParamType.String,
+                                      ),
+                                    }.withoutNulls,
+                                  );
                                 },
                                 text: 'Ver perfil',
                                 options: FFButtonOptions(
-                                  width: 145,
-                                  height: 40,
+                                  width: 145.0,
+                                  height: 40.0,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
                                   color:
                                       FlutterFlowTheme.of(context).primaryColor,
                                   textStyle: FlutterFlowTheme.of(context)
@@ -314,9 +384,9 @@ class _PerfilWidgetState extends State<PerfilWidget>
                                       ),
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
-                                    width: 1,
+                                    width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                               ),
                             ],
@@ -325,7 +395,8 @@ class _PerfilWidgetState extends State<PerfilWidget>
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 55, 0, 0),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 55.0, 0.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -373,7 +444,7 @@ class _PerfilWidgetState extends State<PerfilWidget>
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20, 30, 20, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(20.0, 30.0, 20.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -389,13 +460,14 @@ class _PerfilWidgetState extends State<PerfilWidget>
                           child: Icon(
                             Icons.menu_open,
                             color: Color(0xCBFF0097),
-                            size: 45,
+                            size: 45.0,
                           ),
                         ),
                       ],
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.end,
@@ -403,7 +475,7 @@ class _PerfilWidgetState extends State<PerfilWidget>
                           Icon(
                             Icons.shopping_cart,
                             color: FlutterFlowTheme.of(context).text,
-                            size: 40,
+                            size: 40.0,
                           ),
                           InkWell(
                             onTap: () async {
@@ -412,7 +484,7 @@ class _PerfilWidgetState extends State<PerfilWidget>
                             child: Icon(
                               Icons.home,
                               color: FlutterFlowTheme.of(context).text,
-                              size: 40,
+                              size: 40.0,
                             ),
                           ),
                         ],
@@ -423,154 +495,160 @@ class _PerfilWidgetState extends State<PerfilWidget>
               ),
               Expanded(
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      Text(
-                        'Perfil',
-                        textAlign: TextAlign.center,
-                        style: FlutterFlowTheme.of(context).bodyText1.override(
-                              fontFamily: 'Poppins',
-                              color: FlutterFlowTheme.of(context).text,
-                              fontSize: 20,
-                            ),
-                      ).animateOnPageLoad(
-                          animationsMap['textOnPageLoadAnimation']!),
-                      Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              InkWell(
-                                onTap: () async {
-                                  final selectedMedia =
-                                      await selectMediaWithSourceBottomSheet(
-                                    context: context,
-                                    allowPhoto: true,
-                                  );
-                                  if (selectedMedia != null &&
-                                      selectedMedia.every((m) =>
-                                          validateFileFormat(
-                                              m.storagePath, context))) {
-                                    setState(
-                                        () => _model.isMediaUploading = true);
-                                    var selectedUploadedFiles =
-                                        <FFUploadedFile>[];
-
-                                    try {
-                                      selectedUploadedFiles = selectedMedia
-                                          .map((m) => FFUploadedFile(
-                                                name: m.storagePath
-                                                    .split('/')
-                                                    .last,
-                                                bytes: m.bytes,
-                                                height: m.dimensions?.height,
-                                                width: m.dimensions?.width,
-                                              ))
-                                          .toList();
-                                    } finally {
-                                      _model.isMediaUploading = false;
-                                    }
-                                    if (selectedUploadedFiles.length ==
-                                        selectedMedia.length) {
-                                      setState(() {
-                                        _model.uploadedLocalFile =
-                                            selectedUploadedFiles.first;
-                                      });
-                                    } else {
-                                      setState(() {});
-                                      return;
-                                    }
-                                  }
-                                },
-                                child: Image.asset(
-                                  'assets/images/user_(1).png',
-                                  width: 100,
-                                  height: 100,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                        child: Text(
+                          'Perfil',
+                          textAlign: TextAlign.center,
+                          style:
+                              FlutterFlowTheme.of(context).bodyText1.override(
+                                    fontFamily: 'Poppins',
+                                    color: FlutterFlowTheme.of(context).text,
+                                    fontSize: 20.0,
+                                  ),
+                        ).animateOnPageLoad(
+                            animationsMap['textOnPageLoadAnimation']!),
                       ),
-                      StreamBuilder<List<UsersRecord>>(
-                        stream: queryUsersRecord(
-                          singleRecord: true,
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            30.0, 30.0, 30.0, 30.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                AuthUserStreamWidget(
+                                  builder: (context) => InkWell(
+                                    onTap: () async {
+                                      final selectedMedia =
+                                          await selectMediaWithSourceBottomSheet(
+                                        context: context,
+                                        allowPhoto: true,
+                                      );
+                                      if (selectedMedia != null &&
+                                          selectedMedia.every((m) =>
+                                              validateFileFormat(
+                                                  m.storagePath, context))) {
+                                        setState(() =>
+                                            _model.isMediaUploading = true);
+                                        var selectedUploadedFiles =
+                                            <FFUploadedFile>[];
+
+                                        try {
+                                          selectedUploadedFiles = selectedMedia
+                                              .map((m) => FFUploadedFile(
+                                                    name: m.storagePath
+                                                        .split('/')
+                                                        .last,
+                                                    bytes: m.bytes,
+                                                    height:
+                                                        m.dimensions?.height,
+                                                    width: m.dimensions?.width,
+                                                  ))
+                                              .toList();
+                                        } finally {
+                                          _model.isMediaUploading = false;
+                                        }
+                                        if (selectedUploadedFiles.length ==
+                                            selectedMedia.length) {
+                                          setState(() {
+                                            _model.uploadedLocalFile =
+                                                selectedUploadedFiles.first;
+                                          });
+                                        } else {
+                                          setState(() {});
+                                          return;
+                                        }
+                                      }
+                                    },
+                                    child: Image.network(
+                                      currentUserPhoto,
+                                      width: 100.0,
+                                      height: 100.0,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
                         ),
-                        builder: (context, snapshot) {
-                          // Customize what your widget looks like when it's loading.
-                          if (!snapshot.hasData) {
-                            return Center(
-                              child: SizedBox(
-                                width: 50,
-                                height: 50,
-                                child: CircularProgressIndicator(
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryColor,
-                                ),
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            20.0, 20.0, 20.0, 20.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            AuthUserStreamWidget(
+                              builder: (context) => Text(
+                                currentUserDisplayName,
+                                textAlign: TextAlign.start,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyText1
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      color: FlutterFlowTheme.of(context).text,
+                                    ),
                               ),
-                            );
-                          }
-                          List<UsersRecord> listViewUsersRecordList =
-                              snapshot.data!;
-                          // Return an empty Container when the item does not exist.
-                          if (snapshot.data!.isEmpty) {
-                            return Container();
-                          }
-                          final listViewUsersRecord =
-                              listViewUsersRecordList.isNotEmpty
-                                  ? listViewUsersRecordList.first
-                                  : null;
-                          return ListView(
-                            padding: EdgeInsets.zero,
-                            shrinkWrap: true,
-                            scrollDirection: Axis.vertical,
-                            children: [
-                              ListTile(
-                                title: Text(
-                                  listViewUsersRecord!.email!,
-                                  textAlign: TextAlign.center,
-                                  style: FlutterFlowTheme.of(context)
-                                      .title3
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        color:
-                                            FlutterFlowTheme.of(context).text,
-                                      ),
-                                ),
-                                subtitle: Text(
-                                  listViewUsersRecord!.createdTime!.toString(),
-                                  textAlign: TextAlign.center,
-                                  style: FlutterFlowTheme.of(context)
-                                      .subtitle2
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        color:
-                                            FlutterFlowTheme.of(context).text,
-                                      ),
-                                ),
-                                trailing: Icon(
-                                  Icons.arrow_forward_ios,
-                                  color: Color(0xFF303030),
-                                  size: 20,
-                                ),
-                                tileColor: Color(0xFFF5F5F5),
-                                dense: false,
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            20.0, 20.0, 20.0, 20.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              currentUserEmail,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyText1
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    color: FlutterFlowTheme.of(context).text,
+                                  ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            20.0, 20.0, 20.0, 20.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            AuthUserStreamWidget(
+                              builder: (context) => Text(
+                                currentPhoneNumber,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyText1
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      color: FlutterFlowTheme.of(context).text,
+                                    ),
                               ),
-                            ],
-                          );
-                        },
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -601,7 +679,8 @@ class _PerfilWidgetState extends State<PerfilWidget>
                         animationsMap['imageOnPageLoadAnimation2']!),
                     InkWell(
                       onTap: () async {
-                        await launchURL('https://www.facebook.com/Bavautos');
+                        await launchURL(
+                            'https://wa.me/50686218472?text=Más%20información%20por%20favor!');
                       },
                       child: Image.asset(
                         'assets/images/whatsapp_(1).png',
@@ -615,19 +694,20 @@ class _PerfilWidgetState extends State<PerfilWidget>
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 50, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
                       child: Text(
                         'developed by group X',
                         style: FlutterFlowTheme.of(context).bodyText1.override(
                               fontFamily: 'Roboto Mono',
                               color: FlutterFlowTheme.of(context).sideBar,
-                              fontSize: 10,
+                              fontSize: 10.0,
                             ),
                       ),
                     ),
