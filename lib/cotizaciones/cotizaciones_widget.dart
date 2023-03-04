@@ -7,25 +7,25 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:text_search/text_search.dart';
-import 'inventario_model.dart';
-export 'inventario_model.dart';
+import 'cotizaciones_model.dart';
+export 'cotizaciones_model.dart';
 
-class InventarioWidget extends StatefulWidget {
-  const InventarioWidget({Key? key}) : super(key: key);
+class CotizacionesWidget extends StatefulWidget {
+  const CotizacionesWidget({Key? key}) : super(key: key);
 
   @override
-  _InventarioWidgetState createState() => _InventarioWidgetState();
+  _CotizacionesWidgetState createState() => _CotizacionesWidgetState();
 }
 
-class _InventarioWidgetState extends State<InventarioWidget> {
-  late InventarioModel _model;
+class _CotizacionesWidgetState extends State<CotizacionesWidget> {
+  late CotizacionesModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => InventarioModel());
+    _model = createModel(context, () => CotizacionesModel());
 
     _model.txtSearchController ??= TextEditingController();
   }
@@ -408,7 +408,7 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Text(
-                          'Inventario',
+                          'Cotizaciones',
                           style:
                               FlutterFlowTheme.of(context).bodyText1.override(
                                     fontFamily: 'Poppins',
@@ -475,7 +475,7 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                                         controller: _model.txtSearchController,
                                         obscureText: false,
                                         decoration: InputDecoration(
-                                          hintText: 'Que partes necesitas ?...',
+                                          hintText: 'Busca cotizaciones ...',
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
@@ -550,8 +550,11 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                                 children: [
                                   Expanded(
                                     child:
-                                        StreamBuilder<List<InventarioRecord>>(
-                                      stream: queryInventarioRecord(),
+                                        StreamBuilder<List<CotizacionRecord>>(
+                                      stream: queryCotizacionRecord(
+                                        queryBuilder: (cotizacionRecord) =>
+                                            cotizacionRecord.orderBy('fecha'),
+                                      ),
                                       builder: (context, snapshot) {
                                         // Customize what your widget looks like when it's loading.
                                         if (!snapshot.hasData) {
@@ -567,222 +570,55 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                                             ),
                                           );
                                         }
-                                        List<InventarioRecord>
-                                            gridViewInventarioRecordList =
+                                        List<CotizacionRecord>
+                                            listViewCotizacionRecordList =
                                             snapshot.data!;
-                                        return GridView.builder(
+                                        return ListView.builder(
                                           padding: EdgeInsets.zero,
-                                          gridDelegate:
-                                              SliverGridDelegateWithFixedCrossAxisCount(
-                                            crossAxisCount: 2,
-                                            crossAxisSpacing: 8.0,
-                                            mainAxisSpacing: 5.0,
-                                            childAspectRatio: 1.0,
-                                          ),
+                                          shrinkWrap: true,
                                           scrollDirection: Axis.vertical,
                                           itemCount:
-                                              gridViewInventarioRecordList
+                                              listViewCotizacionRecordList
                                                   .length,
                                           itemBuilder:
-                                              (context, gridViewIndex) {
-                                            final gridViewInventarioRecord =
-                                                gridViewInventarioRecordList[
-                                                    gridViewIndex];
+                                              (context, listViewIndex) {
+                                            final listViewCotizacionRecord =
+                                                listViewCotizacionRecordList[
+                                                    listViewIndex];
                                             return Container(
-                                              width: MediaQuery.of(context)
-                                                      .size
-                                                      .width *
-                                                  0.916,
-                                              height: MediaQuery.of(context)
-                                                      .size
-                                                      .height *
-                                                  0.7,
+                                              width: 100.0,
+                                              height: 100.0,
                                               decoration: BoxDecoration(
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryBackground,
                                               ),
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: [
-                                                  Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .center,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment.end,
-                                                    children: [
-                                                      Container(
-                                                        width: MediaQuery.of(
-                                                                    context)
-                                                                .size
-                                                                .width *
-                                                            0.3,
-                                                        height: MediaQuery.of(
-                                                                    context)
-                                                                .size
-                                                                .height *
-                                                            0.03,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                        ),
-                                                        child: Text(
-                                                          gridViewInventarioRecord
-                                                              .nombreProducto!,
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyText1,
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    1.0),
-                                                        child: Image.network(
-                                                          gridViewInventarioRecord
-                                                              .image!,
-                                                          width: MediaQuery.of(
-                                                                      context)
-                                                                  .size
-                                                                  .width *
-                                                              0.35,
-                                                          height: MediaQuery.of(
-                                                                      context)
-                                                                  .size
-                                                                  .height *
-                                                              0.1,
-                                                          fit: BoxFit.cover,
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  Expanded(
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      1.0,
-                                                                      0.0,
-                                                                      1.0),
-                                                          child: FFButtonWidget(
-                                                            onPressed: () {
-                                                              print(
-                                                                  'Button pressed ...');
-                                                            },
-                                                            text: '',
-                                                            icon: Icon(
-                                                              Icons
-                                                                  .add_shopping_cart_outlined,
-                                                              size: 15.0,
-                                                            ),
-                                                            options:
-                                                                FFButtonOptions(
-                                                              width: 50.0,
-                                                              height: 50.0,
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                              iconPadding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                              color: Color(
-                                                                  0xBF39EF40),
-                                                              textStyle:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .title1
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
-                                                                        fontSize:
-                                                                            22.0,
-                                                                      ),
-                                                              borderSide:
-                                                                  BorderSide(
-                                                                color: Colors
-                                                                    .transparent,
-                                                                width: 1.0,
-                                                              ),
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          8.0),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      5.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Text(
-                                                            formatNumber(
-                                                              gridViewInventarioRecord
-                                                                  .precio!,
-                                                              formatType:
-                                                                  FormatType
-                                                                      .decimal,
-                                                              decimalType:
-                                                                  DecimalType
-                                                                      .automatic,
-                                                              currency: '₡',
-                                                            ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyText2
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
-                                                                  fontSize:
-                                                                      13.0,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ],
+                                              child: ListTile(
+                                                title: Text(
+                                                  listViewCotizacionRecord
+                                                      .nombreProducto!,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .title3,
+                                                ),
+                                                subtitle: Text(
+                                                  dateTimeFormat(
+                                                      'd/M/y',
+                                                      listViewCotizacionRecord
+                                                          .fecha!),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .subtitle2,
+                                                ),
+                                                trailing: Icon(
+                                                  Icons.arrow_forward_ios,
+                                                  color: Color(0xFF303030),
+                                                  size: 20.0,
+                                                ),
+                                                tileColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .grayIcon,
+                                                dense: false,
                                               ),
                                             );
                                           },

@@ -83,6 +83,9 @@ class _CarritoWidgetState extends State<CarritoWidget>
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+      drawer: Drawer(
+        elevation: 16.0,
+      ),
       body: GestureDetector(
         onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
         child: Stack(
@@ -107,15 +110,10 @@ class _CarritoWidgetState extends State<CarritoWidget>
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          InkWell(
-                            onTap: () async {
-                              scaffoldKey.currentState!.openDrawer();
-                            },
-                            child: Icon(
-                              Icons.menu_open,
-                              color: Color(0xCBFF0097),
-                              size: 45.0,
-                            ),
+                          Icon(
+                            Icons.menu_open,
+                            color: Color(0xCBFF0097),
+                            size: 45.0,
                           ),
                         ],
                       ),
@@ -158,7 +156,7 @@ class _CarritoWidgetState extends State<CarritoWidget>
                         style: FlutterFlowTheme.of(context).bodyText1.override(
                               fontFamily: 'Poppins',
                               color: FlutterFlowTheme.of(context).text,
-                              fontSize: 20.0,
+                              fontSize: 30.0,
                             ),
                       ),
                     ],
@@ -266,8 +264,7 @@ class _CarritoWidgetState extends State<CarritoWidget>
                         },
                         child: Image.asset(
                           'assets/images/instagram.png',
-                          width: MediaQuery.of(context).size.width * 0.2,
-                          height: MediaQuery.of(context).size.height * 0.09,
+                          width: MediaQuery.of(context).size.width * 0.1,
                           fit: BoxFit.cover,
                         ),
                       ).animateOnPageLoad(
@@ -278,8 +275,7 @@ class _CarritoWidgetState extends State<CarritoWidget>
                         },
                         child: Image.asset(
                           'assets/images/facebook.png',
-                          width: MediaQuery.of(context).size.width * 0.2,
-                          height: MediaQuery.of(context).size.height * 0.09,
+                          width: MediaQuery.of(context).size.width * 0.1,
                           fit: BoxFit.cover,
                         ),
                       ).animateOnPageLoad(
@@ -291,8 +287,7 @@ class _CarritoWidgetState extends State<CarritoWidget>
                         },
                         child: Image.asset(
                           'assets/images/whatsapp_(1).png',
-                          width: MediaQuery.of(context).size.width * 0.2,
-                          height: MediaQuery.of(context).size.height * 0.09,
+                          width: MediaQuery.of(context).size.width * 0.1,
                           fit: BoxFit.cover,
                         ),
                       ).animateOnPageLoad(

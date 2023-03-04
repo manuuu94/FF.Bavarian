@@ -8,6 +8,7 @@ import '../flutter_flow/flutter_flow_util.dart';
 import 'schema/users_record.dart';
 import 'schema/inventario_record.dart';
 import 'schema/carrito_record.dart';
+import 'schema/cotizacion_record.dart';
 import 'schema/serializers.dart';
 
 export 'dart:async' show StreamSubscription;
@@ -18,6 +19,7 @@ export 'schema/serializers.dart';
 export 'schema/users_record.dart';
 export 'schema/inventario_record.dart';
 export 'schema/carrito_record.dart';
+export 'schema/cotizacion_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -169,6 +171,58 @@ Future<FFFirestorePage<CarritoRecord>> queryCarritoRecordPage({
     queryCollectionPage(
       CarritoRecord.collection,
       CarritoRecord.serializer,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
+
+/// Functions to query CotizacionRecords (as a Stream and as a Future).
+Future<int> queryCotizacionRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      CotizacionRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<CotizacionRecord>> queryCotizacionRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      CotizacionRecord.collection,
+      CotizacionRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<CotizacionRecord>> queryCotizacionRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      CotizacionRecord.collection,
+      CotizacionRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<CotizacionRecord>> queryCotizacionRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+    queryCollectionPage(
+      CotizacionRecord.collection,
+      CotizacionRecord.serializer,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,

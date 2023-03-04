@@ -1,9 +1,9 @@
 import '/auth/auth_util.dart';
+import '/components/bs_edit_profile_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/upload_media.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -493,204 +493,215 @@ class _PerfilWidgetState extends State<PerfilWidget>
                   ],
                 ),
               ),
-              Expanded(
-                child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
-                        child: Text(
-                          'Perfil',
-                          textAlign: TextAlign.center,
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: FlutterFlowTheme.of(context).text,
-                                    fontSize: 20.0,
-                                  ),
-                        ).animateOnPageLoad(
-                            animationsMap['textOnPageLoadAnimation']!),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            30.0, 30.0, 30.0, 30.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                AuthUserStreamWidget(
-                                  builder: (context) => InkWell(
-                                    onTap: () async {
-                                      final selectedMedia =
-                                          await selectMediaWithSourceBottomSheet(
-                                        context: context,
-                                        allowPhoto: true,
-                                      );
-                                      if (selectedMedia != null &&
-                                          selectedMedia.every((m) =>
-                                              validateFileFormat(
-                                                  m.storagePath, context))) {
-                                        setState(() =>
-                                            _model.isMediaUploading = true);
-                                        var selectedUploadedFiles =
-                                            <FFUploadedFile>[];
-
-                                        try {
-                                          selectedUploadedFiles = selectedMedia
-                                              .map((m) => FFUploadedFile(
-                                                    name: m.storagePath
-                                                        .split('/')
-                                                        .last,
-                                                    bytes: m.bytes,
-                                                    height:
-                                                        m.dimensions?.height,
-                                                    width: m.dimensions?.width,
-                                                  ))
-                                              .toList();
-                                        } finally {
-                                          _model.isMediaUploading = false;
-                                        }
-                                        if (selectedUploadedFiles.length ==
-                                            selectedMedia.length) {
-                                          setState(() {
-                                            _model.uploadedLocalFile =
-                                                selectedUploadedFiles.first;
-                                          });
-                                        } else {
-                                          setState(() {});
-                                          return;
-                                        }
-                                      }
-                                    },
-                                    child: Image.network(
-                                      currentUserPhoto,
-                                      width: 100.0,
-                                      height: 100.0,
-                                      fit: BoxFit.cover,
-                                    ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                      child: Text(
+                        'Perfil',
+                        textAlign: TextAlign.center,
+                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                              fontFamily: 'Poppins',
+                              color: FlutterFlowTheme.of(context).text,
+                              fontSize: 30.0,
+                            ),
+                      ).animateOnPageLoad(
+                          animationsMap['textOnPageLoadAnimation']!),
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(
+                          30.0, 30.0, 30.0, 30.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              AuthUserStreamWidget(
+                                builder: (context) => ClipRRect(
+                                  borderRadius: BorderRadius.circular(0.0),
+                                  child: Image.network(
+                                    currentUserPhoto,
+                                    width: 120.0,
+                                    height: 150.0,
+                                    fit: BoxFit.cover,
                                   ),
                                 ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            20.0, 20.0, 20.0, 20.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            AuthUserStreamWidget(
-                              builder: (context) => Text(
-                                currentUserDisplayName,
-                                textAlign: TextAlign.start,
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyText1
-                                    .override(
-                                      fontFamily: 'Poppins',
-                                      color: FlutterFlowTheme.of(context).text,
-                                    ),
                               ),
-                            ),
-                          ],
-                        ),
+                            ],
+                          ),
+                        ],
                       ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            20.0, 20.0, 20.0, 20.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              currentUserEmail,
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(
+                          20.0, 20.0, 20.0, 20.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          AuthUserStreamWidget(
+                            builder: (context) => Text(
+                              currentUserDisplayName,
+                              textAlign: TextAlign.start,
                               style: FlutterFlowTheme.of(context)
                                   .bodyText1
                                   .override(
                                     fontFamily: 'Poppins',
                                     color: FlutterFlowTheme.of(context).text,
+                                    fontSize: 20.0,
                                   ),
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            20.0, 20.0, 20.0, 20.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            AuthUserStreamWidget(
-                              builder: (context) => Text(
-                                currentPhoneNumber,
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyText1
-                                    .override(
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(
+                          20.0, 20.0, 20.0, 20.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            currentUserEmail,
+                            style:
+                                FlutterFlowTheme.of(context).bodyText1.override(
                                       fontFamily: 'Poppins',
                                       color: FlutterFlowTheme.of(context).text,
+                                      fontSize: 20.0,
                                     ),
-                              ),
-                            ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(
+                          20.0, 20.0, 20.0, 20.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          AuthUserStreamWidget(
+                            builder: (context) => Text(
+                              currentPhoneNumber,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyText1
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    color: FlutterFlowTheme.of(context).text,
+                                    fontSize: 20.0,
+                                  ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(
+                          20.0, 45.0, 20.0, 20.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          FFButtonWidget(
+                            onPressed: () async {
+                              await showModalBottomSheet(
+                                isScrollControlled: true,
+                                backgroundColor: Colors.transparent,
+                                enableDrag: false,
+                                context: context,
+                                builder: (context) {
+                                  return Padding(
+                                    padding: MediaQuery.of(context).viewInsets,
+                                    child: Container(
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.5,
+                                      child: BsEditProfileWidget(),
+                                    ),
+                                  );
+                                },
+                              ).then((value) => setState(() {}));
+                            },
+                            text: 'Editar',
+                            options: FFButtonOptions(
+                              width: 130.0,
+                              height: 40.0,
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: FlutterFlowTheme.of(context).sideBarMenu,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .subtitle2
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    color: Colors.white,
+                                    fontSize: 14.0,
+                                  ),
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
               ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    InkWell(
-                      onTap: () async {
-                        await launchURL('https://www.instagram.com/bmwshopcr/');
-                      },
-                      child: Image.asset(
-                        'assets/images/instagram.png',
-                        width: MediaQuery.of(context).size.width * 0.2,
-                        height: MediaQuery.of(context).size.height * 0.09,
-                        fit: BoxFit.cover,
-                      ),
-                    ).animateOnPageLoad(
-                        animationsMap['imageOnPageLoadAnimation1']!),
-                    InkWell(
-                      onTap: () async {
-                        await launchURL('https://www.facebook.com/Bavautos');
-                      },
-                      child: Image.asset(
-                        'assets/images/facebook.png',
-                        width: MediaQuery.of(context).size.width * 0.2,
-                        height: MediaQuery.of(context).size.height * 0.09,
-                        fit: BoxFit.cover,
-                      ),
-                    ).animateOnPageLoad(
-                        animationsMap['imageOnPageLoadAnimation2']!),
-                    InkWell(
-                      onTap: () async {
-                        await launchURL(
-                            'https://wa.me/50686218472?text=Más%20información%20por%20favor!');
-                      },
-                      child: Image.asset(
-                        'assets/images/whatsapp_(1).png',
-                        width: MediaQuery.of(context).size.width * 0.2,
-                        height: MediaQuery.of(context).size.height * 0.09,
-                        fit: BoxFit.cover,
-                      ),
-                    ).animateOnPageLoad(
-                        animationsMap['imageOnPageLoadAnimation3']!),
-                  ],
+              Expanded(
+                child: Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      InkWell(
+                        onTap: () async {
+                          await launchURL(
+                              'https://www.instagram.com/bmwshopcr/');
+                        },
+                        child: Image.asset(
+                          'assets/images/instagram.png',
+                          width: MediaQuery.of(context).size.width * 0.1,
+                          fit: BoxFit.cover,
+                        ),
+                      ).animateOnPageLoad(
+                          animationsMap['imageOnPageLoadAnimation1']!),
+                      InkWell(
+                        onTap: () async {
+                          await launchURL('https://www.facebook.com/Bavautos');
+                        },
+                        child: Image.asset(
+                          'assets/images/facebook.png',
+                          width: MediaQuery.of(context).size.width * 0.1,
+                          fit: BoxFit.cover,
+                        ),
+                      ).animateOnPageLoad(
+                          animationsMap['imageOnPageLoadAnimation2']!),
+                      InkWell(
+                        onTap: () async {
+                          await launchURL(
+                              'https://wa.me/50686218472?text=Más%20información%20por%20favor!');
+                        },
+                        child: Image.asset(
+                          'assets/images/whatsapp_(1).png',
+                          width: MediaQuery.of(context).size.width * 0.1,
+                          fit: BoxFit.cover,
+                        ),
+                      ).animateOnPageLoad(
+                          animationsMap['imageOnPageLoadAnimation3']!),
+                    ],
+                  ),
                 ),
               ),
               Padding(
