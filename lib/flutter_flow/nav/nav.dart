@@ -93,14 +93,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => HomePageWidget(),
             ),
             FFRoute(
-              name: 'CreateAccount',
-              path: 'createAccount',
-              builder: (context, params) => CreateAccountWidget(),
-            ),
-            FFRoute(
               name: 'RecuperacionPassword',
               path: 'recuperacionPassword',
               builder: (context, params) => RecuperacionPasswordWidget(),
+            ),
+            FFRoute(
+              name: 'CreateAccount',
+              path: 'createAccount',
+              builder: (context, params) => CreateAccountWidget(),
             ),
             FFRoute(
               name: 'DetallesProducto',
@@ -129,6 +129,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'carrito',
               path: 'carrito',
               builder: (context, params) => CarritoWidget(),
+            ),
+            FFRoute(
+              name: 'Cotizaciones',
+              path: 'cotizaciones',
+              builder: (context, params) => CotizacionesWidget(),
+            ),
+            FFRoute(
+              name: 'NuevaCotizacion',
+              path: 'nuevaCotizacion',
+              builder: (context, params) => NuevaCotizacionWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),

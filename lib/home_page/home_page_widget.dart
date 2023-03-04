@@ -239,8 +239,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                           },
                           child: Image.asset(
                             'assets/images/instagram.png',
-                            width: MediaQuery.of(context).size.width * 0.2,
-                            height: MediaQuery.of(context).size.height * 0.09,
+                            width: MediaQuery.of(context).size.width * 0.15,
+                            height: MediaQuery.of(context).size.height * 0.07,
                             fit: BoxFit.cover,
                           ),
                         ).animateOnPageLoad(
@@ -252,8 +252,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                           },
                           child: Image.asset(
                             'assets/images/facebook.png',
-                            width: MediaQuery.of(context).size.width * 0.2,
-                            height: MediaQuery.of(context).size.height * 0.09,
+                            width: MediaQuery.of(context).size.width * 0.15,
+                            height: MediaQuery.of(context).size.height * 0.07,
                             fit: BoxFit.cover,
                           ),
                         ).animateOnPageLoad(
@@ -265,8 +265,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                           },
                           child: Image.asset(
                             'assets/images/whatsapp_(1).png',
-                            width: MediaQuery.of(context).size.width * 0.2,
-                            height: MediaQuery.of(context).size.height * 0.09,
+                            width: MediaQuery.of(context).size.width * 0.15,
+                            height: MediaQuery.of(context).size.height * 0.07,
                             fit: BoxFit.cover,
                           ),
                         ).animateOnPageLoad(
