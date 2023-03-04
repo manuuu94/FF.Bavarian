@@ -1,7 +1,7 @@
-import '../flutter_flow/flutter_flow_animations.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
-import '../flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -33,7 +33,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
           delay: 0.ms,
           duration: 1370.ms,
           hz: 9,
-          offset: Offset(0, 0),
+          offset: Offset(0.0, 0.0),
           rotation: 0.087,
         ),
       ],
@@ -45,8 +45,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: Offset(-100, 0),
-          end: Offset(0, 0),
+          begin: Offset(-100.0, 0.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -57,8 +57,20 @@ class _HomePageWidgetState extends State<HomePageWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: Offset(100, 0),
-          end: Offset(0, 0),
+          begin: Offset(100.0, 0.0),
+          end: Offset(0.0, 0.0),
+        ),
+      ],
+    ),
+    'imageOnPageLoadAnimation4': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: Offset(100.0, 0.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -87,10 +99,10 @@ class _HomePageWidgetState extends State<HomePageWidget>
         child: GestureDetector(
           onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(10, 50, 10, 15),
+            padding: EdgeInsetsDirectional.fromSTEB(10.0, 50.0, 10.0, 15.0),
             child: Container(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height * 1,
+              width: MediaQuery.of(context).size.width * 1.0,
+              height: MediaQuery.of(context).size.height * 1.0,
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.of(context).primaryBackground,
               ),
@@ -98,7 +110,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 30),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 30.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -109,7 +122,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                           style:
                               FlutterFlowTheme.of(context).bodyText1.override(
                                     fontFamily: 'Noto Serif',
-                                    fontSize: 35,
+                                    fontSize: 35.0,
                                   ),
                         ),
                       ],
@@ -120,11 +133,12 @@ class _HomePageWidgetState extends State<HomePageWidget>
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 50),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 50.0),
                         child: Image.asset(
                           'assets/images/Bav.png',
-                          width: 350,
-                          height: 100,
+                          width: 350.0,
+                          height: 100.0,
                           fit: BoxFit.cover,
                         ).animateOnPageLoad(
                             animationsMap['imageOnPageLoadAnimation1']!),
@@ -132,7 +146,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                     ],
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -144,11 +159,15 @@ class _HomePageWidgetState extends State<HomePageWidget>
                           text: 'Crear cuenta',
                           icon: Icon(
                             Icons.person_add,
-                            size: 15,
+                            size: 15.0,
                           ),
                           options: FFButtonOptions(
-                            width: 300,
-                            height: 60,
+                            width: 300.0,
+                            height: 60.0,
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
                             color: FlutterFlowTheme.of(context).primaryColor,
                             textStyle:
                                 FlutterFlowTheme.of(context).subtitle2.override(
@@ -158,16 +177,17 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                     ),
                             borderSide: BorderSide(
                               color: Colors.transparent,
-                              width: 1,
+                              width: 1.0,
                             ),
-                            borderRadius: BorderRadius.circular(100),
+                            borderRadius: BorderRadius.circular(100.0),
                           ),
                         ),
                       ],
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 10),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 10.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -179,11 +199,15 @@ class _HomePageWidgetState extends State<HomePageWidget>
                           text: 'Entrar',
                           icon: Icon(
                             Icons.login,
-                            size: 15,
+                            size: 15.0,
                           ),
                           options: FFButtonOptions(
-                            width: 300,
-                            height: 60,
+                            width: 300.0,
+                            height: 60.0,
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
                             color: FlutterFlowTheme.of(context).primaryColor,
                             textStyle:
                                 FlutterFlowTheme.of(context).subtitle2.override(
@@ -193,16 +217,17 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                     ),
                             borderSide: BorderSide(
                               color: Colors.transparent,
-                              width: 1,
+                              width: 1.0,
                             ),
-                            borderRadius: BorderRadius.circular(100),
+                            borderRadius: BorderRadius.circular(100.0),
                           ),
                         ),
                       ],
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -233,12 +258,26 @@ class _HomePageWidgetState extends State<HomePageWidget>
                           ),
                         ).animateOnPageLoad(
                             animationsMap['imageOnPageLoadAnimation3']!),
+                        InkWell(
+                          onTap: () async {
+                            await launchURL(
+                                'https://wa.me/50686218472?text=Más%20información%20por%20favor!');
+                          },
+                          child: Image.asset(
+                            'assets/images/whatsapp_(1).png',
+                            width: MediaQuery.of(context).size.width * 0.2,
+                            height: MediaQuery.of(context).size.height * 0.09,
+                            fit: BoxFit.cover,
+                          ),
+                        ).animateOnPageLoad(
+                            animationsMap['imageOnPageLoadAnimation4']!),
                       ],
                     ),
                   ),
                   Expanded(
                     child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 50, 0, 0),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -248,7 +287,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                             style:
                                 FlutterFlowTheme.of(context).bodyText1.override(
                                       fontFamily: 'Roboto Mono',
-                                      fontSize: 10,
+                                      fontSize: 10.0,
                                     ),
                           ),
                         ],

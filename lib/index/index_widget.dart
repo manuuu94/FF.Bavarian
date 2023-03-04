@@ -1,8 +1,8 @@
-import '../auth/auth_util.dart';
-import '../flutter_flow/flutter_flow_animations.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
-import '../flutter_flow/flutter_flow_widgets.dart';
+import '/auth/auth_util.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -32,8 +32,8 @@ class _IndexWidgetState extends State<IndexWidget>
           curve: Curves.easeIn,
           delay: 0.ms,
           duration: 666.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
       ],
     ),
@@ -44,8 +44,8 @@ class _IndexWidgetState extends State<IndexWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: Offset(-100, 0),
-          end: Offset(0, 0),
+          begin: Offset(-100.0, 0.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -56,8 +56,20 @@ class _IndexWidgetState extends State<IndexWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: Offset(100, 0),
-          end: Offset(0, 0),
+          begin: Offset(100.0, 0.0),
+          end: Offset(0.0, 0.0),
+        ),
+      ],
+    ),
+    'imageOnPageLoadAnimation3': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: Offset(100.0, 0.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -84,10 +96,10 @@ class _IndexWidgetState extends State<IndexWidget>
       drawer: Container(
         width: MediaQuery.of(context).size.width * 0.5,
         child: Drawer(
-          elevation: 16,
+          elevation: 16.0,
           child: Container(
-            width: 100,
-            height: 100,
+            width: 100.0,
+            height: 100.0,
             decoration: BoxDecoration(
               color: Color(0xFF95A1AC),
             ),
@@ -95,7 +107,7 @@ class _IndexWidgetState extends State<IndexWidget>
               mainAxisSize: MainAxisSize.max,
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -113,7 +125,7 @@ class _IndexWidgetState extends State<IndexWidget>
                             child: Icon(
                               Icons.menu_open,
                               color: Color(0xCBFF0097),
-                              size: 40,
+                              size: 40.0,
                             ),
                           ),
                         ],
@@ -122,7 +134,7 @@ class _IndexWidgetState extends State<IndexWidget>
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -136,8 +148,12 @@ class _IndexWidgetState extends State<IndexWidget>
                             },
                             text: 'Nueva cotización',
                             options: FFButtonOptions(
-                              width: 145,
-                              height: 40,
+                              width: 145.0,
+                              height: 40.0,
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context).primaryColor,
                               textStyle: FlutterFlowTheme.of(context)
                                   .subtitle2
@@ -147,9 +163,9 @@ class _IndexWidgetState extends State<IndexWidget>
                                   ),
                               borderSide: BorderSide(
                                 color: Colors.transparent,
-                                width: 1,
+                                width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(8),
+                              borderRadius: BorderRadius.circular(8.0),
                             ),
                           ),
                         ],
@@ -158,7 +174,7 @@ class _IndexWidgetState extends State<IndexWidget>
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -172,8 +188,12 @@ class _IndexWidgetState extends State<IndexWidget>
                             },
                             text: 'Ver cotizaciones',
                             options: FFButtonOptions(
-                              width: 145,
-                              height: 40,
+                              width: 145.0,
+                              height: 40.0,
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context).primaryColor,
                               textStyle: FlutterFlowTheme.of(context)
                                   .subtitle2
@@ -183,9 +203,9 @@ class _IndexWidgetState extends State<IndexWidget>
                                   ),
                               borderSide: BorderSide(
                                 color: Colors.transparent,
-                                width: 1,
+                                width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(8),
+                              borderRadius: BorderRadius.circular(8.0),
                             ),
                           ),
                         ],
@@ -194,7 +214,7 @@ class _IndexWidgetState extends State<IndexWidget>
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -208,8 +228,12 @@ class _IndexWidgetState extends State<IndexWidget>
                             },
                             text: 'Ver inventario',
                             options: FFButtonOptions(
-                              width: 145,
-                              height: 40,
+                              width: 145.0,
+                              height: 40.0,
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context).primaryColor,
                               textStyle: FlutterFlowTheme.of(context)
                                   .subtitle2
@@ -219,9 +243,9 @@ class _IndexWidgetState extends State<IndexWidget>
                                   ),
                               borderSide: BorderSide(
                                 color: Colors.transparent,
-                                width: 1,
+                                width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(8),
+                              borderRadius: BorderRadius.circular(8.0),
                             ),
                           ),
                         ],
@@ -230,7 +254,7 @@ class _IndexWidgetState extends State<IndexWidget>
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -239,13 +263,17 @@ class _IndexWidgetState extends State<IndexWidget>
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           FFButtonWidget(
-                            onPressed: () {
-                              print('Button pressed ...');
+                            onPressed: () async {
+                              context.pushNamed('carrito');
                             },
                             text: 'Ver carrito',
                             options: FFButtonOptions(
-                              width: 145,
-                              height: 40,
+                              width: 145.0,
+                              height: 40.0,
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context).primaryColor,
                               textStyle: FlutterFlowTheme.of(context)
                                   .subtitle2
@@ -255,9 +283,9 @@ class _IndexWidgetState extends State<IndexWidget>
                                   ),
                               borderSide: BorderSide(
                                 color: Colors.transparent,
-                                width: 1,
+                                width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(8),
+                              borderRadius: BorderRadius.circular(8.0),
                             ),
                           ),
                         ],
@@ -266,7 +294,7 @@ class _IndexWidgetState extends State<IndexWidget>
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -280,8 +308,12 @@ class _IndexWidgetState extends State<IndexWidget>
                             },
                             text: 'Ver perfil',
                             options: FFButtonOptions(
-                              width: 145,
-                              height: 40,
+                              width: 145.0,
+                              height: 40.0,
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context).primaryColor,
                               textStyle: FlutterFlowTheme.of(context)
                                   .subtitle2
@@ -291,9 +323,9 @@ class _IndexWidgetState extends State<IndexWidget>
                                   ),
                               borderSide: BorderSide(
                                 color: Colors.transparent,
-                                width: 1,
+                                width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(8),
+                              borderRadius: BorderRadius.circular(8.0),
                             ),
                           ),
                         ],
@@ -302,7 +334,7 @@ class _IndexWidgetState extends State<IndexWidget>
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 55, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 55.0, 0.0, 0.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -346,7 +378,7 @@ class _IndexWidgetState extends State<IndexWidget>
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20, 30, 20, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(20.0, 30.0, 20.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -362,13 +394,14 @@ class _IndexWidgetState extends State<IndexWidget>
                           child: Icon(
                             Icons.menu_open,
                             color: Color(0xCBFF0097),
-                            size: 45,
+                            size: 45.0,
                           ),
                         ),
                       ],
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.end,
@@ -376,7 +409,7 @@ class _IndexWidgetState extends State<IndexWidget>
                           Icon(
                             Icons.shopping_cart,
                             color: FlutterFlowTheme.of(context).text,
-                            size: 40,
+                            size: 40.0,
                           ),
                           InkWell(
                             onTap: () async {
@@ -385,7 +418,7 @@ class _IndexWidgetState extends State<IndexWidget>
                             child: Icon(
                               Icons.home,
                               color: FlutterFlowTheme.of(context).text,
-                              size: 40,
+                              size: 40.0,
                             ),
                           ),
                         ],
@@ -396,7 +429,8 @@ class _IndexWidgetState extends State<IndexWidget>
               ),
               Expanded(
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 80, 20, 0),
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(20.0, 80.0, 20.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -406,7 +440,7 @@ class _IndexWidgetState extends State<IndexWidget>
                         style: FlutterFlowTheme.of(context).bodyText1.override(
                               fontFamily: 'Poppins',
                               color: FlutterFlowTheme.of(context).text,
-                              fontSize: 20,
+                              fontSize: 20.0,
                             ),
                       ).animateOnPageLoad(
                           animationsMap['textOnPageLoadAnimation']!),
@@ -415,7 +449,7 @@ class _IndexWidgetState extends State<IndexWidget>
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -444,23 +478,37 @@ class _IndexWidgetState extends State<IndexWidget>
                       ),
                     ).animateOnPageLoad(
                         animationsMap['imageOnPageLoadAnimation2']!),
+                    InkWell(
+                      onTap: () async {
+                        await launchURL(
+                            'https://wa.me/50686218472?text=Más%20información%20por%20favor!');
+                      },
+                      child: Image.asset(
+                        'assets/images/whatsapp_(1).png',
+                        width: MediaQuery.of(context).size.width * 0.2,
+                        height: MediaQuery.of(context).size.height * 0.09,
+                        fit: BoxFit.cover,
+                      ),
+                    ).animateOnPageLoad(
+                        animationsMap['imageOnPageLoadAnimation3']!),
                   ],
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 50, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
                       child: Text(
                         'developed by group X',
                         style: FlutterFlowTheme.of(context).bodyText1.override(
                               fontFamily: 'Roboto Mono',
                               color: FlutterFlowTheme.of(context).sideBar,
-                              fontSize: 10,
+                              fontSize: 10.0,
                             ),
                       ),
                     ),
