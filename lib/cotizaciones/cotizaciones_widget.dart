@@ -98,8 +98,8 @@ class _CotizacionesWidgetState extends State<CotizacionesWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               FFButtonWidget(
-                                onPressed: () {
-                                  print('Button pressed ...');
+                                onPressed: () async {
+                                  context.pushNamed('NuevaCotizacion');
                                 },
                                 text: 'Nueva cotización',
                                 options: FFButtonOptions(
