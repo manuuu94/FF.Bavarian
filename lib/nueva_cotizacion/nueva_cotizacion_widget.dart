@@ -102,8 +102,8 @@ class _NuevaCotizacionWidgetState extends State<NuevaCotizacionWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               FFButtonWidget(
-                                onPressed: () {
-                                  print('Button pressed ...');
+                                onPressed: () async {
+                                  context.pushNamed('NuevaCotizacion');
                                 },
                                 text: 'Nueva cotización',
                                 options: FFButtonOptions(
@@ -144,8 +144,8 @@ class _NuevaCotizacionWidgetState extends State<NuevaCotizacionWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               FFButtonWidget(
-                                onPressed: () {
-                                  print('Button pressed ...');
+                                onPressed: () async {
+                                  context.pushNamed('Cotizaciones');
                                 },
                                 text: 'Ver cotizaciones',
                                 options: FFButtonOptions(
@@ -186,8 +186,8 @@ class _NuevaCotizacionWidgetState extends State<NuevaCotizacionWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               FFButtonWidget(
-                                onPressed: () {
-                                  print('Button pressed ...');
+                                onPressed: () async {
+                                  context.pushNamed('Inventario');
                                 },
                                 text: 'Ver inventario',
                                 options: FFButtonOptions(
