@@ -98,8 +98,8 @@ class _CotizacionesWidgetState extends State<CotizacionesWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               FFButtonWidget(
-                                onPressed: () {
-                                  print('Button pressed ...');
+                                onPressed: () async {
+                                  context.pushNamed('NuevaCotizacion');
                                 },
                                 text: 'Nueva cotización',
                                 options: FFButtonOptions(
@@ -140,8 +140,8 @@ class _CotizacionesWidgetState extends State<CotizacionesWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               FFButtonWidget(
-                                onPressed: () {
-                                  print('Button pressed ...');
+                                onPressed: () async {
+                                  context.pushNamed('Cotizaciones');
                                 },
                                 text: 'Ver cotizaciones',
                                 options: FFButtonOptions(
@@ -632,7 +632,7 @@ class _CotizacionesWidgetState extends State<CotizacionesWidget> {
                                     },
                                     text: 'Nueva Cotizacion',
                                     options: FFButtonOptions(
-                                      width: 130.0,
+                                      width: 150.0,
                                       height: 40.0,
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 0.0),
@@ -647,7 +647,7 @@ class _CotizacionesWidgetState extends State<CotizacionesWidget> {
                                             fontFamily: 'Poppins',
                                             color: Colors.white,
                                             fontSize: 20.0,
-                                            fontWeight: FontWeight.normal,
+                                            fontWeight: FontWeight.w600,
                                           ),
                                       borderSide: BorderSide(
                                         color: Colors.transparent,
