@@ -156,7 +156,7 @@ class _BsEditProfileWidgetState extends State<BsEditProfileWidget> {
                           autofocus: true,
                           obscureText: false,
                           decoration: InputDecoration(
-                            hintText: '[Some hint text...]',
+                            hintText: 'Su nombre',
                             hintStyle: FlutterFlowTheme.of(context).bodyText2,
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
@@ -222,7 +222,7 @@ class _BsEditProfileWidgetState extends State<BsEditProfileWidget> {
                           autofocus: true,
                           obscureText: false,
                           decoration: InputDecoration(
-                            hintText: '[Some hint text...]',
+                            hintText: 'Su teléfono',
                             hintStyle: FlutterFlowTheme.of(context).bodyText2,
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(

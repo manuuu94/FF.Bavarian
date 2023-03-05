@@ -143,8 +143,8 @@ class _IndexWidgetState extends State<IndexWidget>
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           FFButtonWidget(
-                            onPressed: () {
-                              print('Button pressed ...');
+                            onPressed: () async {
+                              context.pushNamed('NuevaCotizacion');
                             },
                             text: 'Nueva cotización',
                             options: FFButtonOptions(
@@ -183,8 +183,8 @@ class _IndexWidgetState extends State<IndexWidget>
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           FFButtonWidget(
-                            onPressed: () {
-                              print('Button pressed ...');
+                            onPressed: () async {
+                              context.pushNamed('Cotizaciones');
                             },
                             text: 'Ver cotizaciones',
                             options: FFButtonOptions(
