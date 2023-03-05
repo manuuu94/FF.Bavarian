@@ -526,7 +526,10 @@ class _PerfilWidgetState extends State<PerfilWidget>
                                 builder: (context) => ClipRRect(
                                   borderRadius: BorderRadius.circular(0.0),
                                   child: Image.network(
-                                    currentUserPhoto,
+                                    valueOrDefault<String>(
+                                      currentUserPhoto,
+                                      'Edite para añadir imagen',
+                                    ),
                                     width: 120.0,
                                     height: 150.0,
                                     fit: BoxFit.cover,

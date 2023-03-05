@@ -78,14 +78,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               appStateNotifier.loggedIn ? IndexWidget() : HomePageWidget(),
           routes: [
             FFRoute(
-              name: 'Login',
-              path: 'login',
-              builder: (context, params) => LoginWidget(),
-            ),
-            FFRoute(
               name: 'Index',
               path: 'index',
               builder: (context, params) => IndexWidget(),
+            ),
+            FFRoute(
+              name: 'Login',
+              path: 'login',
+              builder: (context, params) => LoginWidget(),
             ),
             FFRoute(
               name: 'HomePage',
@@ -126,11 +126,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => InventarioWidget(),
             ),
             FFRoute(
-              name: 'carrito',
-              path: 'carrito',
-              builder: (context, params) => CarritoWidget(),
-            ),
-            FFRoute(
               name: 'Cotizaciones',
               path: 'cotizaciones',
               builder: (context, params) => CotizacionesWidget(),
@@ -139,6 +134,17 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'NuevaCotizacion',
               path: 'nuevaCotizacion',
               builder: (context, params) => NuevaCotizacionWidget(),
+            ),
+            FFRoute(
+              name: 'Carrito',
+              path: 'carrito',
+              builder: (context, params) => CarritoWidget(
+                name: params.getParam('name', ParamType.String),
+                img: params.getParam('img', ParamType.String),
+                email: params.getParam('email', ParamType.String),
+                phone: params.getParam('phone', ParamType.String),
+                time: params.getParam('time', ParamType.DateTime),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),
