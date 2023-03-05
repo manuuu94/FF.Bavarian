@@ -576,7 +576,7 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                                               SliverGridDelegateWithFixedCrossAxisCount(
                                             crossAxisCount: 2,
                                             crossAxisSpacing: 8.0,
-                                            mainAxisSpacing: 5.0,
+                                            mainAxisSpacing: 10.0,
                                             childAspectRatio: 1.0,
                                           ),
                                           scrollDirection: Axis.vertical,

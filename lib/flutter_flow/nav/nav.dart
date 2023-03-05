@@ -126,14 +126,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => InventarioWidget(),
             ),
             FFRoute(
-              name: 'Cotizaciones',
-              path: 'cotizaciones',
-              builder: (context, params) => CotizacionesWidget(),
-            ),
-            FFRoute(
               name: 'NuevaCotizacion',
               path: 'nuevaCotizacion',
               builder: (context, params) => NuevaCotizacionWidget(),
+            ),
+            FFRoute(
+              name: 'Cotizaciones',
+              path: 'cotizaciones',
+              builder: (context, params) => CotizacionesWidget(),
             ),
             FFRoute(
               name: 'Carrito',
