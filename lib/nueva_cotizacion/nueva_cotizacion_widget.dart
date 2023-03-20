@@ -315,6 +315,7 @@ class _NuevaCotizacionWidgetState extends State<NuevaCotizacionWidget> {
                                 onTap: () async {
                                   GoRouter.of(context).prepareAuthEvent();
                                   await signOut();
+                                  GoRouter.of(context).clearRedirectLocation();
 
                                   context.goNamedAuth('HomePage', mounted);
                                 },

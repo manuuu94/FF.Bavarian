@@ -263,8 +263,8 @@ class _IndexWidgetState extends State<IndexWidget>
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           FFButtonWidget(
-                            onPressed: () {
-                              print('Button pressed ...');
+                            onPressed: () async {
+                              context.pushNamed('Carrito');
                             },
                             text: 'Ver carrito',
                             options: FFButtonOptions(
@@ -346,6 +346,7 @@ class _IndexWidgetState extends State<IndexWidget>
                             onTap: () async {
                               GoRouter.of(context).prepareAuthEvent();
                               await signOut();
+                              GoRouter.of(context).clearRedirectLocation();
 
                               context.goNamedAuth('HomePage', mounted);
                             },

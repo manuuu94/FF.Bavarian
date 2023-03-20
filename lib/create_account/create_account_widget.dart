@@ -61,14 +61,17 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                   children: [
                     Expanded(
                       child: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(8.0, 50.0, 8.0, 8.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            8.0, 50.0, 8.0, 50.0),
                         child: Text(
-                          'Crear cuenta nueva:',
+                          'Crear cuenta',
+                          textAlign: TextAlign.start,
                           style:
                               FlutterFlowTheme.of(context).subtitle2.override(
                                     fontFamily: 'Poppins',
                                     color: FlutterFlowTheme.of(context).text,
+                                    fontSize: 22.0,
+                                    fontStyle: FontStyle.italic,
                                   ),
                         ),
                       ),
@@ -77,7 +80,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(24.0, 14.0, 24.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(24.0, 14.0, 24.0, 14.0),
                 child: Container(
                   width: double.infinity,
                   height: 60.0,
@@ -93,18 +96,17 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
                     child: TextFormField(
                       controller: _model.emailAddressController,
                       obscureText: false,
                       decoration: InputDecoration(
-                        labelText: 'Correo electrónico',
                         labelStyle:
                             FlutterFlowTheme.of(context).bodyText2.override(
                                   fontFamily: 'Poppins',
                                   color: Color(0xFF3E3E3E),
                                 ),
-                        hintText: 'Introduzca su correo...',
+                        hintText: 'Introduzca su Correo Electronico',
                         hintStyle: FlutterFlowTheme.of(context)
                             .bodyText1
                             .override(
@@ -148,8 +150,9 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                       style: FlutterFlowTheme.of(context).bodyText1.override(
                             fontFamily: 'Poppins',
                             color: FlutterFlowTheme.of(context).secondaryText,
-                            fontWeight: FontWeight.bold,
+                            fontWeight: FontWeight.w600,
                           ),
+                      textAlign: TextAlign.start,
                       maxLines: null,
                       keyboardType: TextInputType.emailAddress,
                       validator: _model.emailAddressControllerValidator
@@ -159,7 +162,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(24.0, 20.0, 24.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(24.0, 20.0, 24.0, 20.0),
                 child: Container(
                   width: double.infinity,
                   height: 60.0,
@@ -175,12 +178,11 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
                     child: TextFormField(
                       controller: _model.passwordController,
                       obscureText: !_model.passwordVisibility,
                       decoration: InputDecoration(
-                        labelText: 'Contraseña....',
                         labelStyle:
                             FlutterFlowTheme.of(context).bodyText2.override(
                                   fontFamily: 'Poppins',
@@ -242,6 +244,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                         ),
                       ),
                       style: FlutterFlowTheme.of(context).bodyText1,
+                      textAlign: TextAlign.start,
                       validator: _model.passwordControllerValidator
                           .asValidator(context),
                     ),
@@ -249,7 +252,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(24.0, 20.0, 24.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(24.0, 20.0, 24.0, 20.0),
                 child: Container(
                   width: double.infinity,
                   height: 60.0,
@@ -265,14 +268,13 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
                     child: TextFormField(
                       controller: _model.confirmPasswordController,
                       obscureText: !_model.confirmPasswordVisibility,
                       decoration: InputDecoration(
                         labelText: 'Confirmar contraseña....',
                         labelStyle: FlutterFlowTheme.of(context).bodyText2,
-                        hintText: 'Confirme su contraseña...',
                         hintStyle: FlutterFlowTheme.of(context)
                             .bodyText1
                             .override(
@@ -335,7 +337,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(50.0, 50.0, 50.0, 50.0),
                 child: FFButtonWidget(
                   onPressed: () async {
                     Function() _navigate = () {};

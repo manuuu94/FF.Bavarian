@@ -182,8 +182,8 @@ class _CotizacionesWidgetState extends State<CotizacionesWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               FFButtonWidget(
-                                onPressed: () {
-                                  print('Button pressed ...');
+                                onPressed: () async {
+                                  context.pushNamed('Inventario');
                                 },
                                 text: 'Ver inventario',
                                 options: FFButtonOptions(
@@ -311,6 +311,7 @@ class _CotizacionesWidgetState extends State<CotizacionesWidget> {
                                 onTap: () async {
                                   GoRouter.of(context).prepareAuthEvent();
                                   await signOut();
+                                  GoRouter.of(context).clearRedirectLocation();
 
                                   context.goNamedAuth('HomePage', mounted);
                                 },

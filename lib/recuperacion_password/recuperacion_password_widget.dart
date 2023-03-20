@@ -76,12 +76,11 @@ class _RecuperacionPasswordWidgetState
           mainAxisSize: MainAxisSize.max,
           children: [
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 20.0),
               child: TextFormField(
                 controller: _model.emailAddressController,
                 obscureText: false,
                 decoration: InputDecoration(
-                  labelText: 'Correo Electronico',
                   labelStyle: FlutterFlowTheme.of(context).bodyText1.override(
                         fontFamily: 'Poppins',
                         color: FlutterFlowTheme.of(context).primaryBackground,
@@ -89,7 +88,7 @@ class _RecuperacionPasswordWidgetState
                   hintText: 'Ingrese su correo electronico',
                   hintStyle: FlutterFlowTheme.of(context).bodyText1.override(
                         fontFamily: 'Lexend Deca',
-                        color: FlutterFlowTheme.of(context).primaryBackground,
+                        color: FlutterFlowTheme.of(context).black600,
                         fontSize: 14.0,
                         fontWeight: FontWeight.normal,
                       ),
@@ -122,13 +121,13 @@ class _RecuperacionPasswordWidgetState
                     borderRadius: BorderRadius.circular(50.0),
                   ),
                   filled: true,
-                  fillColor: FlutterFlowTheme.of(context).secondaryText,
+                  fillColor: FlutterFlowTheme.of(context).primaryBackground,
                   contentPadding:
                       EdgeInsetsDirectional.fromSTEB(20.0, 24.0, 20.0, 24.0),
                 ),
                 style: FlutterFlowTheme.of(context).bodyText1.override(
                       fontFamily: 'Lexend Deca',
-                      color: FlutterFlowTheme.of(context).primaryBackground,
+                      color: FlutterFlowTheme.of(context).primaryColor,
                       fontSize: 14.0,
                       fontWeight: FontWeight.normal,
                     ),
@@ -138,7 +137,7 @@ class _RecuperacionPasswordWidgetState
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 34.0, 0.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 15.0),
               child: FFButtonWidget(
                 onPressed: () async {
                   if (_model.emailAddressController.text.isEmpty) {

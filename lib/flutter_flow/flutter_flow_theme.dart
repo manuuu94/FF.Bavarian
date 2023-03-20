@@ -21,7 +21,7 @@ abstract class FlutterFlowTheme {
   late Color text;
   late Color sideBarMenu;
   late Color grayIcon;
-  late Color gray200;
+  late Color greenConfirm;
   late Color gray600;
   late Color black600;
   late Color tertiary400;
@@ -62,7 +62,7 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color text = Color(0xFFFFFFFF);
   late Color sideBarMenu = Color(0xCBFF0097);
   late Color grayIcon = Color(0xFF95A1AC);
-  late Color gray200 = Color(0xFFDBE2E7);
+  late Color greenConfirm = Color(0xFF12FF00);
   late Color gray600 = Color(0xFF262D34);
   late Color black600 = Color(0xFF090F13);
   late Color tertiary400 = Color(0xFF39D2C0);

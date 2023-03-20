@@ -3,6 +3,8 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -224,8 +226,8 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               FFButtonWidget(
-                                onPressed: () {
-                                  print('Button pressed ...');
+                                onPressed: () async {
+                                  context.pushNamed('Carrito');
                                 },
                                 text: 'Ver carrito',
                                 options: FFButtonOptions(
@@ -311,6 +313,7 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                                 onTap: () async {
                                   GoRouter.of(context).prepareAuthEvent();
                                   await signOut();
+                                  GoRouter.of(context).clearRedirectLocation();
 
                                   context.goNamedAuth('HomePage', mounted);
                                 },
@@ -375,10 +378,15 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          Icon(
-                            Icons.shopping_cart,
-                            color: FlutterFlowTheme.of(context).text,
-                            size: 40.0,
+                          InkWell(
+                            onTap: () async {
+                              context.pushNamed('Carrito');
+                            },
+                            child: Icon(
+                              Icons.shopping_cart,
+                              color: FlutterFlowTheme.of(context).text,
+                              size: 40.0,
+                            ),
                           ),
                           InkWell(
                             onTap: () async {
@@ -437,7 +445,7 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                                       await queryInventarioRecordOnce()
                                           .then(
                                             (records) =>
-                                                _model.simpleSearchResults =
+                                                _model.simpleSearchResults1 =
                                                     TextSearch(
                                               records
                                                   .map(
@@ -457,7 +465,7 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                                                         .toList(),
                                           )
                                           .onError((_, __) =>
-                                              _model.simpleSearchResults = [])
+                                              _model.simpleSearchResults1 = [])
                                           .whenComplete(() => setState(() {}));
                                     },
                                     child: Icon(
@@ -473,6 +481,40 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                                           5.0, 0.0, 0.0, 2.0),
                                       child: TextFormField(
                                         controller: _model.txtSearchController,
+                                        onChanged: (_) => EasyDebounce.debounce(
+                                          '_model.txtSearchController',
+                                          Duration(milliseconds: 2000),
+                                          () async {
+                                            await queryInventarioRecordOnce()
+                                                .then(
+                                                  (records) => _model
+                                                          .simpleSearchResults2 =
+                                                      TextSearch(
+                                                    records
+                                                        .map(
+                                                          (record) =>
+                                                              TextSearchItem(
+                                                                  record, [
+                                                            record
+                                                                .nombreProducto!,
+                                                            record
+                                                                .descripcionProducto!
+                                                          ]),
+                                                        )
+                                                        .toList(),
+                                                  )
+                                                          .search(_model
+                                                              .txtSearchController
+                                                              .text)
+                                                          .map((r) => r.object)
+                                                          .toList(),
+                                                )
+                                                .onError((_, __) => _model
+                                                    .simpleSearchResults2 = [])
+                                                .whenComplete(
+                                                    () => setState(() {}));
+                                          },
+                                        ),
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           hintText: 'Que partes necesitas ?...',
@@ -551,7 +593,13 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                                   Expanded(
                                     child:
                                         StreamBuilder<List<InventarioRecord>>(
-                                      stream: queryInventarioRecord(),
+                                      stream: queryInventarioRecord(
+                                        queryBuilder: (inventarioRecord) =>
+                                            inventarioRecord.where(
+                                                'nombre_Producto',
+                                                isEqualTo: _model
+                                                    .txtSearchController.text),
+                                      ),
                                       builder: (context, snapshot) {
                                         // Customize what your widget looks like when it's loading.
                                         if (!snapshot.hasData) {
@@ -570,6 +618,22 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                                         List<InventarioRecord>
                                             gridViewInventarioRecordList =
                                             snapshot.data!;
+                                        if (gridViewInventarioRecordList
+                                            .isEmpty) {
+                                          return Center(
+                                            child: Image.network(
+                                              'https://media.istockphoto.com/id/1344566799/vector/shout-oops-in-a-cloud-of-comic-style-dialogue-colored-badge-for-printing-stickers-stripes.jpg?s=612x612&w=0&k=20&c=2RCX6zQbmG-bWQQFeNoyZ-O4TiisYGfHmU_m2TpseNc=',
+                                              width: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  0.5,
+                                              height: MediaQuery.of(context)
+                                                      .size
+                                                      .height *
+                                                  0.5,
+                                            ),
+                                          );
+                                        }
                                         return GridView.builder(
                                           padding: EdgeInsets.zero,
                                           gridDelegate:
@@ -695,9 +759,22 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                                                                       0.0,
                                                                       1.0),
                                                           child: FFButtonWidget(
-                                                            onPressed: () {
-                                                              print(
-                                                                  'Button pressed ...');
+                                                            onPressed:
+                                                                () async {
+                                                              final carritoCreateData =
+                                                                  createCarritoRecordData(
+                                                                nombre: gridViewInventarioRecord
+                                                                    .nombreProducto,
+                                                                precio:
+                                                                    gridViewInventarioRecord
+                                                                        .precio,
+                                                                cantidad: 1,
+                                                              );
+                                                              await CarritoRecord
+                                                                  .collection
+                                                                  .doc()
+                                                                  .set(
+                                                                      carritoCreateData);
                                                             },
                                                             text: '',
                                                             icon: Icon(

@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'carrito_model.dart';
@@ -253,8 +254,8 @@ class _CarritoWidgetState extends State<CarritoWidget>
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               FFButtonWidget(
-                                onPressed: () {
-                                  print('Button pressed ...');
+                                onPressed: () async {
+                                  context.pushNamed('Carrito');
                                 },
                                 text: 'Ver carrito',
                                 options: FFButtonOptions(
@@ -372,6 +373,7 @@ class _CarritoWidgetState extends State<CarritoWidget>
                                 onTap: () async {
                                   GoRouter.of(context).prepareAuthEvent();
                                   await signOut();
+                                  GoRouter.of(context).clearRedirectLocation();
 
                                   context.goNamedAuth('HomePage', mounted);
                                 },
@@ -436,10 +438,15 @@ class _CarritoWidgetState extends State<CarritoWidget>
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          Icon(
-                            Icons.shopping_cart,
-                            color: FlutterFlowTheme.of(context).text,
-                            size: 40.0,
+                          InkWell(
+                            onTap: () async {
+                              context.pushNamed('Carrito');
+                            },
+                            child: Icon(
+                              Icons.shopping_cart,
+                              color: FlutterFlowTheme.of(context).text,
+                              size: 40.0,
+                            ),
                           ),
                           InkWell(
                             onTap: () async {
@@ -505,30 +512,43 @@ class _CarritoWidgetState extends State<CarritoWidget>
                             itemBuilder: (context, listViewIndex) {
                               final listViewCarritoRecord =
                                   listViewCarritoRecordList[listViewIndex];
-                              return ListTile(
-                                title: Text(
-                                  'Lorem ipsum dolor...',
-                                  textAlign: TextAlign.center,
-                                  style: FlutterFlowTheme.of(context)
-                                      .title3
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        color:
-                                            FlutterFlowTheme.of(context).text,
-                                      ),
+                              return Slidable(
+                                endActionPane: ActionPane(
+                                  motion: const ScrollMotion(),
+                                  extentRatio: 0.25,
+                                  children: [
+                                    SlidableAction(
+                                      label: 'Borrar',
+                                      backgroundColor: Color(0xFFE30000),
+                                      icon: Icons.close,
+                                      onPressed: (_) async {
+                                        await listViewCarritoRecord.reference
+                                            .delete();
+                                      },
+                                    ),
+                                  ],
                                 ),
-                                subtitle: Text(
-                                  'Lorem ipsum dolor...',
-                                  textAlign: TextAlign.end,
-                                  style: FlutterFlowTheme.of(context).subtitle2,
+                                child: ListTile(
+                                  title: Text(
+                                    listViewCarritoRecord.nombre!,
+                                    textAlign: TextAlign.center,
+                                    style: FlutterFlowTheme.of(context)
+                                        .title3
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          color:
+                                              FlutterFlowTheme.of(context).text,
+                                        ),
+                                  ),
+                                  subtitle: Text(
+                                    listViewCarritoRecord.precio!.toString(),
+                                    textAlign: TextAlign.center,
+                                    style:
+                                        FlutterFlowTheme.of(context).subtitle2,
+                                  ),
+                                  tileColor: Color(0xFFF5F5F5),
+                                  dense: false,
                                 ),
-                                trailing: Icon(
-                                  Icons.close,
-                                  color: Color(0xFFE30000),
-                                  size: 20.0,
-                                ),
-                                tileColor: Color(0xFFF5F5F5),
-                                dense: false,
                               );
                             },
                           );
@@ -580,7 +600,7 @@ class _CarritoWidgetState extends State<CarritoWidget>
                                   0.0, 0.0, 0.0, 0.0),
                               iconPadding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).sideBarMenu,
+                              color: FlutterFlowTheme.of(context).greenConfirm,
                               textStyle: FlutterFlowTheme.of(context)
                                   .subtitle2
                                   .override(
