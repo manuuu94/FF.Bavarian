@@ -38,6 +38,8 @@ class _LoginWidgetState extends State<LoginWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -53,6 +55,7 @@ class _LoginWidgetState extends State<LoginWidget> {
             padding: EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 8.0),
@@ -78,7 +81,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                 ),
                 Padding(
                   padding:
-                      EdgeInsetsDirectional.fromSTEB(24.0, 20.0, 24.0, 0.0),
+                      EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 20.0),
                   child: Container(
                     width: double.infinity,
                     height: 60.0,
@@ -154,7 +157,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                 ),
                 Padding(
                   padding:
-                      EdgeInsetsDirectional.fromSTEB(24.0, 20.0, 24.0, 0.0),
+                      EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 20.0),
                   child: Container(
                     width: double.infinity,
                     height: 60.0,

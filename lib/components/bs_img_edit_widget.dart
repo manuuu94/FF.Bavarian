@@ -43,6 +43,8 @@ class _BsImgEditWidgetState extends State<BsImgEditWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Container(
       width: double.infinity,
       height: 280.0,

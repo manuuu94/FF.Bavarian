@@ -43,6 +43,8 @@ class _NuevaCotizacionWidgetState extends State<NuevaCotizacionWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -315,6 +317,7 @@ class _NuevaCotizacionWidgetState extends State<NuevaCotizacionWidget> {
                                 onTap: () async {
                                   GoRouter.of(context).prepareAuthEvent();
                                   await signOut();
+                                  GoRouter.of(context).clearRedirectLocation();
 
                                   context.goNamedAuth('HomePage', mounted);
                                 },

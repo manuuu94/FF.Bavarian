@@ -104,6 +104,8 @@ class _PerfilWidgetState extends State<PerfilWidget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -289,8 +291,8 @@ class _PerfilWidgetState extends State<PerfilWidget>
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               FFButtonWidget(
-                                onPressed: () {
-                                  print('Button pressed ...');
+                                onPressed: () async {
+                                  context.pushNamed('Carrito');
                                 },
                                 text: 'Ver carrito',
                                 options: FFButtonOptions(
@@ -408,6 +410,7 @@ class _PerfilWidgetState extends State<PerfilWidget>
                                 onTap: () async {
                                   GoRouter.of(context).prepareAuthEvent();
                                   await signOut();
+                                  GoRouter.of(context).clearRedirectLocation();
 
                                   context.goNamedAuth('HomePage', mounted);
                                 },
@@ -472,10 +475,15 @@ class _PerfilWidgetState extends State<PerfilWidget>
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          Icon(
-                            Icons.shopping_cart,
-                            color: FlutterFlowTheme.of(context).text,
-                            size: 40.0,
+                          InkWell(
+                            onTap: () async {
+                              context.pushNamed('Carrito');
+                            },
+                            child: Icon(
+                              Icons.shopping_cart,
+                              color: FlutterFlowTheme.of(context).text,
+                              size: 40.0,
+                            ),
                           ),
                           InkWell(
                             onTap: () async {

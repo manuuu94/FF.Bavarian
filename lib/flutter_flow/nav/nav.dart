@@ -126,14 +126,19 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => InventarioWidget(),
             ),
             FFRoute(
+              name: 'Cotizaciones',
+              path: 'cotizaciones',
+              builder: (context, params) => CotizacionesWidget(),
+            ),
+            FFRoute(
               name: 'NuevaCotizacion',
               path: 'nuevaCotizacion',
               builder: (context, params) => NuevaCotizacionWidget(),
             ),
             FFRoute(
-              name: 'Cotizaciones',
-              path: 'cotizaciones',
-              builder: (context, params) => CotizacionesWidget(),
+              name: 'Cotizacion',
+              path: 'cotizacion',
+              builder: (context, params) => CotizacionWidget(),
             ),
             FFRoute(
               name: 'Carrito',
@@ -147,8 +152,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
-        ).toRoute(appStateNotifier),
-      ],
+        ),
+      ].map((r) => r.toRoute(appStateNotifier)).toList(),
       urlPathStrategy: UrlPathStrategy.path,
     );
 
@@ -194,6 +199,16 @@ extension NavigationExtensions on BuildContext {
               queryParams: queryParams,
               extra: extra,
             );
+
+  void safePop() {
+    // If there is only one route on the stack, navigate to the initial
+    // page instead of popping.
+    if (GoRouter.of(this).routerDelegate.matches.length <= 1) {
+      go('/');
+    } else {
+      pop();
+    }
+  }
 }
 
 extension GoRouterExtensions on GoRouter {
@@ -205,6 +220,7 @@ extension GoRouterExtensions on GoRouter {
           : appState.updateNotifyOnAuthChange(false);
   bool shouldRedirect(bool ignoreRedirect) =>
       !ignoreRedirect && appState.hasRedirect();
+  void clearRedirectLocation() => appState.clearRedirectLocation();
   void setRedirectLocationIfUnset(String location) =>
       (routerDelegate.refreshListenable as AppStateNotifier)
           .updateNotifyOnAuthChange(false);

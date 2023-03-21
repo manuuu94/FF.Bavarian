@@ -47,6 +47,8 @@ class _BsEditProfileWidgetState extends State<BsEditProfileWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Material(
       color: Colors.transparent,
       elevation: 5.0,

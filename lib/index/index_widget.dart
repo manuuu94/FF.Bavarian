@@ -90,6 +90,8 @@ class _IndexWidgetState extends State<IndexWidget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -263,8 +265,8 @@ class _IndexWidgetState extends State<IndexWidget>
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           FFButtonWidget(
-                            onPressed: () {
-                              print('Button pressed ...');
+                            onPressed: () async {
+                              context.pushNamed('Carrito');
                             },
                             text: 'Ver carrito',
                             options: FFButtonOptions(
@@ -346,6 +348,7 @@ class _IndexWidgetState extends State<IndexWidget>
                             onTap: () async {
                               GoRouter.of(context).prepareAuthEvent();
                               await signOut();
+                              GoRouter.of(context).clearRedirectLocation();
 
                               context.goNamedAuth('HomePage', mounted);
                             },
