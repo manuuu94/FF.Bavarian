@@ -13,3 +13,4 @@ export '/nueva_cotizacion/nueva_cotizacion_widget.dart'
     show NuevaCotizacionWidget;
 export '/cotizaciones/cotizaciones_widget.dart' show CotizacionesWidget;
 export '/carrito/carrito_widget.dart' show CarritoWidget;
+export '/cotizacion/cotizacion_widget.dart' show CotizacionWidget;

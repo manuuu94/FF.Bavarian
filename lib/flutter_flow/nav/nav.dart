@@ -145,6 +145,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 phone: params.getParam('phone', ParamType.String),
                 time: params.getParam('time', ParamType.DateTime),
               ),
+            ),
+            FFRoute(
+              name: 'Cotizacion',
+              path: 'cotizacion',
+              builder: (context, params) => CotizacionWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
