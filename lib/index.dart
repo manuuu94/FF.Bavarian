@@ -9,8 +9,8 @@ export '/detalles_producto/detalles_producto_widget.dart'
     show DetallesProductoWidget;
 export '/perfil/perfil_widget.dart' show PerfilWidget;
 export '/inventario/inventario_widget.dart' show InventarioWidget;
+export '/cotizaciones/cotizaciones_widget.dart' show CotizacionesWidget;
 export '/nueva_cotizacion/nueva_cotizacion_widget.dart'
     show NuevaCotizacionWidget;
-export '/cotizaciones/cotizaciones_widget.dart' show CotizacionesWidget;
-export '/carrito/carrito_widget.dart' show CarritoWidget;
 export '/cotizacion/cotizacion_widget.dart' show CotizacionWidget;
+export '/carrito/carrito_widget.dart' show CarritoWidget;
