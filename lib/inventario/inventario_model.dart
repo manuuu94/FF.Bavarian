@@ -13,11 +13,10 @@ import 'package:text_search/text_search.dart';
 class InventarioModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this page.
 
-  List<InventarioRecord> simpleSearchResults1 = [];
   // State field(s) for txt_search widget.
   TextEditingController? txtSearchController;
   String? Function(BuildContext, String?)? txtSearchControllerValidator;
-  List<InventarioRecord> simpleSearchResults2 = [];
+  List<InventarioRecord> simpleSearchResults = [];
 
   /// Initialization and disposal methods.
 
