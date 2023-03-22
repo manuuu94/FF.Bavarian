@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -107,6 +108,7 @@ class _IndexWidgetState extends State<IndexWidget>
             ),
             child: Column(
               mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
@@ -447,6 +449,7 @@ class _IndexWidgetState extends State<IndexWidget>
                             fontFamily: 'Poppins',
                             color: FlutterFlowTheme.of(context).text,
                             fontSize: 30.0,
+                            decoration: TextDecoration.underline,
                           ),
                     ),
                   ],
@@ -456,25 +459,30 @@ class _IndexWidgetState extends State<IndexWidget>
                 child: Padding(
                   padding:
                       EdgeInsetsDirectional.fromSTEB(20.0, 80.0, 20.0, 0.0),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
-                        child: Text(
-                          'Somos un courier de paquetería y repuestos para todo tipo de vehiculo\nTe traemos tus paquetes y repuestos.\nSolamente debes enviarnos que necesitas y te generamos una cotizacion del precio final.',
-                          textAlign: TextAlign.center,
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: FlutterFlowTheme.of(context).text,
-                                    fontSize: 22.0,
-                                  ),
-                        ).animateOnPageLoad(
-                            animationsMap['textOnPageLoadAnimation']!),
-                      ),
-                    ],
+                  child: SingleChildScrollView(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 10.0, 0.0, 0.0),
+                          child: AutoSizeText(
+                            'Somos un courier de paquetería y repuestos para todo tipo de vehiculo.\nTe traemos tus paquetes y repuestos.\nSolamente debes enviarnos que necesitas y te generamos una cotizacion del precio final.',
+                            textAlign: TextAlign.center,
+                            style:
+                                FlutterFlowTheme.of(context).bodyText1.override(
+                                      fontFamily: 'Poppins',
+                                      color: FlutterFlowTheme.of(context).text,
+                                      fontSize: 22.0,
+                                      fontWeight: FontWeight.bold,
+                                      fontStyle: FontStyle.italic,
+                                    ),
+                          ).animateOnPageLoad(
+                              animationsMap['textOnPageLoadAnimation']!),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -490,7 +498,6 @@ class _IndexWidgetState extends State<IndexWidget>
                       },
                       child: Image.asset(
                         'assets/images/instagram.png',
-                        width: MediaQuery.of(context).size.width * 0.1,
                         height: MediaQuery.of(context).size.height * 0.05,
                         fit: BoxFit.cover,
                       ),
@@ -502,7 +509,6 @@ class _IndexWidgetState extends State<IndexWidget>
                       },
                       child: Image.asset(
                         'assets/images/facebook.png',
-                        width: MediaQuery.of(context).size.width * 0.1,
                         height: MediaQuery.of(context).size.height * 0.05,
                         fit: BoxFit.cover,
                       ),
@@ -515,7 +521,6 @@ class _IndexWidgetState extends State<IndexWidget>
                       },
                       child: Image.asset(
                         'assets/images/whatsapp_(1).png',
-                        width: MediaQuery.of(context).size.width * 0.1,
                         height: MediaQuery.of(context).size.height * 0.05,
                         fit: BoxFit.cover,
                       ),
