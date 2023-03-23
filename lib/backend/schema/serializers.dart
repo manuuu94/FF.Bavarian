@@ -5,6 +5,8 @@ import 'users_record.dart';
 import 'inventario_record.dart';
 import 'carrito_record.dart';
 import 'cotizacion_record.dart';
+import 'opcionesentrega_record.dart';
+import 'direcciones_record.dart';
 
 import 'index.dart';
 
@@ -19,6 +21,8 @@ const kDocumentReferenceField = 'Document__Reference__Field';
   InventarioRecord,
   CarritoRecord,
   CotizacionRecord,
+  OpcionesentregaRecord,
+  DireccionesRecord,
 ])
 final Serializers serializers = (_$serializers.toBuilder()
       ..add(DocumentReferenceSerializer())

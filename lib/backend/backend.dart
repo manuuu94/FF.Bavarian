@@ -9,6 +9,8 @@ import 'schema/users_record.dart';
 import 'schema/inventario_record.dart';
 import 'schema/carrito_record.dart';
 import 'schema/cotizacion_record.dart';
+import 'schema/opcionesentrega_record.dart';
+import 'schema/direcciones_record.dart';
 import 'schema/serializers.dart';
 
 export 'dart:async' show StreamSubscription;
@@ -20,6 +22,8 @@ export 'schema/users_record.dart';
 export 'schema/inventario_record.dart';
 export 'schema/carrito_record.dart';
 export 'schema/cotizacion_record.dart';
+export 'schema/opcionesentrega_record.dart';
+export 'schema/direcciones_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -223,6 +227,110 @@ Future<FFFirestorePage<CotizacionRecord>> queryCotizacionRecordPage({
     queryCollectionPage(
       CotizacionRecord.collection,
       CotizacionRecord.serializer,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
+
+/// Functions to query OpcionesentregaRecords (as a Stream and as a Future).
+Future<int> queryOpcionesentregaRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      OpcionesentregaRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<OpcionesentregaRecord>> queryOpcionesentregaRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      OpcionesentregaRecord.collection,
+      OpcionesentregaRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<OpcionesentregaRecord>> queryOpcionesentregaRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      OpcionesentregaRecord.collection,
+      OpcionesentregaRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<OpcionesentregaRecord>> queryOpcionesentregaRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+    queryCollectionPage(
+      OpcionesentregaRecord.collection,
+      OpcionesentregaRecord.serializer,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
+
+/// Functions to query DireccionesRecords (as a Stream and as a Future).
+Future<int> queryDireccionesRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      DireccionesRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<DireccionesRecord>> queryDireccionesRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      DireccionesRecord.collection,
+      DireccionesRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<DireccionesRecord>> queryDireccionesRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      DireccionesRecord.collection,
+      DireccionesRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<DireccionesRecord>> queryDireccionesRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+    queryCollectionPage(
+      DireccionesRecord.collection,
+      DireccionesRecord.serializer,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,
