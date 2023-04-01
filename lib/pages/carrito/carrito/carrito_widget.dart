@@ -547,7 +547,7 @@ class _CarritoWidgetState extends State<CarritoWidget> {
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          15.0, 15.0, 15.0, 15.0),
+                                          10.0, 15.0, 15.0, 15.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:

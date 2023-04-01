@@ -1,8 +1,11 @@
 import '/auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/components/bs_detalles_cotizacion_widget.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -634,42 +637,161 @@ class _CotizacionesWidgetState extends State<CotizacionesWidget> {
                                               final listViewCotizacionRecord =
                                                   listViewCotizacionRecordList[
                                                       listViewIndex];
-                                              return Container(
-                                                width: 100.0,
-                                                height: 100.0,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryBackground,
-                                                ),
-                                                child: ListTile(
-                                                  title: Text(
-                                                    listViewCotizacionRecord
-                                                        .nombreProducto!,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .headlineSmall,
+                                              return Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Expanded(
+                                                    child: Container(
+                                                      width: 100.0,
+                                                      height: 100.0,
+                                                      decoration: BoxDecoration(
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
+                                                        border: Border.all(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .gray600,
+                                                        ),
+                                                      ),
+                                                      child: InkWell(
+                                                        onTap: () async {
+                                                          await showModalBottomSheet(
+                                                            isScrollControlled:
+                                                                true,
+                                                            backgroundColor:
+                                                                Colors
+                                                                    .transparent,
+                                                            enableDrag: false,
+                                                            context: context,
+                                                            builder: (context) {
+                                                              return Padding(
+                                                                padding: MediaQuery.of(
+                                                                        context)
+                                                                    .viewInsets,
+                                                                child:
+                                                                    Container(
+                                                                  height: MediaQuery.of(
+                                                                              context)
+                                                                          .size
+                                                                          .height *
+                                                                      0.85,
+                                                                  child:
+                                                                      BsDetallesCotizacionWidget(
+                                                                    cotizacion:
+                                                                        listViewCotizacionRecord,
+                                                                  ),
+                                                                ),
+                                                              );
+                                                            },
+                                                          ).then((value) =>
+                                                              setState(() {}));
+                                                        },
+                                                        child: Stack(
+                                                          children: [
+                                                            Align(
+                                                              alignment:
+                                                                  AlignmentDirectional(
+                                                                      -0.9,
+                                                                      -0.75),
+                                                              child: Text(
+                                                                listViewCotizacionRecord
+                                                                    .nombreProducto!,
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      fontSize:
+                                                                          16.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w800,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                            Align(
+                                                              alignment:
+                                                                  AlignmentDirectional(
+                                                                      0.85,
+                                                                      0.84),
+                                                              child: Text(
+                                                                dateTimeFormat(
+                                                                    'yMMMd',
+                                                                    listViewCotizacionRecord
+                                                                        .fecha!),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium,
+                                                              ),
+                                                            ),
+                                                            Align(
+                                                              alignment:
+                                                                  AlignmentDirectional(
+                                                                      0.8,
+                                                                      -0.03),
+                                                              child:
+                                                                  AutoSizeText(
+                                                                formatNumber(
+                                                                  listViewCotizacionRecord
+                                                                      .total!,
+                                                                  formatType:
+                                                                      FormatType
+                                                                          .decimal,
+                                                                  decimalType:
+                                                                      DecimalType
+                                                                          .automatic,
+                                                                  currency: '₡',
+                                                                ),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .bold,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                            Align(
+                                                              alignment:
+                                                                  AlignmentDirectional(
+                                                                      -1.02,
+                                                                      1.51),
+                                                              child:
+                                                                  FlutterFlowIconButton(
+                                                                borderColor: Colors
+                                                                    .transparent,
+                                                                borderRadius:
+                                                                    30.0,
+                                                                borderWidth:
+                                                                    1.0,
+                                                                buttonSize:
+                                                                    60.0,
+                                                                icon: Icon(
+                                                                  Icons.delete,
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .sideBarMenu,
+                                                                  size: 30.0,
+                                                                ),
+                                                                onPressed:
+                                                                    () async {
+                                                                  await listViewCotizacionRecord
+                                                                      .reference
+                                                                      .delete();
+                                                                },
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ),
                                                   ),
-                                                  subtitle: Text(
-                                                    dateTimeFormat(
-                                                        'd/M/y',
-                                                        listViewCotizacionRecord
-                                                            .fecha!),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .titleSmall,
-                                                  ),
-                                                  trailing: Icon(
-                                                    Icons.arrow_forward_ios,
-                                                    color: Color(0xFF303030),
-                                                    size: 20.0,
-                                                  ),
-                                                  tileColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .grayIcon,
-                                                  dense: false,
-                                                ),
+                                                ],
                                               );
                                             },
                                           );
@@ -693,77 +815,161 @@ class _CotizacionesWidgetState extends State<CotizacionesWidget> {
                                               final cotizacionesNameItem =
                                                   cotizacionesName[
                                                       cotizacionesNameIndex];
-                                              return Container(
-                                                width: 100.0,
-                                                height: 100.0,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryBackground,
-                                                ),
-                                                child: ListTile(
-                                                  title: Text(
-                                                    cotizacionesNameItem
-                                                        .nombreProducto!,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .headlineSmall,
+                                              return Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Expanded(
+                                                    child: Container(
+                                                      width: 100.0,
+                                                      height: 100.0,
+                                                      decoration: BoxDecoration(
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
+                                                        border: Border.all(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .gray600,
+                                                        ),
+                                                      ),
+                                                      child: Stack(
+                                                        children: [
+                                                          Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    -0.9,
+                                                                    -0.75),
+                                                            child: Text(
+                                                              cotizacionesNameItem
+                                                                  .nombreProducto!,
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    fontSize:
+                                                                        16.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w800,
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                          Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    0.85, 0.84),
+                                                            child: Text(
+                                                              cotizacionesNameItem
+                                                                  .fecha!
+                                                                  .toString(),
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium,
+                                                            ),
+                                                          ),
+                                                          Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    0.8, -0.03),
+                                                            child: Text(
+                                                              formatNumber(
+                                                                cotizacionesNameItem
+                                                                    .precio!,
+                                                                formatType:
+                                                                    FormatType
+                                                                        .decimal,
+                                                                decimalType:
+                                                                    DecimalType
+                                                                        .automatic,
+                                                                currency: '₡',
+                                                              ),
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                          Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    -1.02,
+                                                                    1.51),
+                                                            child:
+                                                                FlutterFlowIconButton(
+                                                              borderColor: Colors
+                                                                  .transparent,
+                                                              borderRadius:
+                                                                  30.0,
+                                                              borderWidth: 1.0,
+                                                              buttonSize: 60.0,
+                                                              icon: Icon(
+                                                                Icons.delete,
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .sideBarMenu,
+                                                                size: 30.0,
+                                                              ),
+                                                              onPressed:
+                                                                  () async {
+                                                                await cotizacionesNameItem
+                                                                    .reference
+                                                                    .delete();
+                                                              },
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
                                                   ),
-                                                  subtitle: Text(
-                                                    dateTimeFormat(
-                                                        'd/M/y',
-                                                        cotizacionesNameItem
-                                                            .fecha!),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .titleSmall,
-                                                  ),
-                                                  trailing: Icon(
-                                                    Icons.arrow_forward_ios,
-                                                    color: Color(0xFF303030),
-                                                    size: 20.0,
-                                                  ),
-                                                  tileColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .grayIcon,
-                                                  dense: false,
-                                                ),
+                                                ],
                                               );
                                             },
                                           );
                                         },
                                       ),
                                     ),
-                                  FFButtonWidget(
-                                    onPressed: () async {
-                                      context.pushNamed('NuevaCotizacion');
-                                    },
-                                    text: 'Nueva Cotizacion',
-                                    options: FFButtonOptions(
-                                      width: 150.0,
-                                      height: 40.0,
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 0.0),
-                                      iconPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 0.0, 0.0, 0.0),
-                                      color: FlutterFlowTheme.of(context)
-                                          .sideBarMenu,
-                                      textStyle: FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .override(
-                                            fontFamily: 'Poppins',
-                                            color: Colors.white,
-                                            fontSize: 20.0,
-                                            fontWeight: FontWeight.w600,
-                                          ),
-                                      elevation: 2.0,
-                                      borderSide: BorderSide(
-                                        color: Colors.transparent,
-                                        width: 1.0,
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 10.0, 0.0, 0.0),
+                                    child: FFButtonWidget(
+                                      onPressed: () async {
+                                        context.pushNamed('NuevaCotizacion');
+                                      },
+                                      text: 'Nueva Cotizacion',
+                                      options: FFButtonOptions(
+                                        width: 150.0,
+                                        height: 40.0,
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 0.0, 0.0),
+                                        iconPadding:
+                                            EdgeInsetsDirectional.fromSTEB(
+                                                0.0, 0.0, 0.0, 0.0),
+                                        color: FlutterFlowTheme.of(context)
+                                            .sideBarMenu,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              color: Colors.white,
+                                              fontSize: 20.0,
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                        elevation: 2.0,
+                                        borderSide: BorderSide(
+                                          color: Colors.transparent,
+                                          width: 1.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
                                       ),
-                                      borderRadius: BorderRadius.circular(8.0),
                                     ),
                                   ),
                                 ],

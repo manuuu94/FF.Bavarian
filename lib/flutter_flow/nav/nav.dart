@@ -103,13 +103,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => CreateAccountWidget(),
             ),
             FFRoute(
-              name: 'DetallesProducto',
-              path: 'detallesProducto',
-              builder: (context, params) => DetallesProductoWidget(
-                title: params.getParam('title', ParamType.String),
-              ),
-            ),
-            FFRoute(
               name: 'Perfil',
               path: 'perfil',
               builder: (context, params) => PerfilWidget(
@@ -134,11 +127,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'NuevaCotizacion',
               path: 'nuevaCotizacion',
               builder: (context, params) => NuevaCotizacionWidget(),
-            ),
-            FFRoute(
-              name: 'Cotizacion',
-              path: 'cotizacion',
-              builder: (context, params) => CotizacionWidget(),
             ),
             FFRoute(
               name: 'Carrito',
