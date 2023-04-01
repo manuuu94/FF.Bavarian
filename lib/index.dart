@@ -18,5 +18,3 @@ export '/pages/cotizaciones/nueva_cotizacion/nueva_cotizacion_widget.dart'
 export '/pages/cotizaciones/cotizacion/cotizacion_widget.dart'
     show CotizacionWidget;
 export '/pages/carrito/carrito/carrito_widget.dart' show CarritoWidget;
-export '/pages/carrito/confirma_compra/confirma_compra_widget.dart'
-    show ConfirmaCompraWidget;

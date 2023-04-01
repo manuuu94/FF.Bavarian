@@ -150,17 +150,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 phone: params.getParam('phone', ParamType.String),
                 time: params.getParam('time', ParamType.DateTime),
               ),
-            ),
-            FFRoute(
-              name: 'confirmaCompra',
-              path: 'confirmaCompra',
-              builder: (context, params) => ConfirmaCompraWidget(
-                name: params.getParam('name', ParamType.String),
-                img: params.getParam('img', ParamType.String),
-                email: params.getParam('email', ParamType.String),
-                phone: params.getParam('phone', ParamType.String),
-                time: params.getParam('time', ParamType.DateTime),
-              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
@@ -349,7 +338,7 @@ class FFRoute {
                     width: 50.0,
                     height: 50.0,
                     child: CircularProgressIndicator(
-                      color: FlutterFlowTheme.of(context).primaryColor,
+                      color: FlutterFlowTheme.of(context).primary,
                     ),
                   ),
                 )

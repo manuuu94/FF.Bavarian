@@ -3,6 +3,7 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
@@ -113,14 +114,14 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                                       0.0, 0.0, 0.0, 0.0),
                                   iconPadding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryColor,
+                                  color: FlutterFlowTheme.of(context).primary,
                                   textStyle: FlutterFlowTheme.of(context)
-                                      .subtitle2
+                                      .titleSmall
                                       .override(
                                         fontFamily: 'Poppins',
                                         color: Colors.white,
                                       ),
+                                  elevation: 2.0,
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
                                     width: 1.0,
@@ -155,14 +156,14 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                                       0.0, 0.0, 0.0, 0.0),
                                   iconPadding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryColor,
+                                  color: FlutterFlowTheme.of(context).primary,
                                   textStyle: FlutterFlowTheme.of(context)
-                                      .subtitle2
+                                      .titleSmall
                                       .override(
                                         fontFamily: 'Poppins',
                                         color: Colors.white,
                                       ),
+                                  elevation: 2.0,
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
                                     width: 1.0,
@@ -197,14 +198,14 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                                       0.0, 0.0, 0.0, 0.0),
                                   iconPadding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryColor,
+                                  color: FlutterFlowTheme.of(context).primary,
                                   textStyle: FlutterFlowTheme.of(context)
-                                      .subtitle2
+                                      .titleSmall
                                       .override(
                                         fontFamily: 'Poppins',
                                         color: Colors.white,
                                       ),
+                                  elevation: 2.0,
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
                                     width: 1.0,
@@ -239,14 +240,14 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                                       0.0, 0.0, 0.0, 0.0),
                                   iconPadding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryColor,
+                                  color: FlutterFlowTheme.of(context).primary,
                                   textStyle: FlutterFlowTheme.of(context)
-                                      .subtitle2
+                                      .titleSmall
                                       .override(
                                         fontFamily: 'Poppins',
                                         color: Colors.white,
                                       ),
+                                  elevation: 2.0,
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
                                     width: 1.0,
@@ -281,14 +282,14 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                                       0.0, 0.0, 0.0, 0.0),
                                   iconPadding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryColor,
+                                  color: FlutterFlowTheme.of(context).primary,
                                   textStyle: FlutterFlowTheme.of(context)
-                                      .subtitle2
+                                      .titleSmall
                                       .override(
                                         fontFamily: 'Poppins',
                                         color: Colors.white,
                                       ),
+                                  elevation: 2.0,
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
                                     width: 1.0,
@@ -420,7 +421,7 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                         Text(
                           'Inventario',
                           style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
+                              FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Poppins',
                                     color: FlutterFlowTheme.of(context).text,
                                     fontSize: 20.0,
@@ -439,8 +440,8 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                                     width: 50.0,
                                     height: 50.0,
                                     child: CircularProgressIndicator(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryColor,
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
                                     ),
                                   ),
                                 );
@@ -466,7 +467,7 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                                           Icon(
                                             Icons.search,
                                             color: FlutterFlowTheme.of(context)
-                                                .tertiaryColor,
+                                                .tertiary,
                                             size: 24.0,
                                           ),
                                           Expanded(
@@ -582,7 +583,7 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                                                 ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyText1
+                                                        .bodyMedium
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 16.0,
@@ -650,7 +651,7 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                                                     CircularProgressIndicator(
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .primaryColor,
+                                                      .primary,
                                                 ),
                                               ),
                                             );
@@ -746,7 +747,7 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                                                                 .center,
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .bodyText1,
+                                                                .bodyMedium,
                                                           ),
                                                         ),
                                                       ],
@@ -812,6 +813,10 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                                                                       gridViewInventarioRecord
                                                                           .precio,
                                                                   cantidad: 1,
+                                                                  total: functions
+                                                                      .sumaPrecios2(
+                                                                          gridViewInventarioRecord
+                                                                              .precio!),
                                                                 );
                                                                 await CarritoRecord
                                                                     .collection
@@ -845,16 +850,16 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                                                                             0.0),
                                                                 color: Color(
                                                                     0xBF39EF40),
-                                                                textStyle:
-                                                                    FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .title1
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Poppins',
-                                                                          fontSize:
-                                                                              22.0,
-                                                                        ),
+                                                                textStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .displaySmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      fontSize:
+                                                                          22.0,
+                                                                    ),
+                                                                elevation: 2.0,
                                                                 borderSide:
                                                                     BorderSide(
                                                                   color: Colors
@@ -890,7 +895,7 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                                                               ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodyText2
+                                                                  .bodySmall
                                                                   .override(
                                                                     fontFamily:
                                                                         'Poppins',
@@ -1001,7 +1006,7 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                                                                 .center,
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .bodyText1,
+                                                                .bodyMedium,
                                                           ),
                                                         ),
                                                       ],
@@ -1100,16 +1105,16 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                                                                             0.0),
                                                                 color: Color(
                                                                     0xBF39EF40),
-                                                                textStyle:
-                                                                    FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .title1
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Poppins',
-                                                                          fontSize:
-                                                                              22.0,
-                                                                        ),
+                                                                textStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .displaySmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      fontSize:
+                                                                          22.0,
+                                                                    ),
+                                                                elevation: 2.0,
                                                                 borderSide:
                                                                     BorderSide(
                                                                   color: Colors
@@ -1137,7 +1142,7 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                                                                   .toString(),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodyText2
+                                                                  .bodySmall
                                                                   .override(
                                                                     fontFamily:
                                                                         'Poppins',
@@ -1178,7 +1183,7 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
                       child: Text(
                         'developed by group X',
-                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Roboto Mono',
                               color: FlutterFlowTheme.of(context).sideBar,
                               fontSize: 10.0,

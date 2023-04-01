@@ -64,7 +64,7 @@ class _BsImgEditWidgetState extends State<BsImgEditWidget> {
           topRight: Radius.circular(16.0),
         ),
         border: Border.all(
-          color: FlutterFlowTheme.of(context).primaryColor,
+          color: FlutterFlowTheme.of(context).primary,
           width: 10.0,
         ),
       ),
@@ -85,7 +85,7 @@ class _BsImgEditWidgetState extends State<BsImgEditWidget> {
                       obscureText: false,
                       decoration: InputDecoration(
                         hintText: 'Url imagen',
-                        hintStyle: FlutterFlowTheme.of(context).bodyText2,
+                        hintStyle: FlutterFlowTheme.of(context).bodySmall,
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: FlutterFlowTheme.of(context).sideBarMenu,
@@ -127,7 +127,7 @@ class _BsImgEditWidgetState extends State<BsImgEditWidget> {
                           ),
                         ),
                       ),
-                      style: FlutterFlowTheme.of(context).bodyText1,
+                      style: FlutterFlowTheme.of(context).bodyMedium,
                       textAlign: TextAlign.center,
                       validator:
                           _model.txtURLControllerValidator.asValidator(context),
@@ -164,7 +164,7 @@ class _BsImgEditWidgetState extends State<BsImgEditWidget> {
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       color: FlutterFlowTheme.of(context).sideBarMenu,
                       textStyle:
-                          FlutterFlowTheme.of(context).subtitle1.override(
+                          FlutterFlowTheme.of(context).titleMedium.override(
                                 fontFamily: 'Poppins',
                                 color: Colors.white,
                               ),

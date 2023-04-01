@@ -66,14 +66,13 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(
                             8.0, 50.0, 8.0, 50.0),
                         child: Text(
-                          'Crear cuenta',
-                          textAlign: TextAlign.start,
+                          'Crear cuenta:',
+                          textAlign: TextAlign.center,
                           style:
-                              FlutterFlowTheme.of(context).subtitle2.override(
+                              FlutterFlowTheme.of(context).titleSmall.override(
                                     fontFamily: 'Poppins',
                                     color: FlutterFlowTheme.of(context).text,
                                     fontSize: 22.0,
-                                    fontStyle: FontStyle.italic,
                                   ),
                         ),
                       ),
@@ -104,13 +103,13 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                       obscureText: false,
                       decoration: InputDecoration(
                         labelStyle:
-                            FlutterFlowTheme.of(context).bodyText2.override(
+                            FlutterFlowTheme.of(context).bodySmall.override(
                                   fontFamily: 'Poppins',
                                   color: Color(0xFF3E3E3E),
                                 ),
                         hintText: 'Introduzca su Correo Electronico',
                         hintStyle: FlutterFlowTheme.of(context)
-                            .bodyText1
+                            .bodyMedium
                             .override(
                               fontFamily: 'Lexend Deca',
                               color: FlutterFlowTheme.of(context).secondaryText,
@@ -149,7 +148,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                         fillColor:
                             FlutterFlowTheme.of(context).secondaryBackground,
                       ),
-                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Poppins',
                             color: FlutterFlowTheme.of(context).secondaryText,
                             fontWeight: FontWeight.w600,
@@ -186,13 +185,13 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                       obscureText: !_model.passwordVisibility,
                       decoration: InputDecoration(
                         labelStyle:
-                            FlutterFlowTheme.of(context).bodyText2.override(
+                            FlutterFlowTheme.of(context).bodySmall.override(
                                   fontFamily: 'Poppins',
                                   color: FlutterFlowTheme.of(context).textColor,
                                 ),
                         hintText: 'Introduzca su contraseña...',
                         hintStyle: FlutterFlowTheme.of(context)
-                            .bodyText1
+                            .bodyMedium
                             .override(
                               fontFamily: 'Lexend Deca',
                               color: FlutterFlowTheme.of(context).secondaryText,
@@ -245,7 +244,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                           ),
                         ),
                       ),
-                      style: FlutterFlowTheme.of(context).bodyText1,
+                      style: FlutterFlowTheme.of(context).bodyMedium,
                       textAlign: TextAlign.start,
                       validator: _model.passwordControllerValidator
                           .asValidator(context),
@@ -276,9 +275,9 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                       obscureText: !_model.confirmPasswordVisibility,
                       decoration: InputDecoration(
                         labelText: 'Confirmar contraseña....',
-                        labelStyle: FlutterFlowTheme.of(context).bodyText2,
+                        labelStyle: FlutterFlowTheme.of(context).bodySmall,
                         hintStyle: FlutterFlowTheme.of(context)
-                            .bodyText1
+                            .bodyMedium
                             .override(
                               fontFamily: 'Lexend Deca',
                               color: FlutterFlowTheme.of(context).secondaryText,
@@ -331,7 +330,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                           ),
                         ),
                       ),
-                      style: FlutterFlowTheme.of(context).bodyText1,
+                      style: FlutterFlowTheme.of(context).bodyMedium,
                       validator: _model.confirmPasswordControllerValidator
                           .asValidator(context),
                     ),
@@ -414,6 +413,10 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                     _navigate();
                   },
                   text: 'Crear cuenta ',
+                  icon: Icon(
+                    Icons.account_circle,
+                    size: 15.0,
+                  ),
                   options: FFButtonOptions(
                     width: 270.0,
                     height: 50.0,
@@ -421,7 +424,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                     iconPadding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: FlutterFlowTheme.of(context).grayIcon,
-                    textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Poppins',
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,

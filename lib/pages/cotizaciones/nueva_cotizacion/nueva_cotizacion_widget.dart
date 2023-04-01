@@ -115,14 +115,14 @@ class _NuevaCotizacionWidgetState extends State<NuevaCotizacionWidget> {
                                       0.0, 0.0, 0.0, 0.0),
                                   iconPadding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryColor,
+                                  color: FlutterFlowTheme.of(context).primary,
                                   textStyle: FlutterFlowTheme.of(context)
-                                      .subtitle2
+                                      .titleSmall
                                       .override(
                                         fontFamily: 'Poppins',
                                         color: Colors.white,
                                       ),
+                                  elevation: 2.0,
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
                                     width: 1.0,
@@ -157,14 +157,14 @@ class _NuevaCotizacionWidgetState extends State<NuevaCotizacionWidget> {
                                       0.0, 0.0, 0.0, 0.0),
                                   iconPadding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryColor,
+                                  color: FlutterFlowTheme.of(context).primary,
                                   textStyle: FlutterFlowTheme.of(context)
-                                      .subtitle2
+                                      .titleSmall
                                       .override(
                                         fontFamily: 'Poppins',
                                         color: Colors.white,
                                       ),
+                                  elevation: 2.0,
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
                                     width: 1.0,
@@ -199,14 +199,14 @@ class _NuevaCotizacionWidgetState extends State<NuevaCotizacionWidget> {
                                       0.0, 0.0, 0.0, 0.0),
                                   iconPadding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryColor,
+                                  color: FlutterFlowTheme.of(context).primary,
                                   textStyle: FlutterFlowTheme.of(context)
-                                      .subtitle2
+                                      .titleSmall
                                       .override(
                                         fontFamily: 'Poppins',
                                         color: Colors.white,
                                       ),
+                                  elevation: 2.0,
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
                                     width: 1.0,
@@ -241,14 +241,14 @@ class _NuevaCotizacionWidgetState extends State<NuevaCotizacionWidget> {
                                       0.0, 0.0, 0.0, 0.0),
                                   iconPadding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryColor,
+                                  color: FlutterFlowTheme.of(context).primary,
                                   textStyle: FlutterFlowTheme.of(context)
-                                      .subtitle2
+                                      .titleSmall
                                       .override(
                                         fontFamily: 'Poppins',
                                         color: Colors.white,
                                       ),
+                                  elevation: 2.0,
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
                                     width: 1.0,
@@ -283,14 +283,14 @@ class _NuevaCotizacionWidgetState extends State<NuevaCotizacionWidget> {
                                       0.0, 0.0, 0.0, 0.0),
                                   iconPadding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryColor,
+                                  color: FlutterFlowTheme.of(context).primary,
                                   textStyle: FlutterFlowTheme.of(context)
-                                      .subtitle2
+                                      .titleSmall
                                       .override(
                                         fontFamily: 'Poppins',
                                         color: Colors.white,
                                       ),
+                                  elevation: 2.0,
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
                                     width: 1.0,
@@ -382,10 +382,15 @@ class _NuevaCotizacionWidgetState extends State<NuevaCotizacionWidget> {
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          Icon(
-                            Icons.shopping_cart,
-                            color: FlutterFlowTheme.of(context).text,
-                            size: 40.0,
+                          InkWell(
+                            onTap: () async {
+                              context.pushNamed('Carrito');
+                            },
+                            child: Icon(
+                              Icons.shopping_cart,
+                              color: FlutterFlowTheme.of(context).text,
+                              size: 40.0,
+                            ),
                           ),
                           InkWell(
                             onTap: () async {
@@ -417,7 +422,7 @@ class _NuevaCotizacionWidgetState extends State<NuevaCotizacionWidget> {
                         Text(
                           'Nueva Cotizacion',
                           style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
+                              FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Poppins',
                                     color: FlutterFlowTheme.of(context).text,
                                     fontSize: 20.0,
@@ -449,7 +454,7 @@ class _NuevaCotizacionWidgetState extends State<NuevaCotizacionWidget> {
                                               hintText: 'Nombre articulo',
                                               hintStyle:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyText2,
+                                                      .bodySmall,
                                               enabledBorder:
                                                   UnderlineInputBorder(
                                                 borderSide: BorderSide(
@@ -495,7 +500,7 @@ class _NuevaCotizacionWidgetState extends State<NuevaCotizacionWidget> {
                                                       .lineColor,
                                             ),
                                             style: FlutterFlowTheme.of(context)
-                                                .bodyText1
+                                                .bodyMedium
                                                 .override(
                                                   fontFamily: 'Poppins',
                                                   fontSize: 20.0,
@@ -526,7 +531,7 @@ class _NuevaCotizacionWidgetState extends State<NuevaCotizacionWidget> {
                                               hintText: 'Precio articulo',
                                               hintStyle:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyText2,
+                                                      .bodySmall,
                                               enabledBorder:
                                                   UnderlineInputBorder(
                                                 borderSide: BorderSide(
@@ -572,7 +577,7 @@ class _NuevaCotizacionWidgetState extends State<NuevaCotizacionWidget> {
                                                       .lineColor,
                                             ),
                                             style: FlutterFlowTheme.of(context)
-                                                .bodyText1
+                                                .bodyMedium
                                                 .override(
                                                   fontFamily: 'Poppins',
                                                   fontSize: 20.0,
@@ -603,7 +608,7 @@ class _NuevaCotizacionWidgetState extends State<NuevaCotizacionWidget> {
                                               hintText: 'Peso articulo (Kgs)',
                                               hintStyle:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyText2,
+                                                      .bodySmall,
                                               enabledBorder:
                                                   UnderlineInputBorder(
                                                 borderSide: BorderSide(
@@ -649,7 +654,7 @@ class _NuevaCotizacionWidgetState extends State<NuevaCotizacionWidget> {
                                                       .lineColor,
                                             ),
                                             style: FlutterFlowTheme.of(context)
-                                                .bodyText1
+                                                .bodyMedium
                                                 .override(
                                                   fontFamily: 'Poppins',
                                                   fontSize: 20.0,
@@ -680,7 +685,7 @@ class _NuevaCotizacionWidgetState extends State<NuevaCotizacionWidget> {
                                               hintText: 'Tipo articulo',
                                               hintStyle:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyText2,
+                                                      .bodySmall,
                                               enabledBorder:
                                                   UnderlineInputBorder(
                                                 borderSide: BorderSide(
@@ -726,7 +731,7 @@ class _NuevaCotizacionWidgetState extends State<NuevaCotizacionWidget> {
                                                       .lineColor,
                                             ),
                                             style: FlutterFlowTheme.of(context)
-                                                .bodyText1
+                                                .bodyMedium
                                                 .override(
                                                   fontFamily: 'Poppins',
                                                   fontSize: 20.0,
@@ -757,7 +762,7 @@ class _NuevaCotizacionWidgetState extends State<NuevaCotizacionWidget> {
                                               hintText: 'Enlace articulo',
                                               hintStyle:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyText2,
+                                                      .bodySmall,
                                               enabledBorder:
                                                   UnderlineInputBorder(
                                                 borderSide: BorderSide(
@@ -803,7 +808,7 @@ class _NuevaCotizacionWidgetState extends State<NuevaCotizacionWidget> {
                                                       .lineColor,
                                             ),
                                             style: FlutterFlowTheme.of(context)
-                                                .bodyText1
+                                                .bodyMedium
                                                 .override(
                                                   fontFamily: 'Poppins',
                                                   fontSize: 20.0,
@@ -851,13 +856,14 @@ class _NuevaCotizacionWidgetState extends State<NuevaCotizacionWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .sideBarMenu,
                                         textStyle: FlutterFlowTheme.of(context)
-                                            .subtitle2
+                                            .titleSmall
                                             .override(
                                               fontFamily: 'Poppins',
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .text,
                                             ),
+                                        elevation: 2.0,
                                         borderSide: BorderSide(
                                           color: Colors.transparent,
                                           width: 1.0,
@@ -888,7 +894,7 @@ class _NuevaCotizacionWidgetState extends State<NuevaCotizacionWidget> {
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
                       child: Text(
                         'developed by group X',
-                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Roboto Mono',
                               color: FlutterFlowTheme.of(context).sideBar,
                               fontSize: 10.0,

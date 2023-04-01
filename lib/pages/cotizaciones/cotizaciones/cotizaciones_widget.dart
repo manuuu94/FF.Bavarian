@@ -112,14 +112,14 @@ class _CotizacionesWidgetState extends State<CotizacionesWidget> {
                                       0.0, 0.0, 0.0, 0.0),
                                   iconPadding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryColor,
+                                  color: FlutterFlowTheme.of(context).primary,
                                   textStyle: FlutterFlowTheme.of(context)
-                                      .subtitle2
+                                      .titleSmall
                                       .override(
                                         fontFamily: 'Poppins',
                                         color: Colors.white,
                                       ),
+                                  elevation: 2.0,
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
                                     width: 1.0,
@@ -154,14 +154,14 @@ class _CotizacionesWidgetState extends State<CotizacionesWidget> {
                                       0.0, 0.0, 0.0, 0.0),
                                   iconPadding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryColor,
+                                  color: FlutterFlowTheme.of(context).primary,
                                   textStyle: FlutterFlowTheme.of(context)
-                                      .subtitle2
+                                      .titleSmall
                                       .override(
                                         fontFamily: 'Poppins',
                                         color: Colors.white,
                                       ),
+                                  elevation: 2.0,
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
                                     width: 1.0,
@@ -196,14 +196,14 @@ class _CotizacionesWidgetState extends State<CotizacionesWidget> {
                                       0.0, 0.0, 0.0, 0.0),
                                   iconPadding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryColor,
+                                  color: FlutterFlowTheme.of(context).primary,
                                   textStyle: FlutterFlowTheme.of(context)
-                                      .subtitle2
+                                      .titleSmall
                                       .override(
                                         fontFamily: 'Poppins',
                                         color: Colors.white,
                                       ),
+                                  elevation: 2.0,
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
                                     width: 1.0,
@@ -238,14 +238,14 @@ class _CotizacionesWidgetState extends State<CotizacionesWidget> {
                                       0.0, 0.0, 0.0, 0.0),
                                   iconPadding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryColor,
+                                  color: FlutterFlowTheme.of(context).primary,
                                   textStyle: FlutterFlowTheme.of(context)
-                                      .subtitle2
+                                      .titleSmall
                                       .override(
                                         fontFamily: 'Poppins',
                                         color: Colors.white,
                                       ),
+                                  elevation: 2.0,
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
                                     width: 1.0,
@@ -280,14 +280,14 @@ class _CotizacionesWidgetState extends State<CotizacionesWidget> {
                                       0.0, 0.0, 0.0, 0.0),
                                   iconPadding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryColor,
+                                  color: FlutterFlowTheme.of(context).primary,
                                   textStyle: FlutterFlowTheme.of(context)
-                                      .subtitle2
+                                      .titleSmall
                                       .override(
                                         fontFamily: 'Poppins',
                                         color: Colors.white,
                                       ),
+                                  elevation: 2.0,
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
                                     width: 1.0,
@@ -414,7 +414,7 @@ class _CotizacionesWidgetState extends State<CotizacionesWidget> {
                         Text(
                           'Cotizaciones',
                           style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
+                              FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Poppins',
                                     color: FlutterFlowTheme.of(context).text,
                                     fontSize: 20.0,
@@ -441,7 +441,7 @@ class _CotizacionesWidgetState extends State<CotizacionesWidget> {
                                       Icon(
                                         Icons.search,
                                         color: FlutterFlowTheme.of(context)
-                                            .tertiaryColor,
+                                            .tertiary,
                                         size: 24.0,
                                       ),
                                       Expanded(
@@ -549,7 +549,7 @@ class _CotizacionesWidgetState extends State<CotizacionesWidget> {
                                               ),
                                             ),
                                             style: FlutterFlowTheme.of(context)
-                                                .bodyText1
+                                                .bodyMedium
                                                 .override(
                                                   fontFamily: 'Poppins',
                                                   fontSize: 16.0,
@@ -576,8 +576,8 @@ class _CotizacionesWidgetState extends State<CotizacionesWidget> {
                                     },
                                     child: Icon(
                                       Icons.clear,
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryColor,
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
                                       size: 24.0,
                                     ),
                                   ),
@@ -614,7 +614,7 @@ class _CotizacionesWidgetState extends State<CotizacionesWidget> {
                                                     CircularProgressIndicator(
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .primaryColor,
+                                                      .primary,
                                                 ),
                                               ),
                                             );
@@ -648,7 +648,7 @@ class _CotizacionesWidgetState extends State<CotizacionesWidget> {
                                                         .nombreProducto!,
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .title3,
+                                                        .headlineSmall,
                                                   ),
                                                   subtitle: Text(
                                                     dateTimeFormat(
@@ -657,7 +657,7 @@ class _CotizacionesWidgetState extends State<CotizacionesWidget> {
                                                             .fecha!),
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .subtitle2,
+                                                        .titleSmall,
                                                   ),
                                                   trailing: Icon(
                                                     Icons.arrow_forward_ios,
@@ -707,7 +707,7 @@ class _CotizacionesWidgetState extends State<CotizacionesWidget> {
                                                         .nombreProducto!,
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .title3,
+                                                        .headlineSmall,
                                                   ),
                                                   subtitle: Text(
                                                     dateTimeFormat(
@@ -716,7 +716,7 @@ class _CotizacionesWidgetState extends State<CotizacionesWidget> {
                                                             .fecha!),
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .subtitle2,
+                                                        .titleSmall,
                                                   ),
                                                   trailing: Icon(
                                                     Icons.arrow_forward_ios,
@@ -751,13 +751,14 @@ class _CotizacionesWidgetState extends State<CotizacionesWidget> {
                                       color: FlutterFlowTheme.of(context)
                                           .sideBarMenu,
                                       textStyle: FlutterFlowTheme.of(context)
-                                          .subtitle2
+                                          .titleSmall
                                           .override(
                                             fontFamily: 'Poppins',
                                             color: Colors.white,
                                             fontSize: 20.0,
                                             fontWeight: FontWeight.w600,
                                           ),
+                                      elevation: 2.0,
                                       borderSide: BorderSide(
                                         color: Colors.transparent,
                                         width: 1.0,
@@ -786,7 +787,7 @@ class _CotizacionesWidgetState extends State<CotizacionesWidget> {
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
                       child: Text(
                         'developed by group X',
-                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Roboto Mono',
                               color: FlutterFlowTheme.of(context).sideBar,
                               fontSize: 10.0,
