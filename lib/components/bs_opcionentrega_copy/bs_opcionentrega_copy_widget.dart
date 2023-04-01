@@ -1,23 +1,29 @@
 import '/backend/backend.dart';
-import '/components/bs_opcionentrega_copy/bs_opcionentrega_copy_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'bs_opcionentrega_model.dart';
-export 'bs_opcionentrega_model.dart';
+import 'bs_opcionentrega_copy_model.dart';
+export 'bs_opcionentrega_copy_model.dart';
 
-class BsOpcionentregaWidget extends StatefulWidget {
-  const BsOpcionentregaWidget({Key? key}) : super(key: key);
+class BsOpcionentregaCopyWidget extends StatefulWidget {
+  const BsOpcionentregaCopyWidget({
+    Key? key,
+    this.categoria,
+  }) : super(key: key);
+
+  final OpcionesentregaRecord? categoria;
 
   @override
-  _BsOpcionentregaWidgetState createState() => _BsOpcionentregaWidgetState();
+  _BsOpcionentregaCopyWidgetState createState() =>
+      _BsOpcionentregaCopyWidgetState();
 }
 
-class _BsOpcionentregaWidgetState extends State<BsOpcionentregaWidget> {
-  late BsOpcionentregaModel _model;
+class _BsOpcionentregaCopyWidgetState extends State<BsOpcionentregaCopyWidget> {
+  late BsOpcionentregaCopyModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -28,7 +34,7 @@ class _BsOpcionentregaWidgetState extends State<BsOpcionentregaWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => BsOpcionentregaModel());
+    _model = createModel(context, () => BsOpcionentregaCopyModel());
   }
 
   @override
@@ -71,8 +77,12 @@ class _BsOpcionentregaWidgetState extends State<BsOpcionentregaWidget> {
           mainAxisSize: MainAxisSize.max,
           children: [
             Expanded(
-              child: StreamBuilder<List<OpcionesentregaRecord>>(
-                stream: queryOpcionesentregaRecord(),
+              child: StreamBuilder<List<DireccionesRecord>>(
+                stream: queryDireccionesRecord(
+                  queryBuilder: (direccionesRecord) => direccionesRecord.where(
+                      'opcionentrega',
+                      isEqualTo: widget.categoria!.reference),
+                ),
                 builder: (context, snapshot) {
                   // Customize what your widget looks like when it's loading.
                   if (!snapshot.hasData) {
@@ -86,65 +96,60 @@ class _BsOpcionentregaWidgetState extends State<BsOpcionentregaWidget> {
                       ),
                     );
                   }
-                  List<OpcionesentregaRecord>
-                      gridViewOpcionesentregaRecordList = snapshot.data!;
-                  return GridView.builder(
+                  List<DireccionesRecord> listViewDireccionesRecordList =
+                      snapshot.data!;
+                  return ListView.builder(
                     padding: EdgeInsets.zero,
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 10.0,
-                      mainAxisSpacing: 10.0,
-                      childAspectRatio: 1.0,
-                    ),
                     scrollDirection: Axis.vertical,
-                    itemCount: gridViewOpcionesentregaRecordList.length,
-                    itemBuilder: (context, gridViewIndex) {
-                      final gridViewOpcionesentregaRecord =
-                          gridViewOpcionesentregaRecordList[gridViewIndex];
+                    itemCount: listViewDireccionesRecordList.length,
+                    itemBuilder: (context, listViewIndex) {
+                      final listViewDireccionesRecord =
+                          listViewDireccionesRecordList[listViewIndex];
                       return Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            10.0, 10.0, 10.0, 10.0),
-                        child: FFButtonWidget(
-                          onPressed: () async {
-                            await showModalBottomSheet(
-                              isScrollControlled: true,
-                              backgroundColor: Colors.transparent,
-                              enableDrag: false,
-                              context: context,
-                              builder: (context) {
-                                return Padding(
-                                  padding: MediaQuery.of(context).viewInsets,
-                                  child: Container(
-                                    height: MediaQuery.of(context).size.height *
-                                        0.4,
-                                    child: BsOpcionentregaCopyWidget(
-                                      categoria: gridViewOpcionesentregaRecord,
-                                    ),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
+                        child: Slidable(
+                          endActionPane: ActionPane(
+                            motion: const ScrollMotion(),
+                            extentRatio: 0.25,
+                            children: [
+                              SlidableAction(
+                                label: 'Enviar',
+                                backgroundColor:
+                                    FlutterFlowTheme.of(context).greenConfirm,
+                                icon: Icons.send,
+                                onPressed: (_) {
+                                  print('SlidableActionWidget pressed ...');
+                                },
+                              ),
+                            ],
+                          ),
+                          child: ListTile(
+                            title: Text(
+                              listViewDireccionesRecord.nombredir!,
+                              style: FlutterFlowTheme.of(context)
+                                  .headlineSmall
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    color: FlutterFlowTheme.of(context).text,
                                   ),
-                                );
-                              },
-                            ).then((value) => setState(() {}));
-                          },
-                          text: gridViewOpcionesentregaRecord.tipoNombre!,
-                          options: FFButtonOptions(
-                            width: 100.0,
-                            height: 40.0,
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            color: FlutterFlowTheme.of(context).primary,
-                            textStyle: FlutterFlowTheme.of(context)
-                                .titleSmall
-                                .override(
-                                  fontFamily: 'Poppins',
-                                  color: Colors.white,
-                                ),
-                            borderSide: BorderSide(
-                              color: Colors.transparent,
-                              width: 1.0,
                             ),
-                            borderRadius: BorderRadius.circular(8.0),
+                            subtitle: Text(
+                              listViewDireccionesRecord.direccioncompleta!,
+                              style: FlutterFlowTheme.of(context)
+                                  .titleSmall
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    color: FlutterFlowTheme.of(context).text,
+                                  ),
+                            ),
+                            trailing: Icon(
+                              Icons.chevron_left,
+                              color: Color(0xFFFF0004),
+                              size: 40.0,
+                            ),
+                            tileColor: Colors.black,
+                            dense: false,
                           ),
                         ),
                       );

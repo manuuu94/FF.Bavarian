@@ -111,6 +111,7 @@ class _BsEditProfileWidgetState extends State<BsEditProfileWidget> {
                         await showModalBottomSheet(
                           isScrollControlled: true,
                           backgroundColor: Colors.transparent,
+                          barrierColor: Color(0x00000000),
                           enableDrag: false,
                           context: context,
                           builder: (context) {
@@ -129,12 +130,13 @@ class _BsEditProfileWidgetState extends State<BsEditProfileWidget> {
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         iconPadding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).primaryColor,
+                        color: FlutterFlowTheme.of(context).primary,
                         textStyle:
-                            FlutterFlowTheme.of(context).subtitle2.override(
+                            FlutterFlowTheme.of(context).titleSmall.override(
                                   fontFamily: 'Poppins',
                                   color: Colors.white,
                                 ),
+                        elevation: 2.0,
                         borderSide: BorderSide(
                           color: Colors.transparent,
                           width: 1.0,
@@ -159,7 +161,7 @@ class _BsEditProfileWidgetState extends State<BsEditProfileWidget> {
                           obscureText: false,
                           decoration: InputDecoration(
                             hintText: 'Su nombre',
-                            hintStyle: FlutterFlowTheme.of(context).bodyText2,
+                            hintStyle: FlutterFlowTheme.of(context).bodySmall,
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).sideBarMenu,
@@ -201,7 +203,7 @@ class _BsEditProfileWidgetState extends State<BsEditProfileWidget> {
                               ),
                             ),
                           ),
-                          style: FlutterFlowTheme.of(context).bodyText1,
+                          style: FlutterFlowTheme.of(context).bodyMedium,
                           textAlign: TextAlign.center,
                           validator: _model.txtEditNameControllerValidator
                               .asValidator(context),
@@ -225,7 +227,7 @@ class _BsEditProfileWidgetState extends State<BsEditProfileWidget> {
                           obscureText: false,
                           decoration: InputDecoration(
                             hintText: 'Su teléfono',
-                            hintStyle: FlutterFlowTheme.of(context).bodyText2,
+                            hintStyle: FlutterFlowTheme.of(context).bodySmall,
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).sideBarMenu,
@@ -267,7 +269,7 @@ class _BsEditProfileWidgetState extends State<BsEditProfileWidget> {
                               ),
                             ),
                           ),
-                          style: FlutterFlowTheme.of(context).bodyText1,
+                          style: FlutterFlowTheme.of(context).bodyMedium,
                           textAlign: TextAlign.center,
                           validator: _model.txtPhoneControllerValidator
                               .asValidator(context),
@@ -307,7 +309,7 @@ class _BsEditProfileWidgetState extends State<BsEditProfileWidget> {
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         color: FlutterFlowTheme.of(context).sideBarMenu,
                         textStyle:
-                            FlutterFlowTheme.of(context).subtitle1.override(
+                            FlutterFlowTheme.of(context).titleMedium.override(
                                   fontFamily: 'Poppins',
                                   color: Colors.white,
                                 ),

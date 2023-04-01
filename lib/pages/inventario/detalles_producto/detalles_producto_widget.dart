@@ -130,7 +130,7 @@ class _DetallesProductoWidgetState extends State<DetallesProductoWidget> {
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .primaryColor,
+                                                                .primary,
                                                       ),
                                                     ),
                                                   );
@@ -153,7 +153,7 @@ class _DetallesProductoWidgetState extends State<DetallesProductoWidget> {
                                                       .nombreProducto!,
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .title2,
+                                                      .headlineMedium,
                                                 );
                                               },
                                             ),
@@ -169,7 +169,7 @@ class _DetallesProductoWidgetState extends State<DetallesProductoWidget> {
                                               textAlign: TextAlign.end,
                                               style:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyText1,
+                                                      .bodyMedium,
                                             ),
                                             StreamBuilder<
                                                 List<InventarioRecord>>(
@@ -188,7 +188,7 @@ class _DetallesProductoWidgetState extends State<DetallesProductoWidget> {
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .primaryColor,
+                                                                .primary,
                                                       ),
                                                     ),
                                                   );
@@ -215,14 +215,14 @@ class _DetallesProductoWidgetState extends State<DetallesProductoWidget> {
                                                   textAlign: TextAlign.end,
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .subtitle2
+                                                      .titleSmall
                                                       .override(
                                                         fontFamily:
                                                             'Lexend Deca',
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .primaryColor,
+                                                                .primary,
                                                         fontSize: 16.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -274,7 +274,7 @@ class _DetallesProductoWidgetState extends State<DetallesProductoWidget> {
                                   child: Text(
                                     'Todos los productos',
                                     style: FlutterFlowTheme.of(context)
-                                        .bodyText1
+                                        .bodyMedium
                                         .override(
                                           fontFamily: 'Poppins',
                                           color: Color(0xFF090F13),
@@ -327,9 +327,9 @@ class _DetallesProductoWidgetState extends State<DetallesProductoWidget> {
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         iconPadding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).primaryColor,
+                        color: FlutterFlowTheme.of(context).primary,
                         textStyle:
-                            FlutterFlowTheme.of(context).subtitle2.override(
+                            FlutterFlowTheme.of(context).titleSmall.override(
                                   fontFamily: 'Lexend Deca',
                                   color: Colors.white,
                                   fontSize: 16.0,
@@ -393,7 +393,7 @@ class _DetallesProductoWidgetState extends State<DetallesProductoWidget> {
                 children: [
                   Text(
                     'Descripcion del producto',
-                    style: FlutterFlowTheme.of(context).bodyText1,
+                    style: FlutterFlowTheme.of(context).bodyMedium,
                   ),
                 ],
               ),
@@ -416,8 +416,7 @@ class _DetallesProductoWidgetState extends State<DetallesProductoWidget> {
                               width: 50.0,
                               height: 50.0,
                               child: CircularProgressIndicator(
-                                color:
-                                    FlutterFlowTheme.of(context).primaryColor,
+                                color: FlutterFlowTheme.of(context).primary,
                               ),
                             ),
                           );
@@ -435,7 +434,7 @@ class _DetallesProductoWidgetState extends State<DetallesProductoWidget> {
                                 : null;
                         return Text(
                           textDescripcionInventarioRecord!.descripcionProducto!,
-                          style: FlutterFlowTheme.of(context).bodyText2,
+                          style: FlutterFlowTheme.of(context).bodySmall,
                         );
                       },
                     ),

@@ -44,51 +44,82 @@ class _RecuperacionPasswordWidgetState
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-      appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).secondaryText,
-        automaticallyImplyLeading: false,
-        leading: InkWell(
-          onTap: () async {
-            context.pop();
-          },
-          child: Icon(
-            Icons.chevron_left_rounded,
-            color: FlutterFlowTheme.of(context).primaryBackground,
-            size: 32.0,
-          ),
-        ),
-        title: Text(
-          'Cambiar contraseña',
-          style: FlutterFlowTheme.of(context).title2.override(
-                fontFamily: 'Poppins',
-                color: FlutterFlowTheme.of(context).primaryBackground,
-              ),
-        ),
-        actions: [],
-        centerTitle: false,
-        elevation: 0.0,
-      ),
       body: Container(
         width: MediaQuery.of(context).size.width * 1.0,
         height: MediaQuery.of(context).size.height * 1.0,
         decoration: BoxDecoration(
-          color: FlutterFlowTheme.of(context).primaryColor,
+          color: FlutterFlowTheme.of(context).primary,
+          image: DecorationImage(
+            fit: BoxFit.cover,
+            image: Image.asset(
+              'assets/images/HD-wallpaper-bmw-black-dark-vehicle.jpg',
+            ).image,
+          ),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
+            Align(
+              alignment: AlignmentDirectional(0.0, -1.0),
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(20.0, 30.0, 20.0, 0.0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        InkWell(
+                          onTap: () async {
+                            context.pushNamed('HomePage');
+                          },
+                          child: Icon(
+                            Icons.arrow_back_sharp,
+                            color: Colors.white,
+                            size: 40.0,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 20.0),
+              padding: EdgeInsetsDirectional.fromSTEB(20.0, 30.0, 20.0, 8.0),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Expanded(
+                    child: Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(
+                          10.0, 10.0, 10.0, 10.0),
+                      child: Text(
+                        'Recuperar contraseña:',
+                        textAlign: TextAlign.center,
+                        style: FlutterFlowTheme.of(context).titleSmall.override(
+                              fontFamily: 'Poppins',
+                              color: Colors.white,
+                              fontSize: 22.0,
+                            ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(20.0, 50.0, 20.0, 30.0),
               child: TextFormField(
                 controller: _model.emailAddressController,
                 obscureText: false,
                 decoration: InputDecoration(
-                  labelStyle: FlutterFlowTheme.of(context).bodyText1.override(
+                  labelStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Poppins',
                         color: FlutterFlowTheme.of(context).primaryBackground,
                       ),
                   hintText: 'Ingrese su correo electronico',
-                  hintStyle: FlutterFlowTheme.of(context).bodyText1.override(
+                  hintStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Lexend Deca',
                         color: FlutterFlowTheme.of(context).black600,
                         fontSize: 14.0,
@@ -99,37 +130,37 @@ class _RecuperacionPasswordWidgetState
                       color: Color(0x00000000),
                       width: 1.0,
                     ),
-                    borderRadius: BorderRadius.circular(50.0),
+                    borderRadius: BorderRadius.circular(8.0),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(
                       color: Color(0x00000000),
                       width: 1.0,
                     ),
-                    borderRadius: BorderRadius.circular(50.0),
+                    borderRadius: BorderRadius.circular(8.0),
                   ),
                   errorBorder: OutlineInputBorder(
                     borderSide: BorderSide(
                       color: Color(0x00000000),
                       width: 1.0,
                     ),
-                    borderRadius: BorderRadius.circular(50.0),
+                    borderRadius: BorderRadius.circular(8.0),
                   ),
                   focusedErrorBorder: OutlineInputBorder(
                     borderSide: BorderSide(
                       color: Color(0x00000000),
                       width: 1.0,
                     ),
-                    borderRadius: BorderRadius.circular(50.0),
+                    borderRadius: BorderRadius.circular(8.0),
                   ),
                   filled: true,
                   fillColor: FlutterFlowTheme.of(context).primaryBackground,
                   contentPadding:
-                      EdgeInsetsDirectional.fromSTEB(20.0, 24.0, 20.0, 24.0),
+                      EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
                 ),
-                style: FlutterFlowTheme.of(context).bodyText1.override(
+                style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Lexend Deca',
-                      color: FlutterFlowTheme.of(context).primaryColor,
+                      color: FlutterFlowTheme.of(context).primary,
                       fontSize: 14.0,
                       fontWeight: FontWeight.normal,
                     ),
@@ -139,7 +170,7 @@ class _RecuperacionPasswordWidgetState
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 15.0),
+              padding: EdgeInsetsDirectional.fromSTEB(15.0, 20.0, 15.0, 15.0),
               child: FFButtonWidget(
                 onPressed: () async {
                   if (_model.emailAddressController.text.isEmpty) {
@@ -174,14 +205,18 @@ class _RecuperacionPasswordWidgetState
                   );
                 },
                 text: 'Enviar',
+                icon: Icon(
+                  Icons.send,
+                  size: 15.0,
+                ),
                 options: FFButtonOptions(
-                  width: 230.0,
-                  height: 60.0,
+                  width: 270.0,
+                  height: 50.0,
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                   iconPadding:
                       EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                  color: FlutterFlowTheme.of(context).secondaryText,
-                  textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                  color: FlutterFlowTheme.of(context).sideBar,
+                  textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                         fontFamily: 'Lexend Deca',
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                         fontSize: 16.0,

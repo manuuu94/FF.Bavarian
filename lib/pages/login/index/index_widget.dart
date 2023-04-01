@@ -3,7 +3,7 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:auto_size_text/auto_size_text.dart';
+import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -26,18 +26,6 @@ class _IndexWidgetState extends State<IndexWidget>
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   final animationsMap = {
-    'textOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 666.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
     'imageOnPageLoadAnimation1': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
@@ -158,13 +146,14 @@ class _IndexWidgetState extends State<IndexWidget>
                                   0.0, 0.0, 0.0, 0.0),
                               iconPadding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).primaryColor,
+                              color: FlutterFlowTheme.of(context).primary,
                               textStyle: FlutterFlowTheme.of(context)
-                                  .subtitle2
+                                  .titleSmall
                                   .override(
                                     fontFamily: 'Poppins',
                                     color: Colors.white,
                                   ),
+                              elevation: 2.0,
                               borderSide: BorderSide(
                                 color: Colors.transparent,
                                 width: 1.0,
@@ -198,13 +187,14 @@ class _IndexWidgetState extends State<IndexWidget>
                                   0.0, 0.0, 0.0, 0.0),
                               iconPadding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).primaryColor,
+                              color: FlutterFlowTheme.of(context).primary,
                               textStyle: FlutterFlowTheme.of(context)
-                                  .subtitle2
+                                  .titleSmall
                                   .override(
                                     fontFamily: 'Poppins',
                                     color: Colors.white,
                                   ),
+                              elevation: 2.0,
                               borderSide: BorderSide(
                                 color: Colors.transparent,
                                 width: 1.0,
@@ -238,13 +228,14 @@ class _IndexWidgetState extends State<IndexWidget>
                                   0.0, 0.0, 0.0, 0.0),
                               iconPadding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).primaryColor,
+                              color: FlutterFlowTheme.of(context).primary,
                               textStyle: FlutterFlowTheme.of(context)
-                                  .subtitle2
+                                  .titleSmall
                                   .override(
                                     fontFamily: 'Poppins',
                                     color: Colors.white,
                                   ),
+                              elevation: 2.0,
                               borderSide: BorderSide(
                                 color: Colors.transparent,
                                 width: 1.0,
@@ -278,13 +269,14 @@ class _IndexWidgetState extends State<IndexWidget>
                                   0.0, 0.0, 0.0, 0.0),
                               iconPadding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).primaryColor,
+                              color: FlutterFlowTheme.of(context).primary,
                               textStyle: FlutterFlowTheme.of(context)
-                                  .subtitle2
+                                  .titleSmall
                                   .override(
                                     fontFamily: 'Poppins',
                                     color: Colors.white,
                                   ),
+                              elevation: 2.0,
                               borderSide: BorderSide(
                                 color: Colors.transparent,
                                 width: 1.0,
@@ -318,13 +310,14 @@ class _IndexWidgetState extends State<IndexWidget>
                                   0.0, 0.0, 0.0, 0.0),
                               iconPadding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).primaryColor,
+                              color: FlutterFlowTheme.of(context).primary,
                               textStyle: FlutterFlowTheme.of(context)
-                                  .subtitle2
+                                  .titleSmall
                                   .override(
                                     fontFamily: 'Poppins',
                                     color: Colors.white,
                                   ),
+                              elevation: 2.0,
                               borderSide: BorderSide(
                                 color: Colors.transparent,
                                 width: 1.0,
@@ -445,7 +438,7 @@ class _IndexWidgetState extends State<IndexWidget>
                   children: [
                     Text(
                       'Bavarian Auto Shop',
-                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Poppins',
                             color: FlutterFlowTheme.of(context).text,
                             fontSize: 30.0,
@@ -458,75 +451,136 @@ class _IndexWidgetState extends State<IndexWidget>
               Expanded(
                 child: Padding(
                   padding:
-                      EdgeInsetsDirectional.fromSTEB(20.0, 80.0, 20.0, 0.0),
-                  child: SingleChildScrollView(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 10.0, 0.0, 0.0),
-                          child: AutoSizeText(
-                            'Somos un courier de paquetería y repuestos para todo tipo de vehiculo.\nTe traemos tus paquetes y repuestos.\nSolamente debes enviarnos que necesitas y te generamos una cotizacion del precio final.',
+                      EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 20.0),
+                  child: Container(
+                    width: double.infinity,
+                    color: Color(0x00000000),
+                    child: ExpandableNotifier(
+                      initialExpanded: false,
+                      child: ExpandablePanel(
+                        header: Text(
+                          '¿Quiénes somos?',
+                          style: FlutterFlowTheme.of(context)
+                              .displaySmall
+                              .override(
+                                fontFamily: 'Poppins',
+                                color: FlutterFlowTheme.of(context).text,
+                              ),
+                        ),
+                        collapsed: Container(
+                          width: MediaQuery.of(context).size.width * 1.0,
+                          height: 40.0,
+                          decoration: BoxDecoration(),
+                          child: Text(
+                            'ver más...',
                             textAlign: TextAlign.center,
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Poppins',
+                                  color: FlutterFlowTheme.of(context).text,
+                                ),
+                          ),
+                        ),
+                        expanded: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  20.0, 60.0, 20.0, 20.0),
+                              child: Text(
+                                'Somos un courier de paquetería y repuestos para todo tipo de vehiculo.\nTe traemos tus paquetes y repuestos.\nSolamente debes enviarnos que necesitas y te generamos una cotizacion del precio final',
+                                textAlign: TextAlign.center,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
                                       fontFamily: 'Poppins',
                                       color: FlutterFlowTheme.of(context).text,
-                                      fontSize: 22.0,
-                                      fontWeight: FontWeight.bold,
-                                      fontStyle: FontStyle.italic,
+                                      fontSize: 17.0,
                                     ),
-                          ).animateOnPageLoad(
-                              animationsMap['textOnPageLoadAnimation']!),
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  20.0, 20.0, 20.0, 20.0),
+                              child: Text(
+                                'Contacta con nosotros!',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      color: FlutterFlowTheme.of(context).text,
+                                    ),
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 40.0, 0.0, 0.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  InkWell(
+                                    onTap: () async {
+                                      await launchURL(
+                                          'https://www.instagram.com/bmwshopcr/');
+                                    },
+                                    child: Image.asset(
+                                      'assets/images/instagram.png',
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.05,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ).animateOnPageLoad(animationsMap[
+                                      'imageOnPageLoadAnimation1']!),
+                                  InkWell(
+                                    onTap: () async {
+                                      await launchURL(
+                                          'https://www.facebook.com/Bavautos');
+                                    },
+                                    child: Image.asset(
+                                      'assets/images/facebook.png',
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.05,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ).animateOnPageLoad(animationsMap[
+                                      'imageOnPageLoadAnimation2']!),
+                                  InkWell(
+                                    onTap: () async {
+                                      await launchURL(
+                                          'https://wa.me/50686218472?text=Más%20información%20por%20favor!');
+                                    },
+                                    child: Image.asset(
+                                      'assets/images/whatsapp_(1).png',
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.05,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ).animateOnPageLoad(animationsMap[
+                                      'imageOnPageLoadAnimation3']!),
+                                ],
+                              ),
+                            ),
+                          ],
                         ),
-                      ],
+                        theme: ExpandableThemeData(
+                          tapHeaderToExpand: true,
+                          tapBodyToExpand: false,
+                          tapBodyToCollapse: false,
+                          headerAlignment:
+                              ExpandablePanelHeaderAlignment.center,
+                          hasIcon: true,
+                          iconSize: 40.0,
+                          iconColor: FlutterFlowTheme.of(context).sideBarMenu,
+                        ),
+                      ),
                     ),
                   ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    InkWell(
-                      onTap: () async {
-                        await launchURL('https://www.instagram.com/bmwshopcr/');
-                      },
-                      child: Image.asset(
-                        'assets/images/instagram.png',
-                        height: MediaQuery.of(context).size.height * 0.05,
-                        fit: BoxFit.cover,
-                      ),
-                    ).animateOnPageLoad(
-                        animationsMap['imageOnPageLoadAnimation1']!),
-                    InkWell(
-                      onTap: () async {
-                        await launchURL('https://www.facebook.com/Bavautos');
-                      },
-                      child: Image.asset(
-                        'assets/images/facebook.png',
-                        height: MediaQuery.of(context).size.height * 0.05,
-                        fit: BoxFit.cover,
-                      ),
-                    ).animateOnPageLoad(
-                        animationsMap['imageOnPageLoadAnimation2']!),
-                    InkWell(
-                      onTap: () async {
-                        await launchURL(
-                            'https://wa.me/50686218472?text=Más%20información%20por%20favor!');
-                      },
-                      child: Image.asset(
-                        'assets/images/whatsapp_(1).png',
-                        height: MediaQuery.of(context).size.height * 0.05,
-                        fit: BoxFit.cover,
-                      ),
-                    ).animateOnPageLoad(
-                        animationsMap['imageOnPageLoadAnimation3']!),
-                  ],
                 ),
               ),
               Padding(
@@ -540,7 +594,7 @@ class _IndexWidgetState extends State<IndexWidget>
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
                       child: Text(
                         'developed by group X',
-                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Roboto Mono',
                               color: FlutterFlowTheme.of(context).sideBar,
                               fontSize: 10.0,
