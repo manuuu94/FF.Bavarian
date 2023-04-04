@@ -43,6 +43,13 @@ class _$DireccionesRecordSerializer
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
+    value = object.uid;
+    if (value != null) {
+      result
+        ..add('uid')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -80,6 +87,10 @@ class _$DireccionesRecordSerializer
           result.nombredir = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
+        case 'uid':
+          result.uid = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -101,6 +112,8 @@ class _$DireccionesRecord extends DireccionesRecord {
   @override
   final String? nombredir;
   @override
+  final String? uid;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$DireccionesRecord(
@@ -108,7 +121,11 @@ class _$DireccionesRecord extends DireccionesRecord {
       (new DireccionesRecordBuilder()..update(updates))._build();
 
   _$DireccionesRecord._(
-      {this.direccioncompleta, this.opcionentrega, this.nombredir, this.ffRef})
+      {this.direccioncompleta,
+      this.opcionentrega,
+      this.nombredir,
+      this.uid,
+      this.ffRef})
       : super._();
 
   @override
@@ -126,6 +143,7 @@ class _$DireccionesRecord extends DireccionesRecord {
         direccioncompleta == other.direccioncompleta &&
         opcionentrega == other.opcionentrega &&
         nombredir == other.nombredir &&
+        uid == other.uid &&
         ffRef == other.ffRef;
   }
 
@@ -135,6 +153,7 @@ class _$DireccionesRecord extends DireccionesRecord {
     _$hash = $jc(_$hash, direccioncompleta.hashCode);
     _$hash = $jc(_$hash, opcionentrega.hashCode);
     _$hash = $jc(_$hash, nombredir.hashCode);
+    _$hash = $jc(_$hash, uid.hashCode);
     _$hash = $jc(_$hash, ffRef.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -146,6 +165,7 @@ class _$DireccionesRecord extends DireccionesRecord {
           ..add('direccioncompleta', direccioncompleta)
           ..add('opcionentrega', opcionentrega)
           ..add('nombredir', nombredir)
+          ..add('uid', uid)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -169,6 +189,10 @@ class DireccionesRecordBuilder
   String? get nombredir => _$this._nombredir;
   set nombredir(String? nombredir) => _$this._nombredir = nombredir;
 
+  String? _uid;
+  String? get uid => _$this._uid;
+  set uid(String? uid) => _$this._uid = uid;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -183,6 +207,7 @@ class DireccionesRecordBuilder
       _direccioncompleta = $v.direccioncompleta;
       _opcionentrega = $v.opcionentrega;
       _nombredir = $v.nombredir;
+      _uid = $v.uid;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -209,6 +234,7 @@ class DireccionesRecordBuilder
             direccioncompleta: direccioncompleta,
             opcionentrega: opcionentrega,
             nombredir: nombredir,
+            uid: uid,
             ffRef: ffRef);
     replace(_$result);
     return _$result;

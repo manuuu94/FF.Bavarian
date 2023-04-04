@@ -1,7 +1,10 @@
+import '/auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/components/bs_opcionentrega_copy3/bs_opcionentrega_copy3_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -105,51 +108,57 @@ class _BsOpcionentregaCopyWidgetState extends State<BsOpcionentregaCopyWidget> {
                     itemBuilder: (context, listViewIndex) {
                       final listViewDireccionesRecord =
                           listViewDireccionesRecordList[listViewIndex];
-                      return Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
-                        child: Slidable(
-                          endActionPane: ActionPane(
-                            motion: const ScrollMotion(),
-                            extentRatio: 0.25,
-                            children: [
-                              SlidableAction(
-                                label: 'Enviar',
-                                backgroundColor:
-                                    FlutterFlowTheme.of(context).greenConfirm,
-                                icon: Icons.send,
-                                onPressed: (_) {
-                                  print('SlidableActionWidget pressed ...');
-                                },
+                      return Visibility(
+                        visible:
+                            (listViewDireccionesRecord.uid == currentUserUid) ||
+                                (listViewDireccionesRecord.uid ==
+                                    'idopcionentregasucursales'),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              5.0, 5.0, 5.0, 5.0),
+                          child: Slidable(
+                            endActionPane: ActionPane(
+                              motion: const ScrollMotion(),
+                              extentRatio: 0.25,
+                              children: [
+                                SlidableAction(
+                                  label: 'Enviar',
+                                  backgroundColor:
+                                      FlutterFlowTheme.of(context).greenConfirm,
+                                  icon: Icons.send,
+                                  onPressed: (_) {
+                                    print('SlidableActionWidget pressed ...');
+                                  },
+                                ),
+                              ],
+                            ),
+                            child: ListTile(
+                              title: Text(
+                                listViewDireccionesRecord.nombredir!,
+                                style: FlutterFlowTheme.of(context)
+                                    .headlineSmall
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      color: FlutterFlowTheme.of(context).text,
+                                    ),
                               ),
-                            ],
-                          ),
-                          child: ListTile(
-                            title: Text(
-                              listViewDireccionesRecord.nombredir!,
-                              style: FlutterFlowTheme.of(context)
-                                  .headlineSmall
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: FlutterFlowTheme.of(context).text,
-                                  ),
+                              subtitle: Text(
+                                listViewDireccionesRecord.direccioncompleta!,
+                                style: FlutterFlowTheme.of(context)
+                                    .titleSmall
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      color: FlutterFlowTheme.of(context).text,
+                                    ),
+                              ),
+                              trailing: Icon(
+                                Icons.chevron_left,
+                                color: Color(0xFFFF0004),
+                                size: 40.0,
+                              ),
+                              tileColor: Colors.black,
+                              dense: false,
                             ),
-                            subtitle: Text(
-                              listViewDireccionesRecord.direccioncompleta!,
-                              style: FlutterFlowTheme.of(context)
-                                  .titleSmall
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: FlutterFlowTheme.of(context).text,
-                                  ),
-                            ),
-                            trailing: Icon(
-                              Icons.chevron_left,
-                              color: Color(0xFFFF0004),
-                              size: 40.0,
-                            ),
-                            tileColor: Colors.black,
-                            dense: false,
                           ),
                         ),
                       );
@@ -158,15 +167,35 @@ class _BsOpcionentregaCopyWidgetState extends State<BsOpcionentregaCopyWidget> {
                 },
               ),
             ),
+            Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                    child: AutoSizeText(
+                      'Deslice para enviar solicitud de compra',
+                      textAlign: TextAlign.center,
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Lato',
+                            color: FlutterFlowTheme.of(context).text,
+                            fontSize: 13.0,
+                          ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 0.0),
               child: FFButtonWidget(
                 onPressed: () async {
                   Navigator.pop(context);
                 },
-                text: 'Cancelar',
+                text: 'Atrás',
                 options: FFButtonOptions(
-                  width: double.infinity,
+                  width: 150.0,
                   height: 60.0,
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                   iconPadding:
@@ -186,6 +215,47 @@ class _BsOpcionentregaCopyWidgetState extends State<BsOpcionentregaCopyWidget> {
                 ),
               ),
             ),
+            if (widget.categoria!.tipoNombre != 'En sucursal')
+              Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                    child: InkWell(
+                      onTap: () async {
+                        await showModalBottomSheet(
+                          isScrollControlled: true,
+                          backgroundColor: Colors.transparent,
+                          enableDrag: false,
+                          context: context,
+                          builder: (context) {
+                            return Padding(
+                              padding: MediaQuery.of(context).viewInsets,
+                              child: Container(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.5,
+                                child: BsOpcionentregaCopy3Widget(
+                                  opcionentrega: widget.categoria,
+                                ),
+                              ),
+                            );
+                          },
+                        ).then((value) => setState(() {}));
+                      },
+                      child: AutoSizeText(
+                        'Ver mis direcciones',
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Lato',
+                              color: FlutterFlowTheme.of(context).text,
+                              fontSize: 12.0,
+                              decoration: TextDecoration.underline,
+                            ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
           ],
         ),
       ),

@@ -1,6 +1,6 @@
 import '/auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/components/bs_detalles_producto_widget.dart';
+import '/components/bs_detalles_producto/bs_detalles_producto_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -858,6 +858,8 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                                                                       .sumaPrecios2(
                                                                           gridViewInventarioRecord
                                                                               .precio!),
+                                                                  uid:
+                                                                      currentUserUid,
                                                                 );
                                                                 await CarritoRecord
                                                                     .collection
