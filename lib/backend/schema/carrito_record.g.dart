@@ -47,6 +47,13 @@ class _$CarritoRecordSerializer implements StructuredSerializer<CarritoRecord> {
         ..add(serializers.serialize(value,
             specifiedType: const FullType(double)));
     }
+    value = object.uid;
+    if (value != null) {
+      result
+        ..add('uid')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -86,6 +93,10 @@ class _$CarritoRecordSerializer implements StructuredSerializer<CarritoRecord> {
           result.total = serializers.deserialize(value,
               specifiedType: const FullType(double)) as double?;
           break;
+        case 'uid':
+          result.uid = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -109,13 +120,20 @@ class _$CarritoRecord extends CarritoRecord {
   @override
   final double? total;
   @override
+  final String? uid;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$CarritoRecord([void Function(CarritoRecordBuilder)? updates]) =>
       (new CarritoRecordBuilder()..update(updates))._build();
 
   _$CarritoRecord._(
-      {this.nombre, this.precio, this.cantidad, this.total, this.ffRef})
+      {this.nombre,
+      this.precio,
+      this.cantidad,
+      this.total,
+      this.uid,
+      this.ffRef})
       : super._();
 
   @override
@@ -133,6 +151,7 @@ class _$CarritoRecord extends CarritoRecord {
         precio == other.precio &&
         cantidad == other.cantidad &&
         total == other.total &&
+        uid == other.uid &&
         ffRef == other.ffRef;
   }
 
@@ -143,6 +162,7 @@ class _$CarritoRecord extends CarritoRecord {
     _$hash = $jc(_$hash, precio.hashCode);
     _$hash = $jc(_$hash, cantidad.hashCode);
     _$hash = $jc(_$hash, total.hashCode);
+    _$hash = $jc(_$hash, uid.hashCode);
     _$hash = $jc(_$hash, ffRef.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -155,6 +175,7 @@ class _$CarritoRecord extends CarritoRecord {
           ..add('precio', precio)
           ..add('cantidad', cantidad)
           ..add('total', total)
+          ..add('uid', uid)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -180,6 +201,10 @@ class CarritoRecordBuilder
   double? get total => _$this._total;
   set total(double? total) => _$this._total = total;
 
+  String? _uid;
+  String? get uid => _$this._uid;
+  set uid(String? uid) => _$this._uid = uid;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -195,6 +220,7 @@ class CarritoRecordBuilder
       _precio = $v.precio;
       _cantidad = $v.cantidad;
       _total = $v.total;
+      _uid = $v.uid;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -222,6 +248,7 @@ class CarritoRecordBuilder
             precio: precio,
             cantidad: cantidad,
             total: total,
+            uid: uid,
             ffRef: ffRef);
     replace(_$result);
     return _$result;

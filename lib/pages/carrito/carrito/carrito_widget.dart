@@ -22,6 +22,7 @@ class CarritoWidget extends StatefulWidget {
     this.email,
     this.phone,
     this.time,
+    this.opcion,
   }) : super(key: key);
 
   final String? name;
@@ -29,6 +30,7 @@ class CarritoWidget extends StatefulWidget {
   final String? email;
   final String? phone;
   final DateTime? time;
+  final DocumentReference? opcion;
 
   @override
   _CarritoWidgetState createState() => _CarritoWidgetState();
@@ -456,7 +458,10 @@ class _CarritoWidgetState extends State<CarritoWidget> {
                   padding:
                       EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 15.0),
                   child: StreamBuilder<List<CarritoRecord>>(
-                    stream: queryCarritoRecord(),
+                    stream: queryCarritoRecord(
+                      queryBuilder: (carritoRecord) =>
+                          carritoRecord.where('uid', isEqualTo: currentUserUid),
+                    ),
                     builder: (context, snapshot) {
                       // Customize what your widget looks like when it's loading.
                       if (!snapshot.hasData) {

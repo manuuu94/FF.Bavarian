@@ -116,7 +116,7 @@ class _BsOpcionentregaWidgetState extends State<BsOpcionentregaWidget> {
                                   padding: MediaQuery.of(context).viewInsets,
                                   child: Container(
                                     height: MediaQuery.of(context).size.height *
-                                        0.4,
+                                        0.6,
                                     child: BsOpcionentregaCopyWidget(
                                       categoria: gridViewOpcionesentregaRecord,
                                     ),
@@ -127,8 +127,6 @@ class _BsOpcionentregaWidgetState extends State<BsOpcionentregaWidget> {
                           },
                           text: gridViewOpcionesentregaRecord.tipoNombre!,
                           options: FFButtonOptions(
-                            width: 100.0,
-                            height: 40.0,
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
                             iconPadding: EdgeInsetsDirectional.fromSTEB(
@@ -141,8 +139,8 @@ class _BsOpcionentregaWidgetState extends State<BsOpcionentregaWidget> {
                                   color: Colors.white,
                                 ),
                             borderSide: BorderSide(
-                              color: Colors.transparent,
-                              width: 1.0,
+                              color: FlutterFlowTheme.of(context).sideBarMenu,
+                              width: 5.0,
                             ),
                             borderRadius: BorderRadius.circular(8.0),
                           ),

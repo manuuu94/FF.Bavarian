@@ -137,6 +137,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 email: params.getParam('email', ParamType.String),
                 phone: params.getParam('phone', ParamType.String),
                 time: params.getParam('time', ParamType.DateTime),
+                opcion: params.getParam('opcion', ParamType.DocumentReference,
+                    false, ['opcionesentrega']),
               ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),

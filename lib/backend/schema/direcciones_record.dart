@@ -17,13 +17,16 @@ abstract class DireccionesRecord
 
   String? get nombredir;
 
+  String? get uid;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
 
   static void _initializeBuilder(DireccionesRecordBuilder builder) => builder
     ..direccioncompleta = ''
-    ..nombredir = '';
+    ..nombredir = ''
+    ..uid = '';
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('direcciones');
@@ -50,6 +53,7 @@ Map<String, dynamic> createDireccionesRecordData({
   String? direccioncompleta,
   DocumentReference? opcionentrega,
   String? nombredir,
+  String? uid,
 }) {
   final firestoreData = serializers.toFirestore(
     DireccionesRecord.serializer,
@@ -57,7 +61,8 @@ Map<String, dynamic> createDireccionesRecordData({
       (d) => d
         ..direccioncompleta = direccioncompleta
         ..opcionentrega = opcionentrega
-        ..nombredir = nombredir,
+        ..nombredir = nombredir
+        ..uid = uid,
     ),
   );
 

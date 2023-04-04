@@ -1,16 +1,15 @@
 import '/auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/components/bs_opcionentrega_copy3/bs_opcionentrega_copy3_widget.dart';
+import '/components/bs_opcionentrega_copy2/bs_opcionentrega_copy2_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class BsOpcionentregaCopyModel extends FlutterFlowModel {
+class BsOpcionentregaCopy3Model extends FlutterFlowModel {
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {}

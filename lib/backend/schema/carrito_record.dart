@@ -18,6 +18,8 @@ abstract class CarritoRecord
 
   double? get total;
 
+  String? get uid;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
@@ -26,7 +28,8 @@ abstract class CarritoRecord
     ..nombre = ''
     ..precio = 0.0
     ..cantidad = 0
-    ..total = 0.0;
+    ..total = 0.0
+    ..uid = '';
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('Carrito');
@@ -54,6 +57,7 @@ Map<String, dynamic> createCarritoRecordData({
   double? precio,
   int? cantidad,
   double? total,
+  String? uid,
 }) {
   final firestoreData = serializers.toFirestore(
     CarritoRecord.serializer,
@@ -62,7 +66,8 @@ Map<String, dynamic> createCarritoRecordData({
         ..nombre = nombre
         ..precio = precio
         ..cantidad = cantidad
-        ..total = total,
+        ..total = total
+        ..uid = uid,
     ),
   );
 
