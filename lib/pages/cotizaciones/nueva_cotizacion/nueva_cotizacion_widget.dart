@@ -230,8 +230,8 @@ class _NuevaCotizacionWidgetState extends State<NuevaCotizacionWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               FFButtonWidget(
-                                onPressed: () {
-                                  print('Button pressed ...');
+                                onPressed: () async {
+                                  context.pushNamed('Carrito');
                                 },
                                 text: 'Ver carrito',
                                 options: FFButtonOptions(

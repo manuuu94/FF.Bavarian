@@ -70,85 +70,101 @@ class _BsOpcionentregaWidgetState extends State<BsOpcionentregaWidget> {
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
+            Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Opción de entrega',
+                  style: FlutterFlowTheme.of(context).bodyMedium,
+                ),
+              ],
+            ),
             Expanded(
-              child: StreamBuilder<List<OpcionesentregaRecord>>(
-                stream: queryOpcionesentregaRecord(),
-                builder: (context, snapshot) {
-                  // Customize what your widget looks like when it's loading.
-                  if (!snapshot.hasData) {
-                    return Center(
-                      child: SizedBox(
-                        width: 50.0,
-                        height: 50.0,
-                        child: CircularProgressIndicator(
-                          color: FlutterFlowTheme.of(context).primary,
-                        ),
-                      ),
-                    );
-                  }
-                  List<OpcionesentregaRecord>
-                      gridViewOpcionesentregaRecordList = snapshot.data!;
-                  return GridView.builder(
-                    padding: EdgeInsets.zero,
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 10.0,
-                      mainAxisSpacing: 10.0,
-                      childAspectRatio: 1.0,
-                    ),
-                    scrollDirection: Axis.vertical,
-                    itemCount: gridViewOpcionesentregaRecordList.length,
-                    itemBuilder: (context, gridViewIndex) {
-                      final gridViewOpcionesentregaRecord =
-                          gridViewOpcionesentregaRecordList[gridViewIndex];
-                      return Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            10.0, 10.0, 10.0, 10.0),
-                        child: FFButtonWidget(
-                          onPressed: () async {
-                            await showModalBottomSheet(
-                              isScrollControlled: true,
-                              backgroundColor: Colors.transparent,
-                              enableDrag: false,
-                              context: context,
-                              builder: (context) {
-                                return Padding(
-                                  padding: MediaQuery.of(context).viewInsets,
-                                  child: Container(
-                                    height: MediaQuery.of(context).size.height *
-                                        0.6,
-                                    child: BsOpcionentregaCopyWidget(
-                                      categoria: gridViewOpcionesentregaRecord,
-                                    ),
-                                  ),
-                                );
-                              },
-                            ).then((value) => setState(() {}));
-                          },
-                          text: gridViewOpcionesentregaRecord.tipoNombre!,
-                          options: FFButtonOptions(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                child: StreamBuilder<List<OpcionesentregaRecord>>(
+                  stream: queryOpcionesentregaRecord(),
+                  builder: (context, snapshot) {
+                    // Customize what your widget looks like when it's loading.
+                    if (!snapshot.hasData) {
+                      return Center(
+                        child: SizedBox(
+                          width: 50.0,
+                          height: 50.0,
+                          child: CircularProgressIndicator(
                             color: FlutterFlowTheme.of(context).primary,
-                            textStyle: FlutterFlowTheme.of(context)
-                                .titleSmall
-                                .override(
-                                  fontFamily: 'Poppins',
-                                  color: Colors.white,
-                                ),
-                            borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).sideBarMenu,
-                              width: 5.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
                           ),
                         ),
                       );
-                    },
-                  );
-                },
+                    }
+                    List<OpcionesentregaRecord>
+                        gridViewOpcionesentregaRecordList = snapshot.data!;
+                    return GridView.builder(
+                      padding: EdgeInsets.zero,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        crossAxisSpacing: 10.0,
+                        mainAxisSpacing: 10.0,
+                        childAspectRatio: 1.0,
+                      ),
+                      scrollDirection: Axis.vertical,
+                      itemCount: gridViewOpcionesentregaRecordList.length,
+                      itemBuilder: (context, gridViewIndex) {
+                        final gridViewOpcionesentregaRecord =
+                            gridViewOpcionesentregaRecordList[gridViewIndex];
+                        return Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              10.0, 10.0, 10.0, 10.0),
+                          child: FFButtonWidget(
+                            onPressed: () async {
+                              await showModalBottomSheet(
+                                isScrollControlled: true,
+                                backgroundColor: Colors.transparent,
+                                enableDrag: false,
+                                context: context,
+                                builder: (bottomSheetContext) {
+                                  return Padding(
+                                    padding: MediaQuery.of(bottomSheetContext)
+                                        .viewInsets,
+                                    child: Container(
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.6,
+                                      child: BsOpcionentregaCopyWidget(
+                                        categoria:
+                                            gridViewOpcionesentregaRecord,
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ).then((value) => setState(() {}));
+                            },
+                            text: gridViewOpcionesentregaRecord.tipoNombre!,
+                            options: FFButtonOptions(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: FlutterFlowTheme.of(context).primary,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .titleSmall
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    color: Colors.white,
+                                  ),
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.of(context).sideBarMenu,
+                                width: 5.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                          ),
+                        );
+                      },
+                    );
+                  },
+                ),
               ),
             ),
             Padding(

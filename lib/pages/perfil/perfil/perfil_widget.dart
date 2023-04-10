@@ -510,7 +510,7 @@ class _PerfilWidgetState extends State<PerfilWidget>
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                       child: Text(
-                        'Perfil',
+                        'Mi cuenta',
                         textAlign: TextAlign.center,
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Poppins',
@@ -629,9 +629,10 @@ class _PerfilWidgetState extends State<PerfilWidget>
                                 barrierColor: Color(0x00000000),
                                 enableDrag: false,
                                 context: context,
-                                builder: (context) {
+                                builder: (bottomSheetContext) {
                                   return Padding(
-                                    padding: MediaQuery.of(context).viewInsets,
+                                    padding: MediaQuery.of(bottomSheetContext)
+                                        .viewInsets,
                                     child: Container(
                                       height:
                                           MediaQuery.of(context).size.height *

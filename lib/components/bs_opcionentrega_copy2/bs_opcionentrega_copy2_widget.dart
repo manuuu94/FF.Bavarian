@@ -263,6 +263,7 @@ class _BsOpcionentregaCopy2WidgetState
                         await DireccionesRecord.collection
                             .doc()
                             .set(direccionesCreateData);
+                        Navigator.pop(context);
                       },
                       text: 'Añadir',
                       options: FFButtonOptions(

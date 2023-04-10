@@ -114,9 +114,10 @@ class _BsEditProfileWidgetState extends State<BsEditProfileWidget> {
                           barrierColor: Color(0x00000000),
                           enableDrag: false,
                           context: context,
-                          builder: (context) {
+                          builder: (bottomSheetContext) {
                             return Padding(
-                              padding: MediaQuery.of(context).viewInsets,
+                              padding:
+                                  MediaQuery.of(bottomSheetContext).viewInsets,
                               child: BsImgEditWidget(),
                             );
                           },

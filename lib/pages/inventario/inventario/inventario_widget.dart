@@ -783,10 +783,10 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                                                                 context:
                                                                     context,
                                                                 builder:
-                                                                    (context) {
+                                                                    (bottomSheetContext) {
                                                                   return Padding(
                                                                     padding: MediaQuery.of(
-                                                                            context)
+                                                                            bottomSheetContext)
                                                                         .viewInsets,
                                                                     child:
                                                                         Container(
