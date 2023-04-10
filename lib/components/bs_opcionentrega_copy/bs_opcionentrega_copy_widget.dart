@@ -126,8 +126,9 @@ class _BsOpcionentregaCopyWidgetState extends State<BsOpcionentregaCopyWidget> {
                                   backgroundColor:
                                       FlutterFlowTheme.of(context).greenConfirm,
                                   icon: Icons.send,
-                                  onPressed: (_) {
-                                    print('SlidableActionWidget pressed ...');
+                                  onPressed: (_) async {
+                                    await launchURL(
+                                        'https://api.whatsapp.com/send?phone=50686218472&text=prueba');
                                   },
                                 ),
                               ],
@@ -229,9 +230,10 @@ class _BsOpcionentregaCopyWidgetState extends State<BsOpcionentregaCopyWidget> {
                           backgroundColor: Colors.transparent,
                           enableDrag: false,
                           context: context,
-                          builder: (context) {
+                          builder: (bottomSheetContext) {
                             return Padding(
-                              padding: MediaQuery.of(context).viewInsets,
+                              padding:
+                                  MediaQuery.of(bottomSheetContext).viewInsets,
                               child: Container(
                                 height:
                                     MediaQuery.of(context).size.height * 0.5,
@@ -244,7 +246,7 @@ class _BsOpcionentregaCopyWidgetState extends State<BsOpcionentregaCopyWidget> {
                         ).then((value) => setState(() {}));
                       },
                       child: AutoSizeText(
-                        'Ver mis direcciones',
+                        'Editar mis direcciones',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Lato',
                               color: FlutterFlowTheme.of(context).text,

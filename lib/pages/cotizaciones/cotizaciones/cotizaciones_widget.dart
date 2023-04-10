@@ -230,8 +230,8 @@ class _CotizacionesWidgetState extends State<CotizacionesWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               FFButtonWidget(
-                                onPressed: () {
-                                  print('Button pressed ...');
+                                onPressed: () async {
+                                  context.pushNamed('Carrito');
                                 },
                                 text: 'Ver carrito',
                                 options: FFButtonOptions(
@@ -664,10 +664,11 @@ class _CotizacionesWidgetState extends State<CotizacionesWidget> {
                                                                     .transparent,
                                                             enableDrag: false,
                                                             context: context,
-                                                            builder: (context) {
+                                                            builder:
+                                                                (bottomSheetContext) {
                                                               return Padding(
                                                                 padding: MediaQuery.of(
-                                                                        context)
+                                                                        bottomSheetContext)
                                                                     .viewInsets,
                                                                 child:
                                                                     Container(
