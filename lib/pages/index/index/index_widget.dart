@@ -417,6 +417,16 @@ class _IndexWidgetState extends State<IndexWidget>
                             ),
                           InkWell(
                             onTap: () async {
+                              context.pushNamed('SolicitudesCliente');
+                            },
+                            child: Icon(
+                              Icons.format_list_numbered_outlined,
+                              color: FlutterFlowTheme.of(context).text,
+                              size: 40.0,
+                            ),
+                          ),
+                          InkWell(
+                            onTap: () async {
                               context.pushNamed('Carrito');
                             },
                             child: Icon(
@@ -508,19 +518,6 @@ class _IndexWidgetState extends State<IndexWidget>
                                       fontFamily: 'Poppins',
                                       color: FlutterFlowTheme.of(context).text,
                                       fontSize: 17.0,
-                                    ),
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  20.0, 20.0, 20.0, 20.0),
-                              child: Text(
-                                'Contacta con nosotros!',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Poppins',
-                                      color: FlutterFlowTheme.of(context).text,
                                     ),
                               ),
                             ),
