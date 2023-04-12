@@ -4,7 +4,11 @@ import '/components/bs_opcionentrega_copy3/bs_opcionentrega_copy3_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/custom_code/actions/index.dart' as actions;
+import '/flutter_flow/custom_functions.dart' as functions;
+import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -121,14 +125,91 @@ class _BsOpcionentregaCopyWidgetState extends State<BsOpcionentregaCopyWidget> {
                               motion: const ScrollMotion(),
                               extentRatio: 0.25,
                               children: [
-                                SlidableAction(
-                                  label: 'Enviar',
-                                  backgroundColor:
-                                      FlutterFlowTheme.of(context).greenConfirm,
-                                  icon: Icons.send,
-                                  onPressed: (_) async {
-                                    await launchURL(
-                                        'https://api.whatsapp.com/send?phone=50686218472&text=prueba');
+                                StreamBuilder<List<CarritoRecord>>(
+                                  stream: queryCarritoRecord(
+                                    queryBuilder: (carritoRecord) =>
+                                        carritoRecord.where('uid',
+                                            isEqualTo: currentUserUid),
+                                  ),
+                                  builder: (context, snapshot) {
+                                    // Customize what your widget looks like when it's loading.
+                                    if (!snapshot.hasData) {
+                                      return Center(
+                                        child: SizedBox(
+                                          width: 50.0,
+                                          height: 50.0,
+                                          child: CircularProgressIndicator(
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
+                                          ),
+                                        ),
+                                      );
+                                    }
+                                    List<CarritoRecord>
+                                        slidableActionWidgetCarritoRecordList =
+                                        snapshot.data!;
+                                    return SlidableAction(
+                                      label: 'Enviar',
+                                      backgroundColor:
+                                          FlutterFlowTheme.of(context)
+                                              .greenConfirm,
+                                      icon: Icons.send,
+                                      onPressed: (_) async {
+                                        Navigator.pop(context);
+                                        Navigator.pop(context);
+                                        await showDialog(
+                                          context: context,
+                                          builder: (alertDialogContext) {
+                                            return AlertDialog(
+                                              title: Text('Solicitud enviada!'),
+                                              content: Text(
+                                                  'Los productos y/o su cotización ha sido enviada para revisión. Pronto se pondrán en contacto con usted!'),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('X'),
+                                                ),
+                                              ],
+                                            );
+                                          },
+                                        );
+
+                                        final compraConfirmadaCreateData = {
+                                          ...createCompraConfirmadaRecordData(
+                                            direccion: listViewDireccionesRecord
+                                                .direccioncompleta,
+                                            uid: currentUserUid,
+                                            subtotal: functions.cartTotal(
+                                                slidableActionWidgetCarritoRecordList
+                                                    .map((e) => e.total)
+                                                    .withoutNulls
+                                                    .toList()),
+                                            idCompra: random_data.randomInteger(
+                                                0, 10000),
+                                          ),
+                                          'Productos':
+                                              slidableActionWidgetCarritoRecordList
+                                                  .map((e) => e.nombre)
+                                                  .withoutNulls
+                                                  .toList(),
+                                          'cantidad':
+                                              slidableActionWidgetCarritoRecordList
+                                                  .map((e) => e.cantidad)
+                                                  .withoutNulls
+                                                  .toList(),
+                                        };
+                                        await CompraConfirmadaRecord.collection
+                                            .doc()
+                                            .set(compraConfirmadaCreateData);
+                                        await actions.batchDelete(
+                                          'Carrito',
+                                        );
+                                        await launchURL(
+                                            'https://api.whatsapp.com/send?phone=50686218472&text=Hola, ${currentUserDisplayName} ! Has añadido ${slidableActionWidgetCarritoRecordList.length.toString()} producto/s a una solicitud de compra! Envíanos este mensaje si necesitas informarnos de algún detalle adicional o si tienes cualquier duda!');
+                                      },
+                                    );
                                   },
                                 ),
                               ],

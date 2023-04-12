@@ -140,6 +140,41 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 opcion: params.getParam('opcion', ParamType.DocumentReference,
                     false, ['opcionesentrega']),
               ),
+            ),
+            FFRoute(
+              name: 'SolicitudesAdmin',
+              path: 'solicitudesAdmin',
+              builder: (context, params) => SolicitudesAdminWidget(
+                name: params.getParam('name', ParamType.String),
+                img: params.getParam('img', ParamType.String),
+                email: params.getParam('email', ParamType.String),
+                phone: params.getParam('phone', ParamType.String),
+                time: params.getParam('time', ParamType.DateTime),
+                opcion: params.getParam('opcion', ParamType.DocumentReference,
+                    false, ['opcionesentrega']),
+              ),
+            ),
+            FFRoute(
+              name: 'SolicitudesAdminCopy',
+              path: 'solicitudesAdminCopy',
+              asyncParams: {
+                'list': getDoc(
+                    ['compraConfirmada'], CompraConfirmadaRecord.serializer),
+              },
+              builder: (context, params) => SolicitudesAdminCopyWidget(
+                name: params.getParam('name', ParamType.String),
+                img: params.getParam('img', ParamType.String),
+                email: params.getParam('email', ParamType.String),
+                phone: params.getParam('phone', ParamType.String),
+                time: params.getParam('time', ParamType.DateTime),
+                opcion: params.getParam('opcion', ParamType.DocumentReference,
+                    false, ['opcionesentrega']),
+                list: params.getParam('list', ParamType.Document),
+                cartlist:
+                    params.getParam<String>('cartlist', ParamType.String, true),
+                idSolicitud: params.getParam('idSolicitud', ParamType.int),
+                cantlist: params.getParam<int>('cantlist', ParamType.int, true),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

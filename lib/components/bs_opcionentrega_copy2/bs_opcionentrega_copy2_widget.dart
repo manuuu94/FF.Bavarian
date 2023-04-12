@@ -154,7 +154,8 @@ class _BsOpcionentregaCopy2WidgetState
                       controller: _model.txtDirCompletaController,
                       obscureText: false,
                       decoration: InputDecoration(
-                        hintText: 'Dirección completa',
+                        hintText:
+                            'Dirección completa... Ingrese Provincia, Cantón, Barrio o Calle, color de casa y/o algún punto de referencia para la entrega!',
                         hintStyle: FlutterFlowTheme.of(context).bodySmall,
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(

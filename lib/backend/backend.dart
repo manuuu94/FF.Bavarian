@@ -11,6 +11,7 @@ import 'schema/carrito_record.dart';
 import 'schema/cotizacion_record.dart';
 import 'schema/opcionesentrega_record.dart';
 import 'schema/direcciones_record.dart';
+import 'schema/compra_confirmada_record.dart';
 import 'schema/serializers.dart';
 
 export 'dart:async' show StreamSubscription;
@@ -24,6 +25,7 @@ export 'schema/carrito_record.dart';
 export 'schema/cotizacion_record.dart';
 export 'schema/opcionesentrega_record.dart';
 export 'schema/direcciones_record.dart';
+export 'schema/compra_confirmada_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -336,6 +338,59 @@ Future<FFFirestorePage<DireccionesRecord>> queryDireccionesRecordPage({
       pageSize: pageSize,
       isStream: isStream,
     );
+
+/// Functions to query CompraConfirmadaRecords (as a Stream and as a Future).
+Future<int> queryCompraConfirmadaRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      CompraConfirmadaRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<CompraConfirmadaRecord>> queryCompraConfirmadaRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      CompraConfirmadaRecord.collection,
+      CompraConfirmadaRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<CompraConfirmadaRecord>> queryCompraConfirmadaRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      CompraConfirmadaRecord.collection,
+      CompraConfirmadaRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<CompraConfirmadaRecord>>
+    queryCompraConfirmadaRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+        queryCollectionPage(
+          CompraConfirmadaRecord.collection,
+          CompraConfirmadaRecord.serializer,
+          queryBuilder: queryBuilder,
+          nextPageMarker: nextPageMarker,
+          pageSize: pageSize,
+          isStream: isStream,
+        );
 
 Future<int> queryCollectionCount(
   Query collection, {

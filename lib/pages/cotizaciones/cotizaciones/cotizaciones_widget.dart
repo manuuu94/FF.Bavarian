@@ -382,10 +382,15 @@ class _CotizacionesWidgetState extends State<CotizacionesWidget> {
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          Icon(
-                            Icons.shopping_cart,
-                            color: FlutterFlowTheme.of(context).text,
-                            size: 40.0,
+                          InkWell(
+                            onTap: () async {
+                              context.pushNamed('Carrito');
+                            },
+                            child: Icon(
+                              Icons.shopping_cart,
+                              color: FlutterFlowTheme.of(context).text,
+                              size: 40.0,
+                            ),
                           ),
                           InkWell(
                             onTap: () async {
