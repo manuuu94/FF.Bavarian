@@ -240,7 +240,7 @@ class _SolicitudesAdminWidgetState extends State<SolicitudesAdminWidget> {
                             children: [
                               FFButtonWidget(
                                 onPressed: () async {
-                                  context.pushNamed('SolicitudesAdmin');
+                                  context.pushNamed('Carrito');
                                 },
                                 text: 'Ver carrito',
                                 options: FFButtonOptions(
@@ -436,6 +436,16 @@ class _SolicitudesAdminWidgetState extends State<SolicitudesAdminWidget> {
                             ),
                           InkWell(
                             onTap: () async {
+                              context.pushNamed('SolicitudesCliente');
+                            },
+                            child: Icon(
+                              Icons.format_list_numbered_outlined,
+                              color: FlutterFlowTheme.of(context).text,
+                              size: 40.0,
+                            ),
+                          ),
+                          InkWell(
+                            onTap: () async {
                               context.pushNamed('Carrito');
                             },
                             child: Icon(
@@ -467,7 +477,7 @@ class _SolicitudesAdminWidgetState extends State<SolicitudesAdminWidget> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Solicitudes de compra',
+                      'Pedidos de Clientes',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Poppins',
                             color: FlutterFlowTheme.of(context).text,
@@ -499,8 +509,8 @@ class _SolicitudesAdminWidgetState extends State<SolicitudesAdminWidget> {
                       padding: EdgeInsets.zero,
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 1,
-                        crossAxisSpacing: 8.0,
-                        mainAxisSpacing: 2.0,
+                        crossAxisSpacing: 2.0,
+                        mainAxisSpacing: 0.0,
                         childAspectRatio: 1.0,
                       ),
                       scrollDirection: Axis.vertical,
@@ -510,7 +520,7 @@ class _SolicitudesAdminWidgetState extends State<SolicitudesAdminWidget> {
                             gridViewCompraConfirmadaRecordList[gridViewIndex];
                         return Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              15.0, 15.0, 15.0, 15.0),
+                              15.0, 15.0, 15.0, 20.0),
                           child: InkWell(
                             onTap: () async {
                               context.pushNamed(
@@ -536,6 +546,14 @@ class _SolicitudesAdminWidgetState extends State<SolicitudesAdminWidget> {
                                     ParamType.int,
                                     true,
                                   ),
+                                  'complBool': serializeParam(
+                                    gridViewCompraConfirmadaRecord.completado,
+                                    ParamType.bool,
+                                  ),
+                                  'itemCompra': serializeParam(
+                                    gridViewCompraConfirmadaRecord.reference,
+                                    ParamType.DocumentReference,
+                                  ),
                                 }.withoutNulls,
                                 extra: <String, dynamic>{
                                   'list': gridViewCompraConfirmadaRecord,
@@ -548,7 +566,11 @@ class _SolicitudesAdminWidgetState extends State<SolicitudesAdminWidget> {
                                 maxHeight: double.infinity,
                               ),
                               decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context).sideBar,
+                                border: Border.all(
+                                  color:
+                                      FlutterFlowTheme.of(context).sideBarMenu,
+                                  width: 5.0,
+                                ),
                               ),
                               child: Align(
                                 alignment: AlignmentDirectional(0.0, 0.0),
@@ -557,30 +579,47 @@ class _SolicitudesAdminWidgetState extends State<SolicitudesAdminWidget> {
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 10.0, 10.0, 10.0),
+                                          10.0, 0.0, 10.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
-                                            MainAxisAlignment.start,
+                                            MainAxisAlignment.center,
                                         children: [
                                           Text(
                                             'Id Compra:',
                                             style: FlutterFlowTheme.of(context)
-                                                .bodyMedium,
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .text,
+                                                ),
                                           ),
                                           Text(
                                             gridViewCompraConfirmadaRecord
                                                 .idCompra!
                                                 .toString(),
                                             style: FlutterFlowTheme.of(context)
-                                                .bodyMedium,
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .sideBarMenu,
+                                                ),
                                           ),
                                         ],
                                       ),
                                     ),
+                                    Divider(
+                                      thickness: 1.0,
+                                      color:
+                                          FlutterFlowTheme.of(context).accent4,
+                                    ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 10.0, 10.0, 10.0),
+                                          10.0, 0.0, 10.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
@@ -589,7 +628,13 @@ class _SolicitudesAdminWidgetState extends State<SolicitudesAdminWidget> {
                                           Text(
                                             'Artículos diferentes:',
                                             style: FlutterFlowTheme.of(context)
-                                                .bodyMedium,
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .text,
+                                                ),
                                           ),
                                           Text(
                                             valueOrDefault<String>(
@@ -601,81 +646,313 @@ class _SolicitudesAdminWidgetState extends State<SolicitudesAdminWidget> {
                                               '0',
                                             ),
                                             style: FlutterFlowTheme.of(context)
-                                                .bodyMedium,
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .text,
+                                                ),
                                           ),
                                         ],
                                       ),
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 10.0, 10.0, 10.0),
-                                      child: SingleChildScrollView(
-                                        scrollDirection: Axis.horizontal,
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              'ID usuario:',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium,
-                                            ),
-                                            Text(
-                                              gridViewCompraConfirmadaRecord
-                                                  .uid!,
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium,
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 10.0, 10.0, 10.0),
+                                          10.0, 0.0, 10.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                            MainAxisAlignment.start,
                                         children: [
                                           Text(
-                                            'SubTotal:',
+                                            'SubTotal: ₡ ',
                                             style: FlutterFlowTheme.of(context)
-                                                .bodyMedium,
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .text,
+                                                ),
                                           ),
                                           Text(
                                             gridViewCompraConfirmadaRecord
                                                 .subtotal!
                                                 .toString(),
                                             style: FlutterFlowTheme.of(context)
-                                                .bodyMedium,
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .text,
+                                                ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Divider(
+                                      thickness: 1.0,
+                                      color:
+                                          FlutterFlowTheme.of(context).accent4,
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          10.0, 0.0, 10.0, 0.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            'ID usuario:',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .text,
+                                                ),
+                                          ),
+                                          Expanded(
+                                            child: Text(
+                                              gridViewCompraConfirmadaRecord
+                                                  .uid!,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .text,
+                                                      ),
+                                            ),
                                           ),
                                         ],
                                       ),
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 10.0, 10.0, 10.0),
-                                      child: Text(
-                                        gridViewCompraConfirmadaRecord
-                                            .reference.id,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                          10.0, 0.0, 10.0, 0.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            'Correo: ',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .text,
+                                                ),
+                                          ),
+                                          Expanded(
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 0.0, 10.0, 0.0),
+                                              child: Text(
+                                                gridViewCompraConfirmadaRecord
+                                                    .correo!,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .text,
+                                                        ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 10.0, 10.0, 10.0),
-                                      child: Text(
-                                        gridViewCompraConfirmadaRecord
-                                            .direccion!,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                          10.0, 0.0, 10.0, 0.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            'Cliente: ',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .text,
+                                                ),
+                                          ),
+                                          Expanded(
+                                            child: Text(
+                                              gridViewCompraConfirmadaRecord
+                                                  .nombreCliente!,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .text,
+                                                      ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          10.0, 0.0, 10.0, 0.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            'Tel:',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .text,
+                                                ),
+                                          ),
+                                          Expanded(
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 0.0, 10.0, 0.0),
+                                              child: Text(
+                                                gridViewCompraConfirmadaRecord
+                                                    .telefono!,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .text,
+                                                        ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          10.0, 0.0, 10.0, 0.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            'Dirección:',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .text,
+                                                ),
+                                          ),
+                                          Expanded(
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 0.0, 10.0, 0.0),
+                                              child: Text(
+                                                gridViewCompraConfirmadaRecord
+                                                    .direccion!,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .text,
+                                                        ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Divider(
+                                      thickness: 1.0,
+                                      color:
+                                          FlutterFlowTheme.of(context).accent4,
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          10.0, 0.0, 10.0, 0.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            'Completado: ',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .text,
+                                                  fontSize: 20.0,
+                                                ),
+                                          ),
+                                          Text(
+                                            gridViewCompraConfirmadaRecord
+                                                    .completado!
+                                                ? 'SÍ'
+                                                : 'NO',
+                                            textAlign: TextAlign.center,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .sideBarMenu,
+                                                  fontSize: 20.0,
+                                                ),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ],

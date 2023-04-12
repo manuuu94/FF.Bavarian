@@ -68,6 +68,34 @@ class _$CompraConfirmadaRecordSerializer
             specifiedType:
                 const FullType(BuiltList, const [const FullType(int)])));
     }
+    value = object.correo;
+    if (value != null) {
+      result
+        ..add('correo')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.nombreCliente;
+    if (value != null) {
+      result
+        ..add('nombreCliente')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.telefono;
+    if (value != null) {
+      result
+        ..add('telefono')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.completado;
+    if (value != null) {
+      result
+        ..add('completado')
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -119,6 +147,22 @@ class _$CompraConfirmadaRecordSerializer
                       const FullType(BuiltList, const [const FullType(int)]))!
               as BuiltList<Object?>);
           break;
+        case 'correo':
+          result.correo = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'nombreCliente':
+          result.nombreCliente = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'telefono':
+          result.telefono = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'completado':
+          result.completado = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -146,6 +190,14 @@ class _$CompraConfirmadaRecord extends CompraConfirmadaRecord {
   @override
   final BuiltList<int>? cantidad;
   @override
+  final String? correo;
+  @override
+  final String? nombreCliente;
+  @override
+  final String? telefono;
+  @override
+  final bool? completado;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$CompraConfirmadaRecord(
@@ -159,6 +211,10 @@ class _$CompraConfirmadaRecord extends CompraConfirmadaRecord {
       this.subtotal,
       this.idCompra,
       this.cantidad,
+      this.correo,
+      this.nombreCliente,
+      this.telefono,
+      this.completado,
       this.ffRef})
       : super._();
 
@@ -181,6 +237,10 @@ class _$CompraConfirmadaRecord extends CompraConfirmadaRecord {
         subtotal == other.subtotal &&
         idCompra == other.idCompra &&
         cantidad == other.cantidad &&
+        correo == other.correo &&
+        nombreCliente == other.nombreCliente &&
+        telefono == other.telefono &&
+        completado == other.completado &&
         ffRef == other.ffRef;
   }
 
@@ -193,6 +253,10 @@ class _$CompraConfirmadaRecord extends CompraConfirmadaRecord {
     _$hash = $jc(_$hash, subtotal.hashCode);
     _$hash = $jc(_$hash, idCompra.hashCode);
     _$hash = $jc(_$hash, cantidad.hashCode);
+    _$hash = $jc(_$hash, correo.hashCode);
+    _$hash = $jc(_$hash, nombreCliente.hashCode);
+    _$hash = $jc(_$hash, telefono.hashCode);
+    _$hash = $jc(_$hash, completado.hashCode);
     _$hash = $jc(_$hash, ffRef.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -207,6 +271,10 @@ class _$CompraConfirmadaRecord extends CompraConfirmadaRecord {
           ..add('subtotal', subtotal)
           ..add('idCompra', idCompra)
           ..add('cantidad', cantidad)
+          ..add('correo', correo)
+          ..add('nombreCliente', nombreCliente)
+          ..add('telefono', telefono)
+          ..add('completado', completado)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -242,6 +310,23 @@ class CompraConfirmadaRecordBuilder
   ListBuilder<int> get cantidad => _$this._cantidad ??= new ListBuilder<int>();
   set cantidad(ListBuilder<int>? cantidad) => _$this._cantidad = cantidad;
 
+  String? _correo;
+  String? get correo => _$this._correo;
+  set correo(String? correo) => _$this._correo = correo;
+
+  String? _nombreCliente;
+  String? get nombreCliente => _$this._nombreCliente;
+  set nombreCliente(String? nombreCliente) =>
+      _$this._nombreCliente = nombreCliente;
+
+  String? _telefono;
+  String? get telefono => _$this._telefono;
+  set telefono(String? telefono) => _$this._telefono = telefono;
+
+  bool? _completado;
+  bool? get completado => _$this._completado;
+  set completado(bool? completado) => _$this._completado = completado;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -259,6 +344,10 @@ class CompraConfirmadaRecordBuilder
       _subtotal = $v.subtotal;
       _idCompra = $v.idCompra;
       _cantidad = $v.cantidad?.toBuilder();
+      _correo = $v.correo;
+      _nombreCliente = $v.nombreCliente;
+      _telefono = $v.telefono;
+      _completado = $v.completado;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -290,6 +379,10 @@ class CompraConfirmadaRecordBuilder
               subtotal: subtotal,
               idCompra: idCompra,
               cantidad: _cantidad?.build(),
+              correo: correo,
+              nombreCliente: nombreCliente,
+              telefono: telefono,
+              completado: completado,
               ffRef: ffRef);
     } catch (_) {
       late String _$failedField;

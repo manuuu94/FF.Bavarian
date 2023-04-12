@@ -382,6 +382,27 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
+                          if (currentUserUid == 'm2CVamHMawQSkQh8MKlmRKMkgxn1')
+                            InkWell(
+                              onTap: () async {
+                                context.pushNamed('SolicitudesAdmin');
+                              },
+                              child: Icon(
+                                Icons.admin_panel_settings_outlined,
+                                color: FlutterFlowTheme.of(context).text,
+                                size: 40.0,
+                              ),
+                            ),
+                          InkWell(
+                            onTap: () async {
+                              context.pushNamed('SolicitudesCliente');
+                            },
+                            child: Icon(
+                              Icons.format_list_numbered_outlined,
+                              color: FlutterFlowTheme.of(context).text,
+                              size: 40.0,
+                            ),
+                          ),
                           InkWell(
                             onTap: () async {
                               context.pushNamed('Carrito');
@@ -1115,6 +1136,12 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                                                                       nombreprodItem
                                                                           .precio,
                                                                   cantidad: 1,
+                                                                  total: functions
+                                                                      .sumaPrecios2(
+                                                                          nombreprodItem
+                                                                              .precio!),
+                                                                  uid:
+                                                                      currentUserUid,
                                                                 );
                                                                 await CarritoRecord
                                                                     .collection

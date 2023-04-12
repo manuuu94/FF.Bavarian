@@ -25,6 +25,14 @@ abstract class CompraConfirmadaRecord
 
   BuiltList<int>? get cantidad;
 
+  String? get correo;
+
+  String? get nombreCliente;
+
+  String? get telefono;
+
+  bool? get completado;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
@@ -36,7 +44,11 @@ abstract class CompraConfirmadaRecord
         ..uid = ''
         ..subtotal = 0.0
         ..idCompra = 0
-        ..cantidad = ListBuilder();
+        ..cantidad = ListBuilder()
+        ..correo = ''
+        ..nombreCliente = ''
+        ..telefono = ''
+        ..completado = false;
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('compraConfirmada');
@@ -66,6 +78,10 @@ Map<String, dynamic> createCompraConfirmadaRecordData({
   String? uid,
   double? subtotal,
   int? idCompra,
+  String? correo,
+  String? nombreCliente,
+  String? telefono,
+  bool? completado,
 }) {
   final firestoreData = serializers.toFirestore(
     CompraConfirmadaRecord.serializer,
@@ -76,7 +92,11 @@ Map<String, dynamic> createCompraConfirmadaRecordData({
         ..uid = uid
         ..subtotal = subtotal
         ..idCompra = idCompra
-        ..cantidad = null,
+        ..cantidad = null
+        ..correo = correo
+        ..nombreCliente = nombreCliente
+        ..telefono = telefono
+        ..completado = completado,
     ),
   );
 

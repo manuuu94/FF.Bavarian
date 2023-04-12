@@ -188,6 +188,10 @@ class _BsOpcionentregaCopyWidgetState extends State<BsOpcionentregaCopyWidget> {
                                                     .toList()),
                                             idCompra: random_data.randomInteger(
                                                 0, 10000),
+                                            correo: currentUserEmail,
+                                            nombreCliente:
+                                                currentUserDisplayName,
+                                            telefono: currentPhoneNumber,
                                           ),
                                           'Productos':
                                               slidableActionWidgetCarritoRecordList

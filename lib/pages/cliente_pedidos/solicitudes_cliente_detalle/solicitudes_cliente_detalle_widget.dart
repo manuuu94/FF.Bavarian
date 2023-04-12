@@ -7,11 +7,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'solicitudes_admin_copy_model.dart';
-export 'solicitudes_admin_copy_model.dart';
+import 'solicitudes_cliente_detalle_model.dart';
+export 'solicitudes_cliente_detalle_model.dart';
 
-class SolicitudesAdminCopyWidget extends StatefulWidget {
-  const SolicitudesAdminCopyWidget({
+class SolicitudesClienteDetalleWidget extends StatefulWidget {
+  const SolicitudesClienteDetalleWidget({
     Key? key,
     this.name,
     this.img,
@@ -41,20 +41,20 @@ class SolicitudesAdminCopyWidget extends StatefulWidget {
   final DocumentReference? itemCompra;
 
   @override
-  _SolicitudesAdminCopyWidgetState createState() =>
-      _SolicitudesAdminCopyWidgetState();
+  _SolicitudesClienteDetalleWidgetState createState() =>
+      _SolicitudesClienteDetalleWidgetState();
 }
 
-class _SolicitudesAdminCopyWidgetState
-    extends State<SolicitudesAdminCopyWidget> {
-  late SolicitudesAdminCopyModel _model;
+class _SolicitudesClienteDetalleWidgetState
+    extends State<SolicitudesClienteDetalleWidget> {
+  late SolicitudesClienteDetalleModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => SolicitudesAdminCopyModel());
+    _model = createModel(context, () => SolicitudesClienteDetalleModel());
   }
 
   @override
@@ -661,82 +661,16 @@ class _SolicitudesAdminCopyWidgetState
                           children: [
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  50.0, 5.0, 0.0, 0.0),
+                                  0.0, 5.0, 0.0, 0.0),
                               child: Text(
-                                'Completado: ',
+                                'Lista de artículos',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Poppins',
                                       color: FlutterFlowTheme.of(context).text,
+                                      fontSize: 18.0,
                                     ),
-                              ),
-                            ),
-                            Expanded(
-                              child: StreamBuilder<CompraConfirmadaRecord>(
-                                stream: CompraConfirmadaRecord.getDocument(
-                                    widget.itemCompra!),
-                                builder: (context, snapshot) {
-                                  // Customize what your widget looks like when it's loading.
-                                  if (!snapshot.hasData) {
-                                    return Center(
-                                      child: SizedBox(
-                                        width: 50.0,
-                                        height: 50.0,
-                                        child: CircularProgressIndicator(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
-                                        ),
-                                      ),
-                                    );
-                                  }
-                                  final checkboxCompraConfirmadaRecord =
-                                      snapshot.data!;
-                                  return Theme(
-                                    data: ThemeData(
-                                      checkboxTheme: CheckboxThemeData(
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(0.0),
-                                        ),
-                                      ),
-                                      unselectedWidgetColor:
-                                          FlutterFlowTheme.of(context).text,
-                                    ),
-                                    child: Checkbox(
-                                      value: _model.checkboxValue ??=
-                                          checkboxCompraConfirmadaRecord
-                                              .completado!,
-                                      onChanged: (newValue) async {
-                                        setState(() =>
-                                            _model.checkboxValue = newValue!);
-                                        if (newValue!) {
-                                          final compraConfirmadaUpdateData =
-                                              createCompraConfirmadaRecordData(
-                                            completado: true,
-                                          );
-                                          await checkboxCompraConfirmadaRecord
-                                              .reference
-                                              .update(
-                                                  compraConfirmadaUpdateData);
-                                        } else {
-                                          final compraConfirmadaUpdateData =
-                                              createCompraConfirmadaRecordData(
-                                            completado: false,
-                                          );
-                                          await checkboxCompraConfirmadaRecord
-                                              .reference
-                                              .update(
-                                                  compraConfirmadaUpdateData);
-                                        }
-                                      },
-                                      activeColor: FlutterFlowTheme.of(context)
-                                          .sideBarMenu,
-                                      checkColor:
-                                          FlutterFlowTheme.of(context).text,
-                                    ),
-                                  );
-                                },
                               ),
                             ),
                           ],
@@ -759,7 +693,7 @@ class _SolicitudesAdminCopyWidgetState
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                         child: Text(
-                          'Contactar con cliente: ',
+                          'Contactar sobre pedido: ',
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Poppins',
@@ -803,10 +737,10 @@ class _SolicitudesAdminCopyWidgetState
                             return InkWell(
                               onTap: () async {
                                 await launchURL(
-                                    'https://api.whatsapp.com/send?phone=${textCompraConfirmadaRecord.telefono}&text=Hola, ${textCompraConfirmadaRecord.nombreCliente}!! Le contacto sobre su pedido: ${textCompraConfirmadaRecord.idCompra?.toString()}.');
+                                    'https://api.whatsapp.com/send?phone=50686218472&text=Hola, BMWShopCR!! Les contacto sobre el pedido: ${textCompraConfirmadaRecord.idCompra?.toString()}.');
                               },
                               child: Text(
-                                textCompraConfirmadaRecord.nombreCliente!,
+                                textCompraConfirmadaRecord.idCompra!.toString(),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
