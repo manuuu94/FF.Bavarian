@@ -14,3 +14,7 @@ export '/pages/cotizaciones/cotizaciones/cotizaciones_widget.dart'
 export '/pages/cotizaciones/nueva_cotizacion/nueva_cotizacion_widget.dart'
     show NuevaCotizacionWidget;
 export '/pages/carrito/carrito/carrito_widget.dart' show CarritoWidget;
+export '/pages/admin/solicitudes_admin/solicitudes_admin_widget.dart'
+    show SolicitudesAdminWidget;
+export '/pages/admin/solicitudes_admin_copy/solicitudes_admin_copy_widget.dart'
+    show SolicitudesAdminCopyWidget;

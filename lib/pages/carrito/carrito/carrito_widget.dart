@@ -864,6 +864,10 @@ class _CarritoWidgetState extends State<CarritoWidget> {
                           }
                         },
                         text: 'Vaciar carrito',
+                        icon: Icon(
+                          Icons.delete,
+                          size: 15.0,
+                        ),
                         options: FFButtonOptions(
                           width: 150.0,
                           height: 50.0,
@@ -947,7 +951,11 @@ class _CarritoWidgetState extends State<CarritoWidget> {
                             );
                           }
                         },
-                        text: 'Enviar solicitud',
+                        text: 'Confirmar',
+                        icon: Icon(
+                          Icons.check,
+                          size: 15.0,
+                        ),
                         options: FFButtonOptions(
                           width: 150.0,
                           height: 50.0,
