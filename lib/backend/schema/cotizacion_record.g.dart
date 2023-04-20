@@ -83,6 +83,20 @@ class _$CotizacionRecordSerializer
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
+    value = object.uid;
+    if (value != null) {
+      result
+        ..add('uid')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.completado;
+    if (value != null) {
+      result
+        ..add('completado')
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -142,6 +156,14 @@ class _$CotizacionRecordSerializer
           result.enlace = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
+        case 'uid':
+          result.uid = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'completado':
+          result.completado = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -175,6 +197,10 @@ class _$CotizacionRecord extends CotizacionRecord {
   @override
   final String? enlace;
   @override
+  final String? uid;
+  @override
+  final bool? completado;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$CotizacionRecord(
@@ -191,6 +217,8 @@ class _$CotizacionRecord extends CotizacionRecord {
       this.peso,
       this.tipoArticulo,
       this.enlace,
+      this.uid,
+      this.completado,
       this.ffRef})
       : super._();
 
@@ -215,6 +243,8 @@ class _$CotizacionRecord extends CotizacionRecord {
         peso == other.peso &&
         tipoArticulo == other.tipoArticulo &&
         enlace == other.enlace &&
+        uid == other.uid &&
+        completado == other.completado &&
         ffRef == other.ffRef;
   }
 
@@ -230,6 +260,8 @@ class _$CotizacionRecord extends CotizacionRecord {
     _$hash = $jc(_$hash, peso.hashCode);
     _$hash = $jc(_$hash, tipoArticulo.hashCode);
     _$hash = $jc(_$hash, enlace.hashCode);
+    _$hash = $jc(_$hash, uid.hashCode);
+    _$hash = $jc(_$hash, completado.hashCode);
     _$hash = $jc(_$hash, ffRef.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -247,6 +279,8 @@ class _$CotizacionRecord extends CotizacionRecord {
           ..add('peso', peso)
           ..add('tipoArticulo', tipoArticulo)
           ..add('enlace', enlace)
+          ..add('uid', uid)
+          ..add('completado', completado)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -294,6 +328,14 @@ class CotizacionRecordBuilder
   String? get enlace => _$this._enlace;
   set enlace(String? enlace) => _$this._enlace = enlace;
 
+  String? _uid;
+  String? get uid => _$this._uid;
+  set uid(String? uid) => _$this._uid = uid;
+
+  bool? _completado;
+  bool? get completado => _$this._completado;
+  set completado(bool? completado) => _$this._completado = completado;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -314,6 +356,8 @@ class CotizacionRecordBuilder
       _peso = $v.peso;
       _tipoArticulo = $v.tipoArticulo;
       _enlace = $v.enlace;
+      _uid = $v.uid;
+      _completado = $v.completado;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -346,6 +390,8 @@ class CotizacionRecordBuilder
             peso: peso,
             tipoArticulo: tipoArticulo,
             enlace: enlace,
+            uid: uid,
+            completado: completado,
             ffRef: ffRef);
     replace(_$result);
     return _$result;

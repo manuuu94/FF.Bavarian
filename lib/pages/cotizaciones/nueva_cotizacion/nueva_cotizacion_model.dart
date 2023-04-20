@@ -1,4 +1,4 @@
-import '/auth/auth_util.dart';
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -14,9 +14,6 @@ class NuevaCotizacionModel extends FlutterFlowModel {
   // State field(s) for txt_nombre widget.
   TextEditingController? txtNombreController;
   String? Function(BuildContext, String?)? txtNombreControllerValidator;
-  // State field(s) for txt_precio widget.
-  TextEditingController? txtPrecioController;
-  String? Function(BuildContext, String?)? txtPrecioControllerValidator;
   // State field(s) for txt_peso widget.
   TextEditingController? txtPesoController;
   String? Function(BuildContext, String?)? txtPesoControllerValidator;
@@ -33,7 +30,6 @@ class NuevaCotizacionModel extends FlutterFlowModel {
 
   void dispose() {
     txtNombreController?.dispose();
-    txtPrecioController?.dispose();
     txtPesoController?.dispose();
     txtTipoController?.dispose();
     txtEnlaceController?.dispose();

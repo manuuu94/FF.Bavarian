@@ -1,4 +1,4 @@
-import '/auth/auth_util.dart';
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -357,7 +357,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                         return;
                       }
 
-                      final user = await createAccountWithEmail(
+                      final user = await authManager.createAccountWithEmail(
                         context,
                         _model.emailAddressController.text,
                         _model.passwordController.text,

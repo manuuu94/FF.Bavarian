@@ -32,6 +32,10 @@ abstract class CotizacionRecord
 
   String? get enlace;
 
+  String? get uid;
+
+  bool? get completado;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
@@ -44,7 +48,9 @@ abstract class CotizacionRecord
     ..total = 0.0
     ..peso = 0
     ..tipoArticulo = ''
-    ..enlace = '';
+    ..enlace = ''
+    ..uid = ''
+    ..completado = false;
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('Cotizacion');
@@ -77,6 +83,8 @@ Map<String, dynamic> createCotizacionRecordData({
   int? peso,
   String? tipoArticulo,
   String? enlace,
+  String? uid,
+  bool? completado,
 }) {
   final firestoreData = serializers.toFirestore(
     CotizacionRecord.serializer,
@@ -90,7 +98,9 @@ Map<String, dynamic> createCotizacionRecordData({
         ..total = total
         ..peso = peso
         ..tipoArticulo = tipoArticulo
-        ..enlace = enlace,
+        ..enlace = enlace
+        ..uid = uid
+        ..completado = completado,
     ),
   );
 
