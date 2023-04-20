@@ -1,4 +1,4 @@
-import '/auth/auth_util.dart';
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -28,7 +28,6 @@ class _NuevaCotizacionWidgetState extends State<NuevaCotizacionWidget> {
     _model = createModel(context, () => NuevaCotizacionModel());
 
     _model.txtNombreController ??= TextEditingController();
-    _model.txtPrecioController ??= TextEditingController();
     _model.txtPesoController ??= TextEditingController();
     _model.txtTipoController ??= TextEditingController();
     _model.txtEnlaceController ??= TextEditingController();
@@ -316,7 +315,7 @@ class _NuevaCotizacionWidgetState extends State<NuevaCotizacionWidget> {
                               InkWell(
                                 onTap: () async {
                                   GoRouter.of(context).prepareAuthEvent();
-                                  await signOut();
+                                  await authManager.signOut();
                                   GoRouter.of(context).clearRedirectLocation();
 
                                   context.goNamedAuth('HomePage', mounted);
@@ -529,83 +528,6 @@ class _NuevaCotizacionWidgetState extends State<NuevaCotizacionWidget> {
                                             textAlign: TextAlign.center,
                                             validator: _model
                                                 .txtNombreControllerValidator
-                                                .asValidator(context),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Expanded(
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 50.0, 0.0, 0.0),
-                                          child: TextFormField(
-                                            controller:
-                                                _model.txtPrecioController,
-                                            autofocus: true,
-                                            obscureText: false,
-                                            decoration: InputDecoration(
-                                              hintText: 'Precio articulo',
-                                              hintStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodySmall,
-                                              enabledBorder:
-                                                  UnderlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: Color(0x00000000),
-                                                  width: 1.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(
-                                                        125.0),
-                                              ),
-                                              focusedBorder:
-                                                  UnderlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: Color(0x00000000),
-                                                  width: 1.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(
-                                                        125.0),
-                                              ),
-                                              errorBorder: UnderlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: Color(0x00000000),
-                                                  width: 1.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(
-                                                        125.0),
-                                              ),
-                                              focusedErrorBorder:
-                                                  UnderlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: Color(0x00000000),
-                                                  width: 1.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(
-                                                        125.0),
-                                              ),
-                                              filled: true,
-                                              fillColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .lineColor,
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: 20.0,
-                                                ),
-                                            textAlign: TextAlign.center,
-                                            validator: _model
-                                                .txtPrecioControllerValidator
                                                 .asValidator(context),
                                           ),
                                         ),
@@ -848,22 +770,35 @@ class _NuevaCotizacionWidgetState extends State<NuevaCotizacionWidget> {
                                         0.0, 40.0, 0.0, 0.0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
-                                        final cotizacionCreateData =
-                                            createCotizacionRecordData(
-                                          precio: double.tryParse(
-                                              _model.txtNombreController.text),
-                                          peso: int.tryParse(
-                                              _model.txtPesoController.text),
-                                          tipoArticulo:
-                                              _model.txtTipoController.text,
-                                          enlace:
-                                              _model.txtEnlaceController.text,
-                                          nombreProducto:
-                                              _model.txtNombreController.text,
-                                        );
+                                        final cotizacionCreateData = {
+                                          ...createCotizacionRecordData(
+                                            peso: int.tryParse(
+                                                _model.txtPesoController.text),
+                                            tipoArticulo:
+                                                _model.txtTipoController.text,
+                                            enlace:
+                                                _model.txtEnlaceController.text,
+                                            nombreProducto:
+                                                _model.txtNombreController.text,
+                                            uid: currentUserUid,
+                                            precio: 0.0,
+                                            impuestos: 0.0,
+                                            costoImportacion: 0.0,
+                                            total: 0.0,
+                                          ),
+                                          'fecha': FieldValue.serverTimestamp(),
+                                        };
                                         await CotizacionRecord.collection
                                             .doc()
                                             .set(cotizacionCreateData);
+                                        setState(() {
+                                          _model.txtNombreController?.clear();
+                                          _model.txtPesoController?.clear();
+                                          _model.txtTipoController?.clear();
+                                          _model.txtEnlaceController?.clear();
+                                        });
+
+                                        context.pushNamed('Cotizaciones');
                                       },
                                       text: 'Cotizar',
                                       options: FFButtonOptions(

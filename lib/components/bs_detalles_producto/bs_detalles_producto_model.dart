@@ -1,6 +1,5 @@
-import '/auth/auth_util.dart';
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/flutter_flow/flutter_flow_count_controller.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -15,11 +14,6 @@ class BsDetallesProductoModel extends FlutterFlowModel {
   ///  Local state fields for this component.
 
   InventarioRecord? producto;
-
-  ///  State fields for stateful widgets in this component.
-
-  // State field(s) for CountController widget.
-  int? countControllerValue;
 
   /// Initialization and disposal methods.
 

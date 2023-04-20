@@ -1,4 +1,4 @@
-import '/auth/auth_util.dart';
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/bs_img_edit/bs_img_edit_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';

@@ -1,4 +1,4 @@
-import '/auth/auth_util.dart';
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/bs_detalles_producto/bs_detalles_producto_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -316,7 +316,7 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                               InkWell(
                                 onTap: () async {
                                   GoRouter.of(context).prepareAuthEvent();
-                                  await signOut();
+                                  await authManager.signOut();
                                   GoRouter.of(context).clearRedirectLocation();
 
                                   context.goNamedAuth('HomePage', mounted);
@@ -892,7 +892,7 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                                                               icon: Icon(
                                                                 Icons
                                                                     .add_shopping_cart_outlined,
-                                                                size: 15.0,
+                                                                size: 25.0,
                                                               ),
                                                               options:
                                                                   FFButtonOptions(
@@ -1090,20 +1090,60 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                                                                       0.0,
                                                                       0.0,
                                                                       1.0),
-                                                          child: Image.network(
-                                                            nombreprodItem
-                                                                .image!,
-                                                            width: MediaQuery.of(
-                                                                        context)
-                                                                    .size
-                                                                    .width *
-                                                                0.35,
-                                                            height: MediaQuery.of(
-                                                                        context)
-                                                                    .size
-                                                                    .height *
-                                                                0.1,
-                                                            fit: BoxFit.cover,
+                                                          child: InkWell(
+                                                            onTap: () async {
+                                                              await showModalBottomSheet(
+                                                                isScrollControlled:
+                                                                    true,
+                                                                backgroundColor:
+                                                                    Colors
+                                                                        .transparent,
+                                                                barrierColor: Color(
+                                                                    0x0095A1AC),
+                                                                enableDrag:
+                                                                    false,
+                                                                context:
+                                                                    context,
+                                                                builder:
+                                                                    (bottomSheetContext) {
+                                                                  return Padding(
+                                                                    padding: MediaQuery.of(
+                                                                            bottomSheetContext)
+                                                                        .viewInsets,
+                                                                    child:
+                                                                        Container(
+                                                                      height: MediaQuery.of(context)
+                                                                              .size
+                                                                              .height *
+                                                                          0.8,
+                                                                      child:
+                                                                          BsDetallesProductoWidget(
+                                                                        producto:
+                                                                            nombreprodItem,
+                                                                      ),
+                                                                    ),
+                                                                  );
+                                                                },
+                                                              ).then((value) =>
+                                                                  setState(
+                                                                      () {}));
+                                                            },
+                                                            child:
+                                                                Image.network(
+                                                              nombreprodItem
+                                                                  .image!,
+                                                              width: MediaQuery.of(
+                                                                          context)
+                                                                      .size
+                                                                      .width *
+                                                                  0.35,
+                                                              height: MediaQuery.of(
+                                                                          context)
+                                                                      .size
+                                                                      .height *
+                                                                  0.1,
+                                                              fit: BoxFit.cover,
+                                                            ),
                                                           ),
                                                         ),
                                                       ],

@@ -1,4 +1,4 @@
-import '/auth/auth_util.dart';
+import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -254,7 +254,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                     onPressed: () async {
                       GoRouter.of(context).prepareAuthEvent();
 
-                      final user = await signInWithEmail(
+                      final user = await authManager.signInWithEmail(
                         context,
                         _model.emailAddressController.text,
                         _model.passwordLoginController.text,

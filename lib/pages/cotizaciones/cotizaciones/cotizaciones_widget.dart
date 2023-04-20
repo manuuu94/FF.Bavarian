@@ -1,4 +1,4 @@
-import '/auth/auth_util.dart';
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/bs_detalles_cotizacion/bs_detalles_cotizacion_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -316,7 +316,7 @@ class _CotizacionesWidgetState extends State<CotizacionesWidget> {
                               InkWell(
                                 onTap: () async {
                                   GoRouter.of(context).prepareAuthEvent();
-                                  await signOut();
+                                  await authManager.signOut();
                                   GoRouter.of(context).clearRedirectLocation();
 
                                   context.goNamedAuth('HomePage', mounted);
@@ -888,9 +888,10 @@ class _CotizacionesWidgetState extends State<CotizacionesWidget> {
                                                                 AlignmentDirectional(
                                                                     0.85, 0.84),
                                                             child: Text(
-                                                              cotizacionesNameItem
-                                                                  .fecha!
-                                                                  .toString(),
+                                                              dateTimeFormat(
+                                                                  'yMMMd',
+                                                                  cotizacionesNameItem
+                                                                      .fecha!),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyMedium,

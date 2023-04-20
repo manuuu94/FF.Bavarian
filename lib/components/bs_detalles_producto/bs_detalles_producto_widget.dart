@@ -1,6 +1,5 @@
-import '/auth/auth_util.dart';
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/flutter_flow/flutter_flow_count_controller.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -152,58 +151,6 @@ class _BsDetallesProductoWidgetState extends State<BsDetallesProductoWidget> {
                         ),
                       ),
                       Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(5.0, 20.0, 5.0, 5.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Container(
-                              width: 160.0,
-                              height: 50.0,
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(25.0),
-                                shape: BoxShape.rectangle,
-                                border: Border.all(
-                                  color: Color(0xFF9E9E9E),
-                                  width: 1.0,
-                                ),
-                              ),
-                              child: FlutterFlowCountController(
-                                decrementIconBuilder: (enabled) => FaIcon(
-                                  FontAwesomeIcons.minus,
-                                  color: enabled
-                                      ? FlutterFlowTheme.of(context).sideBarMenu
-                                      : Color(0xFFEEEEEE),
-                                  size: 20.0,
-                                ),
-                                incrementIconBuilder: (enabled) => FaIcon(
-                                  FontAwesomeIcons.plus,
-                                  color: enabled
-                                      ? FlutterFlowTheme.of(context).sideBarMenu
-                                      : Color(0xFFEEEEEE),
-                                  size: 20.0,
-                                ),
-                                countBuilder: (count) => Text(
-                                  count.toString(),
-                                  style: GoogleFonts.getFont(
-                                    'Roboto',
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 16.0,
-                                  ),
-                                ),
-                                count: _model.countControllerValue ??= 1,
-                                updateCount: (count) => setState(
-                                    () => _model.countControllerValue = count),
-                                stepSize: 1,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
                             0.0, 24.0, 0.0, 44.0),
                         child: Row(
@@ -216,7 +163,7 @@ class _BsDetallesProductoWidgetState extends State<BsDetallesProductoWidget> {
                                     createCarritoRecordData(
                                   nombre: widget.producto!.nombreProducto,
                                   precio: widget.producto!.precio,
-                                  cantidad: _model.countControllerValue,
+                                  cantidad: 1,
                                   total: functions
                                       .sumaPrecios2(widget.producto!.precio!),
                                 );
@@ -262,7 +209,7 @@ class _BsDetallesProductoWidgetState extends State<BsDetallesProductoWidget> {
                                     createCarritoRecordData(
                                   nombre: widget.producto!.nombreProducto,
                                   precio: widget.producto!.precio,
-                                  cantidad: _model.countControllerValue,
+                                  cantidad: 1,
                                   total: functions
                                       .sumaPrecios2(widget.producto!.precio!),
                                 );

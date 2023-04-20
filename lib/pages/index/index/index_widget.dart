@@ -1,4 +1,4 @@
-import '/auth/auth_util.dart';
+import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -342,7 +342,7 @@ class _IndexWidgetState extends State<IndexWidget>
                           InkWell(
                             onTap: () async {
                               GoRouter.of(context).prepareAuthEvent();
-                              await signOut();
+                              await authManager.signOut();
                               GoRouter.of(context).clearRedirectLocation();
 
                               context.goNamedAuth('HomePage', mounted);
