@@ -205,17 +205,8 @@ class _BsDetallesProductoWidgetState extends State<BsDetallesProductoWidget> {
                           children: [
                             FFButtonWidget(
                               onPressed: () async {
-                                final carritoCreateData =
-                                    createCarritoRecordData(
-                                  nombre: widget.producto!.nombreProducto,
-                                  precio: widget.producto!.precio,
-                                  cantidad: 1,
-                                  total: functions
-                                      .sumaPrecios2(widget.producto!.precio!),
-                                );
-                                await CarritoRecord.collection
-                                    .doc()
-                                    .set(carritoCreateData);
+                                await launchURL(
+                                    'Más%20información%20acerca%20de%20este%20producto%20por%20favor!');
                               },
                               text: 'Contactanos',
                               icon: FaIcon(
