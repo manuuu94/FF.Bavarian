@@ -75,6 +75,10 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
                                 onTap: () async {
                                   if (scaffoldKey.currentState!.isDrawerOpen ||
                                       scaffoldKey
@@ -314,6 +318,10 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
                                 onTap: () async {
                                   GoRouter.of(context).prepareAuthEvent();
                                   await authManager.signOut();
@@ -364,6 +372,10 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
                           onTap: () async {
                             scaffoldKey.currentState!.openDrawer();
                           },
@@ -384,6 +396,10 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                         children: [
                           if (currentUserUid == 'm2CVamHMawQSkQh8MKlmRKMkgxn1')
                             InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
                               onTap: () async {
                                 context.pushNamed('SolicitudesAdmin');
                               },
@@ -394,6 +410,10 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                               ),
                             ),
                           InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
                             onTap: () async {
                               context.pushNamed('SolicitudesCliente');
                             },
@@ -404,6 +424,10 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                             ),
                           ),
                           InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
                             onTap: () async {
                               context.pushNamed('Carrito');
                             },
@@ -414,6 +438,10 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                             ),
                           ),
                           InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
                             onTap: () async {
                               context.pushNamed('Index');
                             },
@@ -623,6 +651,10 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                                       alignment:
                                           AlignmentDirectional(0.95, -0.04),
                                       child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
                                         onTap: () async {
                                           setState(() {
                                             FFAppState().FullList = true;
@@ -681,22 +713,6 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                                           List<InventarioRecord>
                                               gridViewInventarioRecordList =
                                               snapshot.data!;
-                                          if (gridViewInventarioRecordList
-                                              .isEmpty) {
-                                            return Center(
-                                              child: Image.network(
-                                                'https://media.istockphoto.com/id/1344566799/vector/shout-oops-in-a-cloud-of-comic-style-dialogue-colored-badge-for-printing-stickers-stripes.jpg?s=612x612&w=0&k=20&c=2RCX6zQbmG-bWQQFeNoyZ-O4TiisYGfHmU_m2TpseNc=',
-                                                width: MediaQuery.of(context)
-                                                        .size
-                                                        .width *
-                                                    0.5,
-                                                height: MediaQuery.of(context)
-                                                        .size
-                                                        .height *
-                                                    0.5,
-                                              ),
-                                            );
-                                          }
                                           return GridView.builder(
                                             padding: EdgeInsets.zero,
                                             gridDelegate:
@@ -790,6 +806,15 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                                                                       0.0,
                                                                       1.0),
                                                           child: InkWell(
+                                                            splashColor: Colors
+                                                                .transparent,
+                                                            focusColor: Colors
+                                                                .transparent,
+                                                            hoverColor: Colors
+                                                                .transparent,
+                                                            highlightColor:
+                                                                Colors
+                                                                    .transparent,
                                                             onTap: () async {
                                                               await showModalBottomSheet(
                                                                 isScrollControlled:
@@ -986,21 +1011,6 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                                           final nombreprod = _model
                                               .simpleSearchResults
                                               .toList();
-                                          if (nombreprod.isEmpty) {
-                                            return Center(
-                                              child: Image.network(
-                                                'https://media.istockphoto.com/id/1344566799/vector/shout-oops-in-a-cloud-of-comic-style-dialogue-colored-badge-for-printing-stickers-stripes.jpg?s=612x612&w=0&k=20&c=2RCX6zQbmG-bWQQFeNoyZ-O4TiisYGfHmU_m2TpseNc=',
-                                                width: MediaQuery.of(context)
-                                                        .size
-                                                        .width *
-                                                    0.5,
-                                                height: MediaQuery.of(context)
-                                                        .size
-                                                        .height *
-                                                    0.5,
-                                              ),
-                                            );
-                                          }
                                           return GridView.builder(
                                             padding: EdgeInsets.zero,
                                             gridDelegate:
@@ -1091,6 +1101,15 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                                                                       0.0,
                                                                       1.0),
                                                           child: InkWell(
+                                                            splashColor: Colors
+                                                                .transparent,
+                                                            focusColor: Colors
+                                                                .transparent,
+                                                            hoverColor: Colors
+                                                                .transparent,
+                                                            highlightColor:
+                                                                Colors
+                                                                    .transparent,
                                                             onTap: () async {
                                                               await showModalBottomSheet(
                                                                 isScrollControlled:

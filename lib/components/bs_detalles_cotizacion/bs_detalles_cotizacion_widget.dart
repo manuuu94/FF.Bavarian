@@ -1,6 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/flutter_flow/flutter_flow_count_controller.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -145,20 +144,21 @@ class _BsDetallesCotizacionWidgetState
                                 ),
                               ),
                             ),
-                            Text(
-                              formatNumber(
-                                widget.cotizacion!.precio!,
-                                formatType: FormatType.decimal,
-                                decimalType: DecimalType.automatic,
-                                currency: '₡',
+                            if (widget.cotizacion!.precio != 0.0)
+                              Text(
+                                formatNumber(
+                                  widget.cotizacion!.precio!,
+                                  formatType: FormatType.decimal,
+                                  decimalType: DecimalType.automatic,
+                                  currency: '₡',
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      color: FlutterFlowTheme.of(context).text,
+                                    ),
                               ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: FlutterFlowTheme.of(context).text,
-                                  ),
-                            ),
                           ],
                         ),
                       ),
@@ -190,20 +190,21 @@ class _BsDetallesCotizacionWidgetState
                                 ),
                               ),
                             ),
-                            Text(
-                              formatNumber(
-                                widget.cotizacion!.impuestos!,
-                                formatType: FormatType.decimal,
-                                decimalType: DecimalType.automatic,
-                                currency: '₡',
+                            if (widget.cotizacion!.impuestos != 0.0)
+                              Text(
+                                formatNumber(
+                                  widget.cotizacion!.impuestos!,
+                                  formatType: FormatType.decimal,
+                                  decimalType: DecimalType.automatic,
+                                  currency: '₡',
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      color: FlutterFlowTheme.of(context).text,
+                                    ),
                               ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: FlutterFlowTheme.of(context).text,
-                                  ),
-                            ),
                           ],
                         ),
                       ),
@@ -233,20 +234,21 @@ class _BsDetallesCotizacionWidgetState
                                 ),
                               ),
                             ),
-                            Text(
-                              formatNumber(
-                                widget.cotizacion!.costoImportacion!,
-                                formatType: FormatType.decimal,
-                                decimalType: DecimalType.automatic,
-                                currency: '₡',
+                            if (widget.cotizacion!.costoImportacion != 0.0)
+                              Text(
+                                formatNumber(
+                                  widget.cotizacion!.costoImportacion!,
+                                  formatType: FormatType.decimal,
+                                  decimalType: DecimalType.automatic,
+                                  currency: '₡',
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      color: FlutterFlowTheme.of(context).text,
+                                    ),
                               ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: FlutterFlowTheme.of(context).text,
-                                  ),
-                            ),
                           ],
                         ),
                       ),
@@ -362,14 +364,23 @@ class _BsDetallesCotizacionWidgetState
                                 ),
                               ),
                             ),
-                            AutoSizeText(
-                              widget.cotizacion!.enlace!,
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: FlutterFlowTheme.of(context).text,
-                                  ),
+                            Expanded(
+                              child: Align(
+                                alignment: AlignmentDirectional(0.0, 0.0),
+                                child: SelectionArea(
+                                    child: AutoSizeText(
+                                  widget.cotizacion!.enlace!
+                                      .maybeHandleOverflow(maxChars: 500),
+                                  maxLines: 4,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        color:
+                                            FlutterFlowTheme.of(context).text,
+                                      ),
+                                )),
+                              ),
                             ),
                           ],
                         ),
@@ -402,72 +413,21 @@ class _BsDetallesCotizacionWidgetState
                                 ),
                               ),
                             ),
-                            Text(
-                              formatNumber(
-                                widget.cotizacion!.total!,
-                                formatType: FormatType.decimal,
-                                decimalType: DecimalType.automatic,
-                                currency: '₡',
+                            if (widget.cotizacion!.total != 0.0)
+                              Text(
+                                formatNumber(
+                                  widget.cotizacion!.total!,
+                                  formatType: FormatType.decimal,
+                                  decimalType: DecimalType.automatic,
+                                  currency: '₡',
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      color: FlutterFlowTheme.of(context).text,
+                                    ),
                               ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: FlutterFlowTheme.of(context).text,
-                                  ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(5.0, 20.0, 5.0, 5.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Container(
-                              width: 160.0,
-                              height: 50.0,
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(25.0),
-                                shape: BoxShape.rectangle,
-                                border: Border.all(
-                                  color: Color(0xFF9E9E9E),
-                                  width: 1.0,
-                                ),
-                              ),
-                              child: FlutterFlowCountController(
-                                decrementIconBuilder: (enabled) => FaIcon(
-                                  FontAwesomeIcons.minus,
-                                  color: enabled
-                                      ? FlutterFlowTheme.of(context).sideBarMenu
-                                      : Color(0xFFEEEEEE),
-                                  size: 20.0,
-                                ),
-                                incrementIconBuilder: (enabled) => FaIcon(
-                                  FontAwesomeIcons.plus,
-                                  color: enabled
-                                      ? FlutterFlowTheme.of(context).sideBarMenu
-                                      : Color(0xFFEEEEEE),
-                                  size: 20.0,
-                                ),
-                                countBuilder: (count) => Text(
-                                  count.toString(),
-                                  style: GoogleFonts.getFont(
-                                    'Roboto',
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 16.0,
-                                  ),
-                                ),
-                                count: _model.countControllerValue ??= 1,
-                                updateCount: (count) => setState(
-                                    () => _model.countControllerValue = count),
-                                stepSize: 1,
-                              ),
-                            ),
                           ],
                         ),
                       ),
@@ -478,36 +438,6 @@ class _BsDetallesCotizacionWidgetState
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            FFButtonWidget(
-                              onPressed: () async {
-                                final carritoCreateData =
-                                    createCarritoRecordData();
-                                await CarritoRecord.collection
-                                    .doc()
-                                    .set(carritoCreateData);
-                              },
-                              text: 'Aceptar cotizacion',
-                              options: FFButtonOptions(
-                                width: 150.0,
-                                height: 50.0,
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                color: FlutterFlowTheme.of(context).sideBarMenu,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .titleSmall
-                                    .override(
-                                      fontFamily: 'Poppins',
-                                      color: FlutterFlowTheme.of(context).text,
-                                    ),
-                                elevation: 2.0,
-                                borderSide: BorderSide(
-                                  color: Colors.transparent,
-                                  width: 1.0,
-                                ),
-                              ),
-                            ),
                             FFButtonWidget(
                               onPressed: () {
                                 print('Button pressed ...');
@@ -540,6 +470,83 @@ class _BsDetallesCotizacionWidgetState
                                 ),
                               ),
                             ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 44.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            if (widget.cotizacion!.completado ?? true)
+                              FFButtonWidget(
+                                onPressed: () async {
+                                  var confirmDialogResponse = await showDialog<
+                                          bool>(
+                                        context: context,
+                                        builder: (alertDialogContext) {
+                                          return AlertDialog(
+                                            title:
+                                                Text('Confirmacion de compra'),
+                                            content: Text(
+                                                'Al aceptar esta cotizacion, esta se agregara al carrito de compras. ¿Desea continuar?'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext, false),
+                                                child: Text('Cancelar'),
+                                              ),
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext, true),
+                                                child: Text('Confirmar'),
+                                              ),
+                                            ],
+                                          );
+                                        },
+                                      ) ??
+                                      false;
+                                  if (confirmDialogResponse) {
+                                    final carritoCreateData =
+                                        createCarritoRecordData(
+                                      nombre: widget.cotizacion!.nombreProducto,
+                                      precio: widget.cotizacion!.total,
+                                      cantidad: 1,
+                                      uid: widget.cotizacion!.uid,
+                                    );
+                                    await CarritoRecord.collection
+                                        .doc()
+                                        .set(carritoCreateData);
+                                  } else {
+                                    return;
+                                  }
+                                },
+                                text: 'Aceptar cotizacion',
+                                options: FFButtonOptions(
+                                  width: 150.0,
+                                  height: 50.0,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  color:
+                                      FlutterFlowTheme.of(context).sideBarMenu,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        color:
+                                            FlutterFlowTheme.of(context).text,
+                                      ),
+                                  elevation: 2.0,
+                                  borderSide: BorderSide(
+                                    color: Colors.transparent,
+                                    width: 1.0,
+                                  ),
+                                ),
+                              ),
                           ],
                         ),
                       ),

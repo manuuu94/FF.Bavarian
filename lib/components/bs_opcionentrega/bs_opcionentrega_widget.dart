@@ -104,11 +104,11 @@ class _BsOpcionentregaWidgetState extends State<BsOpcionentregaWidget> {
                       padding: EdgeInsets.zero,
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
-                        crossAxisSpacing: 10.0,
-                        mainAxisSpacing: 10.0,
-                        childAspectRatio: 1.0,
+                        crossAxisSpacing: 1.0,
+                        mainAxisSpacing: 1.0,
+                        childAspectRatio: 0.25,
                       ),
-                      scrollDirection: Axis.vertical,
+                      scrollDirection: Axis.horizontal,
                       itemCount: gridViewOpcionesentregaRecordList.length,
                       itemBuilder: (context, gridViewIndex) {
                         final gridViewOpcionesentregaRecord =
