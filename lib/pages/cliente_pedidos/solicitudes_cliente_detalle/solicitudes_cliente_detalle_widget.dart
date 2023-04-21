@@ -98,6 +98,10 @@ class _SolicitudesClienteDetalleWidgetState
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
                                 onTap: () async {
                                   if (scaffoldKey.currentState!.isDrawerOpen ||
                                       scaffoldKey
@@ -369,6 +373,10 @@ class _SolicitudesClienteDetalleWidgetState
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
                                 onTap: () async {
                                   GoRouter.of(context).prepareAuthEvent();
                                   await authManager.signOut();
@@ -419,6 +427,10 @@ class _SolicitudesClienteDetalleWidgetState
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
                           onTap: () async {
                             scaffoldKey.currentState!.openDrawer();
                           },
@@ -439,6 +451,10 @@ class _SolicitudesClienteDetalleWidgetState
                         children: [
                           if (currentUserUid == 'm2CVamHMawQSkQh8MKlmRKMkgxn1')
                             InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
                               onTap: () async {
                                 context.pushNamed('SolicitudesAdmin');
                               },
@@ -449,6 +465,10 @@ class _SolicitudesClienteDetalleWidgetState
                               ),
                             ),
                           InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
                             onTap: () async {
                               context.pushNamed('SolicitudesCliente');
                             },
@@ -459,6 +479,10 @@ class _SolicitudesClienteDetalleWidgetState
                             ),
                           ),
                           InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
                             onTap: () async {
                               context.pushNamed('Carrito');
                             },
@@ -469,6 +493,10 @@ class _SolicitudesClienteDetalleWidgetState
                             ),
                           ),
                           InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
                             onTap: () async {
                               context.pushNamed('Index');
                             },
@@ -495,6 +523,10 @@ class _SolicitudesClienteDetalleWidgetState
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
                           onTap: () async {
                             context.safePop();
                           },
@@ -735,6 +767,10 @@ class _SolicitudesClienteDetalleWidgetState
                             }
                             final textCompraConfirmadaRecord = snapshot.data!;
                             return InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
                               onTap: () async {
                                 await launchURL(
                                     'https://api.whatsapp.com/send?phone=50686218472&text=Hola, BMWShopCR!! Les contacto sobre el pedido: ${textCompraConfirmadaRecord.idCompra?.toString()}.');

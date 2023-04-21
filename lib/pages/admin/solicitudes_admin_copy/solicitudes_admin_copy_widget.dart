@@ -98,6 +98,10 @@ class _SolicitudesAdminCopyWidgetState
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
                                 onTap: () async {
                                   if (scaffoldKey.currentState!.isDrawerOpen ||
                                       scaffoldKey
@@ -369,6 +373,10 @@ class _SolicitudesAdminCopyWidgetState
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
                                 onTap: () async {
                                   GoRouter.of(context).prepareAuthEvent();
                                   await authManager.signOut();
@@ -419,6 +427,10 @@ class _SolicitudesAdminCopyWidgetState
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
                           onTap: () async {
                             scaffoldKey.currentState!.openDrawer();
                           },
@@ -439,6 +451,10 @@ class _SolicitudesAdminCopyWidgetState
                         children: [
                           if (currentUserUid == 'm2CVamHMawQSkQh8MKlmRKMkgxn1')
                             InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
                               onTap: () async {
                                 context.pushNamed('SolicitudesAdmin');
                               },
@@ -449,6 +465,10 @@ class _SolicitudesAdminCopyWidgetState
                               ),
                             ),
                           InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
                             onTap: () async {
                               context.pushNamed('SolicitudesCliente');
                             },
@@ -459,6 +479,10 @@ class _SolicitudesAdminCopyWidgetState
                             ),
                           ),
                           InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
                             onTap: () async {
                               context.pushNamed('Carrito');
                             },
@@ -469,6 +493,10 @@ class _SolicitudesAdminCopyWidgetState
                             ),
                           ),
                           InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
                             onTap: () async {
                               context.pushNamed('Index');
                             },
@@ -495,6 +523,10 @@ class _SolicitudesAdminCopyWidgetState
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
                           onTap: () async {
                             context.safePop();
                           },
@@ -801,6 +833,10 @@ class _SolicitudesAdminCopyWidgetState
                             }
                             final textCompraConfirmadaRecord = snapshot.data!;
                             return InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
                               onTap: () async {
                                 await launchURL(
                                     'https://api.whatsapp.com/send?phone=${textCompraConfirmadaRecord.telefono}&text=Hola, ${textCompraConfirmadaRecord.nombreCliente}!! Le contacto sobre su pedido: ${textCompraConfirmadaRecord.idCompra?.toString()}.');

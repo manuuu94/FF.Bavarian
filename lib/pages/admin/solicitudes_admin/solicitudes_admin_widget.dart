@@ -84,6 +84,10 @@ class _SolicitudesAdminWidgetState extends State<SolicitudesAdminWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
                                 onTap: () async {
                                   if (scaffoldKey.currentState!.isDrawerOpen ||
                                       scaffoldKey
@@ -355,6 +359,10 @@ class _SolicitudesAdminWidgetState extends State<SolicitudesAdminWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
                                 onTap: () async {
                                   GoRouter.of(context).prepareAuthEvent();
                                   await authManager.signOut();
@@ -405,6 +413,10 @@ class _SolicitudesAdminWidgetState extends State<SolicitudesAdminWidget> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
                           onTap: () async {
                             scaffoldKey.currentState!.openDrawer();
                           },
@@ -425,6 +437,10 @@ class _SolicitudesAdminWidgetState extends State<SolicitudesAdminWidget> {
                         children: [
                           if (currentUserUid == 'm2CVamHMawQSkQh8MKlmRKMkgxn1')
                             InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
                               onTap: () async {
                                 context.pushNamed('SolicitudesAdmin');
                               },
@@ -435,6 +451,10 @@ class _SolicitudesAdminWidgetState extends State<SolicitudesAdminWidget> {
                               ),
                             ),
                           InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
                             onTap: () async {
                               context.pushNamed('SolicitudesCliente');
                             },
@@ -445,6 +465,10 @@ class _SolicitudesAdminWidgetState extends State<SolicitudesAdminWidget> {
                             ),
                           ),
                           InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
                             onTap: () async {
                               context.pushNamed('Carrito');
                             },
@@ -455,6 +479,10 @@ class _SolicitudesAdminWidgetState extends State<SolicitudesAdminWidget> {
                             ),
                           ),
                           InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
                             onTap: () async {
                               context.pushNamed('Index');
                             },
@@ -522,6 +550,10 @@ class _SolicitudesAdminWidgetState extends State<SolicitudesAdminWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               15.0, 15.0, 15.0, 20.0),
                           child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
                             onTap: () async {
                               context.pushNamed(
                                 'SolicitudesAdminCopy',

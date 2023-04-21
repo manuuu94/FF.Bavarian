@@ -239,6 +239,10 @@ class _HomePageWidgetState extends State<HomePageWidget>
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
                           onTap: () async {
                             await launchURL(
                                 'https://www.instagram.com/bmwshopcr/');
@@ -252,6 +256,10 @@ class _HomePageWidgetState extends State<HomePageWidget>
                         ).animateOnPageLoad(
                             animationsMap['imageOnPageLoadAnimation2']!),
                         InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
                           onTap: () async {
                             await launchURL(
                                 'https://www.facebook.com/Bavautos');
@@ -265,6 +273,10 @@ class _HomePageWidgetState extends State<HomePageWidget>
                         ).animateOnPageLoad(
                             animationsMap['imageOnPageLoadAnimation3']!),
                         InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
                           onTap: () async {
                             await launchURL(
                                 'https://wa.me/50686218472?text=Más%20información%20por%20favor!');

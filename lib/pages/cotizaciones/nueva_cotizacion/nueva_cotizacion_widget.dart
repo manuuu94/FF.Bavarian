@@ -74,6 +74,10 @@ class _NuevaCotizacionWidgetState extends State<NuevaCotizacionWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
                                 onTap: () async {
                                   if (scaffoldKey.currentState!.isDrawerOpen ||
                                       scaffoldKey
@@ -313,6 +317,10 @@ class _NuevaCotizacionWidgetState extends State<NuevaCotizacionWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
                                 onTap: () async {
                                   GoRouter.of(context).prepareAuthEvent();
                                   await authManager.signOut();
@@ -363,6 +371,10 @@ class _NuevaCotizacionWidgetState extends State<NuevaCotizacionWidget> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
                           onTap: () async {
                             scaffoldKey.currentState!.openDrawer();
                           },
@@ -383,6 +395,10 @@ class _NuevaCotizacionWidgetState extends State<NuevaCotizacionWidget> {
                         children: [
                           if (currentUserUid == 'm2CVamHMawQSkQh8MKlmRKMkgxn1')
                             InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
                               onTap: () async {
                                 context.pushNamed('SolicitudesAdmin');
                               },
@@ -393,6 +409,10 @@ class _NuevaCotizacionWidgetState extends State<NuevaCotizacionWidget> {
                               ),
                             ),
                           InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
                             onTap: () async {
                               context.pushNamed('SolicitudesCliente');
                             },
@@ -403,6 +423,10 @@ class _NuevaCotizacionWidgetState extends State<NuevaCotizacionWidget> {
                             ),
                           ),
                           InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
                             onTap: () async {
                               context.pushNamed('Carrito');
                             },
@@ -413,6 +437,10 @@ class _NuevaCotizacionWidgetState extends State<NuevaCotizacionWidget> {
                             ),
                           ),
                           InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
                             onTap: () async {
                               context.pushNamed('Index');
                             },
