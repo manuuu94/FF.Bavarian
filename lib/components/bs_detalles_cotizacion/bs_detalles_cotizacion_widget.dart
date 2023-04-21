@@ -439,8 +439,9 @@ class _BsDetallesCotizacionWidgetState
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             FFButtonWidget(
-                              onPressed: () {
-                                print('Button pressed ...');
+                              onPressed: () async {
+                                await launchURL(
+                                    'Más%20información%20acerca%20de%20esta%20cotizacion%20por%20favor!');
                               },
                               text: 'Contactenos',
                               icon: FaIcon(
