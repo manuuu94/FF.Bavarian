@@ -481,13 +481,13 @@ class _SolicitudeCotizacionesAdminModWidgetState
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     FFButtonWidget(
-                      onPressed: () {
-                        print('Button pressed ...');
+                      onPressed: () async {
+                        context.safePop();
                       },
                       text: '',
                       icon: Icon(
                         Icons.arrow_back_sharp,
-                        size: 15.0,
+                        size: 45.0,
                       ),
                       options: FFButtonOptions(
                         width: 130.0,
@@ -1217,7 +1217,7 @@ class _SolicitudeCotizacionesAdminModWidgetState
                                 },
                                 text: 'Contactar usuario',
                                 options: FFButtonOptions(
-                                  width: 150.0,
+                                  width: 170.0,
                                   height: 40.0,
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),

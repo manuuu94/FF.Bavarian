@@ -745,6 +745,12 @@ class _SolicitudeCotizacionesAdminWidgetState
                                                                   solicitudCotizacionesCotizacionRecord,
                                                             },
                                                           );
+
+                                                          setState(() {
+                                                            _model
+                                                                .txtSearchController
+                                                                ?.clear();
+                                                          });
                                                         },
                                                         child: Stack(
                                                           children: [
@@ -965,6 +971,17 @@ class _SolicitudeCotizacionesAdminWidgetState
                                                                   cotizacionesNameItem,
                                                             },
                                                           );
+
+                                                          setState(() {
+                                                            _model
+                                                                .txtSearchController
+                                                                ?.clear();
+                                                          });
+                                                          setState(() {
+                                                            FFAppState()
+                                                                    .CotizacionesList =
+                                                                true;
+                                                          });
                                                         },
                                                         child: Stack(
                                                           children: [
@@ -1016,7 +1033,7 @@ class _SolicitudeCotizacionesAdminWidgetState
                                                                 child: Text(
                                                                   formatNumber(
                                                                     cotizacionesNameItem
-                                                                        .precio!,
+                                                                        .total!,
                                                                     formatType:
                                                                         FormatType
                                                                             .decimal,
@@ -1067,38 +1084,6 @@ class _SolicitudeCotizacionesAdminWidgetState
                                                                 },
                                                               ),
                                                             ),
-                                                            if (cotizacionesNameItem
-                                                                    .completado ??
-                                                                true)
-                                                              Align(
-                                                                alignment:
-                                                                    AlignmentDirectional(
-                                                                        0.8,
-                                                                        -0.03),
-                                                                child: Text(
-                                                                  formatNumber(
-                                                                    cotizacionesNameItem
-                                                                        .precio!,
-                                                                    formatType:
-                                                                        FormatType
-                                                                            .decimal,
-                                                                    decimalType:
-                                                                        DecimalType
-                                                                            .automatic,
-                                                                    currency:
-                                                                        '₡',
-                                                                  ),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
-                                                                        fontWeight:
-                                                                            FontWeight.bold,
-                                                                      ),
-                                                                ),
-                                                              ),
                                                             if (cotizacionesNameItem
                                                                     .completado ??
                                                                 true)

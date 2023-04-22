@@ -851,6 +851,12 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                                                               ).then((value) =>
                                                                   setState(
                                                                       () {}));
+
+                                                              setState(() {
+                                                                _model
+                                                                    .txtSearchController
+                                                                    ?.clear();
+                                                              });
                                                             },
                                                             child:
                                                                 Image.network(
