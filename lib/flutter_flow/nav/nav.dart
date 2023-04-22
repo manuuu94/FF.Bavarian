@@ -155,13 +155,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'SolicitudesAdminCopy',
-              path: 'solicitudesAdminCopy',
+              name: 'SolicitudesAdminLista',
+              path: 'solicitudesAdminLista',
               asyncParams: {
                 'list': getDoc(
                     ['compraConfirmada'], CompraConfirmadaRecord.serializer),
               },
-              builder: (context, params) => SolicitudesAdminCopyWidget(
+              builder: (context, params) => SolicitudesAdminListaWidget(
                 name: params.getParam('name', ParamType.String),
                 img: params.getParam('img', ParamType.String),
                 email: params.getParam('email', ParamType.String),
@@ -216,6 +216,24 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 itemCompra: params.getParam('itemCompra',
                     ParamType.DocumentReference, false, ['compraConfirmada']),
               ),
+            ),
+            FFRoute(
+              name: 'SolicitudesAdminMenu',
+              path: 'solicitudesAdminMenu',
+              builder: (context, params) => SolicitudesAdminMenuWidget(
+                name: params.getParam('name', ParamType.String),
+                img: params.getParam('img', ParamType.String),
+                email: params.getParam('email', ParamType.String),
+                phone: params.getParam('phone', ParamType.String),
+                time: params.getParam('time', ParamType.DateTime),
+                opcion: params.getParam('opcion', ParamType.DocumentReference,
+                    false, ['opcionesentrega']),
+              ),
+            ),
+            FFRoute(
+              name: 'SolicitudeCotizacionesAdmin',
+              path: 'solicitudeCotizacionesAdmin',
+              builder: (context, params) => SolicitudeCotizacionesAdminWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

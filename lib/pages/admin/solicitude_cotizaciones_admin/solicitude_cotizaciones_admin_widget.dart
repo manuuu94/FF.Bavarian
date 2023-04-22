@@ -1,6 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/components/bs_detalles_cotizacion/bs_detalles_cotizacion_widget.dart';
+import '/components/bs_detalles_cotizacion_admin/bs_detalles_cotizacion_admin_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -11,25 +11,27 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:text_search/text_search.dart';
-import 'cotizaciones_model.dart';
-export 'cotizaciones_model.dart';
+import 'solicitude_cotizaciones_admin_model.dart';
+export 'solicitude_cotizaciones_admin_model.dart';
 
-class CotizacionesWidget extends StatefulWidget {
-  const CotizacionesWidget({Key? key}) : super(key: key);
+class SolicitudeCotizacionesAdminWidget extends StatefulWidget {
+  const SolicitudeCotizacionesAdminWidget({Key? key}) : super(key: key);
 
   @override
-  _CotizacionesWidgetState createState() => _CotizacionesWidgetState();
+  _SolicitudeCotizacionesAdminWidgetState createState() =>
+      _SolicitudeCotizacionesAdminWidgetState();
 }
 
-class _CotizacionesWidgetState extends State<CotizacionesWidget> {
-  late CotizacionesModel _model;
+class _SolicitudeCotizacionesAdminWidgetState
+    extends State<SolicitudeCotizacionesAdminWidget> {
+  late SolicitudeCotizacionesAdminModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => CotizacionesModel());
+    _model = createModel(context, () => SolicitudeCotizacionesAdminModel());
 
     _model.txtSearchController ??= TextEditingController();
   }
@@ -151,7 +153,8 @@ class _CotizacionesWidgetState extends State<CotizacionesWidget> {
                             children: [
                               FFButtonWidget(
                                 onPressed: () async {
-                                  context.pushNamed('Cotizaciones');
+                                  context
+                                      .pushNamed('SolicitudeCotizacionesAdmin');
                                 },
                                 text: 'Ver cotizaciones',
                                 options: FFButtonOptions(
@@ -662,10 +665,7 @@ class _CotizacionesWidgetState extends State<CotizacionesWidget> {
                                           StreamBuilder<List<CotizacionRecord>>(
                                         stream: queryCotizacionRecord(
                                           queryBuilder: (cotizacionRecord) =>
-                                              cotizacionRecord
-                                                  .where('uid',
-                                                      isEqualTo: currentUserUid)
-                                                  .orderBy('fecha'),
+                                              cotizacionRecord.orderBy('fecha'),
                                         ),
                                         builder: (context, snapshot) {
                                           // Customize what your widget looks like when it's loading.
@@ -684,20 +684,20 @@ class _CotizacionesWidgetState extends State<CotizacionesWidget> {
                                             );
                                           }
                                           List<CotizacionRecord>
-                                              listViewCotizacionRecordList =
+                                              solicitudCotizacionesCotizacionRecordList =
                                               snapshot.data!;
                                           return ListView.builder(
                                             padding: EdgeInsets.zero,
                                             shrinkWrap: true,
                                             scrollDirection: Axis.vertical,
                                             itemCount:
-                                                listViewCotizacionRecordList
+                                                solicitudCotizacionesCotizacionRecordList
                                                     .length,
-                                            itemBuilder:
-                                                (context, listViewIndex) {
-                                              final listViewCotizacionRecord =
-                                                  listViewCotizacionRecordList[
-                                                      listViewIndex];
+                                            itemBuilder: (context,
+                                                solicitudCotizacionesIndex) {
+                                              final solicitudCotizacionesCotizacionRecord =
+                                                  solicitudCotizacionesCotizacionRecordList[
+                                                      solicitudCotizacionesIndex];
                                               return Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
@@ -729,8 +729,8 @@ class _CotizacionesWidgetState extends State<CotizacionesWidget> {
                                                             isScrollControlled:
                                                                 true,
                                                             backgroundColor:
-                                                                Colors
-                                                                    .transparent,
+                                                                Color(
+                                                                    0xD8000000),
                                                             enableDrag: false,
                                                             context: context,
                                                             builder:
@@ -747,9 +747,9 @@ class _CotizacionesWidgetState extends State<CotizacionesWidget> {
                                                                           .height *
                                                                       0.85,
                                                                   child:
-                                                                      BsDetallesCotizacionWidget(
+                                                                      BsDetallesCotizacionAdminWidget(
                                                                     cotizacion:
-                                                                        listViewCotizacionRecord,
+                                                                        solicitudCotizacionesCotizacionRecord,
                                                                   ),
                                                                 ),
                                                               );
@@ -765,7 +765,7 @@ class _CotizacionesWidgetState extends State<CotizacionesWidget> {
                                                                       -0.9,
                                                                       -0.75),
                                                               child: Text(
-                                                                listViewCotizacionRecord
+                                                                solicitudCotizacionesCotizacionRecord
                                                                     .nombreProducto!,
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
@@ -789,14 +789,14 @@ class _CotizacionesWidgetState extends State<CotizacionesWidget> {
                                                               child: Text(
                                                                 dateTimeFormat(
                                                                     'yMMMd',
-                                                                    listViewCotizacionRecord
+                                                                    solicitudCotizacionesCotizacionRecord
                                                                         .fecha!),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium,
                                                               ),
                                                             ),
-                                                            if (listViewCotizacionRecord
+                                                            if (solicitudCotizacionesCotizacionRecord
                                                                     .completado ??
                                                                 true)
                                                               Align(
@@ -844,13 +844,13 @@ class _CotizacionesWidgetState extends State<CotizacionesWidget> {
                                                                 ),
                                                                 onPressed:
                                                                     () async {
-                                                                  await listViewCotizacionRecord
+                                                                  await solicitudCotizacionesCotizacionRecord
                                                                       .reference
                                                                       .delete();
                                                                 },
                                                               ),
                                                             ),
-                                                            if (listViewCotizacionRecord
+                                                            if (solicitudCotizacionesCotizacionRecord
                                                                     .completado ??
                                                                 true)
                                                               Align(
@@ -860,7 +860,7 @@ class _CotizacionesWidgetState extends State<CotizacionesWidget> {
                                                                         -0.03),
                                                                 child: Text(
                                                                   formatNumber(
-                                                                    listViewCotizacionRecord
+                                                                    solicitudCotizacionesCotizacionRecord
                                                                         .total!,
                                                                     formatType:
                                                                         FormatType
@@ -882,7 +882,7 @@ class _CotizacionesWidgetState extends State<CotizacionesWidget> {
                                                                       ),
                                                                 ),
                                                               ),
-                                                            if (listViewCotizacionRecord
+                                                            if (solicitudCotizacionesCotizacionRecord
                                                                     .completado ??
                                                                 true)
                                                               Align(
@@ -982,7 +982,7 @@ class _CotizacionesWidgetState extends State<CotizacionesWidget> {
                                                                           .height *
                                                                       0.85,
                                                                   child:
-                                                                      BsDetallesCotizacionWidget(
+                                                                      BsDetallesCotizacionAdminWidget(
                                                                     cotizacion:
                                                                         cotizacionesNameItem,
                                                                   ),
