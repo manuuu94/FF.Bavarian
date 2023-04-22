@@ -442,7 +442,7 @@ class _SolicitudesAdminWidgetState extends State<SolicitudesAdminWidget> {
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                context.pushNamed('SolicitudesAdmin');
+                                context.pushNamed('SolicitudesAdminMenu');
                               },
                               child: Icon(
                                 Icons.admin_panel_settings_outlined,
@@ -556,7 +556,7 @@ class _SolicitudesAdminWidgetState extends State<SolicitudesAdminWidget> {
                             highlightColor: Colors.transparent,
                             onTap: () async {
                               context.pushNamed(
-                                'SolicitudesAdminCopy',
+                                'SolicitudesAdminLista',
                                 queryParams: {
                                   'list': serializeParam(
                                     gridViewCompraConfirmadaRecord,

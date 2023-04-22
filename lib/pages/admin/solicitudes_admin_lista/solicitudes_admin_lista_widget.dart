@@ -7,11 +7,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'solicitudes_admin_copy_model.dart';
-export 'solicitudes_admin_copy_model.dart';
+import 'solicitudes_admin_lista_model.dart';
+export 'solicitudes_admin_lista_model.dart';
 
-class SolicitudesAdminCopyWidget extends StatefulWidget {
-  const SolicitudesAdminCopyWidget({
+class SolicitudesAdminListaWidget extends StatefulWidget {
+  const SolicitudesAdminListaWidget({
     Key? key,
     this.name,
     this.img,
@@ -41,20 +41,20 @@ class SolicitudesAdminCopyWidget extends StatefulWidget {
   final DocumentReference? itemCompra;
 
   @override
-  _SolicitudesAdminCopyWidgetState createState() =>
-      _SolicitudesAdminCopyWidgetState();
+  _SolicitudesAdminListaWidgetState createState() =>
+      _SolicitudesAdminListaWidgetState();
 }
 
-class _SolicitudesAdminCopyWidgetState
-    extends State<SolicitudesAdminCopyWidget> {
-  late SolicitudesAdminCopyModel _model;
+class _SolicitudesAdminListaWidgetState
+    extends State<SolicitudesAdminListaWidget> {
+  late SolicitudesAdminListaModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => SolicitudesAdminCopyModel());
+    _model = createModel(context, () => SolicitudesAdminListaModel());
   }
 
   @override
@@ -456,7 +456,7 @@ class _SolicitudesAdminCopyWidgetState
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                context.pushNamed('SolicitudesAdmin');
+                                context.pushNamed('SolicitudesAdminMenu');
                               },
                               child: Icon(
                                 Icons.admin_panel_settings_outlined,

@@ -456,7 +456,7 @@ class _SolicitudesClienteDetalleWidgetState
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                context.pushNamed('SolicitudesAdmin');
+                                context.pushNamed('SolicitudesAdminMenu');
                               },
                               child: Icon(
                                 Icons.admin_panel_settings_outlined,

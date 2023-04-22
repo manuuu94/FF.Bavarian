@@ -1,25 +1,23 @@
 import '/auth/firebase_auth/auth_util.dart';
-import '/components/bs_edit_profile/bs_edit_profile_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'perfil_model.dart';
-export 'perfil_model.dart';
+import 'solicitudes_admin_menu_model.dart';
+export 'solicitudes_admin_menu_model.dart';
 
-class PerfilWidget extends StatefulWidget {
-  const PerfilWidget({
+class SolicitudesAdminMenuWidget extends StatefulWidget {
+  const SolicitudesAdminMenuWidget({
     Key? key,
     this.name,
     this.img,
     this.email,
     this.phone,
     this.time,
+    this.opcion,
   }) : super(key: key);
 
   final String? name;
@@ -27,72 +25,23 @@ class PerfilWidget extends StatefulWidget {
   final String? email;
   final String? phone;
   final DateTime? time;
+  final DocumentReference? opcion;
 
   @override
-  _PerfilWidgetState createState() => _PerfilWidgetState();
+  _SolicitudesAdminMenuWidgetState createState() =>
+      _SolicitudesAdminMenuWidgetState();
 }
 
-class _PerfilWidgetState extends State<PerfilWidget>
-    with TickerProviderStateMixin {
-  late PerfilModel _model;
+class _SolicitudesAdminMenuWidgetState
+    extends State<SolicitudesAdminMenuWidget> {
+  late SolicitudesAdminMenuModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  final animationsMap = {
-    'textOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 666.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'imageOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(-100.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'imageOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(100.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'imageOnPageLoadAnimation3': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(100.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => PerfilModel());
+    _model = createModel(context, () => SolicitudesAdminMenuModel());
   }
 
   @override
@@ -551,240 +500,124 @@ class _PerfilWidgetState extends State<PerfilWidget>
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
-                child: Column(
+                padding: EdgeInsetsDirectional.fromSTEB(20.0, 30.0, 20.0, 0.0),
+                child: Row(
                   mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Ordenes / Cotizaciones',
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Poppins',
+                            color: FlutterFlowTheme.of(context).text,
+                            fontSize: 20.0,
+                          ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
-                      child: Text(
-                        'Mi cuenta',
-                        textAlign: TextAlign.center,
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Poppins',
-                              color: FlutterFlowTheme.of(context).text,
-                              fontSize: 30.0,
-                            ),
-                      ).animateOnPageLoad(
-                          animationsMap['textOnPageLoadAnimation']!),
-                    ),
-                    Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(
-                          30.0, 30.0, 30.0, 30.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              AuthUserStreamWidget(
-                                builder: (context) => ClipRRect(
-                                  borderRadius: BorderRadius.circular(0.0),
-                                  child: Image.network(
-                                    valueOrDefault<String>(
-                                      currentUserPhoto,
-                                      'Edite para añadir imagen',
-                                    ),
-                                    width: 120.0,
-                                    height: 150.0,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
+                          10.0, 10.0, 10.0, 10.0),
+                      child: Image.network(
+                        'https://icons.veryicon.com/png/o/system/crm-android-app-icon/app-icon-sales-order.png',
+                        width: 100.0,
+                        height: 100.0,
+                        fit: BoxFit.cover,
                       ),
                     ),
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(
-                          20.0, 20.0, 20.0, 20.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          AuthUserStreamWidget(
-                            builder: (context) => Text(
-                              currentUserDisplayName,
-                              textAlign: TextAlign.start,
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: FlutterFlowTheme.of(context).text,
-                                    fontSize: 20.0,
-                                  ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          20.0, 20.0, 20.0, 20.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            currentUserEmail,
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Poppins',
-                                  color: FlutterFlowTheme.of(context).text,
-                                  fontSize: 20.0,
-                                ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          20.0, 20.0, 20.0, 20.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          AuthUserStreamWidget(
-                            builder: (context) => Text(
-                              currentPhoneNumber,
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: FlutterFlowTheme.of(context).text,
-                                    fontSize: 20.0,
-                                  ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          20.0, 45.0, 20.0, 20.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          FFButtonWidget(
-                            onPressed: () async {
-                              await showModalBottomSheet(
-                                isScrollControlled: true,
-                                backgroundColor: Colors.transparent,
-                                barrierColor: Color(0x00000000),
-                                enableDrag: false,
-                                context: context,
-                                builder: (bottomSheetContext) {
-                                  return Padding(
-                                    padding: MediaQuery.of(bottomSheetContext)
-                                        .viewInsets,
-                                    child: Container(
-                                      height:
-                                          MediaQuery.of(context).size.height *
-                                              0.5,
-                                      child: BsEditProfileWidget(),
-                                    ),
-                                  );
-                                },
-                              ).then((value) => setState(() {}));
-                            },
-                            text: 'Editar',
-                            options: FFButtonOptions(
-                              width: 130.0,
-                              height: 40.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).sideBarMenu,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .titleSmall
-                                  .override(
+                          10.0, 10.0, 10.0, 10.0),
+                      child: FFButtonWidget(
+                        onPressed: () async {
+                          context.pushNamed('SolicitudeCotizacionesAdmin');
+                        },
+                        text: 'Cotizaciones',
+                        options: FFButtonOptions(
+                          width: 130.0,
+                          height: 40.0,
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          color: FlutterFlowTheme.of(context).sideBarMenu,
+                          textStyle:
+                              FlutterFlowTheme.of(context).titleSmall.override(
                                     fontFamily: 'Poppins',
                                     color: Colors.white,
-                                    fontSize: 14.0,
                                   ),
-                              elevation: 2.0,
-                              borderSide: BorderSide(
-                                color: Colors.transparent,
-                                width: 1.0,
-                              ),
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
+                          borderSide: BorderSide(
+                            color: Colors.transparent,
+                            width: 1.0,
                           ),
-                        ],
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
                       ),
                     ),
                   ],
                 ),
               ),
-              Expanded(
-                child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      InkWell(
-                        splashColor: Colors.transparent,
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onTap: () async {
-                          await launchURL(
-                              'https://www.instagram.com/bmwshopcr/');
-                        },
-                        child: Image.asset(
-                          'assets/images/instagram.png',
-                          width: MediaQuery.of(context).size.width * 0.1,
-                          fit: BoxFit.cover,
-                        ),
-                      ).animateOnPageLoad(
-                          animationsMap['imageOnPageLoadAnimation1']!),
-                      InkWell(
-                        splashColor: Colors.transparent,
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onTap: () async {
-                          await launchURL('https://www.facebook.com/Bavautos');
-                        },
-                        child: Image.asset(
-                          'assets/images/facebook.png',
-                          width: MediaQuery.of(context).size.width * 0.1,
-                          fit: BoxFit.cover,
-                        ),
-                      ).animateOnPageLoad(
-                          animationsMap['imageOnPageLoadAnimation2']!),
-                      InkWell(
-                        splashColor: Colors.transparent,
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onTap: () async {
-                          await launchURL(
-                              'https://wa.me/50686218472?text=Más%20información%20por%20favor!');
-                        },
-                        child: Image.asset(
-                          'assets/images/whatsapp_(1).png',
-                          width: MediaQuery.of(context).size.width * 0.1,
-                          fit: BoxFit.cover,
-                        ),
-                      ).animateOnPageLoad(
-                          animationsMap['imageOnPageLoadAnimation3']!),
-                    ],
-                  ),
-                ),
-              ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(
+                          10.0, 10.0, 10.0, 10.0),
+                      child: Image.network(
+                        'https://icons.veryicon.com/png/o/system/crm-android-app-icon/app-icon-quotation-details.png',
+                        width: 100.0,
+                        height: 100.0,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(
+                          10.0, 10.0, 10.0, 10.0),
+                      child: FFButtonWidget(
+                        onPressed: () async {
+                          context.pushNamed('SolicitudesAdmin');
+                        },
+                        text: 'Ordenes',
+                        options: FFButtonOptions(
+                          width: 130.0,
+                          height: 40.0,
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          color: FlutterFlowTheme.of(context).sideBarMenu,
+                          textStyle:
+                              FlutterFlowTheme.of(context).titleSmall.override(
+                                    fontFamily: 'Poppins',
+                                    color: Colors.white,
+                                  ),
+                          borderSide: BorderSide(
+                            color: Colors.transparent,
+                            width: 1.0,
+                          ),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 350.0, 0.0, 0.0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
                       padding:
