@@ -36,6 +36,12 @@ class FFAppState extends ChangeNotifier {
   set CotizacionesList(bool _value) {
     _CotizacionesList = _value;
   }
+
+  double _CostoTotal = 0;
+  double get CostoTotal => _CostoTotal;
+  set CostoTotal(double _value) {
+    _CostoTotal = _value;
+  }
 }
 
 LatLng? _latLngFromString(String? val) {

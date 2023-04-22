@@ -26,3 +26,7 @@ export '/pages/admin/solicitudes_admin_menu/solicitudes_admin_menu_widget.dart'
     show SolicitudesAdminMenuWidget;
 export '/pages/admin/solicitude_cotizaciones_admin/solicitude_cotizaciones_admin_widget.dart'
     show SolicitudeCotizacionesAdminWidget;
+export '/pages/admin/solicitude_cotizaciones_admin_mod/solicitude_cotizaciones_admin_mod_widget.dart'
+    show SolicitudeCotizacionesAdminModWidget;
+export '/pages/admin/solicitudes_admin_usuario/solicitudes_admin_usuario_widget.dart'
+    show SolicitudesAdminUsuarioWidget;

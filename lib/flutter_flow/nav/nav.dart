@@ -233,7 +233,36 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'SolicitudeCotizacionesAdmin',
               path: 'solicitudeCotizacionesAdmin',
-              builder: (context, params) => SolicitudeCotizacionesAdminWidget(),
+              asyncParams: {
+                'cotizacionActualizada':
+                    getDoc(['Cotizacion'], CotizacionRecord.serializer),
+              },
+              builder: (context, params) => SolicitudeCotizacionesAdminWidget(
+                cotizacionActualizada: params.getParam(
+                    'cotizacionActualizada', ParamType.Document),
+              ),
+            ),
+            FFRoute(
+              name: 'SolicitudeCotizacionesAdminMod',
+              path: 'solicitudeCotizacionesAdminMod',
+              asyncParams: {
+                'cotizacion':
+                    getDoc(['Cotizacion'], CotizacionRecord.serializer),
+              },
+              builder: (context, params) =>
+                  SolicitudeCotizacionesAdminModWidget(
+                cotizacion: params.getParam('cotizacion', ParamType.Document),
+              ),
+            ),
+            FFRoute(
+              name: 'SolicitudesAdminUsuario',
+              path: 'solicitudesAdminUsuario',
+              asyncParams: {
+                'userID': getDoc(['Cotizacion'], CotizacionRecord.serializer),
+              },
+              builder: (context, params) => SolicitudesAdminUsuarioWidget(
+                userID: params.getParam('userID', ParamType.Document),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
