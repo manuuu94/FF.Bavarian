@@ -1,6 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/components/bs_detalles_cotizacion_admin/bs_detalles_cotizacion_admin_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -15,7 +14,12 @@ import 'solicitude_cotizaciones_admin_model.dart';
 export 'solicitude_cotizaciones_admin_model.dart';
 
 class SolicitudeCotizacionesAdminWidget extends StatefulWidget {
-  const SolicitudeCotizacionesAdminWidget({Key? key}) : super(key: key);
+  const SolicitudeCotizacionesAdminWidget({
+    Key? key,
+    this.cotizacionActualizada,
+  }) : super(key: key);
+
+  final CotizacionRecord? cotizacionActualizada;
 
   @override
   _SolicitudeCotizacionesAdminWidgetState createState() =>
@@ -725,37 +729,22 @@ class _SolicitudeCotizacionesAdminWidgetState
                                                         highlightColor:
                                                             Colors.transparent,
                                                         onTap: () async {
-                                                          await showModalBottomSheet(
-                                                            isScrollControlled:
-                                                                true,
-                                                            backgroundColor:
-                                                                Color(
-                                                                    0xD8000000),
-                                                            enableDrag: false,
-                                                            context: context,
-                                                            builder:
-                                                                (bottomSheetContext) {
-                                                              return Padding(
-                                                                padding: MediaQuery.of(
-                                                                        bottomSheetContext)
-                                                                    .viewInsets,
-                                                                child:
-                                                                    Container(
-                                                                  height: MediaQuery.of(
-                                                                              context)
-                                                                          .size
-                                                                          .height *
-                                                                      0.85,
-                                                                  child:
-                                                                      BsDetallesCotizacionAdminWidget(
-                                                                    cotizacion:
-                                                                        solicitudCotizacionesCotizacionRecord,
-                                                                  ),
-                                                                ),
-                                                              );
+                                                          context.pushNamed(
+                                                            'SolicitudeCotizacionesAdminMod',
+                                                            queryParams: {
+                                                              'cotizacion':
+                                                                  serializeParam(
+                                                                solicitudCotizacionesCotizacionRecord,
+                                                                ParamType
+                                                                    .Document,
+                                                              ),
+                                                            }.withoutNulls,
+                                                            extra: <String,
+                                                                dynamic>{
+                                                              'cotizacion':
+                                                                  solicitudCotizacionesCotizacionRecord,
                                                             },
-                                                          ).then((value) =>
-                                                              setState(() {}));
+                                                          );
                                                         },
                                                         child: Stack(
                                                           children: [
@@ -960,37 +949,22 @@ class _SolicitudeCotizacionesAdminWidgetState
                                                         highlightColor:
                                                             Colors.transparent,
                                                         onTap: () async {
-                                                          await showModalBottomSheet(
-                                                            isScrollControlled:
-                                                                true,
-                                                            backgroundColor:
-                                                                Colors
-                                                                    .transparent,
-                                                            enableDrag: false,
-                                                            context: context,
-                                                            builder:
-                                                                (bottomSheetContext) {
-                                                              return Padding(
-                                                                padding: MediaQuery.of(
-                                                                        bottomSheetContext)
-                                                                    .viewInsets,
-                                                                child:
-                                                                    Container(
-                                                                  height: MediaQuery.of(
-                                                                              context)
-                                                                          .size
-                                                                          .height *
-                                                                      0.85,
-                                                                  child:
-                                                                      BsDetallesCotizacionAdminWidget(
-                                                                    cotizacion:
-                                                                        cotizacionesNameItem,
-                                                                  ),
-                                                                ),
-                                                              );
+                                                          context.pushNamed(
+                                                            'SolicitudeCotizacionesAdminMod',
+                                                            queryParams: {
+                                                              'cotizacion':
+                                                                  serializeParam(
+                                                                cotizacionesNameItem,
+                                                                ParamType
+                                                                    .Document,
+                                                              ),
+                                                            }.withoutNulls,
+                                                            extra: <String,
+                                                                dynamic>{
+                                                              'cotizacion':
+                                                                  cotizacionesNameItem,
                                                             },
-                                                          ).then((value) =>
-                                                              setState(() {}));
+                                                          );
                                                         },
                                                         child: Stack(
                                                           children: [
@@ -1175,42 +1149,6 @@ class _SolicitudeCotizacionesAdminWidgetState
                                         },
                                       ),
                                     ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 10.0, 0.0, 0.0),
-                                    child: FFButtonWidget(
-                                      onPressed: () async {
-                                        context.pushNamed('NuevaCotizacion');
-                                      },
-                                      text: 'Nueva Cotizacion',
-                                      options: FFButtonOptions(
-                                        width: 150.0,
-                                        height: 40.0,
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 0.0, 0.0),
-                                        iconPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
-                                                0.0, 0.0, 0.0, 0.0),
-                                        color: FlutterFlowTheme.of(context)
-                                            .sideBarMenu,
-                                        textStyle: FlutterFlowTheme.of(context)
-                                            .titleSmall
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              color: Colors.white,
-                                              fontSize: 20.0,
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                        elevation: 2.0,
-                                        borderSide: BorderSide(
-                                          color: Colors.transparent,
-                                          width: 1.0,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                    ),
-                                  ),
                                 ],
                               ),
                             ),
