@@ -466,13 +466,13 @@ class _SolicitudesAdminUsuarioWidgetState
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     FFButtonWidget(
-                      onPressed: () {
-                        print('Button pressed ...');
+                      onPressed: () async {
+                        context.safePop();
                       },
                       text: '',
                       icon: Icon(
                         Icons.arrow_back_sharp,
-                        size: 15.0,
+                        size: 45.0,
                       ),
                       options: FFButtonOptions(
                         width: 130.0,
@@ -560,7 +560,6 @@ class _SolicitudesAdminUsuarioWidgetState
                                   readOnly: true,
                                   obscureText: false,
                                   decoration: InputDecoration(
-                                    hintText: 'Inserte valor',
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .bodySmall
                                         .override(
@@ -652,7 +651,6 @@ class _SolicitudesAdminUsuarioWidgetState
                                     readOnly: true,
                                     obscureText: false,
                                     decoration: InputDecoration(
-                                      hintText: 'Inserte valor',
                                       hintStyle: FlutterFlowTheme.of(context)
                                           .bodySmall
                                           .override(

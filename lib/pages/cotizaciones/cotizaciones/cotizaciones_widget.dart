@@ -756,6 +756,12 @@ class _CotizacionesWidgetState extends State<CotizacionesWidget> {
                                                             },
                                                           ).then((value) =>
                                                               setState(() {}));
+
+                                                          setState(() {
+                                                            _model
+                                                                .txtSearchController
+                                                                ?.clear();
+                                                          });
                                                         },
                                                         child: Stack(
                                                           children: [
