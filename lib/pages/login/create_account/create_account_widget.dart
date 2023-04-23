@@ -51,8 +51,8 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
         children: [
           Image.asset(
             'assets/images/HD-wallpaper-bmw-black-dark-vehicle.jpg',
-            width: 384.5,
-            height: 823.1,
+            width: MediaQuery.of(context).size.width * 1.0,
+            height: MediaQuery.of(context).size.height * 1.0,
             fit: BoxFit.cover,
           ),
           Column(
