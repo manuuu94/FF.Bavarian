@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'solicitudes_admin_usuario_model.dart';
 export 'solicitudes_admin_usuario_model.dart';
 
@@ -698,6 +699,34 @@ class _SolicitudesAdminUsuarioWidgetState
                                                       .text,
                                             ),
                                       ),
+                                    ),
+                                  ),
+                                  InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      await launchUrl(Uri(
+                                          scheme: 'mailto',
+                                          path: _model.correoController.text,
+                                          query: {
+                                            'subject':
+                                                'Consulta de Cotizacion - Bavarian Auto Shop',
+                                            'body':
+                                                'Hola ${columnUsersRecord!.displayName}Queremos contactarte debido a tu orden sobre:  ${widget.userID!.nombreProducto}',
+                                          }
+                                              .entries
+                                              .map((MapEntry<String, String>
+                                                      e) =>
+                                                  '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}')
+                                              .join('&')));
+                                    },
+                                    child: FaIcon(
+                                      FontAwesomeIcons.mailBulk,
+                                      color: FlutterFlowTheme.of(context)
+                                          .sideBarMenu,
+                                      size: 30.0,
                                     ),
                                   ),
                                   Expanded(
