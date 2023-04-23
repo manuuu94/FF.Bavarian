@@ -162,7 +162,12 @@ class _BsEditProfileWidgetState extends State<BsEditProfileWidget> {
                           obscureText: false,
                           decoration: InputDecoration(
                             hintText: 'Su nombre',
-                            hintStyle: FlutterFlowTheme.of(context).bodySmall,
+                            hintStyle: FlutterFlowTheme.of(context)
+                                .bodySmall
+                                .override(
+                                  fontFamily: 'Poppins',
+                                  color: FlutterFlowTheme.of(context).primary,
+                                ),
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).sideBarMenu,
@@ -228,7 +233,12 @@ class _BsEditProfileWidgetState extends State<BsEditProfileWidget> {
                           obscureText: false,
                           decoration: InputDecoration(
                             hintText: 'Su teléfono',
-                            hintStyle: FlutterFlowTheme.of(context).bodySmall,
+                            hintStyle: FlutterFlowTheme.of(context)
+                                .bodySmall
+                                .override(
+                                  fontFamily: 'Poppins',
+                                  color: FlutterFlowTheme.of(context).primary,
+                                ),
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).sideBarMenu,

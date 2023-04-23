@@ -262,6 +262,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               },
               builder: (context, params) => SolicitudesAdminUsuarioWidget(
                 userID: params.getParam('userID', ParamType.Document),
+                userID2: params.getParam('userID2', ParamType.String),
               ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),

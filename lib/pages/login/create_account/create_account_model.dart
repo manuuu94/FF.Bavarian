@@ -10,6 +10,12 @@ import 'package:provider/provider.dart';
 class CreateAccountModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this page.
 
+  // State field(s) for name widget.
+  TextEditingController? nameController;
+  String? Function(BuildContext, String?)? nameControllerValidator;
+  // State field(s) for phone widget.
+  TextEditingController? phoneController;
+  String? Function(BuildContext, String?)? phoneControllerValidator;
   // State field(s) for emailAddress widget.
   TextEditingController? emailAddressController;
   String? Function(BuildContext, String?)? emailAddressControllerValidator;
@@ -30,6 +36,8 @@ class CreateAccountModel extends FlutterFlowModel {
   }
 
   void dispose() {
+    nameController?.dispose();
+    phoneController?.dispose();
     emailAddressController?.dispose();
     passwordController?.dispose();
     confirmPasswordController?.dispose();

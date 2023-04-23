@@ -166,10 +166,12 @@ class _BsDetallesProductoWidgetState extends State<BsDetallesProductoWidget> {
                                   cantidad: 1,
                                   total: functions
                                       .sumaPrecios2(widget.producto!.precio!),
+                                  uid: currentUserUid,
                                 );
                                 await CarritoRecord.collection
                                     .doc()
                                     .set(carritoCreateData);
+                                Navigator.pop(context);
                               },
                               text: 'Agregar al carrito',
                               options: FFButtonOptions(
