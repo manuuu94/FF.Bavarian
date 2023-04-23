@@ -376,8 +376,8 @@ class _IndexWidgetState extends State<IndexWidget>
         children: [
           Image.asset(
             'assets/images/HD-wallpaper-bmw-black-dark-vehicle.jpg',
-            width: 377.1,
-            height: 846.7,
+            width: MediaQuery.of(context).size.width * 1.0,
+            height: MediaQuery.of(context).size.height * 1.0,
             fit: BoxFit.cover,
           ),
           Column(

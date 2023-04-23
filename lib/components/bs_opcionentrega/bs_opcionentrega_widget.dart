@@ -69,6 +69,7 @@ class _BsOpcionentregaWidgetState extends State<BsOpcionentregaWidget> {
         padding: EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 20.0),
         child: Column(
           mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Row(
               mainAxisSize: MainAxisSize.max,
@@ -106,7 +107,7 @@ class _BsOpcionentregaWidgetState extends State<BsOpcionentregaWidget> {
                         crossAxisCount: 2,
                         crossAxisSpacing: 1.0,
                         mainAxisSpacing: 1.0,
-                        childAspectRatio: 0.25,
+                        childAspectRatio: 0.26,
                       ),
                       scrollDirection: Axis.horizontal,
                       itemCount: gridViewOpcionesentregaRecordList.length,

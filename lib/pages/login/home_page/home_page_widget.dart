@@ -238,57 +238,69 @@ class _HomePageWidgetState extends State<HomePageWidget>
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        InkWell(
-                          splashColor: Colors.transparent,
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () async {
-                            await launchURL(
-                                'https://www.instagram.com/bmwshopcr/');
-                          },
-                          child: Image.asset(
-                            'assets/images/instagram.png',
-                            width: MediaQuery.of(context).size.width * 0.15,
-                            height: MediaQuery.of(context).size.height * 0.07,
-                            fit: BoxFit.cover,
-                          ),
-                        ).animateOnPageLoad(
-                            animationsMap['imageOnPageLoadAnimation2']!),
-                        InkWell(
-                          splashColor: Colors.transparent,
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () async {
-                            await launchURL(
-                                'https://www.facebook.com/Bavautos');
-                          },
-                          child: Image.asset(
-                            'assets/images/facebook.png',
-                            width: MediaQuery.of(context).size.width * 0.15,
-                            height: MediaQuery.of(context).size.height * 0.07,
-                            fit: BoxFit.cover,
-                          ),
-                        ).animateOnPageLoad(
-                            animationsMap['imageOnPageLoadAnimation3']!),
-                        InkWell(
-                          splashColor: Colors.transparent,
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () async {
-                            await launchURL(
-                                'https://wa.me/50686218472?text=Más%20información%20por%20favor!');
-                          },
-                          child: Image.asset(
-                            'assets/images/whatsapp_(1).png',
-                            width: MediaQuery.of(context).size.width * 0.15,
-                            height: MediaQuery.of(context).size.height * 0.07,
-                            fit: BoxFit.cover,
-                          ),
-                        ).animateOnPageLoad(
-                            animationsMap['imageOnPageLoadAnimation4']!),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              5.0, 5.0, 5.0, 5.0),
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              await launchURL(
+                                  'https://www.instagram.com/bmwshopcr/');
+                            },
+                            child: Image.asset(
+                              'assets/images/instagram.png',
+                              width: MediaQuery.of(context).size.width * 0.15,
+                              height: MediaQuery.of(context).size.height * 0.07,
+                              fit: BoxFit.cover,
+                            ),
+                          ).animateOnPageLoad(
+                              animationsMap['imageOnPageLoadAnimation2']!),
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              5.0, 5.0, 5.0, 5.0),
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              await launchURL(
+                                  'https://www.facebook.com/Bavautos');
+                            },
+                            child: Image.asset(
+                              'assets/images/facebook.png',
+                              width: MediaQuery.of(context).size.width * 0.15,
+                              height: MediaQuery.of(context).size.height * 0.07,
+                              fit: BoxFit.cover,
+                            ),
+                          ).animateOnPageLoad(
+                              animationsMap['imageOnPageLoadAnimation3']!),
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              5.0, 5.0, 5.0, 5.0),
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              await launchURL(
+                                  'https://wa.me/50686218472?text=Más%20información%20por%20favor!');
+                            },
+                            child: Image.asset(
+                              'assets/images/whatsapp_(1).png',
+                              width: MediaQuery.of(context).size.width * 0.15,
+                              height: MediaQuery.of(context).size.height * 0.07,
+                              fit: BoxFit.cover,
+                            ),
+                          ).animateOnPageLoad(
+                              animationsMap['imageOnPageLoadAnimation4']!),
+                        ),
                       ],
                     ),
                   ),
