@@ -569,7 +569,7 @@ class _CarritoWidgetState extends State<CarritoWidget> {
                                               MainAxisAlignment.start,
                                           children: [
                                             AutoSizeText(
-                                              'Nombre:',
+                                              'Nombre: ',
                                               textAlign: TextAlign.start,
                                               style:
                                                   FlutterFlowTheme.of(context)

@@ -1205,14 +1205,11 @@ class _SolicitudeCotizacionesAdminModWidgetState
                                   context.pushNamed(
                                     'SolicitudesAdminUsuario',
                                     queryParams: {
-                                      'userID': serializeParam(
-                                        widget.cotizacion,
-                                        ParamType.Document,
+                                      'userID2': serializeParam(
+                                        widget.cotizacion!.uid,
+                                        ParamType.String,
                                       ),
                                     }.withoutNulls,
-                                    extra: <String, dynamic>{
-                                      'userID': widget.cotizacion,
-                                    },
                                   );
                                 },
                                 text: 'Contactar usuario',

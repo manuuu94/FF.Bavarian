@@ -50,14 +50,3 @@ double? sumaPrecios2(double precioItem) {
   final String cartItemTotalMath = (minusOne * precioItem).toStringAsFixed(2);
   return double.parse(cartItemTotalMath);
 }
-
-String sumaCostos(
-  String precio,
-  String costosimportancion,
-  String impuestos,
-) {
-  double total = double.parse(precio) +
-      double.parse(impuestos) +
-      double.parse(costosimportancion);
-  return total.toString();
-}

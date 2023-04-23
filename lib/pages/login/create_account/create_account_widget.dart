@@ -26,6 +26,8 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
     super.initState();
     _model = createModel(context, () => CreateAccountModel());
 
+    _model.nameController ??= TextEditingController();
+    _model.phoneController ??= TextEditingController();
     _model.emailAddressController ??= TextEditingController();
     _model.passwordController ??= TextEditingController();
     _model.confirmPasswordController ??= TextEditingController();
@@ -99,6 +101,170 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                   child: Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
                     child: TextFormField(
+                      controller: _model.nameController,
+                      obscureText: false,
+                      decoration: InputDecoration(
+                        labelStyle:
+                            FlutterFlowTheme.of(context).bodySmall.override(
+                                  fontFamily: 'Poppins',
+                                  color: Color(0xFF3E3E3E),
+                                ),
+                        hintText: 'Introduzca su nombre',
+                        hintStyle: FlutterFlowTheme.of(context)
+                            .bodyMedium
+                            .override(
+                              fontFamily: 'Lexend Deca',
+                              color: FlutterFlowTheme.of(context).secondaryText,
+                              fontSize: 14.0,
+                              fontWeight: FontWeight.normal,
+                            ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0x00000000),
+                            width: 0.0,
+                          ),
+                          borderRadius: BorderRadius.circular(12.0),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0x00000000),
+                            width: 0.0,
+                          ),
+                          borderRadius: BorderRadius.circular(12.0),
+                        ),
+                        errorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0x00000000),
+                            width: 0.0,
+                          ),
+                          borderRadius: BorderRadius.circular(12.0),
+                        ),
+                        focusedErrorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0x00000000),
+                            width: 0.0,
+                          ),
+                          borderRadius: BorderRadius.circular(12.0),
+                        ),
+                        filled: true,
+                        fillColor:
+                            FlutterFlowTheme.of(context).secondaryBackground,
+                      ),
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Poppins',
+                            color: FlutterFlowTheme.of(context).secondaryText,
+                            fontWeight: FontWeight.w600,
+                          ),
+                      textAlign: TextAlign.start,
+                      maxLines: null,
+                      keyboardType: TextInputType.emailAddress,
+                      validator:
+                          _model.nameControllerValidator.asValidator(context),
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(24.0, 14.0, 24.0, 14.0),
+                child: Container(
+                  width: double.infinity,
+                  height: 60.0,
+                  decoration: BoxDecoration(
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                    boxShadow: [
+                      BoxShadow(
+                        blurRadius: 5.0,
+                        color: Color(0x4D101213),
+                        offset: Offset(0.0, 2.0),
+                      )
+                    ],
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                  child: Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
+                    child: TextFormField(
+                      controller: _model.phoneController,
+                      obscureText: false,
+                      decoration: InputDecoration(
+                        labelStyle:
+                            FlutterFlowTheme.of(context).bodySmall.override(
+                                  fontFamily: 'Poppins',
+                                  color: Color(0xFF3E3E3E),
+                                ),
+                        hintText: 'Introduzca su telefono',
+                        hintStyle: FlutterFlowTheme.of(context)
+                            .bodyMedium
+                            .override(
+                              fontFamily: 'Lexend Deca',
+                              color: FlutterFlowTheme.of(context).secondaryText,
+                              fontSize: 14.0,
+                              fontWeight: FontWeight.normal,
+                            ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0x00000000),
+                            width: 0.0,
+                          ),
+                          borderRadius: BorderRadius.circular(12.0),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0x00000000),
+                            width: 0.0,
+                          ),
+                          borderRadius: BorderRadius.circular(12.0),
+                        ),
+                        errorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0x00000000),
+                            width: 0.0,
+                          ),
+                          borderRadius: BorderRadius.circular(12.0),
+                        ),
+                        focusedErrorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0x00000000),
+                            width: 0.0,
+                          ),
+                          borderRadius: BorderRadius.circular(12.0),
+                        ),
+                        filled: true,
+                        fillColor:
+                            FlutterFlowTheme.of(context).secondaryBackground,
+                      ),
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Poppins',
+                            color: FlutterFlowTheme.of(context).secondaryText,
+                            fontWeight: FontWeight.w600,
+                          ),
+                      textAlign: TextAlign.start,
+                      maxLines: null,
+                      keyboardType: TextInputType.emailAddress,
+                      validator:
+                          _model.phoneControllerValidator.asValidator(context),
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(24.0, 14.0, 24.0, 14.0),
+                child: Container(
+                  width: double.infinity,
+                  height: 60.0,
+                  decoration: BoxDecoration(
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                    boxShadow: [
+                      BoxShadow(
+                        blurRadius: 5.0,
+                        color: Color(0x4D101213),
+                        offset: Offset(0.0, 2.0),
+                      )
+                    ],
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                  child: Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
+                    child: TextFormField(
                       controller: _model.emailAddressController,
                       obscureText: false,
                       decoration: InputDecoration(
@@ -107,7 +273,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                                   fontFamily: 'Poppins',
                                   color: Color(0xFF3E3E3E),
                                 ),
-                        hintText: 'Introduzca su Correo Electronico',
+                        hintText: 'Introduzca su correo electronico',
                         hintStyle: FlutterFlowTheme.of(context)
                             .bodyMedium
                             .override(
@@ -342,8 +508,12 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                 child: FFButtonWidget(
                   onPressed: () async {
                     Function() _navigate = () {};
-                    if (_model.passwordController.text ==
-                        _model.confirmPasswordController.text) {
+                    if ((_model.passwordController.text ==
+                            _model.confirmPasswordController.text) &&
+                        (_model.nameController.text != null &&
+                            _model.nameController.text != '') &&
+                        (_model.phoneController.text != null &&
+                            _model.phoneController.text != '')) {
                       GoRouter.of(context).prepareAuthEvent();
                       if (_model.passwordController.text !=
                           _model.confirmPasswordController.text) {
@@ -369,6 +539,8 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                       final usersCreateData = createUsersRecordData(
                         email: _model.emailAddressController.text,
                         createdTime: getCurrentTimestamp,
+                        displayName: _model.nameController.text,
+                        phoneNumber: _model.phoneController.text,
                       );
                       await UsersRecord.collection
                           .doc(user.uid)
@@ -396,8 +568,9 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                         context: context,
                         builder: (alertDialogContext) {
                           return AlertDialog(
-                            title: Text('Verifica tu contraseña'),
-                            content: Text('Las contraseñas no coinciden!'),
+                            title: Text('Revisa los datos introducidos!'),
+                            content: Text(
+                                'Verifica tu contraseña o los datos introducidos'),
                             actions: [
                               TextButton(
                                 onPressed: () =>
