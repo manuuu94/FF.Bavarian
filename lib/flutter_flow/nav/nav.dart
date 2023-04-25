@@ -264,6 +264,19 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 userID: params.getParam('userID', ParamType.Document),
                 userID2: params.getParam('userID2', ParamType.String),
               ),
+            ),
+            FFRoute(
+              name: 'SolicitudesAdminInformacion',
+              path: 'solicitudesAdminInformacion',
+              builder: (context, params) => SolicitudesAdminInformacionWidget(
+                name: params.getParam('name', ParamType.String),
+                img: params.getParam('img', ParamType.String),
+                email: params.getParam('email', ParamType.String),
+                phone: params.getParam('phone', ParamType.String),
+                time: params.getParam('time', ParamType.DateTime),
+                opcion: params.getParam('opcion', ParamType.DocumentReference,
+                    false, ['opcionesentrega']),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

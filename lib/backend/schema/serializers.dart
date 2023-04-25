@@ -8,6 +8,7 @@ import 'cotizacion_record.dart';
 import 'opcionesentrega_record.dart';
 import 'direcciones_record.dart';
 import 'compra_confirmada_record.dart';
+import 'imagenes_record.dart';
 
 import 'index.dart';
 
@@ -25,6 +26,7 @@ const kDocumentReferenceField = 'Document__Reference__Field';
   OpcionesentregaRecord,
   DireccionesRecord,
   CompraConfirmadaRecord,
+  ImagenesRecord,
 ])
 final Serializers serializers = (_$serializers.toBuilder()
       ..add(DocumentReferenceSerializer())

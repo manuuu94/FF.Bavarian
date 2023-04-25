@@ -12,6 +12,7 @@ import 'schema/cotizacion_record.dart';
 import 'schema/opcionesentrega_record.dart';
 import 'schema/direcciones_record.dart';
 import 'schema/compra_confirmada_record.dart';
+import 'schema/imagenes_record.dart';
 import 'schema/serializers.dart';
 
 export 'dart:async' show StreamSubscription;
@@ -26,6 +27,7 @@ export 'schema/cotizacion_record.dart';
 export 'schema/opcionesentrega_record.dart';
 export 'schema/direcciones_record.dart';
 export 'schema/compra_confirmada_record.dart';
+export 'schema/imagenes_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -391,6 +393,58 @@ Future<FFFirestorePage<CompraConfirmadaRecord>>
           pageSize: pageSize,
           isStream: isStream,
         );
+
+/// Functions to query ImagenesRecords (as a Stream and as a Future).
+Future<int> queryImagenesRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      ImagenesRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<ImagenesRecord>> queryImagenesRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      ImagenesRecord.collection,
+      ImagenesRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<ImagenesRecord>> queryImagenesRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      ImagenesRecord.collection,
+      ImagenesRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<ImagenesRecord>> queryImagenesRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+    queryCollectionPage(
+      ImagenesRecord.collection,
+      ImagenesRecord.serializer,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
 
 Future<int> queryCollectionCount(
   Query collection, {

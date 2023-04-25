@@ -11,9 +11,13 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(CompraConfirmadaRecord.serializer)
       ..add(CotizacionRecord.serializer)
       ..add(DireccionesRecord.serializer)
+      ..add(ImagenesRecord.serializer)
       ..add(InventarioRecord.serializer)
       ..add(OpcionesentregaRecord.serializer)
       ..add(UsersRecord.serializer)
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(String)]),
+          () => new ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
           () => new ListBuilder<String>())

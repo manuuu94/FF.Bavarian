@@ -30,3 +30,5 @@ export '/pages/admin/solicitude_cotizaciones_admin_mod/solicitude_cotizaciones_a
     show SolicitudeCotizacionesAdminModWidget;
 export '/pages/admin/solicitudes_admin_usuario/solicitudes_admin_usuario_widget.dart'
     show SolicitudesAdminUsuarioWidget;
+export '/pages/admin/solicitudes_admin_informacion/solicitudes_admin_informacion_widget.dart'
+    show SolicitudesAdminInformacionWidget;
