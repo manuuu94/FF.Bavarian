@@ -4,7 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
-import 'package:auto_size_text/auto_size_text.dart';
+import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
@@ -487,11 +487,11 @@ class _SolicitudeCotizacionesAdminModWidgetState
                       text: '',
                       icon: Icon(
                         Icons.arrow_back_sharp,
-                        size: 45.0,
+                        size: 25.0,
                       ),
                       options: FFButtonOptions(
-                        width: 130.0,
-                        height: 40.0,
+                        width: 100.0,
+                        height: 30.0,
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         iconPadding:
@@ -976,22 +976,18 @@ class _SolicitudeCotizacionesAdminModWidgetState
                                   ),
                                 ),
                               ),
-                              Expanded(
-                                child: Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
-                                  child: SelectionArea(
-                                      child: AutoSizeText(
-                                    widget.cotizacion!.enlace!
-                                        .maybeHandleOverflow(maxChars: 500),
-                                    maxLines: 4,
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color:
-                                              FlutterFlowTheme.of(context).text,
-                                        ),
-                                  )),
+                              Container(
+                                width: MediaQuery.of(context).size.width * 0.3,
+                                height:
+                                    MediaQuery.of(context).size.height * 0.1,
+                                child: custom_widgets.Flutterlinkify(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.3,
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.1,
+                                  text: widget.cotizacion!.enlace,
+                                  fontSize: 14.0,
+                                  color: FlutterFlowTheme.of(context).text,
                                 ),
                               ),
                             ],
