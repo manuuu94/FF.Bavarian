@@ -616,21 +616,64 @@ class _IndexWidgetState extends State<IndexWidget>
                                       ),
                                     ],
                                   ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        20.0, 25.0, 20.0, 20.0),
-                                    child: Text(
-                                      'Somos un courier de paquetería y repuestos para todo tipo de vehiculo.\nTe traemos tus paquetes y repuestos.\nSolamente debes enviarnos que necesitas y te generamos una cotizacion del precio final',
-                                      textAlign: TextAlign.center,
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Poppins',
-                                            color: FlutterFlowTheme.of(context)
-                                                .text,
-                                            fontSize: 17.0,
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Expanded(
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 20.0, 0.0, 0.0),
+                                          child: Container(
+                                            width: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                1.0,
+                                            height: MediaQuery.of(context)
+                                                    .size
+                                                    .height *
+                                                0.3,
+                                            decoration: BoxDecoration(
+                                              color: Color(0x51232323),
+                                              boxShadow: [
+                                                BoxShadow(
+                                                  blurRadius: 4.0,
+                                                  color: Color(0x33000000),
+                                                  offset: Offset(0.0, 2.0),
+                                                )
+                                              ],
+                                              borderRadius:
+                                                  BorderRadius.circular(30.0),
+                                              border: Border.all(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                              ),
+                                            ),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      20.0, 25.0, 20.0, 20.0),
+                                              child: Text(
+                                                'Somos un courier de paquetería y repuestos para todo tipo de vehiculo.\nTe traemos tus paquetes y repuestos. Tambien contamos con algunos productos en stock!\nSolamente debes enviarnos que necesitas y te generamos una cotizacion del precio final',
+                                                textAlign: TextAlign.center,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .text,
+                                                          fontSize: 17.0,
+                                                        ),
+                                              ),
+                                            ),
                                           ),
-                                    ),
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
