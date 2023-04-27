@@ -97,6 +97,12 @@ class _$CotizacionRecordSerializer
         ..add(
             serializers.serialize(value, specifiedType: const FullType(bool)));
     }
+    value = object.idCotizacion;
+    if (value != null) {
+      result
+        ..add('idCotizacion')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -164,6 +170,10 @@ class _$CotizacionRecordSerializer
           result.completado = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool?;
           break;
+        case 'idCotizacion':
+          result.idCotizacion = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -201,6 +211,8 @@ class _$CotizacionRecord extends CotizacionRecord {
   @override
   final bool? completado;
   @override
+  final int? idCotizacion;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$CotizacionRecord(
@@ -219,6 +231,7 @@ class _$CotizacionRecord extends CotizacionRecord {
       this.enlace,
       this.uid,
       this.completado,
+      this.idCotizacion,
       this.ffRef})
       : super._();
 
@@ -245,6 +258,7 @@ class _$CotizacionRecord extends CotizacionRecord {
         enlace == other.enlace &&
         uid == other.uid &&
         completado == other.completado &&
+        idCotizacion == other.idCotizacion &&
         ffRef == other.ffRef;
   }
 
@@ -262,6 +276,7 @@ class _$CotizacionRecord extends CotizacionRecord {
     _$hash = $jc(_$hash, enlace.hashCode);
     _$hash = $jc(_$hash, uid.hashCode);
     _$hash = $jc(_$hash, completado.hashCode);
+    _$hash = $jc(_$hash, idCotizacion.hashCode);
     _$hash = $jc(_$hash, ffRef.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -281,6 +296,7 @@ class _$CotizacionRecord extends CotizacionRecord {
           ..add('enlace', enlace)
           ..add('uid', uid)
           ..add('completado', completado)
+          ..add('idCotizacion', idCotizacion)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -336,6 +352,10 @@ class CotizacionRecordBuilder
   bool? get completado => _$this._completado;
   set completado(bool? completado) => _$this._completado = completado;
 
+  int? _idCotizacion;
+  int? get idCotizacion => _$this._idCotizacion;
+  set idCotizacion(int? idCotizacion) => _$this._idCotizacion = idCotizacion;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -358,6 +378,7 @@ class CotizacionRecordBuilder
       _enlace = $v.enlace;
       _uid = $v.uid;
       _completado = $v.completado;
+      _idCotizacion = $v.idCotizacion;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -392,6 +413,7 @@ class CotizacionRecordBuilder
             enlace: enlace,
             uid: uid,
             completado: completado,
+            idCotizacion: idCotizacion,
             ffRef: ffRef);
     replace(_$result);
     return _$result;

@@ -123,6 +123,28 @@ class _BsDetallesCotizacionWidgetState
                           ),
                         ],
                       ),
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            formatNumber(
+                              widget.cotizacion!.idCotizacion!,
+                              formatType: FormatType.custom,
+                              currency: '#',
+                              format: '',
+                              locale: '',
+                            ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Poppins',
+                                  color: FlutterFlowTheme.of(context).text,
+                                  fontSize: 18.0,
+                                ),
+                          ),
+                        ],
+                      ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
                             0.0, 30.0, 0.0, 10.0),
@@ -436,7 +458,7 @@ class _BsDetallesCotizacionWidgetState
                             FFButtonWidget(
                               onPressed: () async {
                                 await launchURL(
-                                    'https://wa.me/50686218472?text=Más%20información%20acerca%20de%20esta%20cotizacion%20por%20favor!');
+                                    'https://wa.me/50686218472?text=Necesito%20mas%20información%20acerca%20de%20esta%20cotizacion%20${widget.cotizacion!.idCotizacion?.toString()}%20por%20favor!');
                               },
                               text: 'Contactenos',
                               icon: FaIcon(
