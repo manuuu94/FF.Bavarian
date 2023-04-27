@@ -871,6 +871,44 @@ class _CotizacionesWidgetState extends State<CotizacionesWidget> {
                                                                 },
                                                               ),
                                                             ),
+                                                            Align(
+                                                              alignment:
+                                                                  AlignmentDirectional(
+                                                                      -0.8,
+                                                                      -0.12),
+                                                              child: Text(
+                                                                listViewCotizacionRecord
+                                                                    .idCotizacion!
+                                                                    .toString(),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .bold,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                            if (listViewCotizacionRecord
+                                                                    .completado ??
+                                                                true)
+                                                              Align(
+                                                                alignment:
+                                                                    AlignmentDirectional(
+                                                                        -0.66,
+                                                                        0.8),
+                                                                child: Icon(
+                                                                  Icons
+                                                                      .check_circle_outline_rounded,
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .success,
+                                                                  size: 24.0,
+                                                                ),
+                                                              ),
                                                             if (listViewCotizacionRecord
                                                                     .completado ??
                                                                 true)
@@ -903,23 +941,25 @@ class _CotizacionesWidgetState extends State<CotizacionesWidget> {
                                                                       ),
                                                                 ),
                                                               ),
-                                                            if (listViewCotizacionRecord
-                                                                    .completado ??
-                                                                true)
-                                                              Align(
-                                                                alignment:
-                                                                    AlignmentDirectional(
-                                                                        -0.66,
-                                                                        0.8),
-                                                                child: Icon(
-                                                                  Icons
-                                                                      .check_circle_outline_rounded,
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .success,
-                                                                  size: 24.0,
-                                                                ),
+                                                            Align(
+                                                              alignment:
+                                                                  AlignmentDirectional(
+                                                                      -0.93,
+                                                                      -0.12),
+                                                              child: Text(
+                                                                '#',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .bold,
+                                                                    ),
                                                               ),
+                                                            ),
                                                           ],
                                                         ),
                                                       ),
@@ -1186,6 +1226,46 @@ class _CotizacionesWidgetState extends State<CotizacionesWidget> {
                                                                         context)
                                                                     .success,
                                                                 size: 24.0,
+                                                              ),
+                                                            ),
+                                                            Align(
+                                                              alignment:
+                                                                  AlignmentDirectional(
+                                                                      -0.93,
+                                                                      -0.12),
+                                                              child: Text(
+                                                                '#',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .bold,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                            Align(
+                                                              alignment:
+                                                                  AlignmentDirectional(
+                                                                      -0.8,
+                                                                      -0.12),
+                                                              child: Text(
+                                                                cotizacionesNameItem
+                                                                    .idCotizacion!
+                                                                    .toString(),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .bold,
+                                                                    ),
                                                               ),
                                                             ),
                                                           ],

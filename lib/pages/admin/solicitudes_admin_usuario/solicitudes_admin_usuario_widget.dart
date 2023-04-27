@@ -602,7 +602,7 @@ class _SolicitudesAdminUsuarioWidgetState
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
                                       await launchURL(
-                                          'https://wa.me/${_model.telefonoController.text}');
+                                          'https://wa.me/${_model.telefonoController.text}?text=Hola%20te%20contacto%20respecto%20a%20tu%20cotizacion.');
                                     },
                                     child: FaIcon(
                                       FontAwesomeIcons.whatsapp,
@@ -725,7 +725,7 @@ class _SolicitudesAdminUsuarioWidgetState
                                             'subject':
                                                 'Consulta de Cotizacion - Bavarian Auto Shop',
                                             'body':
-                                                'Hola ${columnUsersRecord!.displayName}Queremos contactarte debido a tu orden sobre:  ${widget.userID!.nombreProducto}',
+                                                'Hola ${columnUsersRecord!.displayName}Queremos contactarte debido a tu orden:  ${widget.userID!.idCotizacion?.toString()}',
                                           }
                                               .entries
                                               .map((MapEntry<String, String>

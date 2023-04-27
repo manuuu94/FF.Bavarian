@@ -488,6 +488,7 @@ class _SolicitudeCotizacionesAdminModWidgetState
                 padding: EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 10.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     FFButtonWidget(
                       onPressed: () async {
@@ -517,6 +518,20 @@ class _SolicitudeCotizacionesAdminModWidgetState
                         ),
                         borderRadius: BorderRadius.circular(8.0),
                       ),
+                    ),
+                    Text(
+                      formatNumber(
+                        widget.cotizacion!.idCotizacion!,
+                        formatType: FormatType.custom,
+                        currency: '#',
+                        format: '',
+                        locale: '',
+                      ),
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Poppins',
+                            color: FlutterFlowTheme.of(context).text,
+                            fontSize: 18.0,
+                          ),
                     ),
                   ],
                 ),

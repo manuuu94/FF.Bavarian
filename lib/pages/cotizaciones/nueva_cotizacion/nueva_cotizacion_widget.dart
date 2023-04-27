@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
+import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -824,6 +825,9 @@ class _NuevaCotizacionWidgetState extends State<NuevaCotizacionWidget> {
                                             impuestos: 0.0,
                                             costoImportacion: 0.0,
                                             total: 0.0,
+                                            completado: false,
+                                            idCotizacion: random_data
+                                                .randomInteger(456, 1000000),
                                           ),
                                           'fecha': FieldValue.serverTimestamp(),
                                         };

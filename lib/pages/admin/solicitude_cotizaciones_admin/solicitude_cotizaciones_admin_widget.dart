@@ -909,6 +909,46 @@ class _SolicitudeCotizacionesAdminWidgetState
                                                                   size: 24.0,
                                                                 ),
                                                               ),
+                                                            Align(
+                                                              alignment:
+                                                                  AlignmentDirectional(
+                                                                      -0.8,
+                                                                      -0.12),
+                                                              child: Text(
+                                                                solicitudCotizacionesCotizacionRecord
+                                                                    .idCotizacion!
+                                                                    .toString(),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .bold,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                            Align(
+                                                              alignment:
+                                                                  AlignmentDirectional(
+                                                                      -0.93,
+                                                                      -0.12),
+                                                              child: Text(
+                                                                '#',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .bold,
+                                                                    ),
+                                                              ),
+                                                            ),
                                                           ],
                                                         ),
                                                       ),
@@ -1139,6 +1179,46 @@ class _SolicitudeCotizacionesAdminWidgetState
                                                                         context)
                                                                     .success,
                                                                 size: 24.0,
+                                                              ),
+                                                            ),
+                                                            Align(
+                                                              alignment:
+                                                                  AlignmentDirectional(
+                                                                      -0.93,
+                                                                      -0.12),
+                                                              child: Text(
+                                                                '#',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .bold,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                            Align(
+                                                              alignment:
+                                                                  AlignmentDirectional(
+                                                                      -0.8,
+                                                                      -0.12),
+                                                              child: Text(
+                                                                cotizacionesNameItem
+                                                                    .idCotizacion!
+                                                                    .toString(),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .bold,
+                                                                    ),
                                                               ),
                                                             ),
                                                           ],

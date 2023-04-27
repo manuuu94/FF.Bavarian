@@ -210,7 +210,7 @@ class _BsDetallesProductoWidgetState extends State<BsDetallesProductoWidget> {
                             FFButtonWidget(
                               onPressed: () async {
                                 await launchURL(
-                                    'https://wa.me/50686218472?text=Más%20información%20acerca%20de%20este%20producto%20por%20favor!');
+                                    'https://wa.me/50686218472?text=Necesito%20mas%20información%20acerca%20de%20este%20producto:%20${widget.producto!.nombreProducto}%20por%20favor.');
                               },
                               text: 'Contactanos',
                               icon: FaIcon(
