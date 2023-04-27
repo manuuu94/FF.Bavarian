@@ -2,6 +2,7 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -387,6 +388,29 @@ class _SolicitudesAdminMenuWidgetState
                     ),
                   ],
                 ),
+                Expanded(
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 100.0, 0.0, 0.0),
+                          child: Container(
+                            width: MediaQuery.of(context).size.width * 0.5,
+                            height: MediaQuery.of(context).size.height * 0.1,
+                            child: custom_widgets.CurrentAppVersion(
+                              width: MediaQuery.of(context).size.width * 0.5,
+                              height: MediaQuery.of(context).size.height * 0.1,
+                              myText: 'Bavarian Auto Shop',
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
@@ -607,106 +631,6 @@ class _SolicitudesAdminMenuWidgetState
                             context.pushNamed('SolicitudesAdmin');
                           },
                           text: 'Ordenes',
-                          options: FFButtonOptions(
-                            width: 130.0,
-                            height: 40.0,
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            color: FlutterFlowTheme.of(context).sideBarMenu,
-                            textStyle: FlutterFlowTheme.of(context)
-                                .titleSmall
-                                .override(
-                                  fontFamily: 'Poppins',
-                                  color: Colors.white,
-                                ),
-                            borderSide: BorderSide(
-                              color: Colors.transparent,
-                              width: 1.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            10.0, 10.0, 10.0, 10.0),
-                        child: Image.network(
-                          'https://icons.veryicon.com/png/o/system/crm-android-app-icon/app-icon-data-kanban.png',
-                          width: 100.0,
-                          height: 100.0,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            10.0, 10.0, 10.0, 10.0),
-                        child: FFButtonWidget(
-                          onPressed: () async {
-                            context.pushNamed('SolicitudesAdminInformacion');
-                          },
-                          text: 'Informacion',
-                          options: FFButtonOptions(
-                            width: 130.0,
-                            height: 40.0,
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            color: FlutterFlowTheme.of(context).sideBarMenu,
-                            textStyle: FlutterFlowTheme.of(context)
-                                .titleSmall
-                                .override(
-                                  fontFamily: 'Poppins',
-                                  color: Colors.white,
-                                ),
-                            borderSide: BorderSide(
-                              color: Colors.transparent,
-                              width: 1.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            10.0, 10.0, 10.0, 10.0),
-                        child: Image.network(
-                          'https://icons.veryicon.com/png/o/system/crm-android-app-icon/app-icon-login-information-reminder.png',
-                          width: 100.0,
-                          height: 100.0,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            10.0, 10.0, 10.0, 10.0),
-                        child: FFButtonWidget(
-                          onPressed: () async {
-                            context.pushNamed('SolicitudesAdmin');
-                          },
-                          text: 'N/A',
                           options: FFButtonOptions(
                             width: 130.0,
                             height: 40.0,
