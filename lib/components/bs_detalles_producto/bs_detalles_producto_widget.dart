@@ -57,7 +57,7 @@ class _BsDetallesProductoWidgetState extends State<BsDetallesProductoWidget> {
       width: MediaQuery.of(context).size.width * 1.0,
       height: MediaQuery.of(context).size.height * 1.0,
       decoration: BoxDecoration(
-        color: Color(0x6BE0E3E7),
+        color: Color(0x00E0E3E7),
         image: DecorationImage(
           fit: BoxFit.fill,
           image: Image.asset(
@@ -74,16 +74,18 @@ class _BsDetallesProductoWidgetState extends State<BsDetallesProductoWidget> {
       child: Padding(
         padding: EdgeInsetsDirectional.fromSTEB(4.0, 4.0, 4.0, 4.0),
         child: Column(
-          mainAxisSize: MainAxisSize.max,
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Expanded(
               child: Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(20.0, 8.0, 20.0, 0.0),
                 child: SingleChildScrollView(
                   child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Divider(
                         thickness: 3.0,
@@ -98,7 +100,7 @@ class _BsDetallesProductoWidgetState extends State<BsDetallesProductoWidget> {
                           Expanded(
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 4.0, 16.0, 0.0),
+                                  0.0, 4.0, 16.0, 10.0),
                               child: Text(
                                 widget.producto!.nombreProducto!,
                                 style: FlutterFlowTheme.of(context)
@@ -144,7 +146,7 @@ class _BsDetallesProductoWidgetState extends State<BsDetallesProductoWidget> {
                                 width: MediaQuery.of(context).size.width * 0.65,
                                 height:
                                     MediaQuery.of(context).size.height * 0.65,
-                                fit: BoxFit.cover,
+                                fit: BoxFit.contain,
                               ),
                             ),
                           ],
@@ -152,7 +154,7 @@ class _BsDetallesProductoWidgetState extends State<BsDetallesProductoWidget> {
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
-                            0.0, 24.0, 0.0, 44.0),
+                            0.0, 24.0, 0.0, 10.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -200,7 +202,7 @@ class _BsDetallesProductoWidgetState extends State<BsDetallesProductoWidget> {
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
-                            0.0, 24.0, 0.0, 44.0),
+                            0.0, 10.0, 0.0, 44.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceAround,

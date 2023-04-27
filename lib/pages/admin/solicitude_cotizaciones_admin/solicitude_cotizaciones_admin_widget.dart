@@ -679,7 +679,8 @@ class _SolicitudeCotizacionesAdminWidgetState
                                           StreamBuilder<List<CotizacionRecord>>(
                                         stream: queryCotizacionRecord(
                                           queryBuilder: (cotizacionRecord) =>
-                                              cotizacionRecord.orderBy('fecha'),
+                                              cotizacionRecord.orderBy('fecha',
+                                                  descending: true),
                                         ),
                                         builder: (context, snapshot) {
                                           // Customize what your widget looks like when it's loading.
@@ -801,30 +802,34 @@ class _SolicitudeCotizacionesAdminWidgetState
                                                                     .bodyMedium,
                                                               ),
                                                             ),
-                                                            if (solicitudCotizacionesCotizacionRecord
-                                                                    .completado ??
-                                                                true)
-                                                              Align(
-                                                                alignment:
-                                                                    AlignmentDirectional(
-                                                                        -0.31,
-                                                                        0.8),
-                                                                child:
-                                                                    AutoSizeText(
-                                                                  'Completado',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .success,
-                                                                        fontWeight:
-                                                                            FontWeight.bold,
-                                                                      ),
-                                                                ),
+                                                            Align(
+                                                              alignment:
+                                                                  AlignmentDirectional(
+                                                                      -0.31,
+                                                                      0.8),
+                                                              child:
+                                                                  AutoSizeText(
+                                                                solicitudCotizacionesCotizacionRecord
+                                                                        .completado!
+                                                                    ? 'Completado'
+                                                                    : 'Pendiente',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      color: solicitudCotizacionesCotizacionRecord.completado!
+                                                                          ? FlutterFlowTheme.of(context)
+                                                                              .success
+                                                                          : FlutterFlowTheme.of(context)
+                                                                              .error,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .bold,
+                                                                    ),
                                                               ),
+                                                            ),
                                                             Align(
                                                               alignment:
                                                                   AlignmentDirectional(
@@ -1094,30 +1099,34 @@ class _SolicitudeCotizacionesAdminWidgetState
                                                                 },
                                                               ),
                                                             ),
-                                                            if (cotizacionesNameItem
-                                                                    .completado ??
-                                                                true)
-                                                              Align(
-                                                                alignment:
-                                                                    AlignmentDirectional(
-                                                                        -0.31,
-                                                                        0.8),
-                                                                child:
-                                                                    AutoSizeText(
-                                                                  'Completado',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .success,
-                                                                        fontWeight:
-                                                                            FontWeight.bold,
-                                                                      ),
-                                                                ),
+                                                            Align(
+                                                              alignment:
+                                                                  AlignmentDirectional(
+                                                                      -0.31,
+                                                                      0.8),
+                                                              child:
+                                                                  AutoSizeText(
+                                                                cotizacionesNameItem
+                                                                        .completado!
+                                                                    ? 'Completado'
+                                                                    : 'Pendiente',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      color: cotizacionesNameItem.completado!
+                                                                          ? FlutterFlowTheme.of(context)
+                                                                              .success
+                                                                          : FlutterFlowTheme.of(context)
+                                                                              .error,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .bold,
+                                                                    ),
                                                               ),
+                                                            ),
                                                             Align(
                                                               alignment:
                                                                   AlignmentDirectional(
