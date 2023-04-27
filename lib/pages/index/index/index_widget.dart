@@ -146,7 +146,7 @@ class _IndexWidgetState extends State<IndexWidget>
                             },
                             text: 'Nueva cotización',
                             options: FFButtonOptions(
-                              width: 145.0,
+                              width: 180.0,
                               height: 40.0,
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
@@ -187,7 +187,7 @@ class _IndexWidgetState extends State<IndexWidget>
                             },
                             text: 'Ver cotizaciones',
                             options: FFButtonOptions(
-                              width: 145.0,
+                              width: 180.0,
                               height: 40.0,
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
@@ -228,7 +228,7 @@ class _IndexWidgetState extends State<IndexWidget>
                             },
                             text: 'Ver inventario',
                             options: FFButtonOptions(
-                              width: 145.0,
+                              width: 180.0,
                               height: 40.0,
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
@@ -269,7 +269,7 @@ class _IndexWidgetState extends State<IndexWidget>
                             },
                             text: 'Ver carrito',
                             options: FFButtonOptions(
-                              width: 145.0,
+                              width: 180.0,
                               height: 40.0,
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
@@ -310,7 +310,7 @@ class _IndexWidgetState extends State<IndexWidget>
                             },
                             text: 'Ver perfil',
                             options: FFButtonOptions(
-                              width: 145.0,
+                              width: 180.0,
                               height: 40.0,
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
@@ -336,52 +336,49 @@ class _IndexWidgetState extends State<IndexWidget>
                     ],
                   ),
                 ),
-                Expanded(
-                  child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 55.0, 0.0, 0.0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                GoRouter.of(context).prepareAuthEvent();
-                                await authManager.signOut();
-                                GoRouter.of(context).clearRedirectLocation();
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 55.0, 0.0, 0.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              GoRouter.of(context).prepareAuthEvent();
+                              await authManager.signOut();
+                              GoRouter.of(context).clearRedirectLocation();
 
-                                context.goNamedAuth('HomePage', mounted);
-                              },
-                              child: Image.asset(
-                                'assets/images/turn-off_(1).png',
-                                width: MediaQuery.of(context).size.width * 0.1,
-                                height:
-                                    MediaQuery.of(context).size.height * 0.05,
-                                fit: BoxFit.cover,
-                              ),
+                              context.goNamedAuth('HomePage', mounted);
+                            },
+                            child: Image.asset(
+                              'assets/images/turn-off_(1).png',
+                              width: MediaQuery.of(context).size.width * 0.1,
+                              height: MediaQuery.of(context).size.height * 0.05,
+                              fit: BoxFit.cover,
                             ),
-                          ],
-                        ),
-                      ],
-                    ),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ),
                 Expanded(
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Expanded(
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 100.0, 0.0, 0.0),
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 5.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Expanded(
                           child: Container(
                             width: MediaQuery.of(context).size.width * 0.5,
                             height: MediaQuery.of(context).size.height * 0.1,
@@ -392,8 +389,8 @@ class _IndexWidgetState extends State<IndexWidget>
                             ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ],
