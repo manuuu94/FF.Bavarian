@@ -516,38 +516,84 @@ class _NuevaCotizacionWidgetState extends State<NuevaCotizacionWidget> {
                                         0.0, 40.0, 0.0, 0.0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
-                                        final cotizacionCreateData = {
-                                          ...createCotizacionRecordData(
-                                            peso: int.tryParse(
-                                                _model.txtPesoController.text),
-                                            tipoArticulo:
-                                                _model.txtTipoController.text,
-                                            enlace:
-                                                _model.txtEnlaceController.text,
-                                            nombreProducto:
-                                                _model.txtNombreController.text,
-                                            uid: currentUserUid,
-                                            precio: 0.0,
-                                            impuestos: 0.0,
-                                            costoImportacion: 0.0,
-                                            total: 0.0,
-                                            completado: false,
-                                            idCotizacion: random_data
-                                                .randomInteger(456, 1000000),
-                                          ),
-                                          'fecha': FieldValue.serverTimestamp(),
-                                        };
-                                        await CotizacionRecord.collection
-                                            .doc()
-                                            .set(cotizacionCreateData);
-                                        setState(() {
-                                          _model.txtNombreController?.clear();
-                                          _model.txtPesoController?.clear();
-                                          _model.txtTipoController?.clear();
-                                          _model.txtEnlaceController?.clear();
-                                        });
+                                        if ((_model.txtNombreController.text !=
+                                                    null &&
+                                                _model.txtNombreController
+                                                        .text !=
+                                                    '') &&
+                                            (_model.txtPesoController.text !=
+                                                    null &&
+                                                _model.txtPesoController.text !=
+                                                    '') &&
+                                            (_model.txtTipoController.text !=
+                                                    null &&
+                                                _model.txtTipoController.text !=
+                                                    '') &&
+                                            (_model.txtEnlaceController.text !=
+                                                    null &&
+                                                _model.txtEnlaceController
+                                                        .text !=
+                                                    '')) {
+                                          final cotizacionCreateData = {
+                                            ...createCotizacionRecordData(
+                                              peso: int.tryParse(_model
+                                                  .txtPesoController.text),
+                                              tipoArticulo:
+                                                  _model.txtTipoController.text,
+                                              enlace: _model
+                                                  .txtEnlaceController.text,
+                                              nombreProducto: _model
+                                                  .txtNombreController.text,
+                                              uid: currentUserUid,
+                                              precio: 0.0,
+                                              impuestos: 0.0,
+                                              costoImportacion: 0.0,
+                                              total: 0.0,
+                                              completado: false,
+                                              idCotizacion: random_data
+                                                  .randomInteger(456, 1000000),
+                                            ),
+                                            'fecha':
+                                                FieldValue.serverTimestamp(),
+                                          };
+                                          await CotizacionRecord.collection
+                                              .doc()
+                                              .set(cotizacionCreateData);
+                                          setState(() {
+                                            _model.txtNombreController?.clear();
+                                            _model.txtPesoController?.clear();
+                                            _model.txtTipoController?.clear();
+                                            _model.txtEnlaceController?.clear();
+                                          });
 
-                                        context.pushNamed('Cotizaciones');
+                                          context.pushNamed('Cotizaciones');
+                                        } else {
+                                          await showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return AlertDialog(
+                                                title:
+                                                    Text('Datos incorrectos'),
+                                                content: Text(
+                                                    'Por favor revise los datos introducidos!'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              );
+                                            },
+                                          );
+                                          setState(() {
+                                            _model.txtNombreController?.clear();
+                                            _model.txtPesoController?.clear();
+                                            _model.txtTipoController?.clear();
+                                            _model.txtEnlaceController?.clear();
+                                          });
+                                        }
                                       },
                                       text: 'Cotizar',
                                       options: FFButtonOptions(
