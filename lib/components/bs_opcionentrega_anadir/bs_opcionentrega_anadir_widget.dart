@@ -3,15 +3,17 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'bs_opcionentrega_copy2_model.dart';
-export 'bs_opcionentrega_copy2_model.dart';
+import 'bs_opcionentrega_anadir_model.dart';
+export 'bs_opcionentrega_anadir_model.dart';
 
-class BsOpcionentregaCopy2Widget extends StatefulWidget {
-  const BsOpcionentregaCopy2Widget({
+class BsOpcionentregaAnadirWidget extends StatefulWidget {
+  const BsOpcionentregaAnadirWidget({
     Key? key,
     this.opcion,
   }) : super(key: key);
@@ -19,13 +21,13 @@ class BsOpcionentregaCopy2Widget extends StatefulWidget {
   final OpcionesentregaRecord? opcion;
 
   @override
-  _BsOpcionentregaCopy2WidgetState createState() =>
-      _BsOpcionentregaCopy2WidgetState();
+  _BsOpcionentregaAnadirWidgetState createState() =>
+      _BsOpcionentregaAnadirWidgetState();
 }
 
-class _BsOpcionentregaCopy2WidgetState
-    extends State<BsOpcionentregaCopy2Widget> {
-  late BsOpcionentregaCopy2Model _model;
+class _BsOpcionentregaAnadirWidgetState
+    extends State<BsOpcionentregaAnadirWidget> {
+  late BsOpcionentregaAnadirModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -36,7 +38,12 @@ class _BsOpcionentregaCopy2WidgetState
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => BsOpcionentregaCopy2Model());
+    _model = createModel(context, () => BsOpcionentregaAnadirModel());
+
+    // On component load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await actions.lockOrientation();
+    });
 
     _model.txtNombreDirController ??= TextEditingController();
     _model.txtDirCompletaController ??= TextEditingController();

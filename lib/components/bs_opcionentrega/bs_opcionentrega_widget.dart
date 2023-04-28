@@ -1,9 +1,11 @@
 import '/backend/backend.dart';
-import '/components/bs_opcionentrega_copy/bs_opcionentrega_copy_widget.dart';
+import '/components/bs_opcionentrega_enviar/bs_opcionentrega_enviar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'bs_opcionentrega_model.dart';
@@ -29,6 +31,11 @@ class _BsOpcionentregaWidgetState extends State<BsOpcionentregaWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => BsOpcionentregaModel());
+
+    // On component load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await actions.lockOrientation();
+    });
   }
 
   @override
@@ -132,7 +139,7 @@ class _BsOpcionentregaWidgetState extends State<BsOpcionentregaWidget> {
                                       height:
                                           MediaQuery.of(context).size.height *
                                               0.6,
-                                      child: BsOpcionentregaCopyWidget(
+                                      child: BsOpcionentregaEnviarWidget(
                                         categoria:
                                             gridViewOpcionesentregaRecord,
                                       ),
