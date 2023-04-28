@@ -300,7 +300,7 @@ class _SolicitudesClienteWidgetState extends State<SolicitudesClienteWidget> {
                                             MainAxisAlignment.center,
                                         children: [
                                           Text(
-                                            'Id Compra:',
+                                            'Id Compra: ',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -340,7 +340,7 @@ class _SolicitudesClienteWidgetState extends State<SolicitudesClienteWidget> {
                                             MainAxisAlignment.start,
                                         children: [
                                           Text(
-                                            'Artículos diferentes:',
+                                            'Artículos diferentes: ',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -422,7 +422,7 @@ class _SolicitudesClienteWidgetState extends State<SolicitudesClienteWidget> {
                                             CrossAxisAlignment.start,
                                         children: [
                                           Text(
-                                            'ID usuario:',
+                                            'ID usuario: ',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -546,7 +546,7 @@ class _SolicitudesClienteWidgetState extends State<SolicitudesClienteWidget> {
                                             CrossAxisAlignment.start,
                                         children: [
                                           Text(
-                                            'Tel:',
+                                            'Tel: ',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -590,7 +590,7 @@ class _SolicitudesClienteWidgetState extends State<SolicitudesClienteWidget> {
                                             CrossAxisAlignment.start,
                                         children: [
                                           Text(
-                                            'Dirección:',
+                                            'Dirección: ',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(

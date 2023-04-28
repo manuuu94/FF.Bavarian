@@ -310,7 +310,7 @@ class _SolicitudesAdminListaWidgetState
                                                       0.0, 20.0, 0.0, 0.0),
                                               child: SelectionArea(
                                                   child: Text(
-                                                'x',
+                                                ' x ',
                                                 textAlign: TextAlign.end,
                                                 style:
                                                     FlutterFlowTheme.of(context)

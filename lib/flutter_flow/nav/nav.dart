@@ -264,19 +264,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 userID: params.getParam('userID', ParamType.Document),
                 userID2: params.getParam('userID2', ParamType.String),
               ),
-            ),
-            FFRoute(
-              name: 'SolicitudesAdminInformacion',
-              path: 'solicitudesAdminInformacion',
-              builder: (context, params) => SolicitudesAdminInformacionWidget(
-                name: params.getParam('name', ParamType.String),
-                img: params.getParam('img', ParamType.String),
-                email: params.getParam('email', ParamType.String),
-                phone: params.getParam('phone', ParamType.String),
-                time: params.getParam('time', ParamType.DateTime),
-                opcion: params.getParam('opcion', ParamType.DocumentReference,
-                    false, ['opcionesentrega']),
-              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
@@ -460,12 +447,14 @@ class FFRoute {
                 )
               : builder(context, ffParams);
           final child = appStateNotifier.loading
-              ? Center(
-                  child: SizedBox(
-                    width: 50.0,
-                    height: 50.0,
-                    child: CircularProgressIndicator(
-                      color: FlutterFlowTheme.of(context).primary,
+              ? Container(
+                  color: FlutterFlowTheme.of(context).primaryBackground,
+                  child: Center(
+                    child: Image.asset(
+                      'assets/images/Bavarian.png',
+                      width: MediaQuery.of(context).size.width * 1.0,
+                      height: MediaQuery.of(context).size.height * 1.0,
+                      fit: BoxFit.contain,
                     ),
                   ),
                 )
