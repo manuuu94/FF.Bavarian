@@ -31,7 +31,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
         ShakeEffect(
           curve: Curves.linear,
           delay: 0.ms,
-          duration: 1370.ms,
+          duration: 890.ms,
           hz: 9,
           offset: Offset(0.0, 0.0),
           rotation: 0.087,

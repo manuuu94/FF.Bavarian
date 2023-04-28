@@ -295,7 +295,7 @@ class _SolicitudesAdminWidgetState extends State<SolicitudesAdminWidget> {
                                             MainAxisAlignment.center,
                                         children: [
                                           Text(
-                                            'Id Compra:',
+                                            'Id Compra: ',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -335,7 +335,7 @@ class _SolicitudesAdminWidgetState extends State<SolicitudesAdminWidget> {
                                             MainAxisAlignment.start,
                                         children: [
                                           Text(
-                                            'Artículos diferentes:',
+                                            'Artículos diferentes: ',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -417,7 +417,7 @@ class _SolicitudesAdminWidgetState extends State<SolicitudesAdminWidget> {
                                             CrossAxisAlignment.start,
                                         children: [
                                           Text(
-                                            'ID usuario:',
+                                            'ID usuario: ',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -541,7 +541,7 @@ class _SolicitudesAdminWidgetState extends State<SolicitudesAdminWidget> {
                                             CrossAxisAlignment.start,
                                         children: [
                                           Text(
-                                            'Tel:',
+                                            'Tel: ',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -585,7 +585,7 @@ class _SolicitudesAdminWidgetState extends State<SolicitudesAdminWidget> {
                                             CrossAxisAlignment.start,
                                         children: [
                                           Text(
-                                            'Dirección:',
+                                            'Dirección: ',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
