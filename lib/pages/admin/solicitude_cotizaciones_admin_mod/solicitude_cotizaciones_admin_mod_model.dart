@@ -1,5 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/components/internal_drawer_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -30,16 +31,21 @@ class SolicitudeCotizacionesAdminModModel extends FlutterFlowModel {
   bool? switchValue;
   // Stores action output result for [Custom Action - sumaCostos2] action in Button widget.
   double? total;
+  // Model for InternalDrawer component.
+  late InternalDrawerModel internalDrawerModel;
 
   /// Initialization and disposal methods.
 
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    internalDrawerModel = createModel(context, () => InternalDrawerModel());
+  }
 
   void dispose() {
     precioController?.dispose();
     impuestosController?.dispose();
     importacionController?.dispose();
     totalController?.dispose();
+    internalDrawerModel.dispose();
   }
 
   /// Additional helper methods are added here.
