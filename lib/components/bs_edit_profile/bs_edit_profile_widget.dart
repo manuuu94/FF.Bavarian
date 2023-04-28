@@ -4,8 +4,10 @@ import '/components/bs_img_edit/bs_img_edit_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'bs_edit_profile_model.dart';
@@ -31,6 +33,11 @@ class _BsEditProfileWidgetState extends State<BsEditProfileWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => BsEditProfileModel());
+
+    // On component load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await actions.lockOrientation();
+    });
 
     _model.txtEditNameController ??=
         TextEditingController(text: currentUserDisplayName);

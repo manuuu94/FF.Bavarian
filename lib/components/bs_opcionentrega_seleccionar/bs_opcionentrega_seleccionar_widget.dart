@@ -1,18 +1,20 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/components/bs_opcionentrega_copy2/bs_opcionentrega_copy2_widget.dart';
+import '/components/bs_opcionentrega_anadir/bs_opcionentrega_anadir_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'bs_opcionentrega_copy3_model.dart';
-export 'bs_opcionentrega_copy3_model.dart';
+import 'bs_opcionentrega_seleccionar_model.dart';
+export 'bs_opcionentrega_seleccionar_model.dart';
 
-class BsOpcionentregaCopy3Widget extends StatefulWidget {
-  const BsOpcionentregaCopy3Widget({
+class BsOpcionentregaSeleccionarWidget extends StatefulWidget {
+  const BsOpcionentregaSeleccionarWidget({
     Key? key,
     this.opcionentrega,
   }) : super(key: key);
@@ -20,13 +22,13 @@ class BsOpcionentregaCopy3Widget extends StatefulWidget {
   final OpcionesentregaRecord? opcionentrega;
 
   @override
-  _BsOpcionentregaCopy3WidgetState createState() =>
-      _BsOpcionentregaCopy3WidgetState();
+  _BsOpcionentregaSeleccionarWidgetState createState() =>
+      _BsOpcionentregaSeleccionarWidgetState();
 }
 
-class _BsOpcionentregaCopy3WidgetState
-    extends State<BsOpcionentregaCopy3Widget> {
-  late BsOpcionentregaCopy3Model _model;
+class _BsOpcionentregaSeleccionarWidgetState
+    extends State<BsOpcionentregaSeleccionarWidget> {
+  late BsOpcionentregaSeleccionarModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -37,7 +39,12 @@ class _BsOpcionentregaCopy3WidgetState
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => BsOpcionentregaCopy3Model());
+    _model = createModel(context, () => BsOpcionentregaSeleccionarModel());
+
+    // On component load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await actions.lockOrientation();
+    });
   }
 
   @override
@@ -215,7 +222,7 @@ class _BsOpcionentregaCopy3WidgetState
                                 child: Container(
                                   height:
                                       MediaQuery.of(context).size.height * 0.5,
-                                  child: BsOpcionentregaCopy2Widget(
+                                  child: BsOpcionentregaAnadirWidget(
                                     opcion: widget.opcionentrega,
                                   ),
                                 ),
