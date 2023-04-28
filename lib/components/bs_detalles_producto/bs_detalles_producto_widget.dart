@@ -1,5 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -8,6 +9,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'bs_detalles_producto_model.dart';
 export 'bs_detalles_producto_model.dart';
@@ -141,12 +143,40 @@ class _BsDetallesProductoWidgetState extends State<BsDetallesProductoWidget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Expanded(
-                              child: Image.network(
-                                widget.producto!.image!,
-                                width: MediaQuery.of(context).size.width * 0.65,
-                                height:
-                                    MediaQuery.of(context).size.height * 0.65,
-                                fit: BoxFit.contain,
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  await Navigator.push(
+                                    context,
+                                    PageTransition(
+                                      type: PageTransitionType.fade,
+                                      child: FlutterFlowExpandedImageView(
+                                        image: Image.network(
+                                          widget.producto!.image!,
+                                          fit: BoxFit.contain,
+                                        ),
+                                        allowRotation: false,
+                                        tag: widget.producto!.image!,
+                                        useHeroAnimation: true,
+                                      ),
+                                    ),
+                                  );
+                                },
+                                child: Hero(
+                                  tag: widget.producto!.image!,
+                                  transitionOnUserGestures: true,
+                                  child: Image.network(
+                                    widget.producto!.image!,
+                                    width: MediaQuery.of(context).size.width *
+                                        0.65,
+                                    height: MediaQuery.of(context).size.height *
+                                        0.65,
+                                    fit: BoxFit.contain,
+                                  ),
+                                ),
                               ),
                             ),
                           ],

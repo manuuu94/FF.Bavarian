@@ -457,48 +457,51 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                                                 ),
                                                 child: Column(
                                                   mainAxisSize:
-                                                      MainAxisSize.max,
+                                                      MainAxisSize.min,
                                                   mainAxisAlignment:
                                                       MainAxisAlignment.center,
                                                   children: [
-                                                    Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .center,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .end,
-                                                      children: [
-                                                        Container(
-                                                          width: MediaQuery.of(
-                                                                      context)
-                                                                  .size
-                                                                  .width *
-                                                              0.3,
-                                                          height: MediaQuery.of(
-                                                                      context)
-                                                                  .size
-                                                                  .height *
-                                                              0.03,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            gridViewInventarioRecord
-                                                                .nombreProducto!,
-                                                            textAlign: TextAlign
+                                                    Expanded(
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
                                                                 .center,
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .center,
+                                                        children: [
+                                                          Container(
+                                                            width: MediaQuery.of(
+                                                                        context)
+                                                                    .size
+                                                                    .width *
+                                                                0.3,
+                                                            height: MediaQuery.of(
+                                                                        context)
+                                                                    .size
+                                                                    .height *
+                                                                0.03,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondaryBackground,
+                                                            ),
+                                                            child: Text(
+                                                              gridViewInventarioRecord
+                                                                  .nombreProducto!,
+                                                              textAlign:
+                                                                  TextAlign
+                                                                      .center,
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium,
+                                                            ),
                                                           ),
-                                                        ),
-                                                      ],
+                                                        ],
+                                                      ),
                                                     ),
                                                     Row(
                                                       mainAxisSize:
@@ -507,82 +510,91 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                                                           MainAxisAlignment
                                                               .center,
                                                       children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      1.0),
-                                                          child: InkWell(
-                                                            splashColor: Colors
-                                                                .transparent,
-                                                            focusColor: Colors
-                                                                .transparent,
-                                                            hoverColor: Colors
-                                                                .transparent,
-                                                            highlightColor:
-                                                                Colors
-                                                                    .transparent,
-                                                            onTap: () async {
-                                                              await showModalBottomSheet(
-                                                                isScrollControlled:
-                                                                    true,
-                                                                backgroundColor:
-                                                                    Colors
-                                                                        .transparent,
-                                                                barrierColor: Color(
-                                                                    0x0095A1AC),
-                                                                enableDrag:
-                                                                    false,
-                                                                context:
-                                                                    context,
-                                                                builder:
-                                                                    (bottomSheetContext) {
-                                                                  return Padding(
-                                                                    padding: MediaQuery.of(
-                                                                            bottomSheetContext)
-                                                                        .viewInsets,
-                                                                    child:
-                                                                        Container(
-                                                                      height: MediaQuery.of(context)
-                                                                              .size
-                                                                              .height *
-                                                                          0.8,
+                                                        Expanded(
+                                                          child: Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        5.0,
+                                                                        5.0,
+                                                                        5.0,
+                                                                        5.0),
+                                                            child: InkWell(
+                                                              splashColor: Colors
+                                                                  .transparent,
+                                                              focusColor: Colors
+                                                                  .transparent,
+                                                              hoverColor: Colors
+                                                                  .transparent,
+                                                              highlightColor:
+                                                                  Colors
+                                                                      .transparent,
+                                                              onTap: () async {
+                                                                await showModalBottomSheet(
+                                                                  isScrollControlled:
+                                                                      true,
+                                                                  backgroundColor:
+                                                                      Colors
+                                                                          .transparent,
+                                                                  barrierColor:
+                                                                      Color(
+                                                                          0x0095A1AC),
+                                                                  enableDrag:
+                                                                      false,
+                                                                  context:
+                                                                      context,
+                                                                  builder:
+                                                                      (bottomSheetContext) {
+                                                                    return Padding(
+                                                                      padding: MediaQuery.of(
+                                                                              bottomSheetContext)
+                                                                          .viewInsets,
                                                                       child:
-                                                                          BsDetallesProductoWidget(
-                                                                        producto:
-                                                                            gridViewInventarioRecord,
+                                                                          Container(
+                                                                        height: MediaQuery.of(context).size.height *
+                                                                            0.8,
+                                                                        child:
+                                                                            BsDetallesProductoWidget(
+                                                                          producto:
+                                                                              gridViewInventarioRecord,
+                                                                        ),
                                                                       ),
-                                                                    ),
-                                                                  );
-                                                                },
-                                                              ).then((value) =>
-                                                                  setState(
-                                                                      () {}));
+                                                                    );
+                                                                  },
+                                                                ).then((value) =>
+                                                                    setState(
+                                                                        () {}));
 
-                                                              setState(() {
-                                                                _model
-                                                                    .txtSearchController
-                                                                    ?.clear();
-                                                              });
-                                                            },
-                                                            child:
-                                                                Image.network(
-                                                              gridViewInventarioRecord
-                                                                  .image!,
-                                                              width: MediaQuery.of(
-                                                                          context)
-                                                                      .size
-                                                                      .width *
-                                                                  0.35,
-                                                              height: MediaQuery.of(
-                                                                          context)
-                                                                      .size
-                                                                      .height *
-                                                                  0.1,
-                                                              fit: BoxFit.cover,
+                                                                setState(() {
+                                                                  _model
+                                                                      .txtSearchController
+                                                                      ?.clear();
+                                                                });
+                                                              },
+                                                              child: Hero(
+                                                                tag:
+                                                                    gridViewInventarioRecord
+                                                                        .image!,
+                                                                transitionOnUserGestures:
+                                                                    true,
+                                                                child: Image
+                                                                    .network(
+                                                                  gridViewInventarioRecord
+                                                                      .image!,
+                                                                  width: MediaQuery.of(
+                                                                              context)
+                                                                          .size
+                                                                          .width *
+                                                                      0.35,
+                                                                  height: MediaQuery.of(
+                                                                              context)
+                                                                          .size
+                                                                          .height *
+                                                                      0.1,
+                                                                  fit: BoxFit
+                                                                      .scaleDown,
+                                                                ),
+                                                              ),
                                                             ),
                                                           ),
                                                         ),
@@ -644,7 +656,7 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .primary,
-                                                                    size: 25.0,
+                                                                    size: 20.0,
                                                                   ),
                                                                   options:
                                                                       FFButtonOptions(
@@ -660,9 +672,9 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                                                                     iconPadding:
                                                                         EdgeInsetsDirectional.fromSTEB(
                                                                             5.0,
+                                                                            2.0,
                                                                             0.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            2.0),
                                                                     color: Color(
                                                                         0xBF39EF40),
                                                                     textStyle: FlutterFlowTheme.of(
@@ -775,44 +787,47 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                                                   mainAxisAlignment:
                                                       MainAxisAlignment.center,
                                                   children: [
-                                                    Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .center,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .end,
-                                                      children: [
-                                                        Container(
-                                                          width: MediaQuery.of(
-                                                                      context)
-                                                                  .size
-                                                                  .width *
-                                                              0.3,
-                                                          height: MediaQuery.of(
-                                                                      context)
-                                                                  .size
-                                                                  .height *
-                                                              0.03,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            nombreprodItem
-                                                                .nombreProducto!,
-                                                            textAlign: TextAlign
+                                                    Expanded(
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
                                                                 .center,
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .center,
+                                                        children: [
+                                                          Container(
+                                                            width: MediaQuery.of(
+                                                                        context)
+                                                                    .size
+                                                                    .width *
+                                                                0.3,
+                                                            height: MediaQuery.of(
+                                                                        context)
+                                                                    .size
+                                                                    .height *
+                                                                0.03,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondaryBackground,
+                                                            ),
+                                                            child: Text(
+                                                              nombreprodItem
+                                                                  .nombreProducto!,
+                                                              textAlign:
+                                                                  TextAlign
+                                                                      .center,
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium,
+                                                            ),
                                                           ),
-                                                        ),
-                                                      ],
+                                                        ],
+                                                      ),
                                                     ),
                                                     Row(
                                                       mainAxisSize:
@@ -821,76 +836,85 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                                                           MainAxisAlignment
                                                               .center,
                                                       children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      1.0),
-                                                          child: InkWell(
-                                                            splashColor: Colors
-                                                                .transparent,
-                                                            focusColor: Colors
-                                                                .transparent,
-                                                            hoverColor: Colors
-                                                                .transparent,
-                                                            highlightColor:
-                                                                Colors
-                                                                    .transparent,
-                                                            onTap: () async {
-                                                              await showModalBottomSheet(
-                                                                isScrollControlled:
-                                                                    true,
-                                                                backgroundColor:
-                                                                    Colors
-                                                                        .transparent,
-                                                                barrierColor: Color(
-                                                                    0x0095A1AC),
-                                                                enableDrag:
-                                                                    false,
-                                                                context:
-                                                                    context,
-                                                                builder:
-                                                                    (bottomSheetContext) {
-                                                                  return Padding(
-                                                                    padding: MediaQuery.of(
-                                                                            bottomSheetContext)
-                                                                        .viewInsets,
-                                                                    child:
-                                                                        Container(
-                                                                      height: MediaQuery.of(context)
-                                                                              .size
-                                                                              .height *
-                                                                          0.8,
+                                                        Expanded(
+                                                          child: Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        5.0,
+                                                                        5.0,
+                                                                        5.0,
+                                                                        5.0),
+                                                            child: InkWell(
+                                                              splashColor: Colors
+                                                                  .transparent,
+                                                              focusColor: Colors
+                                                                  .transparent,
+                                                              hoverColor: Colors
+                                                                  .transparent,
+                                                              highlightColor:
+                                                                  Colors
+                                                                      .transparent,
+                                                              onTap: () async {
+                                                                await showModalBottomSheet(
+                                                                  isScrollControlled:
+                                                                      true,
+                                                                  backgroundColor:
+                                                                      Colors
+                                                                          .transparent,
+                                                                  barrierColor:
+                                                                      Color(
+                                                                          0x0095A1AC),
+                                                                  enableDrag:
+                                                                      false,
+                                                                  context:
+                                                                      context,
+                                                                  builder:
+                                                                      (bottomSheetContext) {
+                                                                    return Padding(
+                                                                      padding: MediaQuery.of(
+                                                                              bottomSheetContext)
+                                                                          .viewInsets,
                                                                       child:
-                                                                          BsDetallesProductoWidget(
-                                                                        producto:
-                                                                            nombreprodItem,
+                                                                          Container(
+                                                                        height: MediaQuery.of(context).size.height *
+                                                                            0.8,
+                                                                        child:
+                                                                            BsDetallesProductoWidget(
+                                                                          producto:
+                                                                              nombreprodItem,
+                                                                        ),
                                                                       ),
-                                                                    ),
-                                                                  );
-                                                                },
-                                                              ).then((value) =>
-                                                                  setState(
-                                                                      () {}));
-                                                            },
-                                                            child:
-                                                                Image.network(
-                                                              nombreprodItem
-                                                                  .image!,
-                                                              width: MediaQuery.of(
-                                                                          context)
-                                                                      .size
-                                                                      .width *
-                                                                  0.35,
-                                                              height: MediaQuery.of(
-                                                                          context)
-                                                                      .size
-                                                                      .height *
-                                                                  0.1,
-                                                              fit: BoxFit.cover,
+                                                                    );
+                                                                  },
+                                                                ).then((value) =>
+                                                                    setState(
+                                                                        () {}));
+                                                              },
+                                                              child: Hero(
+                                                                tag:
+                                                                    nombreprodItem
+                                                                        .image!,
+                                                                transitionOnUserGestures:
+                                                                    true,
+                                                                child: Image
+                                                                    .network(
+                                                                  nombreprodItem
+                                                                      .image!,
+                                                                  width: MediaQuery.of(
+                                                                              context)
+                                                                          .size
+                                                                          .width *
+                                                                      0.35,
+                                                                  height: MediaQuery.of(
+                                                                              context)
+                                                                          .size
+                                                                          .height *
+                                                                      0.1,
+                                                                  fit: BoxFit
+                                                                      .scaleDown,
+                                                                ),
+                                                              ),
                                                             ),
                                                           ),
                                                         ),
@@ -952,7 +976,7 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .primary,
-                                                                    size: 25.0,
+                                                                    size: 20.0,
                                                                   ),
                                                                   options:
                                                                       FFButtonOptions(
@@ -968,9 +992,9 @@ class _InventarioWidgetState extends State<InventarioWidget> {
                                                                     iconPadding:
                                                                         EdgeInsetsDirectional.fromSTEB(
                                                                             5.0,
+                                                                            2.0,
                                                                             0.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            2.0),
                                                                     color: Color(
                                                                         0xBF39EF40),
                                                                     textStyle: FlutterFlowTheme.of(
